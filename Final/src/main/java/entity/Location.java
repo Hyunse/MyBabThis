@@ -18,18 +18,18 @@ public class Location implements Serializable {
 	/** 지역이름. */
 	private String locaionName;
 
-	/** 맛집게시판 목록. */
-	private Set<RestaurantBoard> restaurantBoardSet;
-
 	/** 관심지역 목록. */
 	private Set<FavoriteLocation> favoriteLocationSet;
+
+	/** 맛집게시판 목록. */
+	private Set<Restaurants> restaurantsSet;
 
 	/**
 	 * 생성자.
 	 */
 	public Location() {
 		this.favoriteLocationSet = new HashSet<FavoriteLocation>();
-		this.restaurantBoardSet = new HashSet<RestaurantBoard>();
+		this.restaurantsSet = new HashSet<Restaurants>();
 	}
 
 	/**
@@ -49,35 +49,6 @@ public class Location implements Serializable {
 	 */
 	public String getLocaionName() {
 		return this.locaionName;
-	}
-
-	/**
-	 * 맛집게시판 목록을 설정합니다..
-	 * 
-	 * @param restaurantBoardSet
-	 *            맛집게시판 목록
-	 */
-	public void setRestaurantBoardSet(Set<RestaurantBoard> restaurantBoardSet) {
-		this.restaurantBoardSet = restaurantBoardSet;
-	}
-
-	/**
-	 * 맛집게시판를 추가합니다..
-	 * 
-	 * @param restaurantBoard
-	 *            맛집게시판
-	 */
-	public void addRestaurantBoard(RestaurantBoard restaurantBoard) {
-		this.restaurantBoardSet.add(restaurantBoard);
-	}
-
-	/**
-	 * 맛집게시판 목록을 가져옵니다..
-	 * 
-	 * @return 맛집게시판 목록
-	 */
-	public Set<RestaurantBoard> getRestaurantBoardSet() {
-		return this.restaurantBoardSet;
 	}
 
 	/**
@@ -107,6 +78,35 @@ public class Location implements Serializable {
 	 */
 	public Set<FavoriteLocation> getFavoriteLocationSet() {
 		return this.favoriteLocationSet;
+	}
+
+	/**
+	 * 맛집게시판 목록을 설정합니다..
+	 * 
+	 * @param restaurantsSet
+	 *            맛집게시판 목록
+	 */
+	public void setRestaurantsSet(Set<Restaurants> restaurantsSet) {
+		this.restaurantsSet = restaurantsSet;
+	}
+
+	/**
+	 * 맛집게시판를 추가합니다..
+	 * 
+	 * @param restaurants
+	 *            맛집게시판
+	 */
+	public void addRestaurants(Restaurants restaurants) {
+		this.restaurantsSet.add(restaurants);
+	}
+
+	/**
+	 * 맛집게시판 목록을 가져옵니다..
+	 * 
+	 * @return 맛집게시판 목록
+	 */
+	public Set<Restaurants> getRestaurantsSet() {
+		return this.restaurantsSet;
 	}
 
 	/**

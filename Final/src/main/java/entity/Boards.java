@@ -35,13 +35,13 @@ public class Boards implements Serializable {
 	private Users users;
 
 	/** 게시글댓글 목록. */
-	private Set<BoardsReply> boardsReplySet;
+	private Set<Replys> replysSet;
 
 	/**
 	 * 생성자.
 	 */
 	public Boards() {
-		this.boardsReplySet = new HashSet<BoardsReply>();
+		this.replysSet = new HashSet<Replys>();
 	}
 
 	/**
@@ -161,21 +161,21 @@ public class Boards implements Serializable {
 	/**
 	 * 게시글댓글 목록을 설정합니다..
 	 * 
-	 * @param boardsReplySet
+	 * @param replysSet
 	 *            게시글댓글 목록
 	 */
-	public void setBoardsReplySet(Set<BoardsReply> boardsReplySet) {
-		this.boardsReplySet = boardsReplySet;
+	public void setReplysSet(Set<Replys> replysSet) {
+		this.replysSet = replysSet;
 	}
 
 	/**
 	 * 게시글댓글를 추가합니다..
 	 * 
-	 * @param boardsReply
+	 * @param replys
 	 *            게시글댓글
 	 */
-	public void addBoardsReply(BoardsReply boardsReply) {
-		this.boardsReplySet.add(boardsReply);
+	public void addReplys(Replys replys) {
+		this.replysSet.add(replys);
 	}
 
 	/**
@@ -183,8 +183,8 @@ public class Boards implements Serializable {
 	 * 
 	 * @return 게시글댓글 목록
 	 */
-	public Set<BoardsReply> getBoardsReplySet() {
-		return this.boardsReplySet;
+	public Set<Replys> getReplysSet() {
+		return this.replysSet;
 	}
 
 	/**

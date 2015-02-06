@@ -2,19 +2,19 @@
 /* Drop Triggers */
 
 DROP TRIGGER TRI_boards_boards_no;
-DROP TRIGGER TRI_boards_reply_boards_reply_no;
 DROP TRIGGER TRI_image_image_no;
 DROP TRIGGER TRI_license_license_no;
 DROP TRIGGER TRI_message_message_no;
+DROP TRIGGER TRI_replys_boards_reply_no;
 DROP TRIGGER TRI_reply_board_reply_no;
-DROP TRIGGER TRI_restaurant_board_restaurant_no;
+DROP TRIGGER TRI_restaurants_restaurant_no;
 DROP TRIGGER TRI_review_board_review_no;
 
 
 
 /* Drop Tables */
 
-DROP TABLE boards_reply CASCADE CONSTRAINTS;
+DROP TABLE replys CASCADE CONSTRAINTS;
 DROP TABLE boards CASCADE CONSTRAINTS;
 DROP TABLE favorite CASCADE CONSTRAINTS;
 DROP TABLE favorite_location CASCADE CONSTRAINTS;
@@ -24,7 +24,7 @@ DROP TABLE licensed_user CASCADE CONSTRAINTS;
 DROP TABLE license CASCADE CONSTRAINTS;
 DROP TABLE reply_board CASCADE CONSTRAINTS;
 DROP TABLE review_board CASCADE CONSTRAINTS;
-DROP TABLE restaurant_board CASCADE CONSTRAINTS;
+DROP TABLE restaurants CASCADE CONSTRAINTS;
 DROP TABLE location CASCADE CONSTRAINTS;
 DROP TABLE message CASCADE CONSTRAINTS;
 DROP TABLE users CASCADE CONSTRAINTS;
@@ -34,12 +34,12 @@ DROP TABLE users CASCADE CONSTRAINTS;
 /* Drop Sequences */
 
 DROP SEQUENCE SEQ_boards_boards_no;
-DROP SEQUENCE SEQ_boards_reply_boards_reply_no;
 DROP SEQUENCE SEQ_image_image_no;
 DROP SEQUENCE SEQ_license_license_no;
 DROP SEQUENCE SEQ_message_message_no;
+DROP SEQUENCE SEQ_replys_boards_reply_no;
 DROP SEQUENCE SEQ_reply_board_reply_no;
-DROP SEQUENCE SEQ_restaurant_board_restaurant_no;
+DROP SEQUENCE SEQ_restaurants_restaurant_no;
 DROP SEQUENCE SEQ_review_board_review_no;
 
 
@@ -48,12 +48,12 @@ DROP SEQUENCE SEQ_review_board_review_no;
 /* Create Sequences */
 
 CREATE SEQUENCE SEQ_boards_boards_no INCREMENT BY 1 START WITH 1;
-CREATE SEQUENCE SEQ_boards_reply_boards_reply_no INCREMENT BY 1 START WITH 1;
 CREATE SEQUENCE SEQ_image_image_no INCREMENT BY 1 START WITH 1;
 CREATE SEQUENCE SEQ_license_license_no INCREMENT BY 1 START WITH 1;
 CREATE SEQUENCE SEQ_message_message_no INCREMENT BY 1 START WITH 1;
+CREATE SEQUENCE SEQ_replys_boards_reply_no INCREMENT BY 1 START WITH 1;
 CREATE SEQUENCE SEQ_reply_board_reply_no INCREMENT BY 1 START WITH 1;
-CREATE SEQUENCE SEQ_restaurant_board_restaurant_no INCREMENT BY 1 START WITH 1;
+CREATE SEQUENCE SEQ_restaurants_restaurant_no INCREMENT BY 1 START WITH 1;
 CREATE SEQUENCE SEQ_review_board_review_no INCREMENT BY 1 START WITH 1;
 
 
@@ -69,17 +69,6 @@ CREATE TABLE boards
 	boards_type char NOT NULL,
 	user_id varchar2(20) NOT NULL,
 	PRIMARY KEY (boards_no)
-);
-
-
-CREATE TABLE boards_reply
-(
-	boards_reply_no number NOT NULL,
-	boards_reply_content varchar2(200) NOT NULL,
-	boards_reply_date date DEFAULT sysdate NOT NULL,
-	user_id varchar2(20) NOT NULL,
-	boards_no number NOT NULL,
-	PRIMARY KEY (boards_reply_no)
 );
 
 
@@ -149,6 +138,17 @@ CREATE TABLE message
 );
 
 
+CREATE TABLE replys
+(
+	boards_reply_no number NOT NULL,
+	boards_reply_content varchar2(200) NOT NULL,
+	boards_reply_date date DEFAULT sysdate NOT NULL,
+	user_id varchar2(20) NOT NULL,
+	boards_no number NOT NULL,
+	PRIMARY KEY (boards_reply_no)
+);
+
+
 CREATE TABLE reply_board
 (
 	reply_no number NOT NULL,
@@ -161,7 +161,7 @@ CREATE TABLE reply_board
 );
 
 
-CREATE TABLE restaurant_board
+CREATE TABLE restaurants
 (
 	restaurant_no number NOT NULL,
 	restaurant_name varchar2(20) NOT NULL,
@@ -210,7 +210,7 @@ CREATE TABLE users
 
 /* Create Foreign Keys */
 
-ALTER TABLE boards_reply
+ALTER TABLE replys
 	ADD FOREIGN KEY (boards_no)
 	REFERENCES boards (boards_no)
 ;
@@ -222,13 +222,13 @@ ALTER TABLE licensed_user
 ;
 
 
-ALTER TABLE restaurant_board
+ALTER TABLE favorite_location
 	ADD FOREIGN KEY (locaion_name)
 	REFERENCES location (locaion_name)
 ;
 
 
-ALTER TABLE favorite_location
+ALTER TABLE restaurants
 	ADD FOREIGN KEY (locaion_name)
 	REFERENCES location (locaion_name)
 ;
@@ -236,19 +236,37 @@ ALTER TABLE favorite_location
 
 ALTER TABLE reply_board
 	ADD FOREIGN KEY (restaurant_no)
-	REFERENCES restaurant_board (restaurant_no)
-;
-
-
-ALTER TABLE favorite
-	ADD FOREIGN KEY (restaurant_no)
-	REFERENCES restaurant_board (restaurant_no)
+	REFERENCES restaurants (restaurant_no)
 ;
 
 
 ALTER TABLE review_board
 	ADD FOREIGN KEY (restaurant_no)
-	REFERENCES restaurant_board (restaurant_no)
+	REFERENCES restaurants (restaurant_no)
+;
+
+
+ALTER TABLE favorite
+	ADD FOREIGN KEY (restaurant_no)
+	REFERENCES restaurants (restaurant_no)
+;
+
+
+ALTER TABLE boards
+	ADD FOREIGN KEY (user_id)
+	REFERENCES users (user_id)
+;
+
+
+ALTER TABLE reply_board
+	ADD FOREIGN KEY (user_id)
+	REFERENCES users (user_id)
+;
+
+
+ALTER TABLE restaurants
+	ADD FOREIGN KEY (user_id)
+	REFERENCES users (user_id)
 ;
 
 
@@ -258,7 +276,7 @@ ALTER TABLE favorite
 ;
 
 
-ALTER TABLE friend
+ALTER TABLE review_board
 	ADD FOREIGN KEY (user_id)
 	REFERENCES users (user_id)
 ;
@@ -270,37 +288,19 @@ ALTER TABLE licensed_user
 ;
 
 
-ALTER TABLE review_board
-	ADD FOREIGN KEY (user_id)
-	REFERENCES users (user_id)
-;
-
-
-ALTER TABLE reply_board
-	ADD FOREIGN KEY (user_id)
-	REFERENCES users (user_id)
-;
-
-
-ALTER TABLE boards_reply
-	ADD FOREIGN KEY (user_id)
-	REFERENCES users (user_id)
-;
-
-
 ALTER TABLE favorite_location
 	ADD FOREIGN KEY (user_id)
 	REFERENCES users (user_id)
 ;
 
 
-ALTER TABLE restaurant_board
+ALTER TABLE friend
 	ADD FOREIGN KEY (user_id)
 	REFERENCES users (user_id)
 ;
 
 
-ALTER TABLE boards
+ALTER TABLE replys
 	ADD FOREIGN KEY (user_id)
 	REFERENCES users (user_id)
 ;
@@ -314,16 +314,6 @@ FOR EACH ROW
 BEGIN
 	SELECT SEQ_boards_boards_no.nextval
 	INTO :new.boards_no
-	FROM dual;
-END;
-
-/
-
-CREATE OR REPLACE TRIGGER TRI_boards_reply_boards_reply_no BEFORE INSERT ON boards_reply
-FOR EACH ROW
-BEGIN
-	SELECT SEQ_boards_reply_boards_reply_no.nextval
-	INTO :new.boards_reply_no
 	FROM dual;
 END;
 
@@ -359,6 +349,16 @@ END;
 
 /
 
+CREATE OR REPLACE TRIGGER TRI_replys_boards_reply_no BEFORE INSERT ON replys
+FOR EACH ROW
+BEGIN
+	SELECT SEQ_replys_boards_reply_no.nextval
+	INTO :new.boards_reply_no
+	FROM dual;
+END;
+
+/
+
 CREATE OR REPLACE TRIGGER TRI_reply_board_reply_no BEFORE INSERT ON reply_board
 FOR EACH ROW
 BEGIN
@@ -369,10 +369,10 @@ END;
 
 /
 
-CREATE OR REPLACE TRIGGER TRI_restaurant_board_restaurant_no BEFORE INSERT ON restaurant_board
+CREATE OR REPLACE TRIGGER TRI_restaurants_restaurant_no BEFORE INSERT ON restaurants
 FOR EACH ROW
 BEGIN
-	SELECT SEQ_restaurant_board_restaurant_no.nextval
+	SELECT SEQ_restaurants_restaurant_no.nextval
 	INTO :new.restaurant_no
 	FROM dual;
 END;
