@@ -11,6 +11,7 @@
 	</settings>
 	<typeAliases>
 		<typeAlias type="mybabthis.entity.Users" alias="Users" />
+		<typeAlias type="mybabthis.entity.Board" alias="Board" />
 	</typeAliases>
 	<mappers>
 		<mapper resource="mappers/UserMapper.xml" />
