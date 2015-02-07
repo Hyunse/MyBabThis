@@ -22,10 +22,10 @@ public class License implements Serializable {
 	private Integer writeCnt;
 
 	/** 지역이름. */
-	private String locationName;
+	private String locName;
 
 	/** 맛집종류. */
-	private String restaurantKind;
+	private String resKind;
 
 	/** 자격증취득회원 목록. */
 	private Set<LicensedUser> licensedUserSet;
@@ -78,11 +78,11 @@ public class License implements Serializable {
 	/**
 	 * 지역이름을 설정합니다..
 	 * 
-	 * @param locationName
+	 * @param locName
 	 *            지역이름
 	 */
-	public void setLocationName(String locationName) {
-		this.locationName = locationName;
+	public void setLocName(String locName) {
+		this.locName = locName;
 	}
 
 	/**
@@ -90,18 +90,18 @@ public class License implements Serializable {
 	 * 
 	 * @return 지역이름
 	 */
-	public String getLocationName() {
-		return this.locationName;
+	public String getLocName() {
+		return this.locName;
 	}
 
 	/**
 	 * 맛집종류을 설정합니다..
 	 * 
-	 * @param restaurantKind
+	 * @param resKind
 	 *            맛집종류
 	 */
-	public void setRestaurantKind(String restaurantKind) {
-		this.restaurantKind = restaurantKind;
+	public void setResKind(String resKind) {
+		this.resKind = resKind;
 	}
 
 	/**
@@ -109,8 +109,8 @@ public class License implements Serializable {
 	 * 
 	 * @return 맛집종류
 	 */
-	public String getRestaurantKind() {
-		return this.restaurantKind;
+	public String getResKind() {
+		return this.resKind;
 	}
 
 	/**

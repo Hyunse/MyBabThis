@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mybabthis.mappers.BoardMapper">
+
+	<!-- 게시판 생성 boardType = 'F' -->
+	<insert id="createBoard" parameterType="Board">
+		insert into board
+		(board_no, board_title, board_content, board_type, user_id)
+		values(#{boardNo}, #{boardTitle}, #{boardContent}, #{boardType}, 'eun')
+	</insert>
+
+
+	<!-- 게시글 수정 : 작성일 그대로, 수정일 현재날짜 -->
+	<update id="updateBoard" parameterType="Board">
+		update board
+		set
+		board_title=#{boardTitle},
+		board_content=#{boardContent}
+		board_updatedate=sysdate
+		where board_no=#{boardNo}
+	</update>
+
+
+	<!-- 게시글 삭제 -->
+	<delete id="deleteBoard" parameterType="int">
+		delete from board
+		where
+		board_no=#{boardNo}
+	</delete>
+
+
+	<!-- 게시판 목록에서 게시글 모두 조회 -->
+	<select id="selectAllBoard" resultType="Board">
+		select *
+		from board
+		order by board_no desc
+	</select>
+	
+	
+	<!-- 게시판 목록에서 페이지 단위로 게시글 조회 -->
+	<select id="selectBoardByPage" parameterType="int" resultType="Board">
+		select *
+		from board
+		order by board_no desc
+	</select>
+	
+	
+</mapper>
