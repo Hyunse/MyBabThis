@@ -29,7 +29,7 @@ public class Restaurant implements Serializable {
 	private Integer resScore;
 
 	/** 맛집주소. */
-	private String resLocation;
+	private String resLoc;
 
 	/** 맛집내용. */
 	private String resContent;
@@ -38,7 +38,7 @@ public class Restaurant implements Serializable {
 	private Users users;
 
 	/** 맛집사진. */
-	private String resImage;
+	private String resImg;
 
 	/** 지역. */
 	private Loc loc;
@@ -53,7 +53,7 @@ public class Restaurant implements Serializable {
 	private Date resUpdatedate;
 
 	/** 맛집댓글 목록. */
-	private Set<Resreply> resreplySet;
+	private Set<Rreply> rreplySet;
 
 	/** 즐겨찾기 목록. */
 	private Set<Favorite> favoriteSet;
@@ -66,8 +66,8 @@ public class Restaurant implements Serializable {
 	 */
 	public Restaurant() {
 		this.favoriteSet = new HashSet<Favorite>();
-		this.resreplySet = new HashSet<Resreply>();
 		this.reviewSet = new HashSet<Review>();
+		this.rreplySet = new HashSet<Rreply>();
 	}
 
 	/**
@@ -149,11 +149,11 @@ public class Restaurant implements Serializable {
 	/**
 	 * 맛집주소을 설정합니다..
 	 * 
-	 * @param resLocation
+	 * @param resLoc
 	 *            맛집주소
 	 */
-	public void setResLocation(String resLocation) {
-		this.resLocation = resLocation;
+	public void setResLoc(String resLoc) {
+		this.resLoc = resLoc;
 	}
 
 	/**
@@ -161,8 +161,8 @@ public class Restaurant implements Serializable {
 	 * 
 	 * @return 맛집주소
 	 */
-	public String getResLocation() {
-		return this.resLocation;
+	public String getResLoc() {
+		return this.resLoc;
 	}
 
 	/**
@@ -206,11 +206,11 @@ public class Restaurant implements Serializable {
 	/**
 	 * 맛집사진을 설정합니다..
 	 * 
-	 * @param resImage
+	 * @param resImg
 	 *            맛집사진
 	 */
-	public void setResImage(String resImage) {
-		this.resImage = resImage;
+	public void setResImg(String resImg) {
+		this.resImg = resImg;
 	}
 
 	/**
@@ -218,8 +218,8 @@ public class Restaurant implements Serializable {
 	 * 
 	 * @return 맛집사진
 	 */
-	public String getResImage() {
-		return this.resImage;
+	public String getResImg() {
+		return this.resImg;
 	}
 
 	/**
@@ -301,21 +301,21 @@ public class Restaurant implements Serializable {
 	/**
 	 * 맛집댓글 목록을 설정합니다..
 	 * 
-	 * @param resreplySet
+	 * @param rreplySet
 	 *            맛집댓글 목록
 	 */
-	public void setResreplySet(Set<Resreply> resreplySet) {
-		this.resreplySet = resreplySet;
+	public void setRreplySet(Set<Rreply> rreplySet) {
+		this.rreplySet = rreplySet;
 	}
 
 	/**
 	 * 맛집댓글를 추가합니다..
 	 * 
-	 * @param resreply
+	 * @param rreply
 	 *            맛집댓글
 	 */
-	public void addResreply(Resreply resreply) {
-		this.resreplySet.add(resreply);
+	public void addRreply(Rreply rreply) {
+		this.rreplySet.add(rreply);
 	}
 
 	/**
@@ -323,8 +323,8 @@ public class Restaurant implements Serializable {
 	 * 
 	 * @return 맛집댓글 목록
 	 */
-	public Set<Resreply> getResreplySet() {
-		return this.resreplySet;
+	public Set<Rreply> getRreplySet() {
+		return this.rreplySet;
 	}
 
 	/**

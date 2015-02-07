@@ -56,7 +56,7 @@ public class Users implements Serializable {
 	private Set<Favorite> favoriteSet;
 
 	/** 맛집댓글 목록. */
-	private Set<Resreply> resreplySet;
+	private Set<Rreply> rreplySet;
 
 	/** 관심지역 목록. */
 	private Set<FavoriteLoc> favoriteLocSet;
@@ -74,21 +74,21 @@ public class Users implements Serializable {
 	private Set<Restaurant> restaurantSet;
 
 	/** 댓글 목록. */
-	private Set<Reply> replySet;
+	private Set<Breply> breplySet;
 
 	/**
 	 * 생성자.
 	 */
 	public Users() {
 		this.boardSet = new HashSet<Board>();
+		this.breplySet = new HashSet<Breply>();
 		this.favoriteSet = new HashSet<Favorite>();
 		this.favoriteLocSet = new HashSet<FavoriteLoc>();
 		this.friendSet = new HashSet<Friend>();
 		this.licensedUserSet = new HashSet<LicensedUser>();
-		this.replySet = new HashSet<Reply>();
-		this.resreplySet = new HashSet<Resreply>();
 		this.restaurantSet = new HashSet<Restaurant>();
 		this.reviewSet = new HashSet<Review>();
+		this.rreplySet = new HashSet<Rreply>();
 	}
 
 	/**
@@ -361,21 +361,21 @@ public class Users implements Serializable {
 	/**
 	 * 맛집댓글 목록을 설정합니다..
 	 * 
-	 * @param resreplySet
+	 * @param rreplySet
 	 *            맛집댓글 목록
 	 */
-	public void setResreplySet(Set<Resreply> resreplySet) {
-		this.resreplySet = resreplySet;
+	public void setRreplySet(Set<Rreply> rreplySet) {
+		this.rreplySet = rreplySet;
 	}
 
 	/**
 	 * 맛집댓글를 추가합니다..
 	 * 
-	 * @param resreply
+	 * @param rreply
 	 *            맛집댓글
 	 */
-	public void addResreply(Resreply resreply) {
-		this.resreplySet.add(resreply);
+	public void addRreply(Rreply rreply) {
+		this.rreplySet.add(rreply);
 	}
 
 	/**
@@ -383,8 +383,8 @@ public class Users implements Serializable {
 	 * 
 	 * @return 맛집댓글 목록
 	 */
-	public Set<Resreply> getResreplySet() {
-		return this.resreplySet;
+	public Set<Rreply> getRreplySet() {
+		return this.rreplySet;
 	}
 
 	/**
@@ -535,21 +535,21 @@ public class Users implements Serializable {
 	/**
 	 * 댓글 목록을 설정합니다..
 	 * 
-	 * @param replySet
+	 * @param breplySet
 	 *            댓글 목록
 	 */
-	public void setReplySet(Set<Reply> replySet) {
-		this.replySet = replySet;
+	public void setBreplySet(Set<Breply> breplySet) {
+		this.breplySet = breplySet;
 	}
 
 	/**
 	 * 댓글를 추가합니다..
 	 * 
-	 * @param reply
+	 * @param breply
 	 *            댓글
 	 */
-	public void addReply(Reply reply) {
-		this.replySet.add(reply);
+	public void addBreply(Breply breply) {
+		this.breplySet.add(breply);
 	}
 
 	/**
@@ -557,8 +557,8 @@ public class Users implements Serializable {
 	 * 
 	 * @return 댓글 목록
 	 */
-	public Set<Reply> getReplySet() {
-		return this.replySet;
+	public Set<Breply> getBreplySet() {
+		return this.breplySet;
 	}
 
 	/**

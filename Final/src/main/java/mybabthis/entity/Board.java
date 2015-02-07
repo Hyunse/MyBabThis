@@ -38,13 +38,13 @@ public class Board implements Serializable {
 	private Users users;
 
 	/** 댓글 목록. */
-	private Set<Reply> replySet;
+	private Set<Breply> breplySet;
 
 	/**
 	 * 생성자.
 	 */
 	public Board() {
-		this.replySet = new HashSet<Reply>();
+		this.breplySet = new HashSet<Breply>();
 	}
 
 	/**
@@ -183,21 +183,21 @@ public class Board implements Serializable {
 	/**
 	 * 댓글 목록을 설정합니다..
 	 * 
-	 * @param replySet
+	 * @param breplySet
 	 *            댓글 목록
 	 */
-	public void setReplySet(Set<Reply> replySet) {
-		this.replySet = replySet;
+	public void setBreplySet(Set<Breply> breplySet) {
+		this.breplySet = breplySet;
 	}
 
 	/**
 	 * 댓글를 추가합니다..
 	 * 
-	 * @param reply
+	 * @param breply
 	 *            댓글
 	 */
-	public void addReply(Reply reply) {
-		this.replySet.add(reply);
+	public void addBreply(Breply breply) {
+		this.breplySet.add(breply);
 	}
 
 	/**
@@ -205,8 +205,8 @@ public class Board implements Serializable {
 	 * 
 	 * @return 댓글 목록
 	 */
-	public Set<Reply> getReplySet() {
-		return this.replySet;
+	public Set<Breply> getBreplySet() {
+		return this.breplySet;
 	}
 
 	/**

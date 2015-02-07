@@ -2,19 +2,19 @@
 /* Drop Triggers */
 
 DROP TRIGGER TRI_board_board_no;
+DROP TRIGGER TRI_breply_breply_no;
 DROP TRIGGER TRI_img_img_no;
 DROP TRIGGER TRI_license_license_no;
 DROP TRIGGER TRI_msg_msg_no;
-DROP TRIGGER TRI_reply_reply_no;
-DROP TRIGGER TRI_resreply_resreply_no;
 DROP TRIGGER TRI_restaurant_res_no;
 DROP TRIGGER TRI_review_review_no;
+DROP TRIGGER TRI_rreply_rreply_no;
 
 
 
 /* Drop Tables */
 
-DROP TABLE reply CASCADE CONSTRAINTS;
+DROP TABLE breply CASCADE CONSTRAINTS;
 DROP TABLE board CASCADE CONSTRAINTS;
 DROP TABLE favorite CASCADE CONSTRAINTS;
 DROP TABLE favorite_loc CASCADE CONSTRAINTS;
@@ -22,7 +22,7 @@ DROP TABLE friend CASCADE CONSTRAINTS;
 DROP TABLE img CASCADE CONSTRAINTS;
 DROP TABLE licensed_user CASCADE CONSTRAINTS;
 DROP TABLE license CASCADE CONSTRAINTS;
-DROP TABLE resreply CASCADE CONSTRAINTS;
+DROP TABLE rreply CASCADE CONSTRAINTS;
 DROP TABLE review CASCADE CONSTRAINTS;
 DROP TABLE restaurant CASCADE CONSTRAINTS;
 DROP TABLE loc CASCADE CONSTRAINTS;
@@ -34,13 +34,13 @@ DROP TABLE users CASCADE CONSTRAINTS;
 /* Drop Sequences */
 
 DROP SEQUENCE SEQ_board_board_no;
+DROP SEQUENCE SEQ_breply_breply_no;
 DROP SEQUENCE SEQ_img_img_no;
 DROP SEQUENCE SEQ_license_license_no;
 DROP SEQUENCE SEQ_msg_msg_no;
-DROP SEQUENCE SEQ_reply_reply_no;
-DROP SEQUENCE SEQ_resreply_resreply_no;
 DROP SEQUENCE SEQ_restaurant_res_no;
 DROP SEQUENCE SEQ_review_review_no;
+DROP SEQUENCE SEQ_rreply_rreply_no;
 
 
 
@@ -48,13 +48,13 @@ DROP SEQUENCE SEQ_review_review_no;
 /* Create Sequences */
 
 CREATE SEQUENCE SEQ_board_board_no INCREMENT BY 1 START WITH 1;
+CREATE SEQUENCE SEQ_breply_breply_no INCREMENT BY 1 START WITH 1;
 CREATE SEQUENCE SEQ_img_img_no INCREMENT BY 1 START WITH 1;
 CREATE SEQUENCE SEQ_license_license_no INCREMENT BY 1 START WITH 1;
 CREATE SEQUENCE SEQ_msg_msg_no INCREMENT BY 1 START WITH 1;
-CREATE SEQUENCE SEQ_reply_reply_no INCREMENT BY 1 START WITH 1;
-CREATE SEQUENCE SEQ_resreply_resreply_no INCREMENT BY 1 START WITH 1;
 CREATE SEQUENCE SEQ_restaurant_res_no INCREMENT BY 1 START WITH 1;
 CREATE SEQUENCE SEQ_review_review_no INCREMENT BY 1 START WITH 1;
+CREATE SEQUENCE SEQ_rreply_rreply_no INCREMENT BY 1 START WITH 1;
 
 
 
@@ -70,6 +70,18 @@ CREATE TABLE board
 	board_type char NOT NULL,
 	user_id varchar2(20) NOT NULL,
 	PRIMARY KEY (board_no)
+);
+
+
+CREATE TABLE breply
+(
+	breply_no number NOT NULL,
+	breply_content varchar2(200) NOT NULL,
+	breply_regdate date DEFAULT sysdate NOT NULL,
+	breply_updatedate date DEFAULT sysdate NOT NULL,
+	user_id varchar2(20) NOT NULL,
+	board_no number NOT NULL,
+	PRIMARY KEY (breply_no)
 );
 
 
@@ -139,40 +151,16 @@ CREATE TABLE msg
 );
 
 
-CREATE TABLE reply
-(
-	reply_no number NOT NULL,
-	reply_content varchar2(200) NOT NULL,
-	reply_regdate date DEFAULT sysdate NOT NULL,
-	reply_updatedate date DEFAULT sysdate NOT NULL,
-	user_id varchar2(20) NOT NULL,
-	board_no number NOT NULL,
-	PRIMARY KEY (reply_no)
-);
-
-
-CREATE TABLE resreply
-(
-	resreply_no number NOT NULL,
-	resreply_content varchar2(500) NOT NULL,
-	resreply_regdate date DEFAULT sysdate NOT NULL,
-	resreply_updatedate date DEFAULT sysdate NOT NULL,
-	res_no number NOT NULL,
-	user_id varchar2(20) NOT NULL,
-	PRIMARY KEY (resreply_no)
-);
-
-
 CREATE TABLE restaurant
 (
 	res_no number NOT NULL,
 	res_name varchar2(20) NOT NULL,
 	res_number varchar2(20) NOT NULL,
 	res_score number DEFAULT 0 NOT NULL,
-	res_location varchar2(20) NOT NULL,
+	res_loc varchar2(20) NOT NULL,
 	res_content varchar2(1000) NOT NULL,
 	user_id varchar2(20) NOT NULL,
-	res_image varchar2(50) DEFAULT 'noimage.jpg' NOT NULL,
+	res_img varchar2(50) DEFAULT 'noimage.jpg' NOT NULL,
 	loc_name varchar2(20) NOT NULL,
 	rest_kind varchar2(20) NOT NULL,
 	res_regdate date DEFAULT sysdate NOT NULL,
@@ -191,6 +179,18 @@ CREATE TABLE review
 	res_no number NOT NULL,
 	user_id varchar2(20) NOT NULL,
 	PRIMARY KEY (review_no)
+);
+
+
+CREATE TABLE rreply
+(
+	rreply_no number NOT NULL,
+	rreply_content varchar2(500) NOT NULL,
+	rreply_regdate date DEFAULT sysdate NOT NULL,
+	rreply_updatedate date DEFAULT sysdate NOT NULL,
+	res_no number NOT NULL,
+	user_id varchar2(20) NOT NULL,
+	PRIMARY KEY (rreply_no)
 );
 
 
@@ -214,7 +214,7 @@ CREATE TABLE users
 
 /* Create Foreign Keys */
 
-ALTER TABLE reply
+ALTER TABLE breply
 	ADD FOREIGN KEY (board_no)
 	REFERENCES board (board_no)
 ;
@@ -238,7 +238,7 @@ ALTER TABLE favorite_loc
 ;
 
 
-ALTER TABLE resreply
+ALTER TABLE rreply
 	ADD FOREIGN KEY (res_no)
 	REFERENCES restaurant (res_no)
 ;
@@ -268,7 +268,7 @@ ALTER TABLE favorite
 ;
 
 
-ALTER TABLE resreply
+ALTER TABLE rreply
 	ADD FOREIGN KEY (user_id)
 	REFERENCES users (user_id)
 ;
@@ -304,7 +304,7 @@ ALTER TABLE restaurant
 ;
 
 
-ALTER TABLE reply
+ALTER TABLE breply
 	ADD FOREIGN KEY (user_id)
 	REFERENCES users (user_id)
 ;
@@ -318,6 +318,16 @@ FOR EACH ROW
 BEGIN
 	SELECT SEQ_board_board_no.nextval
 	INTO :new.board_no
+	FROM dual;
+END;
+
+/
+
+CREATE OR REPLACE TRIGGER TRI_breply_breply_no BEFORE INSERT ON breply
+FOR EACH ROW
+BEGIN
+	SELECT SEQ_breply_breply_no.nextval
+	INTO :new.breply_no
 	FROM dual;
 END;
 
@@ -353,26 +363,6 @@ END;
 
 /
 
-CREATE OR REPLACE TRIGGER TRI_reply_reply_no BEFORE INSERT ON reply
-FOR EACH ROW
-BEGIN
-	SELECT SEQ_reply_reply_no.nextval
-	INTO :new.reply_no
-	FROM dual;
-END;
-
-/
-
-CREATE OR REPLACE TRIGGER TRI_resreply_resreply_no BEFORE INSERT ON resreply
-FOR EACH ROW
-BEGIN
-	SELECT SEQ_resreply_resreply_no.nextval
-	INTO :new.resreply_no
-	FROM dual;
-END;
-
-/
-
 CREATE OR REPLACE TRIGGER TRI_restaurant_res_no BEFORE INSERT ON restaurant
 FOR EACH ROW
 BEGIN
@@ -388,6 +378,16 @@ FOR EACH ROW
 BEGIN
 	SELECT SEQ_review_review_no.nextval
 	INTO :new.review_no
+	FROM dual;
+END;
+
+/
+
+CREATE OR REPLACE TRIGGER TRI_rreply_rreply_no BEFORE INSERT ON rreply
+FOR EACH ROW
+BEGIN
+	SELECT SEQ_rreply_rreply_no.nextval
+	INTO :new.rreply_no
 	FROM dual;
 END;
 
