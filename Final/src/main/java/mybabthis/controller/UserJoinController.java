@@ -1,5 +1,9 @@
 package mybabthis.controller;
 
+import java.io.PrintWriter;
+
+import javax.servlet.http.HttpServletRequest;
+
 import mybabthis.entity.Users;
 import mybabthis.service.UserService;
 
@@ -13,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+
 
 @Controller
 public class UserJoinController {
@@ -52,8 +57,7 @@ public class UserJoinController {
 
 
 	@RequestMapping(value="/id", method=RequestMethod.POST, produces="text/plain;charset=utf-8")
-	public @ResponseBody String ajaxReceive(@RequestParam String id){
-		
+	public @ResponseBody String ajaxReceive(@RequestParam String id , HttpServletRequest request){
 		logger.trace("-------------------------------------------------------------------------------");
 		
 		Users user =userservice.selectUser(id);
