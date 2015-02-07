@@ -162,7 +162,7 @@ CREATE TABLE restaurant
 	user_id varchar2(20) NOT NULL,
 	res_img varchar2(50) DEFAULT 'noimage.jpg' NOT NULL,
 	loc_name varchar2(20) NOT NULL,
-	rest_kind varchar2(20) NOT NULL,
+	res_kind varchar2(20) NOT NULL,
 	res_regdate date DEFAULT sysdate NOT NULL,
 	res_updatedate date DEFAULT sysdate NOT NULL,
 	PRIMARY KEY (res_no)
@@ -238,13 +238,13 @@ ALTER TABLE favorite_loc
 ;
 
 
-ALTER TABLE rreply
+ALTER TABLE favorite
 	ADD FOREIGN KEY (res_no)
 	REFERENCES restaurant (res_no)
 ;
 
 
-ALTER TABLE favorite
+ALTER TABLE rreply
 	ADD FOREIGN KEY (res_no)
 	REFERENCES restaurant (res_no)
 ;
@@ -256,19 +256,7 @@ ALTER TABLE review
 ;
 
 
-ALTER TABLE friend
-	ADD FOREIGN KEY (user_id)
-	REFERENCES users (user_id)
-;
-
-
-ALTER TABLE favorite
-	ADD FOREIGN KEY (user_id)
-	REFERENCES users (user_id)
-;
-
-
-ALTER TABLE rreply
+ALTER TABLE board
 	ADD FOREIGN KEY (user_id)
 	REFERENCES users (user_id)
 ;
@@ -280,7 +268,19 @@ ALTER TABLE favorite_loc
 ;
 
 
-ALTER TABLE board
+ALTER TABLE restaurant
+	ADD FOREIGN KEY (user_id)
+	REFERENCES users (user_id)
+;
+
+
+ALTER TABLE rreply
+	ADD FOREIGN KEY (user_id)
+	REFERENCES users (user_id)
+;
+
+
+ALTER TABLE favorite
 	ADD FOREIGN KEY (user_id)
 	REFERENCES users (user_id)
 ;
@@ -292,19 +292,19 @@ ALTER TABLE review
 ;
 
 
+ALTER TABLE breply
+	ADD FOREIGN KEY (user_id)
+	REFERENCES users (user_id)
+;
+
+
 ALTER TABLE licensed_user
 	ADD FOREIGN KEY (user_id)
 	REFERENCES users (user_id)
 ;
 
 
-ALTER TABLE restaurant
-	ADD FOREIGN KEY (user_id)
-	REFERENCES users (user_id)
-;
-
-
-ALTER TABLE breply
+ALTER TABLE friend
 	ADD FOREIGN KEY (user_id)
 	REFERENCES users (user_id)
 ;
