@@ -17,7 +17,7 @@ public class FavoriteLocation implements Serializable {
 	private Users users;
 
 	/** 지역. */
-	private Location location;
+	private Loc loc;
 
 	/**
 	 * 생성자.
@@ -47,11 +47,11 @@ public class FavoriteLocation implements Serializable {
 	/**
 	 * 지역을 설정합니다..
 	 * 
-	 * @param location
+	 * @param loc
 	 *            지역
 	 */
-	public void setLocation(Location location) {
-		this.location = location;
+	public void setLoc(Loc loc) {
+		this.loc = loc;
 	}
 
 	/**
@@ -59,8 +59,8 @@ public class FavoriteLocation implements Serializable {
 	 * 
 	 * @return 지역
 	 */
-	public Location getLocation() {
-		return this.location;
+	public Loc getLoc() {
+		return this.loc;
 	}
 
 

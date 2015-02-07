@@ -16,491 +16,288 @@ public class Users implements Serializable {
 	/** serialVersionUID. */
 	private static final long serialVersionUID = 1L;
 
-	/** 회원아이디. */
+	/** 사용자아이디. */
 	private String userId;
 
-	/** 회원패스워드. */
+	/** 사용자패스워드. */
 	private String userPass;
 
-	/** 회원닉네임. */
+	/** 사용자닉네임. */
 	private String userName;
 
-	/** 회원이메일. */
+	/** 사용자이메일. */
 	private String userEmail;
 
-	/** 회원성별. */
+	/** 사용자성별. */
 	private String userGender;
 
-	/** 회원전화번호. */
+	/** 사용자전화번호. */
 	private String userPhone;
 
-	/** 회원가입일. */
+	/** 사용자등록일. */
 	private Date userRegdate;
 
-	/** 회원정보수정날짜. */
+	/** 사용자수정일. */
 	private Date userUpdatedate;
 
-	/** 회원등급. */
+	/** 사용자등급. */
 	private String userGrade;
 
-	/** 회원활성화여부. */
+	/** 사용자사진. */
+	private String userImg;
+
+	/** 사용자활성여부. */
 	private String userActivation;
-
-	/** 회원사진. */
-	private String userImage;
-
-	/** 게시판 목록. */
-	private Set<Boards> boardsSet;
-
-	/** 댓글게시판 목록. */
-	private Set<ReplyBoard> replyBoardSet;
-
-	/** 맛집게시판 목록. */
-	private Set<Restaurants> restaurantsSet;
-
-	/** 즐겨찾기 목록. */
-	private Set<Favorite> favoriteSet;
-
-	/** 리뷰게시판 목록. */
-	private Set<ReviewBoard> reviewBoardSet;
-
-	/** 자격증취득회원 목록. */
-	private Set<LicensedUser> licensedUserSet;
-
-	/** 관심지역 목록. */
-	private Set<FavoriteLocation> favoriteLocationSet;
 
 	/** 친구 목록. */
 	private Set<Friend> friendSet;
 
-	/** 게시글댓글 목록. */
-	private Set<Replys> replysSet;
+	/** 즐겨찾기 목록. */
+	private Set<Favorite> favoriteSet;
+
+	/** 게시판 목록. */
+	private Set<Board> boardSet;
+
+	/** 맛집 목록. */
+	private Set<Restaurant> restaurantSet;
+
+	/** 관심지역 목록. */
+	private Set<FavoriteLocation> favoriteLocationSet;
+
+	/** 맛집리뷰 목록. */
+	private Set<Review> reviewSet;
+
+	/** 자격증취득회원 목록. */
+	private Set<LicensedUser> licensedUserSet;
+
+	/** 댓글 목록. */
+	private Set<Reply> replySet;
+
+	/** 맛집댓글 목록. */
+	private Set<Resreply> resreplySet;
 
 	/**
 	 * 생성자.
 	 */
 	public Users() {
-		this.boardsSet = new HashSet<Boards>();
+		this.boardSet = new HashSet<Board>();
 		this.favoriteSet = new HashSet<Favorite>();
 		this.favoriteLocationSet = new HashSet<FavoriteLocation>();
 		this.friendSet = new HashSet<Friend>();
 		this.licensedUserSet = new HashSet<LicensedUser>();
-		this.replyBoardSet = new HashSet<ReplyBoard>();
-		this.replysSet = new HashSet<Replys>();
-		this.restaurantsSet = new HashSet<Restaurants>();
-		this.reviewBoardSet = new HashSet<ReviewBoard>();
+		this.replySet = new HashSet<Reply>();
+		this.resreplySet = new HashSet<Resreply>();
+		this.restaurantSet = new HashSet<Restaurant>();
+		this.reviewSet = new HashSet<Review>();
 	}
 
 	/**
-	 * 회원아이디을 설정합니다..
+	 * 사용자아이디을 설정합니다..
 	 * 
 	 * @param userId
-	 *            회원아이디
+	 *            사용자아이디
 	 */
 	public void setUserId(String userId) {
 		this.userId = userId;
 	}
 
 	/**
-	 * 회원아이디을 가져옵니다..
+	 * 사용자아이디을 가져옵니다..
 	 * 
-	 * @return 회원아이디
+	 * @return 사용자아이디
 	 */
 	public String getUserId() {
 		return this.userId;
 	}
 
 	/**
-	 * 회원패스워드을 설정합니다..
+	 * 사용자패스워드을 설정합니다..
 	 * 
 	 * @param userPass
-	 *            회원패스워드
+	 *            사용자패스워드
 	 */
 	public void setUserPass(String userPass) {
 		this.userPass = userPass;
 	}
 
 	/**
-	 * 회원패스워드을 가져옵니다..
+	 * 사용자패스워드을 가져옵니다..
 	 * 
-	 * @return 회원패스워드
+	 * @return 사용자패스워드
 	 */
 	public String getUserPass() {
 		return this.userPass;
 	}
 
 	/**
-	 * 회원닉네임을 설정합니다..
+	 * 사용자닉네임을 설정합니다..
 	 * 
 	 * @param userName
-	 *            회원닉네임
+	 *            사용자닉네임
 	 */
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
 
 	/**
-	 * 회원닉네임을 가져옵니다..
+	 * 사용자닉네임을 가져옵니다..
 	 * 
-	 * @return 회원닉네임
+	 * @return 사용자닉네임
 	 */
 	public String getUserName() {
 		return this.userName;
 	}
 
 	/**
-	 * 회원이메일을 설정합니다..
+	 * 사용자이메일을 설정합니다..
 	 * 
 	 * @param userEmail
-	 *            회원이메일
+	 *            사용자이메일
 	 */
 	public void setUserEmail(String userEmail) {
 		this.userEmail = userEmail;
 	}
 
 	/**
-	 * 회원이메일을 가져옵니다..
+	 * 사용자이메일을 가져옵니다..
 	 * 
-	 * @return 회원이메일
+	 * @return 사용자이메일
 	 */
 	public String getUserEmail() {
 		return this.userEmail;
 	}
 
 	/**
-	 * 회원성별을 설정합니다..
+	 * 사용자성별을 설정합니다..
 	 * 
 	 * @param userGender
-	 *            회원성별
+	 *            사용자성별
 	 */
 	public void setUserGender(String userGender) {
 		this.userGender = userGender;
 	}
 
 	/**
-	 * 회원성별을 가져옵니다..
+	 * 사용자성별을 가져옵니다..
 	 * 
-	 * @return 회원성별
+	 * @return 사용자성별
 	 */
 	public String getUserGender() {
 		return this.userGender;
 	}
 
 	/**
-	 * 회원전화번호을 설정합니다..
+	 * 사용자전화번호을 설정합니다..
 	 * 
 	 * @param userPhone
-	 *            회원전화번호
+	 *            사용자전화번호
 	 */
 	public void setUserPhone(String userPhone) {
 		this.userPhone = userPhone;
 	}
 
 	/**
-	 * 회원전화번호을 가져옵니다..
+	 * 사용자전화번호을 가져옵니다..
 	 * 
-	 * @return 회원전화번호
+	 * @return 사용자전화번호
 	 */
 	public String getUserPhone() {
 		return this.userPhone;
 	}
 
 	/**
-	 * 회원가입일을 설정합니다..
+	 * 사용자등록일을 설정합니다..
 	 * 
 	 * @param userRegdate
-	 *            회원가입일
+	 *            사용자등록일
 	 */
 	public void setUserRegdate(Date userRegdate) {
 		this.userRegdate = userRegdate;
 	}
 
 	/**
-	 * 회원가입일을 가져옵니다..
+	 * 사용자등록일을 가져옵니다..
 	 * 
-	 * @return 회원가입일
+	 * @return 사용자등록일
 	 */
 	public Date getUserRegdate() {
 		return this.userRegdate;
 	}
 
 	/**
-	 * 회원정보수정날짜을 설정합니다..
+	 * 사용자수정일을 설정합니다..
 	 * 
 	 * @param userUpdatedate
-	 *            회원정보수정날짜
+	 *            사용자수정일
 	 */
 	public void setUserUpdatedate(Date userUpdatedate) {
 		this.userUpdatedate = userUpdatedate;
 	}
 
 	/**
-	 * 회원정보수정날짜을 가져옵니다..
+	 * 사용자수정일을 가져옵니다..
 	 * 
-	 * @return 회원정보수정날짜
+	 * @return 사용자수정일
 	 */
 	public Date getUserUpdatedate() {
 		return this.userUpdatedate;
 	}
 
 	/**
-	 * 회원등급을 설정합니다..
+	 * 사용자등급을 설정합니다..
 	 * 
 	 * @param userGrade
-	 *            회원등급
+	 *            사용자등급
 	 */
 	public void setUserGrade(String userGrade) {
 		this.userGrade = userGrade;
 	}
 
 	/**
-	 * 회원등급을 가져옵니다..
+	 * 사용자등급을 가져옵니다..
 	 * 
-	 * @return 회원등급
+	 * @return 사용자등급
 	 */
 	public String getUserGrade() {
 		return this.userGrade;
 	}
 
 	/**
-	 * 회원활성화여부을 설정합니다..
+	 * 사용자사진을 설정합니다..
+	 * 
+	 * @param userImg
+	 *            사용자사진
+	 */
+	public void setUserImg(String userImg) {
+		this.userImg = userImg;
+	}
+
+	/**
+	 * 사용자사진을 가져옵니다..
+	 * 
+	 * @return 사용자사진
+	 */
+	public String getUserImg() {
+		return this.userImg;
+	}
+
+	/**
+	 * 사용자활성여부을 설정합니다..
 	 * 
 	 * @param userActivation
-	 *            회원활성화여부
+	 *            사용자활성여부
 	 */
 	public void setUserActivation(String userActivation) {
 		this.userActivation = userActivation;
 	}
 
 	/**
-	 * 회원활성화여부을 가져옵니다..
+	 * 사용자활성여부을 가져옵니다..
 	 * 
-	 * @return 회원활성화여부
+	 * @return 사용자활성여부
 	 */
 	public String getUserActivation() {
 		return this.userActivation;
-	}
-
-	/**
-	 * 회원사진을 설정합니다..
-	 * 
-	 * @param userImage
-	 *            회원사진
-	 */
-	public void setUserImage(String userImage) {
-		this.userImage = userImage;
-	}
-
-	/**
-	 * 회원사진을 가져옵니다..
-	 * 
-	 * @return 회원사진
-	 */
-	public String getUserImage() {
-		return this.userImage;
-	}
-
-	/**
-	 * 게시판 목록을 설정합니다..
-	 * 
-	 * @param boardsSet
-	 *            게시판 목록
-	 */
-	public void setBoardsSet(Set<Boards> boardsSet) {
-		this.boardsSet = boardsSet;
-	}
-
-	/**
-	 * 게시판를 추가합니다..
-	 * 
-	 * @param boards
-	 *            게시판
-	 */
-	public void addBoards(Boards boards) {
-		this.boardsSet.add(boards);
-	}
-
-	/**
-	 * 게시판 목록을 가져옵니다..
-	 * 
-	 * @return 게시판 목록
-	 */
-	public Set<Boards> getBoardsSet() {
-		return this.boardsSet;
-	}
-
-	/**
-	 * 댓글게시판 목록을 설정합니다..
-	 * 
-	 * @param replyBoardSet
-	 *            댓글게시판 목록
-	 */
-	public void setReplyBoardSet(Set<ReplyBoard> replyBoardSet) {
-		this.replyBoardSet = replyBoardSet;
-	}
-
-	/**
-	 * 댓글게시판를 추가합니다..
-	 * 
-	 * @param replyBoard
-	 *            댓글게시판
-	 */
-	public void addReplyBoard(ReplyBoard replyBoard) {
-		this.replyBoardSet.add(replyBoard);
-	}
-
-	/**
-	 * 댓글게시판 목록을 가져옵니다..
-	 * 
-	 * @return 댓글게시판 목록
-	 */
-	public Set<ReplyBoard> getReplyBoardSet() {
-		return this.replyBoardSet;
-	}
-
-	/**
-	 * 맛집게시판 목록을 설정합니다..
-	 * 
-	 * @param restaurantsSet
-	 *            맛집게시판 목록
-	 */
-	public void setRestaurantsSet(Set<Restaurants> restaurantsSet) {
-		this.restaurantsSet = restaurantsSet;
-	}
-
-	/**
-	 * 맛집게시판를 추가합니다..
-	 * 
-	 * @param restaurants
-	 *            맛집게시판
-	 */
-	public void addRestaurants(Restaurants restaurants) {
-		this.restaurantsSet.add(restaurants);
-	}
-
-	/**
-	 * 맛집게시판 목록을 가져옵니다..
-	 * 
-	 * @return 맛집게시판 목록
-	 */
-	public Set<Restaurants> getRestaurantsSet() {
-		return this.restaurantsSet;
-	}
-
-	/**
-	 * 즐겨찾기 목록을 설정합니다..
-	 * 
-	 * @param favoriteSet
-	 *            즐겨찾기 목록
-	 */
-	public void setFavoriteSet(Set<Favorite> favoriteSet) {
-		this.favoriteSet = favoriteSet;
-	}
-
-	/**
-	 * 즐겨찾기를 추가합니다..
-	 * 
-	 * @param favorite
-	 *            즐겨찾기
-	 */
-	public void addFavorite(Favorite favorite) {
-		this.favoriteSet.add(favorite);
-	}
-
-	/**
-	 * 즐겨찾기 목록을 가져옵니다..
-	 * 
-	 * @return 즐겨찾기 목록
-	 */
-	public Set<Favorite> getFavoriteSet() {
-		return this.favoriteSet;
-	}
-
-	/**
-	 * 리뷰게시판 목록을 설정합니다..
-	 * 
-	 * @param reviewBoardSet
-	 *            리뷰게시판 목록
-	 */
-	public void setReviewBoardSet(Set<ReviewBoard> reviewBoardSet) {
-		this.reviewBoardSet = reviewBoardSet;
-	}
-
-	/**
-	 * 리뷰게시판를 추가합니다..
-	 * 
-	 * @param reviewBoard
-	 *            리뷰게시판
-	 */
-	public void addReviewBoard(ReviewBoard reviewBoard) {
-		this.reviewBoardSet.add(reviewBoard);
-	}
-
-	/**
-	 * 리뷰게시판 목록을 가져옵니다..
-	 * 
-	 * @return 리뷰게시판 목록
-	 */
-	public Set<ReviewBoard> getReviewBoardSet() {
-		return this.reviewBoardSet;
-	}
-
-	/**
-	 * 자격증취득회원 목록을 설정합니다..
-	 * 
-	 * @param licensedUserSet
-	 *            자격증취득회원 목록
-	 */
-	public void setLicensedUserSet(Set<LicensedUser> licensedUserSet) {
-		this.licensedUserSet = licensedUserSet;
-	}
-
-	/**
-	 * 자격증취득회원를 추가합니다..
-	 * 
-	 * @param licensedUser
-	 *            자격증취득회원
-	 */
-	public void addLicensedUser(LicensedUser licensedUser) {
-		this.licensedUserSet.add(licensedUser);
-	}
-
-	/**
-	 * 자격증취득회원 목록을 가져옵니다..
-	 * 
-	 * @return 자격증취득회원 목록
-	 */
-	public Set<LicensedUser> getLicensedUserSet() {
-		return this.licensedUserSet;
-	}
-
-	/**
-	 * 관심지역 목록을 설정합니다..
-	 * 
-	 * @param favoriteLocationSet
-	 *            관심지역 목록
-	 */
-	public void setFavoriteLocationSet(Set<FavoriteLocation> favoriteLocationSet) {
-		this.favoriteLocationSet = favoriteLocationSet;
-	}
-
-	/**
-	 * 관심지역를 추가합니다..
-	 * 
-	 * @param favoriteLocation
-	 *            관심지역
-	 */
-	public void addFavoriteLocation(FavoriteLocation favoriteLocation) {
-		this.favoriteLocationSet.add(favoriteLocation);
-	}
-
-	/**
-	 * 관심지역 목록을 가져옵니다..
-	 * 
-	 * @return 관심지역 목록
-	 */
-	public Set<FavoriteLocation> getFavoriteLocationSet() {
-		return this.favoriteLocationSet;
 	}
 
 	/**
@@ -533,32 +330,235 @@ public class Users implements Serializable {
 	}
 
 	/**
-	 * 게시글댓글 목록을 설정합니다..
+	 * 즐겨찾기 목록을 설정합니다..
 	 * 
-	 * @param replysSet
-	 *            게시글댓글 목록
+	 * @param favoriteSet
+	 *            즐겨찾기 목록
 	 */
-	public void setReplysSet(Set<Replys> replysSet) {
-		this.replysSet = replysSet;
+	public void setFavoriteSet(Set<Favorite> favoriteSet) {
+		this.favoriteSet = favoriteSet;
 	}
 
 	/**
-	 * 게시글댓글를 추가합니다..
+	 * 즐겨찾기를 추가합니다..
 	 * 
-	 * @param replys
-	 *            게시글댓글
+	 * @param favorite
+	 *            즐겨찾기
 	 */
-	public void addReplys(Replys replys) {
-		this.replysSet.add(replys);
+	public void addFavorite(Favorite favorite) {
+		this.favoriteSet.add(favorite);
 	}
 
 	/**
-	 * 게시글댓글 목록을 가져옵니다..
+	 * 즐겨찾기 목록을 가져옵니다..
 	 * 
-	 * @return 게시글댓글 목록
+	 * @return 즐겨찾기 목록
 	 */
-	public Set<Replys> getReplysSet() {
-		return this.replysSet;
+	public Set<Favorite> getFavoriteSet() {
+		return this.favoriteSet;
+	}
+
+	/**
+	 * 게시판 목록을 설정합니다..
+	 * 
+	 * @param boardSet
+	 *            게시판 목록
+	 */
+	public void setBoardSet(Set<Board> boardSet) {
+		this.boardSet = boardSet;
+	}
+
+	/**
+	 * 게시판를 추가합니다..
+	 * 
+	 * @param board
+	 *            게시판
+	 */
+	public void addBoard(Board board) {
+		this.boardSet.add(board);
+	}
+
+	/**
+	 * 게시판 목록을 가져옵니다..
+	 * 
+	 * @return 게시판 목록
+	 */
+	public Set<Board> getBoardSet() {
+		return this.boardSet;
+	}
+
+	/**
+	 * 맛집 목록을 설정합니다..
+	 * 
+	 * @param restaurantSet
+	 *            맛집 목록
+	 */
+	public void setRestaurantSet(Set<Restaurant> restaurantSet) {
+		this.restaurantSet = restaurantSet;
+	}
+
+	/**
+	 * 맛집를 추가합니다..
+	 * 
+	 * @param restaurant
+	 *            맛집
+	 */
+	public void addRestaurant(Restaurant restaurant) {
+		this.restaurantSet.add(restaurant);
+	}
+
+	/**
+	 * 맛집 목록을 가져옵니다..
+	 * 
+	 * @return 맛집 목록
+	 */
+	public Set<Restaurant> getRestaurantSet() {
+		return this.restaurantSet;
+	}
+
+	/**
+	 * 관심지역 목록을 설정합니다..
+	 * 
+	 * @param favoriteLocationSet
+	 *            관심지역 목록
+	 */
+	public void setFavoriteLocationSet(Set<FavoriteLocation> favoriteLocationSet) {
+		this.favoriteLocationSet = favoriteLocationSet;
+	}
+
+	/**
+	 * 관심지역를 추가합니다..
+	 * 
+	 * @param favoriteLocation
+	 *            관심지역
+	 */
+	public void addFavoriteLocation(FavoriteLocation favoriteLocation) {
+		this.favoriteLocationSet.add(favoriteLocation);
+	}
+
+	/**
+	 * 관심지역 목록을 가져옵니다..
+	 * 
+	 * @return 관심지역 목록
+	 */
+	public Set<FavoriteLocation> getFavoriteLocationSet() {
+		return this.favoriteLocationSet;
+	}
+
+	/**
+	 * 맛집리뷰 목록을 설정합니다..
+	 * 
+	 * @param reviewSet
+	 *            맛집리뷰 목록
+	 */
+	public void setReviewSet(Set<Review> reviewSet) {
+		this.reviewSet = reviewSet;
+	}
+
+	/**
+	 * 맛집리뷰를 추가합니다..
+	 * 
+	 * @param review
+	 *            맛집리뷰
+	 */
+	public void addReview(Review review) {
+		this.reviewSet.add(review);
+	}
+
+	/**
+	 * 맛집리뷰 목록을 가져옵니다..
+	 * 
+	 * @return 맛집리뷰 목록
+	 */
+	public Set<Review> getReviewSet() {
+		return this.reviewSet;
+	}
+
+	/**
+	 * 자격증취득회원 목록을 설정합니다..
+	 * 
+	 * @param licensedUserSet
+	 *            자격증취득회원 목록
+	 */
+	public void setLicensedUserSet(Set<LicensedUser> licensedUserSet) {
+		this.licensedUserSet = licensedUserSet;
+	}
+
+	/**
+	 * 자격증취득회원를 추가합니다..
+	 * 
+	 * @param licensedUser
+	 *            자격증취득회원
+	 */
+	public void addLicensedUser(LicensedUser licensedUser) {
+		this.licensedUserSet.add(licensedUser);
+	}
+
+	/**
+	 * 자격증취득회원 목록을 가져옵니다..
+	 * 
+	 * @return 자격증취득회원 목록
+	 */
+	public Set<LicensedUser> getLicensedUserSet() {
+		return this.licensedUserSet;
+	}
+
+	/**
+	 * 댓글 목록을 설정합니다..
+	 * 
+	 * @param replySet
+	 *            댓글 목록
+	 */
+	public void setReplySet(Set<Reply> replySet) {
+		this.replySet = replySet;
+	}
+
+	/**
+	 * 댓글를 추가합니다..
+	 * 
+	 * @param reply
+	 *            댓글
+	 */
+	public void addReply(Reply reply) {
+		this.replySet.add(reply);
+	}
+
+	/**
+	 * 댓글 목록을 가져옵니다..
+	 * 
+	 * @return 댓글 목록
+	 */
+	public Set<Reply> getReplySet() {
+		return this.replySet;
+	}
+
+	/**
+	 * 맛집댓글 목록을 설정합니다..
+	 * 
+	 * @param resreplySet
+	 *            맛집댓글 목록
+	 */
+	public void setResreplySet(Set<Resreply> resreplySet) {
+		this.resreplySet = resreplySet;
+	}
+
+	/**
+	 * 맛집댓글를 추가합니다..
+	 * 
+	 * @param resreply
+	 *            맛집댓글
+	 */
+	public void addResreply(Resreply resreply) {
+		this.resreplySet.add(resreply);
+	}
+
+	/**
+	 * 맛집댓글 목록을 가져옵니다..
+	 * 
+	 * @return 맛집댓글 목록
+	 */
+	public Set<Resreply> getResreplySet() {
+		return this.resreplySet;
 	}
 
 	/**

@@ -16,8 +16,8 @@ public class Favorite implements Serializable {
 	/** 사용자. */
 	private Users users;
 
-	/** 맛집게시판. */
-	private Restaurants restaurants;
+	/** 맛집. */
+	private Restaurant restaurant;
 
 	/**
 	 * 생성자.
@@ -45,22 +45,22 @@ public class Favorite implements Serializable {
 	}
 
 	/**
-	 * 맛집게시판을 설정합니다..
+	 * 맛집을 설정합니다..
 	 * 
-	 * @param restaurants
-	 *            맛집게시판
+	 * @param restaurant
+	 *            맛집
 	 */
-	public void setRestaurants(Restaurants restaurants) {
-		this.restaurants = restaurants;
+	public void setRestaurant(Restaurant restaurant) {
+		this.restaurant = restaurant;
 	}
 
 	/**
-	 * 맛집게시판을 가져옵니다..
+	 * 맛집을 가져옵니다..
 	 * 
-	 * @return 맛집게시판
+	 * @return 맛집
 	 */
-	public Restaurants getRestaurants() {
-		return this.restaurants;
+	public Restaurant getRestaurant() {
+		return this.restaurant;
 	}
 
 
