@@ -69,23 +69,22 @@ $("#idCheck").click(function(){
 
 		<label>아이디</label> : <form:input path="userId" /><a href="<%=request.getContextPath()%>/id">
 		<input type="button" value="중복체크" name="idCheck"
-		id="idCheck"></a><div id="drophere"></div>
+		id="idCheck"></a><div id="drophere"></div> <!-- 중복체크는 나중에 -->
 
 		<br>
 		<label>닉네임</label> : <form:input path="userName" />
 		<br>
 		<label>비밀번호</label> : <form:input path="userPass" id="pass" />
 		<br>
-		<label>비밀번호확인</label> : <form:input path="userPass" id="pass2" />
+		<label>비밀번호확인</label> : <%-- <form:input path="userPass" id="pass2"  /> --%>
 		<br>
-		<label>E-mail</label> : <form:input path="userPass" />
+		<label>E-mail</label> : <form:input path="userEmail" />
 		<br>
-		<label>휴대폰</label> : <form:input path="userPass" />
+		<label>휴대폰</label> : <form:input path="userPhone" />
 		<br>
-		<label>지역</label> : <form:input path="userPass" />
 		<br>
-		<label>성별</label> 	<form:radiobutton path="userGender" value="1"/>
-							<form:radiobutton path="userGender" value="0"/>
+		<label>성별</label> 	<form:radiobutton path="userGender" value="1"/>남
+							<form:radiobutton path="userGender" value="0"/>여
 							
 
 		<button type="submit" name="가입">가입</button>
