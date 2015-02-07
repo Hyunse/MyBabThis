@@ -46,9 +46,10 @@ public class ReviewDaoImpl implements ReviewDao {
 	@Override
 	public Review getReviewByReviewNo(int reviewNo) {
 		String stmt = nameSpace + "selectReviewByReviewNo";
-		logger.trace("daoImpl : 전");
-		Review result = sqlSession.selectOne(stmt, reviewNo);
-		logger.trace("daoImpl : 후");
+		Review result =null;
+		logger.trace("daoImpl : 전"+result);
+		result = sqlSession.selectOne(stmt, reviewNo);
+		logger.trace("daoImpl : 후"+result);
 		return result;
 	}
 
