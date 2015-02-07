@@ -47,7 +47,7 @@ public class UserServiceImpl implements UserService{
 
 	@Override
 	public Users login(Users user) {
-		Users result = dao.selectByIdandPass(user);
+		Users result = dao.selectUser(user);
 		return result;
 	}
 

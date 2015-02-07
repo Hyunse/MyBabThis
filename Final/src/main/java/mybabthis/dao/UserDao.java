@@ -8,7 +8,7 @@ import mybabthis.entity.Users;
 
 public interface UserDao {
 	
-	Users selectByIdandPass(Users user);
+	Users selectUser(Users user);
 	
 	int createUser(Users user); // User 생성
 

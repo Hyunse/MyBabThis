@@ -24,7 +24,7 @@ public class UserDaoImpl implements UserDao {
 	@Autowired
 	private SqlSessionTemplate sqlSession;
 
-	public Users selectByIdandPass(Users user){
+	public Users selectUser(Users user){
 		String stmt = nameSpace + "selectUserByIdAndPass";
 		return sqlSession.selectOne(stmt, user);
 	}
@@ -32,7 +32,7 @@ public class UserDaoImpl implements UserDao {
 	@Override
 	public int createUser(Users user) {
 		String stmt = nameSpace +"createUser";
-		return sqlSession.insert(stmt, user);
+		return sqlSession.update(stmt, user);
 	}
 
 	@Override
@@ -50,7 +50,7 @@ public class UserDaoImpl implements UserDao {
 	@Override
 	public int deleteUser(String id) {
 		String stmt = nameSpace + "deleteUser";
-		return sqlSession.delete(stmt, id);
+		return sqlSession.update(stmt, id);
 	}
 
 	@Override
