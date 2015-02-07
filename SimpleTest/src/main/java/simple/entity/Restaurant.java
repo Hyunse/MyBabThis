@@ -44,7 +44,7 @@ public class Restaurant implements Serializable {
 	private Loc loc;
 
 	/** 맛집종류. */
-	private String restKind;
+	private String resKind;
 
 	/** 맛집등록일. */
 	private Date resRegdate;
@@ -52,11 +52,11 @@ public class Restaurant implements Serializable {
 	/** 맛집수정일. */
 	private Date resUpdatedate;
 
-	/** 맛집댓글 목록. */
-	private Set<Rreply> rreplySet;
-
 	/** 즐겨찾기 목록. */
 	private Set<Favorite> favoriteSet;
+
+	/** 맛집댓글 목록. */
+	private Set<Rreply> rreplySet;
 
 	/** 맛집리뷰 목록. */
 	private Set<Review> reviewSet;
@@ -244,11 +244,11 @@ public class Restaurant implements Serializable {
 	/**
 	 * 맛집종류을 설정합니다..
 	 * 
-	 * @param restKind
+	 * @param resKind
 	 *            맛집종류
 	 */
-	public void setRestKind(String restKind) {
-		this.restKind = restKind;
+	public void setResKind(String resKind) {
+		this.resKind = resKind;
 	}
 
 	/**
@@ -256,8 +256,8 @@ public class Restaurant implements Serializable {
 	 * 
 	 * @return 맛집종류
 	 */
-	public String getRestKind() {
-		return this.restKind;
+	public String getResKind() {
+		return this.resKind;
 	}
 
 	/**
@@ -299,35 +299,6 @@ public class Restaurant implements Serializable {
 	}
 
 	/**
-	 * 맛집댓글 목록을 설정합니다..
-	 * 
-	 * @param rreplySet
-	 *            맛집댓글 목록
-	 */
-	public void setRreplySet(Set<Rreply> rreplySet) {
-		this.rreplySet = rreplySet;
-	}
-
-	/**
-	 * 맛집댓글를 추가합니다..
-	 * 
-	 * @param rreply
-	 *            맛집댓글
-	 */
-	public void addRreply(Rreply rreply) {
-		this.rreplySet.add(rreply);
-	}
-
-	/**
-	 * 맛집댓글 목록을 가져옵니다..
-	 * 
-	 * @return 맛집댓글 목록
-	 */
-	public Set<Rreply> getRreplySet() {
-		return this.rreplySet;
-	}
-
-	/**
 	 * 즐겨찾기 목록을 설정합니다..
 	 * 
 	 * @param favoriteSet
@@ -354,6 +325,35 @@ public class Restaurant implements Serializable {
 	 */
 	public Set<Favorite> getFavoriteSet() {
 		return this.favoriteSet;
+	}
+
+	/**
+	 * 맛집댓글 목록을 설정합니다..
+	 * 
+	 * @param rreplySet
+	 *            맛집댓글 목록
+	 */
+	public void setRreplySet(Set<Rreply> rreplySet) {
+		this.rreplySet = rreplySet;
+	}
+
+	/**
+	 * 맛집댓글를 추가합니다..
+	 * 
+	 * @param rreply
+	 *            맛집댓글
+	 */
+	public void addRreply(Rreply rreply) {
+		this.rreplySet.add(rreply);
+	}
+
+	/**
+	 * 맛집댓글 목록을 가져옵니다..
+	 * 
+	 * @return 맛집댓글 목록
+	 */
+	public Set<Rreply> getRreplySet() {
+		return this.rreplySet;
 	}
 
 	/**
