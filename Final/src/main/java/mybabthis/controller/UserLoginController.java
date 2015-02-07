@@ -17,11 +17,11 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 @Controller
 @SessionAttributes("loginUser")
-public class UserController {
+public class UserLoginController {
 	
 	private static final Logger logger;
 	static {
-		logger = LoggerFactory.getLogger(UserController.class);
+		logger = LoggerFactory.getLogger(UserLoginController.class);
 	}
 	
 	@Autowired
