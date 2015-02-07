@@ -18,11 +18,11 @@ public class Loc implements Serializable {
 	/** 지역이름. */
 	private String locName;
 
-	/** 맛집 목록. */
-	private Set<Restaurant> restaurantSet;
-
 	/** 관심지역 목록. */
 	private Set<FavoriteLoc> favoriteLocSet;
+
+	/** 맛집 목록. */
+	private Set<Restaurant> restaurantSet;
 
 	/**
 	 * 생성자.
@@ -52,35 +52,6 @@ public class Loc implements Serializable {
 	}
 
 	/**
-	 * 맛집 목록을 설정합니다..
-	 * 
-	 * @param restaurantSet
-	 *            맛집 목록
-	 */
-	public void setRestaurantSet(Set<Restaurant> restaurantSet) {
-		this.restaurantSet = restaurantSet;
-	}
-
-	/**
-	 * 맛집를 추가합니다..
-	 * 
-	 * @param restaurant
-	 *            맛집
-	 */
-	public void addRestaurant(Restaurant restaurant) {
-		this.restaurantSet.add(restaurant);
-	}
-
-	/**
-	 * 맛집 목록을 가져옵니다..
-	 * 
-	 * @return 맛집 목록
-	 */
-	public Set<Restaurant> getRestaurantSet() {
-		return this.restaurantSet;
-	}
-
-	/**
 	 * 관심지역 목록을 설정합니다..
 	 * 
 	 * @param favoriteLocSet
@@ -107,6 +78,35 @@ public class Loc implements Serializable {
 	 */
 	public Set<FavoriteLoc> getFavoriteLocSet() {
 		return this.favoriteLocSet;
+	}
+
+	/**
+	 * 맛집 목록을 설정합니다..
+	 * 
+	 * @param restaurantSet
+	 *            맛집 목록
+	 */
+	public void setRestaurantSet(Set<Restaurant> restaurantSet) {
+		this.restaurantSet = restaurantSet;
+	}
+
+	/**
+	 * 맛집를 추가합니다..
+	 * 
+	 * @param restaurant
+	 *            맛집
+	 */
+	public void addRestaurant(Restaurant restaurant) {
+		this.restaurantSet.add(restaurant);
+	}
+
+	/**
+	 * 맛집 목록을 가져옵니다..
+	 * 
+	 * @return 맛집 목록
+	 */
+	public Set<Restaurant> getRestaurantSet() {
+		return this.restaurantSet;
 	}
 
 	/**

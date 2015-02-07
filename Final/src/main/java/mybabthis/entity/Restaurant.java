@@ -52,11 +52,11 @@ public class Restaurant implements Serializable {
 	/** 맛집수정일. */
 	private Date resUpdatedate;
 
-	/** 즐겨찾기 목록. */
-	private Set<Favorite> favoriteSet;
-
 	/** 맛집댓글 목록. */
 	private Set<Rreply> rreplySet;
+
+	/** 즐겨찾기 목록. */
+	private Set<Favorite> favoriteSet;
 
 	/** 맛집리뷰 목록. */
 	private Set<Review> reviewSet;
@@ -299,35 +299,6 @@ public class Restaurant implements Serializable {
 	}
 
 	/**
-	 * 즐겨찾기 목록을 설정합니다..
-	 * 
-	 * @param favoriteSet
-	 *            즐겨찾기 목록
-	 */
-	public void setFavoriteSet(Set<Favorite> favoriteSet) {
-		this.favoriteSet = favoriteSet;
-	}
-
-	/**
-	 * 즐겨찾기를 추가합니다..
-	 * 
-	 * @param favorite
-	 *            즐겨찾기
-	 */
-	public void addFavorite(Favorite favorite) {
-		this.favoriteSet.add(favorite);
-	}
-
-	/**
-	 * 즐겨찾기 목록을 가져옵니다..
-	 * 
-	 * @return 즐겨찾기 목록
-	 */
-	public Set<Favorite> getFavoriteSet() {
-		return this.favoriteSet;
-	}
-
-	/**
 	 * 맛집댓글 목록을 설정합니다..
 	 * 
 	 * @param rreplySet
@@ -354,6 +325,35 @@ public class Restaurant implements Serializable {
 	 */
 	public Set<Rreply> getRreplySet() {
 		return this.rreplySet;
+	}
+
+	/**
+	 * 즐겨찾기 목록을 설정합니다..
+	 * 
+	 * @param favoriteSet
+	 *            즐겨찾기 목록
+	 */
+	public void setFavoriteSet(Set<Favorite> favoriteSet) {
+		this.favoriteSet = favoriteSet;
+	}
+
+	/**
+	 * 즐겨찾기를 추가합니다..
+	 * 
+	 * @param favorite
+	 *            즐겨찾기
+	 */
+	public void addFavorite(Favorite favorite) {
+		this.favoriteSet.add(favorite);
+	}
+
+	/**
+	 * 즐겨찾기 목록을 가져옵니다..
+	 * 
+	 * @return 즐겨찾기 목록
+	 */
+	public Set<Favorite> getFavoriteSet() {
+		return this.favoriteSet;
 	}
 
 	/**

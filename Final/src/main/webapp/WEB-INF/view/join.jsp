@@ -7,19 +7,23 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
 </head>
 <script>
-$(document).ready(function(){
-	$("#dupCheck").click(function(){
-		if($("#id").val()==""){
-			alert("아이디를 입력해주세요.");
-			$("#id").focus();		
-		}else{
-			<c:url value="/id_check" var="idchk"></c:url>
-            var url = "${idchk}?cmd=idCheck&id="+$("#id").val();
-			window.open(url, "_blank", "width=450, height=200, toolbar=no, menubar=no, resizable=no")
-		}
-	});
+$(document).ready(function() {
+$("#idCheck").click(function(){
+    var id = $('#userId').val();
+    alert("id : "+ id);
+    $.ajax({
+    type: "POST",
+    url: "<%=request.getContextPath()%>/id",
+    data: "id="+ id ,
+    contentType:"application/x-www-form-urlencoded; charset=utf-8",
+    success: function(responseText){
+    	document.querySelector("#drophere").innerHTML += responseText;
+    }
+    });
+})
 	
     var password1 = document.getElementById('pass');
     var password2 = document.getElementById('pass2');
@@ -36,7 +40,7 @@ $(document).ready(function(){
         document.querySelector("#error").innerHTML = password1.validationMessage;
     };
      */
-    
+   /*  
     password1.addEventListener('change', checkPasswordValidity, false);
     password2.addEventListener('change', checkPasswordValidity, false);
 
@@ -55,7 +59,7 @@ $(document).ready(function(){
         }else{
         	 password1.setCustomValidity('');
         }
-    }, false);
+    }, false); */
 });
 
 </script>
@@ -63,7 +67,10 @@ $(document).ready(function(){
 	<c:url value="/join/confirm" var="action"></c:url>
 	<form:form modelAttribute="Users" method="post" action="${action}">
 
-		<label>아이디</label> : <form:input path="userId" />
+		<label>아이디</label> : <form:input path="userId" /><a href="<%=request.getContextPath()%>/id">
+		<input type="button" value="중복체크" name="idCheck"
+		id="idCheck"></a><div id="drophere"></div>
+
 		<br>
 		<label>닉네임</label> : <form:input path="userName" />
 		<br>

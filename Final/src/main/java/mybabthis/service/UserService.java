@@ -2,7 +2,6 @@ package mybabthis.service;
 
 import java.util.List;
 
-
 import mybabthis.entity.Users;
 
 public interface UserService {
