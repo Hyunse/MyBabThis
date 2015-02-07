@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="simple.mappers.ReviewMapper">
+	<!-- INSERT --> 
+	<insert id="createReview" parameterType="Review">
+		insert into review 
+		(review_score, 
+		review_content, 
+		review_regdate, 
+		review_updatedate, 
+		res_no, 
+		user_id)
+		values(#{reviewScore}, #{reviewContent}, sysdate, sysdate, #{restaurant.resNo}, #{users.userId})
+	</insert>
+
+	<!-- UPDATE --> 
+	<update id="updateReview" parameterType="Review">
+		update review set 
+			review_score=#{reviewScore}, 
+			review_content=#{reviewContent}, 
+			review_updatedate=sysdate, 
+			user_id = #{users.userId}
+		where review_no=#{reviewNo} 
+	</update>
+	
+	<!-- DELETE -->
+	<delete id="deleteReview" parameterType="Review">
+		delete from review where review_no=#{reviewNo}
+	</delete>
+	
+	<!-- SELECT -->
+	<!-- ByReviewNo -->
+	<select id="selectReviewByReviewNo" parameterType="Integer" resultType="Review">
+		select * from review where review_no=#{reviewNo}
+	</select>
+	<!-- ByResNo -->
+	<select id="selectReviewByResNo" parameterType="Integer" resultType="Review">
+		select * from review where res_no=#{resNo}
+	</select>
+	<!-- ByUserId -->
+	<select id="selectReviewByUserId" parameterType="String" resultType="Review">
+		select * from review where res_no=#{resNo}
+	</select>
+	<!-- AllReview -->
+	<select id="selectAllReview" resultType="Review">
+		select * from review
+	</select>	
+</mapper>
