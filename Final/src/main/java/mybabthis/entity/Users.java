@@ -55,14 +55,14 @@ public class Users implements Serializable {
 	/** 즐겨찾기 목록. */
 	private Set<Favorite> favoriteSet;
 
-	/** 게시판 목록. */
-	private Set<Board> boardSet;
-
-	/** 맛집 목록. */
-	private Set<Restaurant> restaurantSet;
+	/** 맛집댓글 목록. */
+	private Set<Resreply> resreplySet;
 
 	/** 관심지역 목록. */
-	private Set<FavoriteLocation> favoriteLocationSet;
+	private Set<FavoriteLoc> favoriteLocSet;
+
+	/** 게시판 목록. */
+	private Set<Board> boardSet;
 
 	/** 맛집리뷰 목록. */
 	private Set<Review> reviewSet;
@@ -70,11 +70,11 @@ public class Users implements Serializable {
 	/** 자격증취득회원 목록. */
 	private Set<LicensedUser> licensedUserSet;
 
+	/** 맛집 목록. */
+	private Set<Restaurant> restaurantSet;
+
 	/** 댓글 목록. */
 	private Set<Reply> replySet;
-
-	/** 맛집댓글 목록. */
-	private Set<Resreply> resreplySet;
 
 	/**
 	 * 생성자.
@@ -82,7 +82,7 @@ public class Users implements Serializable {
 	public Users() {
 		this.boardSet = new HashSet<Board>();
 		this.favoriteSet = new HashSet<Favorite>();
-		this.favoriteLocationSet = new HashSet<FavoriteLocation>();
+		this.favoriteLocSet = new HashSet<FavoriteLoc>();
 		this.friendSet = new HashSet<Friend>();
 		this.licensedUserSet = new HashSet<LicensedUser>();
 		this.replySet = new HashSet<Reply>();
@@ -359,6 +359,64 @@ public class Users implements Serializable {
 	}
 
 	/**
+	 * 맛집댓글 목록을 설정합니다..
+	 * 
+	 * @param resreplySet
+	 *            맛집댓글 목록
+	 */
+	public void setResreplySet(Set<Resreply> resreplySet) {
+		this.resreplySet = resreplySet;
+	}
+
+	/**
+	 * 맛집댓글를 추가합니다..
+	 * 
+	 * @param resreply
+	 *            맛집댓글
+	 */
+	public void addResreply(Resreply resreply) {
+		this.resreplySet.add(resreply);
+	}
+
+	/**
+	 * 맛집댓글 목록을 가져옵니다..
+	 * 
+	 * @return 맛집댓글 목록
+	 */
+	public Set<Resreply> getResreplySet() {
+		return this.resreplySet;
+	}
+
+	/**
+	 * 관심지역 목록을 설정합니다..
+	 * 
+	 * @param favoriteLocSet
+	 *            관심지역 목록
+	 */
+	public void setFavoriteLocSet(Set<FavoriteLoc> favoriteLocSet) {
+		this.favoriteLocSet = favoriteLocSet;
+	}
+
+	/**
+	 * 관심지역를 추가합니다..
+	 * 
+	 * @param favoriteLoc
+	 *            관심지역
+	 */
+	public void addFavoriteLoc(FavoriteLoc favoriteLoc) {
+		this.favoriteLocSet.add(favoriteLoc);
+	}
+
+	/**
+	 * 관심지역 목록을 가져옵니다..
+	 * 
+	 * @return 관심지역 목록
+	 */
+	public Set<FavoriteLoc> getFavoriteLocSet() {
+		return this.favoriteLocSet;
+	}
+
+	/**
 	 * 게시판 목록을 설정합니다..
 	 * 
 	 * @param boardSet
@@ -385,64 +443,6 @@ public class Users implements Serializable {
 	 */
 	public Set<Board> getBoardSet() {
 		return this.boardSet;
-	}
-
-	/**
-	 * 맛집 목록을 설정합니다..
-	 * 
-	 * @param restaurantSet
-	 *            맛집 목록
-	 */
-	public void setRestaurantSet(Set<Restaurant> restaurantSet) {
-		this.restaurantSet = restaurantSet;
-	}
-
-	/**
-	 * 맛집를 추가합니다..
-	 * 
-	 * @param restaurant
-	 *            맛집
-	 */
-	public void addRestaurant(Restaurant restaurant) {
-		this.restaurantSet.add(restaurant);
-	}
-
-	/**
-	 * 맛집 목록을 가져옵니다..
-	 * 
-	 * @return 맛집 목록
-	 */
-	public Set<Restaurant> getRestaurantSet() {
-		return this.restaurantSet;
-	}
-
-	/**
-	 * 관심지역 목록을 설정합니다..
-	 * 
-	 * @param favoriteLocationSet
-	 *            관심지역 목록
-	 */
-	public void setFavoriteLocationSet(Set<FavoriteLocation> favoriteLocationSet) {
-		this.favoriteLocationSet = favoriteLocationSet;
-	}
-
-	/**
-	 * 관심지역를 추가합니다..
-	 * 
-	 * @param favoriteLocation
-	 *            관심지역
-	 */
-	public void addFavoriteLocation(FavoriteLocation favoriteLocation) {
-		this.favoriteLocationSet.add(favoriteLocation);
-	}
-
-	/**
-	 * 관심지역 목록을 가져옵니다..
-	 * 
-	 * @return 관심지역 목록
-	 */
-	public Set<FavoriteLocation> getFavoriteLocationSet() {
-		return this.favoriteLocationSet;
 	}
 
 	/**
@@ -504,6 +504,35 @@ public class Users implements Serializable {
 	}
 
 	/**
+	 * 맛집 목록을 설정합니다..
+	 * 
+	 * @param restaurantSet
+	 *            맛집 목록
+	 */
+	public void setRestaurantSet(Set<Restaurant> restaurantSet) {
+		this.restaurantSet = restaurantSet;
+	}
+
+	/**
+	 * 맛집를 추가합니다..
+	 * 
+	 * @param restaurant
+	 *            맛집
+	 */
+	public void addRestaurant(Restaurant restaurant) {
+		this.restaurantSet.add(restaurant);
+	}
+
+	/**
+	 * 맛집 목록을 가져옵니다..
+	 * 
+	 * @return 맛집 목록
+	 */
+	public Set<Restaurant> getRestaurantSet() {
+		return this.restaurantSet;
+	}
+
+	/**
 	 * 댓글 목록을 설정합니다..
 	 * 
 	 * @param replySet
@@ -530,35 +559,6 @@ public class Users implements Serializable {
 	 */
 	public Set<Reply> getReplySet() {
 		return this.replySet;
-	}
-
-	/**
-	 * 맛집댓글 목록을 설정합니다..
-	 * 
-	 * @param resreplySet
-	 *            맛집댓글 목록
-	 */
-	public void setResreplySet(Set<Resreply> resreplySet) {
-		this.resreplySet = resreplySet;
-	}
-
-	/**
-	 * 맛집댓글를 추가합니다..
-	 * 
-	 * @param resreply
-	 *            맛집댓글
-	 */
-	public void addResreply(Resreply resreply) {
-		this.resreplySet.add(resreply);
-	}
-
-	/**
-	 * 맛집댓글 목록을 가져옵니다..
-	 * 
-	 * @return 맛집댓글 목록
-	 */
-	public Set<Resreply> getResreplySet() {
-		return this.resreplySet;
 	}
 
 	/**

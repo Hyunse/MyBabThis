@@ -22,13 +22,13 @@ public class Loc implements Serializable {
 	private Set<Restaurant> restaurantSet;
 
 	/** 관심지역 목록. */
-	private Set<FavoriteLocation> favoriteLocationSet;
+	private Set<FavoriteLoc> favoriteLocSet;
 
 	/**
 	 * 생성자.
 	 */
 	public Loc() {
-		this.favoriteLocationSet = new HashSet<FavoriteLocation>();
+		this.favoriteLocSet = new HashSet<FavoriteLoc>();
 		this.restaurantSet = new HashSet<Restaurant>();
 	}
 
@@ -83,21 +83,21 @@ public class Loc implements Serializable {
 	/**
 	 * 관심지역 목록을 설정합니다..
 	 * 
-	 * @param favoriteLocationSet
+	 * @param favoriteLocSet
 	 *            관심지역 목록
 	 */
-	public void setFavoriteLocationSet(Set<FavoriteLocation> favoriteLocationSet) {
-		this.favoriteLocationSet = favoriteLocationSet;
+	public void setFavoriteLocSet(Set<FavoriteLoc> favoriteLocSet) {
+		this.favoriteLocSet = favoriteLocSet;
 	}
 
 	/**
 	 * 관심지역를 추가합니다..
 	 * 
-	 * @param favoriteLocation
+	 * @param favoriteLoc
 	 *            관심지역
 	 */
-	public void addFavoriteLocation(FavoriteLocation favoriteLocation) {
-		this.favoriteLocationSet.add(favoriteLocation);
+	public void addFavoriteLoc(FavoriteLoc favoriteLoc) {
+		this.favoriteLocSet.add(favoriteLoc);
 	}
 
 	/**
@@ -105,8 +105,8 @@ public class Loc implements Serializable {
 	 * 
 	 * @return 관심지역 목록
 	 */
-	public Set<FavoriteLocation> getFavoriteLocationSet() {
-		return this.favoriteLocationSet;
+	public Set<FavoriteLoc> getFavoriteLocSet() {
+		return this.favoriteLocSet;
 	}
 
 	/**

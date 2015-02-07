@@ -17,7 +17,7 @@ DROP TRIGGER TRI_review_review_no;
 DROP TABLE reply CASCADE CONSTRAINTS;
 DROP TABLE board CASCADE CONSTRAINTS;
 DROP TABLE favorite CASCADE CONSTRAINTS;
-DROP TABLE favorite_location CASCADE CONSTRAINTS;
+DROP TABLE favorite_loc CASCADE CONSTRAINTS;
 DROP TABLE friend CASCADE CONSTRAINTS;
 DROP TABLE img CASCADE CONSTRAINTS;
 DROP TABLE licensed_user CASCADE CONSTRAINTS;
@@ -80,7 +80,7 @@ CREATE TABLE favorite
 );
 
 
-CREATE TABLE favorite_location
+CREATE TABLE favorite_loc
 (
 	user_id varchar2(20) NOT NULL,
 	loc_name varchar2(20) NOT NULL
@@ -232,7 +232,7 @@ ALTER TABLE restaurant
 ;
 
 
-ALTER TABLE favorite_location
+ALTER TABLE favorite_loc
 	ADD FOREIGN KEY (loc_name)
 	REFERENCES loc (loc_name)
 ;
@@ -268,19 +268,19 @@ ALTER TABLE favorite
 ;
 
 
+ALTER TABLE resreply
+	ADD FOREIGN KEY (user_id)
+	REFERENCES users (user_id)
+;
+
+
+ALTER TABLE favorite_loc
+	ADD FOREIGN KEY (user_id)
+	REFERENCES users (user_id)
+;
+
+
 ALTER TABLE board
-	ADD FOREIGN KEY (user_id)
-	REFERENCES users (user_id)
-;
-
-
-ALTER TABLE restaurant
-	ADD FOREIGN KEY (user_id)
-	REFERENCES users (user_id)
-;
-
-
-ALTER TABLE favorite_location
 	ADD FOREIGN KEY (user_id)
 	REFERENCES users (user_id)
 ;
@@ -298,13 +298,13 @@ ALTER TABLE licensed_user
 ;
 
 
-ALTER TABLE reply
+ALTER TABLE restaurant
 	ADD FOREIGN KEY (user_id)
 	REFERENCES users (user_id)
 ;
 
 
-ALTER TABLE resreply
+ALTER TABLE reply
 	ADD FOREIGN KEY (user_id)
 	REFERENCES users (user_id)
 ;
