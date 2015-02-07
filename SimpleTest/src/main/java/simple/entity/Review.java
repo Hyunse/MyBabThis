@@ -34,7 +34,7 @@ public class Review implements Serializable {
 
 	/** 사용자. */
 	private Users users;
-
+	
 	/**
 	 * 생성자.
 	 */
