@@ -1,0 +1,55 @@
+package mybabthis.controller;
+
+import java.util.List;
+
+import mybabthis.entity.Restaurant;
+import mybabthis.service.RestaurantService;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+
+@Controller
+public class RestaurantController {
+	static final Logger logger = LoggerFactory
+			.getLogger(RestaurantController.class);
+
+
+	@Autowired
+	RestaurantService service;
+	
+
+	@RequestMapping(value="/restaurant/list", method=RequestMethod.GET)
+	public String getAllRestaurantList(Model model){
+		List<Restaurant> restaurants = service.selectAllRestuarants();
+		
+		model.addAttribute("restaurants",restaurants);
+		return "/restaurant/restaurant_list";
+		
+	}
+	
+	@RequestMapping(value="/restaurant/listByLoc",params={"locName"}, method=RequestMethod.GET)
+	public String getRestaurantListbyLoc(@RequestParam String locName, Model model){
+		List<Restaurant> restaurants = service.selectRestaurantsByLocation(locName);
+		
+		model.addAttribute("restaurants",restaurants);
+		return "/restaurant/restaurant_list";
+		
+	}
+	
+	@RequestMapping(value="/restaurant/view",params={"resNo"}, method=RequestMethod.GET)
+	public String getRestaurantView(@RequestParam int resNo, Model model){
+		Restaurant restaurant = service.selectRestaurantByNo(resNo);
+		
+		model.addAttribute("restaurant",restaurant);
+		return "restaurant/restaurant_view";
+		
+	}
+	
+	
+}

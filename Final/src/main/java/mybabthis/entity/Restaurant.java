@@ -36,12 +36,15 @@ public class Restaurant implements Serializable {
 
 	/** 사용자. */
 	private Users users;
+	private String userId;
 
 	/** 맛집사진. */
 	private String resImg;
 
 	/** 지역. */
 	private Loc loc;
+	
+	private String locName;
 
 	/** 맛집종류. */
 	private String resKind;
@@ -420,5 +423,36 @@ public class Restaurant implements Serializable {
 		}
 		return true;
 	}
+
+	public String getLocName() {
+		return locName;
+	}
+
+	public void setLocName(String locName) {
+		this.locName = locName;
+	}
+
+	public String getUserId() {
+		return userId;
+	}
+
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
+
+	@Override
+	public String toString() {
+		return "Restaurant [resNo=" + resNo + ", resName=" + resName
+				+ ", resNumber=" + resNumber + ", resScore=" + resScore
+				+ ", resLoc=" + resLoc + ", resContent=" + resContent
+				+ ", users=" + users + ", userId=" + userId + ", resImg="
+				+ resImg + ", loc=" + loc + ", locName=" + locName
+				+ ", resKind=" + resKind + ", resRegdate=" + resRegdate
+				+ ", resUpdatedate=" + resUpdatedate + ", rreplySet="
+				+ rreplySet + ", favoriteSet=" + favoriteSet + ", reviewSet="
+				+ reviewSet + "]";
+	}
+
+	
 
 }

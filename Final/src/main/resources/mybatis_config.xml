@@ -14,11 +14,13 @@
 		<typeAlias type="mybabthis.entity.Review" alias="Review" />
 		<typeAlias type="mybabthis.entity.Board" alias="Board" />
 	    <typeAlias type="mybabthis.entity.Rreply" alias="Rreply" />
+	    <typeAlias type="mybabthis.entity.Restaurant" alias="Restaurant" />
 	</typeAliases>
 	<mappers>
 		<mapper resource="mappers/UserMapper.xml" />
 		<mapper resource="mappers/ReviewMapper.xml" />
 		<mapper resource="mappers/BoardMapper.xml"/>
 		<mapper resource="mappers/RreplyMapper.xml"/>
+		<mapper resource="mappers/RestaurantMapper.xml"/>
 	</mappers>
 </configuration>

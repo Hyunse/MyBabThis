@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mybabthis.mappers.RestaurantMapper">
+
+	
+	<insert id="createRestaurant" parameterType="Restaurant">
+		insert into
+		restaurant (res_name, res_number, res_score, res_loc,
+		res_content,user_id,res_img,loc_name,res_kind)
+		values(#{resName},#{resNumber},
+		#{resScore}, #{resLoc},
+		#{resContent},#{userId},#{resImg},#{locName},#{resKind})
+	</insert>
+
+	<update id="updateRestaurant" parameterType="Restaurant">
+		update restaurant
+		set
+		res_name=#{resName},
+		res_number=#{resNumber},
+		res_loc=#{resLoc},
+		res_content=#{resContent},
+		res_img=#{resImg},
+		loc_name=#{locName},
+		res_kind=#{resKind},
+		res_updatedate=sysdate
+		where res_no=#{resNo}
+	</update>
+	
+	<delete id="deleteRestaurant" parameterType="integer">
+	delete from restaurant
+	where res_no=#{resNo}
+	</delete>
+		
+	<select id="selectAllRestaurants" resultType="Restaurant">
+		select *
+		from restaurant
+		order by res_no desc
+	</select>
+	
+	<select id="selectRestaurantsByLocation" parameterType="String" resultType="Restaurant">
+	select *
+	from restaurant
+	where loc_name=#{locName}	
+	order by res_no desc
+	</select>
+	
+	<select id="selectRestaurantByNo" parameterType="Integer" resultType="Restaurant">
+	select *
+	from restaurant
+	where res_no=#{resNo}
+	</select>
+	
+	
+</mapper>
+
+
+
+
+
+
