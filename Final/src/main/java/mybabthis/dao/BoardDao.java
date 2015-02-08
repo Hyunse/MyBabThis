@@ -1,7 +1,6 @@
 package mybabthis.dao;
 
 import java.util.List;
-
 import mybabthis.entity.Board;
 
 
