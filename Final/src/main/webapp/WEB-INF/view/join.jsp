@@ -16,7 +16,7 @@ $("#idCheck").click(function(){
     alert("id : "+ id);
     $.ajax({
     type: "POST",
-    url: "<%=request.getContextPath()%>/id",
+    url: "<%=request.getContextPath()%>/join/id",
     data: "id="+ id ,
     contentType:"application/x-www-form-urlencoded; charset=utf-8",
     success: function(args){
@@ -64,10 +64,11 @@ $("#idCheck").click(function(){
 
 </script>
 <body>
-	<c:url value="/join/confirm" var="action"></c:url>
-	<form:form modelAttribute="Users" method="post" action="${action}">
+	<c:url value="/join/confirm" var="confirm" />
+	<c:url value="/join/id" var="id" />
+	<form:form modelAttribute="Users" method="post" action="${confirm}">
 
-		<label>아이디</label> : <form:input path="userId" /><a href="<%=request.getContextPath()%>/id">
+		<label>아이디</label> : <form:input path="userId" /><a href="${id}">
 		<input type="button" value="중복체크" name="idCheck"
 		id="idCheck"></a><div id="drophere"></div> <!-- 중복체크는 나중에 -->
 
