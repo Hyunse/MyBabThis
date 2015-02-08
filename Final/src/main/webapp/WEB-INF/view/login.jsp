@@ -17,6 +17,7 @@
 			<br>
 
 			<button type="submit" name="login">로그인</button>
+			<button type="submit" name="join">가입</button>
 		</form:form>
 	
 	

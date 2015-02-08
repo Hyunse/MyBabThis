@@ -1,6 +1,5 @@
 package mybabthis.controller;
 
-import java.io.PrintWriter;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -31,7 +30,7 @@ public class UserJoinController {
 	@Autowired
 	UserService userservice;
 	
-	@RequestMapping(value="/join", method=RequestMethod.GET)
+	@RequestMapping(value="/join",params="join", method=RequestMethod.GET)
 	public String enterLogin(Model model){
 		model.addAttribute("Users", new Users());
 		return "join";

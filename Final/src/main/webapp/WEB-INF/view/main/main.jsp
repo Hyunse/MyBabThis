@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<jsp:include page="/WEB-INF/view/main/header.jsp"/>
 <h1>환영합니다 메인입니다.</h1>
 </body>
 </html>

@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.support.SessionStatus;
 
 @Controller
 @SessionAttributes("loginUser")
@@ -62,9 +63,17 @@ public class UserLoginController {
 	public String goMain(){
 		
 		
+		
 		return "/main/main";
 		
 	}
 	
+	@RequestMapping(value="/mypage/myinfo", params="_event_logout", method=RequestMethod.POST)
+	public String reinput(@ModelAttribute("Users") Users user, SessionStatus sessionstatus){
+		
+		logger.trace("로그아웃 성공");
+		sessionstatus.setComplete();
+		return "main/main";
+	}
 
 }
