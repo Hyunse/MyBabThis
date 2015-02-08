@@ -1,9 +1,7 @@
 package mybabthis.controller;
 
 import java.util.List;
-
 import mybabthis.entity.Board;
-import mybabthis.entity.Users;
 import mybabthis.service.BoardService;
 
 import org.slf4j.Logger;
@@ -89,4 +87,44 @@ public class BoardController {
 		return "board/board_write";
 	}
 	
+	/**
+	 * 게시판 수정화면으로 이동
+	 * @param boardNo
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping(value="/update",  method=RequestMethod.GET, params={"boardNo"})
+	public String goEditBoard(@RequestParam int boardNo, Model model){
+		
+		Board board = boardService.viewBoardByNo(boardNo);
+		model.addAttribute("editBoard",board);
+		
+		return "/board/board_edit";
+	}
+	
+	/**
+	 * 게시판 수정하기
+	 * @param board
+	 * @return
+	 */
+	@RequestMapping(value="/edit", params="_event_edit", method=RequestMethod.POST)
+	public String editBoard(@ModelAttribute("editBoard") Board board){
+		
+		boardService.updateBoard(board);
+		
+		return "redirect:/board/list";
+	}
+
+	/**
+	 * 게시판 삭제하기
+	 * @param board
+	 * @return
+	 */
+	@RequestMapping(value="/edit", params="_event_delete", method=RequestMethod.POST)
+	public String deleteBoard(@ModelAttribute("editBoard") Board board){
+		
+		boardService.delete(board.getBoardNo());
+		logger.trace("번호: " +board.getBoardNo());
+		return "redirect:/board/list";
+	}
 }
