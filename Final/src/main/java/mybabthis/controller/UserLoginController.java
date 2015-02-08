@@ -32,7 +32,7 @@ public class UserLoginController {
 	public String enterLogin(Model model){
 		
 		model.addAttribute("loginUser", new Users());
-		return "/login";
+		return "login";
 		
 	}
 
@@ -48,7 +48,7 @@ public class UserLoginController {
 		}
 		
 		
-		return "redirect:/main/main";
+		return "redirect:/main";
 		
 	}
 	@RequestMapping(value="/login/login_fail", method=RequestMethod.GET)
@@ -59,21 +59,19 @@ public class UserLoginController {
 		
 	}
 	
-	@RequestMapping(value="/main/main", method=RequestMethod.GET)
+	@RequestMapping(value="/main", method=RequestMethod.GET)
 	public String goMain(){
 		
-		
-		
-		return "/main/main";
+		return "main";
 		
 	}
 	
-	@RequestMapping(value="/mypage/myinfo", params="_event_logout", method=RequestMethod.POST)
-	public String reinput(@ModelAttribute("Users") Users user, SessionStatus sessionstatus){
+
+	@RequestMapping(value="/logout", method=RequestMethod.GET)
+	public String logout(SessionStatus sessionstatus){
 		
 		logger.trace("로그아웃 성공");
 		sessionstatus.setComplete();
-		return "main/main";
+		return "redirect:/main";
 	}
-
 }

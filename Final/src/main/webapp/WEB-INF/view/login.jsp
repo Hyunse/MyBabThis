@@ -16,10 +16,10 @@
 			<label>패스워드</label> : <form:input path="userPass" />
 			<br>
 
-			<button type="submit" name="login">로그인</button>
-			<button type="submit" name="join">가입</button>
-		</form:form>
-	
+			<button type="submit">로그인</button>
+			</form:form>
+			<c:url value="/join" var="join"/>
+			<a href="${join}"><button>가입하기</button></a>
 	
 </body>
 </html>
