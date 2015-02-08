@@ -25,9 +25,7 @@ public class ReviewDaoImpl implements ReviewDao {
 	@Override
 	public int createReview(Review review) {
 		String stmt = nameSpace + "createReview";
-		logger.trace("나오나");
 		int result = sqlSession.insert(stmt, review);
-		logger.trace("나오나"+result);
 		return result;
 	}
 
@@ -38,18 +36,16 @@ public class ReviewDaoImpl implements ReviewDao {
 	}
 
 	@Override
-	public int deleteReview(Review review) {
+	public int deleteReview(int reviewNo) {
 		String stmt = nameSpace + "deleteReview";
-		return sqlSession.delete(stmt, review);
+		return sqlSession.delete(stmt, reviewNo);
 	}
 
 	@Override
 	public Review getReviewByReviewNo(int reviewNo) {
 		String stmt = nameSpace + "selectReviewByReviewNo";
 		Review result =null;
-		logger.trace("daoImpl : 전"+result);
 		result = sqlSession.selectOne(stmt, reviewNo);
-		logger.trace("daoImpl : 후"+result);
 		return result;
 	}
 
