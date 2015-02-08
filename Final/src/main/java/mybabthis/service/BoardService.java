@@ -11,6 +11,8 @@ public interface BoardService {
 	
 	int delete(int boardNo); 			// 게시글 삭제
 	
+	Board viewBoardByNo(int boardNo); 	// 게시글 번호로 조회
+	
 	List<Board> viewAllBoard(); 		// 게시글 모두 조회
 	
 	List<Board> viewBoardByPage(int page); // 페이지 별 게시글 조회

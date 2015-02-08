@@ -53,6 +53,18 @@ public class BoardDaoImpl implements BoardDao {
 		int result = sqlSession.delete(stmt, boardNo);
 		return result;
 	}
+	
+	/**
+	 * 게시글 번호로 조회
+	 */
+	@Override
+	public Board getBoardByNo(int boardNo) {
+		String stmt = nameSpace + "selectBoardByNo";
+		Board result = sqlSession.selectOne(stmt, boardNo);
+		return result;
+	}
+	
+	
 
 	/**
 	 * 모든 게시글 조회
@@ -73,6 +85,8 @@ public class BoardDaoImpl implements BoardDao {
 		List<Board> result = sqlSession.selectList(stmt, page);
 		return result;
 	}
+
+	
 
 
 }

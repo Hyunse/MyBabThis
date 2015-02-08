@@ -11,6 +11,8 @@ public interface BoardDao {
 	int updateBoard(Board board); 		// 게시글 수정
 
 	int deleteBoard(int board); 		// 게시글 삭제
+	
+	Board getBoardByNo(int boardNo); 		// 게시글 번호로 조회
 
 	List<Board> getAllBoard();			// 게시글 모두 조회 (게시판)
 

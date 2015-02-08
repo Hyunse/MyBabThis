@@ -33,6 +33,14 @@
 	</delete>
 
 
+	<!-- 게시글 하나 조회 -->
+	<select id="selectBoardByNo" parameterType="int" resultType="Board" > 
+		select *
+		from board
+		where board_no=#{boardNo}
+	</select>
+	
+
 	<!-- 게시판 목록에서 게시글 모두 조회 -->
 	<select id="selectAllBoard" resultType="Board">
 		select *

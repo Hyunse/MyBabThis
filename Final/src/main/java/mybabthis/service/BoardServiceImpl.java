@@ -38,6 +38,12 @@ public class BoardServiceImpl implements BoardService{
 		int result = dao.deleteBoard(boardNo);
 		return result;
 	}
+	
+	@Override
+	public Board viewBoardByNo(int boardNo) {
+		Board result = dao.getBoardByNo(boardNo);
+		return result;
+	}
 
 	@Override
 	public List<Board> viewAllBoard() {
@@ -50,6 +56,8 @@ public class BoardServiceImpl implements BoardService{
 		List<Board> result = dao.getBoardByPage(page);
 		return result;
 	}
+
+	
 	
 
 }
