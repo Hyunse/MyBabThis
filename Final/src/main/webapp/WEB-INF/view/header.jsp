@@ -15,18 +15,17 @@
 		<div id="header_info">
 		<c:if test="${!empty loginUser }">
 		${loginUser.userId }님 반갑습니다. 
-		<c:url value="/login/logout" var="logout" />
+		<c:url value="/logout" var="logout" />
 		<a href="${logout}"><button>로그아웃</button></a>
 		<c:url value="myinfo" /><!-- 의견조율이 필요함 -->
 		<a href="${myinfo}"><button>개인정보</button></a>
 			</c:if>
 		<c:if test="${empty loginUser }">
 
-				<form>
-				아이디 
-				</form>
-
-
+			<c:url value="login" var="login"/>
+			<a href="${login}"><button>로그인 하기</button></a>
+			<c:url value="join" var="join"/>
+			<a href="${join}"><button>가입 하기</button></a>
 			</c:if>
 		</div>
 	</div>

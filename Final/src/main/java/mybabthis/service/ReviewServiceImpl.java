@@ -34,16 +34,14 @@ public class ReviewServiceImpl implements ReviewService {
 	}
 
 	@Override
-	public int deleteReview(Review review) {
-		int result = dao.deleteReview(review);
+	public int deleteReview(int reviewNo) {
+		int result = dao.deleteReview(reviewNo);
 		return result;
 	}
 
 	@Override
 	public Review getReviewByReviewNo(int reviewNo) {
-		logger.trace("serviceImpl : 전");
 		Review result = dao.getReviewByReviewNo(reviewNo);
-		logger.trace("serviceImpl : 후");
 		return result;
 	}
 

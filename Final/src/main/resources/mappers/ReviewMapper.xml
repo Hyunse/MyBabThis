@@ -12,7 +12,7 @@
 		review_updatedate, 
 		res_no, 
 		user_id)
-		values(#{reviewScore}, #{reviewContent}, sysdate, sysdate, #{restaurant.resNo}, #{users.userId})
+		values(#{reviewScore}, #{reviewContent}, sysdate, sysdate, #{resNo}, #{userId})
 	</insert>
 
 	<!-- UPDATE --> 
@@ -21,7 +21,7 @@
 			review_score=#{reviewScore}, 
 			review_content=#{reviewContent}, 
 			review_updatedate=sysdate, 
-			user_id = #{users.userId}
+			user_id = #{userId}
 		where review_no=#{reviewNo} 
 	</update>
 	
@@ -41,7 +41,7 @@
 	</select>
 	<!-- ByUserId -->
 	<select id="selectReviewByUserId" parameterType="String" resultType="Review">
-		select * from review where res_no=#{resNo}
+		select * from review where user_id=#{user_id}
 	</select>
 	<!-- AllReview -->
 	<select id="selectAllReview" resultType="Review">

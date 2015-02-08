@@ -21,18 +21,19 @@
 			review_score=#{reviewScore}, 
 			review_content=#{reviewContent}, 
 			review_updatedate=sysdate, 
-		where review_no=#{reviewNo}
+			user_id = #{users.userId}
+		where review_no=#{reviewNo} 
 	</update>
 	
 	<!-- DELETE -->
-	<delete id="deleteReview" parameterType="Review">
+	<delete id="deleteReview" parameterType="Integer">
 		delete from review where review_no=#{reviewNo}
 	</delete>
 	
 	<!-- SELECT -->
 	<!-- ByReviewNo -->
-	<select id="selectReviewByReviewNo" parameterType="Integer" resultType="String">
-		select review_content from review where review_no=#{reviewNo}
+	<select id="selectReviewByReviewNo" parameterType="Integer" resultType="Review">
+		select * from review where review_no=#{reviewNo}
 	</select>
 	<!-- ByResNo -->
 	<select id="selectReviewByResNo" parameterType="Integer" resultType="Review">
@@ -40,7 +41,7 @@
 	</select>
 	<!-- ByUserId -->
 	<select id="selectReviewByUserId" parameterType="String" resultType="Review">
-		select * from review where res_no=#{resNo}
+		select * from review where user_id=#{userId}
 	</select>
 	<!-- AllReview -->
 	<select id="selectAllReview" resultType="Review">

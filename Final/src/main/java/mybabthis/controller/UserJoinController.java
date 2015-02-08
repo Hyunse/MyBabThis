@@ -16,9 +16,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 
 @Controller
+@SessionAttributes("loginUser")
 public class UserJoinController {
 
 
@@ -30,20 +32,20 @@ public class UserJoinController {
 	@Autowired
 	UserService userservice;
 	
-	@RequestMapping(value="/join",params="join", method=RequestMethod.GET)
-	public String enterLogin(Model model){
+	@RequestMapping(value="/join", method=RequestMethod.GET)
+	public String enterJoin(Model model){
 		model.addAttribute("Users", new Users());
 		return "join";
 		
 	}
 
 	@RequestMapping(value="/join/confirm", method=RequestMethod.POST)
-	public String login(@ModelAttribute("Users") Users user){
+	public String join(@ModelAttribute("Users") Users user, Model model){
 		
 	
 		userservice.join(user);
-		
-		return "redirect:/main/main";
+		model.addAttribute("loginUser", user);
+		return "redirect:/main";
 		
 	}
 	@RequestMapping(value="/id", method=RequestMethod.GET)

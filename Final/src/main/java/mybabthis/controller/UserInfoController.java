@@ -41,7 +41,7 @@ public class UserInfoController {
 		userservice.leave(user.getUserId(), user.getUserPass());
 		logger.trace("삭제 성공");
 		sessionstatus.setComplete();
-		return "main/main";
+		return "main";
 	}
 	
 	@RequestMapping(value="/mypage/myinfo", params="_event_update", method=RequestMethod.POST)
