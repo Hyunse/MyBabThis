@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="proj.Mapper">
+
+<!-- 댓글생성 -->
+  <insert id="createRreply" parameterType="Rreply">
+    
+     insert into rreply 
+		(rreply_no, 
+		rreply_content, 
+		rreply_regdate, 
+		rreply_updatedate, 
+		res_no, 
+		user_id)
+		values(#{rreplyNo}, #{rreplyContent}, sysdate, sysdate, #{restaurant.resNo}, #{users.userId})
+    </insert>
+   
+   <!-- 댓글수정 -->
+   <update id="updateRreply" parameterType="Rreply">
+      update rreply set
+			rreply_content=#{rreplyContent}, 
+			rreply_updatedate=sysdate, 
+		where rreply_no=#{rreplyNo} 
+   </update>
+   
+   
+   <!-- 댓글삭제 -->
+   <delete id="deleteRreply" parameterType="integer">
+   delete from rreply
+   where rreply_no=#{rreplyNo}
+   </delete>
+   
+   <!-- 맛집번호로 댓글리스트 가져오기 -->
+   <select id="selectRreplyByResNo" parameterType="Integer" resultType="Rreply">
+		select * from rreply
+		where res_no=#{resNo}
+</select>
+
+
+</mapper>
