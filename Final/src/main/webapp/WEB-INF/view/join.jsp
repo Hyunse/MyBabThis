@@ -87,7 +87,7 @@ $("#idCheck").click(function(){
 							<form:radiobutton path="userGender" value="0"/>여
 							
 
-		<button type="submit" name="가입">가입</button>
+		<button type="submit" name="join">가입</button>
 	</form:form>
 
 
