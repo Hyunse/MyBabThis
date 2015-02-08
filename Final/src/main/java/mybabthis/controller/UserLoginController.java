@@ -60,9 +60,9 @@ public class UserLoginController {
 	}
 	
 	@RequestMapping(value="/main/main", method=RequestMethod.GET)
-	public String goMain(Model model){
+	public String goMain(){
 		
-		model.addAttribute("loginUser", new Users());
+		
 		
 		return "/main/main";
 		

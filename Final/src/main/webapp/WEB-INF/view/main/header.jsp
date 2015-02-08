@@ -22,7 +22,9 @@
 			</c:if>
 		<c:if test="${empty loginUser }">
 
-				<jsp:include page="/WEB-INF/view/login.jsp" />
+				<form>
+				아이디 
+				</form>
 
 
 			</c:if>
