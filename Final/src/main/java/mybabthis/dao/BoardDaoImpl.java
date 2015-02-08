@@ -19,7 +19,7 @@ public class BoardDaoImpl implements BoardDao {
 		logger = LoggerFactory.getLogger(BoardDaoImpl.class);
 	}
 	
-	String nameSpace = "simple.mappers.BoardMapper.";
+	String nameSpace = "mybabthis.mappers.BoardMapper.";
 	
 	@Autowired
 	private SqlSessionTemplate sqlSession;

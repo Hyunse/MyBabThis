@@ -33,9 +33,9 @@ public class Board implements Serializable {
 
 	/** 게시글종류. */
 	private String boardType;
-
-	/** 사용자. */
-	private Users users;
+	
+	/** 사용자아이디. */
+	private String userId;
 
 	/** 댓글 목록. */
 	private Set<Breply> breplySet;
@@ -162,22 +162,21 @@ public class Board implements Serializable {
 	}
 
 	/**
-	 * 사용자을 설정합니다..
+	 * 사용자 아이디를 가져옵니다..
 	 * 
-	 * @param users
-	 *            사용자
+	 * @return 사용자 아이디
 	 */
-	public void setUsers(Users users) {
-		this.users = users;
+	public String getUserId() {
+		return userId;
 	}
 
 	/**
-	 * 사용자을 가져옵니다..
+	 * 사용자 아이디를 설정합니다..
 	 * 
-	 * @return 사용자
+	 * @param 사용자 아이디
 	 */
-	public Users getUsers() {
-		return this.users;
+	public void setUserId(String userId) {
+		this.userId = userId;
 	}
 
 	/**
