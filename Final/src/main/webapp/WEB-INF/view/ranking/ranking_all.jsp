@@ -16,7 +16,7 @@
 
 
 	<c:forEach items="${restaurants }" var="restaurant">
-		<c:url value="/ranking/view?resNo=${restaurant.resNo}" var="url" />
+		<c:url value="/restaurant/view?resNo=${restaurant.resNo}" var="url" />
 		<table border="1" onclick="location.href='${url}'"
 			style="cursor: pointer;">
 			<tr>
@@ -24,12 +24,14 @@
 				<th>맛집지역</th>
 				<th>맛집 이름</th>
 				<th>맛집내용</th>
-				<th>왜안나와?</th>
+				<th>맛집 평점</th>
+				
 			<tr>
 				<td><c:out value="${restaurant.resNo}" /></td>
 				<td><c:out value="${restaurant.locName}" /></td>
 				<td><c:out value="${restaurant.resName}" /></td>
 				<td><c:out value="${restaurant.resContent}" /></td>
+				<td><c:out value="${restaurant.resScore}" /></td>
 			</tr>
 		</table>
 		<br>

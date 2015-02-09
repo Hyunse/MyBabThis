@@ -20,8 +20,11 @@
 			</td>
 		</tr>
 		<tr>
-			<td><c:url value="/ranking/view?resNo=${restaurant.resNo}" var="loc" />
+			<td><c:url value="/restaurant/view?resNo=${restaurant.resNo}" var="loc" />
 				<a href="${loc}"><c:out value="${restaurant.resName}" /></a></td>
+		</tr>
+		<tr>
+			<td><c:out value="${restaurant.resScore}"/></td>
 		</tr>
 	</table>
 	</c:forEach>
