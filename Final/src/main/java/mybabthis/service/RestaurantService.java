@@ -19,4 +19,7 @@ public interface RestaurantService {
 	Restaurant selectRestaurantByNo(int resNo);
 	public int updateResScore(Restaurant restaurant);
 
+	
+	List<Restaurant> getRankingAll();
+	List<Restaurant> getRankingByLoc(String locName);
 }

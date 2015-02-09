@@ -23,7 +23,8 @@ public interface RestaurantDao {
 	public int updateResScore(Restaurant restaurant);
 	
 	
-	
+	List<Restaurant> selectRankingAll();
+	List<Restaurant> selectRankingByLoc(String locName);
 
 	
 	

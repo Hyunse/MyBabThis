@@ -84,6 +84,22 @@ public class RestaurantDaoImpl implements RestaurantDao {
 		int result=sqlSession.update(stmt,restaurant);
 		return result;
 	}
+
+	@Override
+	public List<Restaurant> selectRankingAll() {
+		logger.trace("맛집게시판 순위 불러오기 시도");
+		String stmt = nameSpace +"selectRankingAll";
+		List<Restaurant> result=sqlSession.selectList(stmt);
+		return result;
+	}
+
+	@Override
+	public List<Restaurant> selectRankingByLoc(String locName) {
+		logger.trace("맛집 순위 -"+locName+" 불러오기 시도");
+		String stmt = nameSpace +"selectRankingByLocName";
+		List<Restaurant> result=sqlSession.selectList(stmt,locName);
+		return result;
+	}
 	
 
 }

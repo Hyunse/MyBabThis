@@ -72,6 +72,18 @@ public class RestaurantServiceImpl implements RestaurantService {
 		int result = dao.updateResScore(restaurant);
 		return result;
 	}
+
+	@Override
+	public List<Restaurant> getRankingAll() {
+		List<Restaurant> result = dao.selectRankingAll();
+		return result;
+	}
+
+	@Override
+	public List<Restaurant> getRankingByLoc(String locName) {
+		List<Restaurant> result = dao.selectRankingByLoc(locName);
+		return result;
+	}
 	
 	
 	
