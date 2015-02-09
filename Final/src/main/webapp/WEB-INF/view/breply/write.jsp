@@ -12,13 +12,13 @@
 
 
 <h1>댓글작성</h1>
-	<c:url value="/rreply/write" var="action"></c:url>
-	<form:form modelAttribute="rreply" method="post" action="${action }" >
-		<label>맛집번호</label> : <form:input path="resNo" />
+	<c:url value="/breply/write" var="action"></c:url>
+	<form:form modelAttribute="breply" method="post" action="${action }" >
+		<label>게시글번호</label> : <form:input path="boardNo" />
 		<br>
 		<label>작성자</label> : <form:input path="userId" />
 		<br>
-		<label>내용</label> : <form:input path="rreplyContent" />
+		<label>내용</label> : <form:input path="breplyContent" />
 		<br>
 		<button type="submit" name="bwrite">작성</button>
 	</form:form>

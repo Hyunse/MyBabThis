@@ -31,6 +31,26 @@ public class Breply implements Serializable {
 
 	/** 게시판. */
 	private Board board;
+	
+	
+	
+	
+	/** 외래키 ******************/
+	private String userId;
+	private Integer boardNo;
+	public void setUserId(String userId){
+		this.userId=userId;
+	}
+	public String getUserId(){
+		return this.userId;
+	}
+	public void setBoardNo(Integer boardNo){
+		this.boardNo=boardNo;
+	}
+	public Integer getBoardNo(){
+		return this.boardNo;
+	}
+	/** 외래키 ******************/
 
 	/**
 	 * 생성자.
