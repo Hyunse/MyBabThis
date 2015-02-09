@@ -89,5 +89,17 @@ public class UserJoinController {
 		logger.trace("----------------------사용가능 이름");
 		return "사용 가능한 이름 입니다.";
 	}
+	@RequestMapping(value = "/join/email", method = RequestMethod.POST, produces = "text/plain;charset=utf-8")
+	public @ResponseBody String ajaxReceive3(@RequestParam String email) {
+		logger.trace("-------------------------------------------------------------------------------");
+
+		Users user = userservice.checkEmail(email);
+		if (user != null) {
+			logger.trace("----------------------중복 이름");
+			  return "중복된 이메일 입니다.";
+		}
+		logger.trace("----------------------사용가능 이름");
+		return "사용 가능한 이메일 입니다.";
+	}
 
 }

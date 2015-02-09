@@ -69,6 +69,12 @@ public class UserDaoImpl implements UserDao {
 		String stmt = nameSpace + "selectUsersByName";
 		return sqlSession.selectOne(stmt, name);
 	}
+
+	@Override
+	public Users seletUserByEmail(String email) {
+		String stmt = nameSpace + "selectUsersByEmail";
+		return sqlSession.selectOne(stmt, email);
+	}
 	
 
 }
