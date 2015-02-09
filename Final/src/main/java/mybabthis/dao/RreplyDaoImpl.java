@@ -22,10 +22,8 @@ public class RreplyDaoImpl implements RreplyDao {
 
 	@Override
 	public int createRreply(Rreply reply) {
-		String stmt = nameSpace + "createReview";
-		logger.trace("나오나");
+		String stmt = nameSpace + "createRreply";
 		int result = sqlSession.insert(stmt, reply);
-		logger.trace("나오나"+result);
 		return result;
 		
 		
