@@ -13,13 +13,14 @@
 $(document).ready(function() {
 $("#idCheck").click(function(){
     var id = $('#userId').val();
-    alert("id : "+ id);
+   
     $.ajax({
     type: "POST",
     url: "<%=request.getContextPath()%>/join/id",
     data: "id="+ id ,
     contentType:"application/x-www-form-urlencoded; charset=utf-8",
     success: function(args){
+    	 alert("성공" + args);
     	$("#drophere").html(args);
     }
     });

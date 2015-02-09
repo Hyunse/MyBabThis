@@ -23,9 +23,9 @@
 			</c:if>
 			<c:if test="${empty loginUser }">
 
-				<c:url value="login" var="login" />
+				<c:url value="/login" var="login" />
 				<a href="${login}"><button>로그인 하기</button></a>
-				<c:url value="join" var="join" />
+				<c:url value="/join" var="join" />
 				<a href="${join}"><button>가입 하기</button></a>
 			</c:if>
 		</div>

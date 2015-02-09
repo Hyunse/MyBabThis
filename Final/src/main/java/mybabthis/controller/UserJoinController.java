@@ -55,15 +55,15 @@ public class UserJoinController {
 	/**
 	 * 가입페이지로
 	 */
-	@RequestMapping(value = "/id", method = RequestMethod.GET)
+	/*@RequestMapping(value = "/join/id", method = RequestMethod.GET)
 	public String ajaxPageCall(Model model) {
 
 		model.addAttribute("Users", new Users());
 		return "join";
 
-	}
+	}*/
 
-	@RequestMapping(value = "/id", method = RequestMethod.POST, produces = "text/plain;charset=utf-8")
+	@RequestMapping(value = "/join/id", method = RequestMethod.POST, produces = "text/plain;charset=utf-8")
 	
 	public @ResponseBody String ajaxReceive(@RequestParam String id,
 			HttpServletRequest request) {
