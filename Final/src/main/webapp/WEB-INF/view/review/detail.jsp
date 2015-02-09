@@ -10,13 +10,13 @@
 </head>
 <body>
 <h2>리뷰상세</h2>
-<c:url value="/review/list?resNo=${review.resNo }" var="url"></c:url>
+<c:url value="/restaurant/view?resNo=${review.resNo }" var="url"></c:url>
 <a href="${url}"><button>목록 보기</button></a>
 
 <c:url value="/review/edit?reviewNo=${review.reviewNo }" var="url"></c:url>
 <a href="${url}"><button>수정</button></a>
 
-<c:url value="/review/delete?reviewNo=${review.reviewNo }" var="url"></c:url>
+<c:url value="/review/delete?reviewNo=${review.reviewNo }&resNo=${review.resNo }" var="url"></c:url>
 <a href="${url}"><button>삭제</button></a>
 <br>
 <label>작성자 : </label><c:out value="${review.userId }"/><br>

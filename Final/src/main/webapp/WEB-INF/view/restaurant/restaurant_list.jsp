@@ -9,8 +9,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-
-
+<jsp:include page="/WEB-INF/view/header.jsp"/>
+<hr>
 <h2>맛집 리스트</h2>
 <br>
 <c:url value="/restaurant/write" var="url"/>

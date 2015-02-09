@@ -37,14 +37,14 @@ public class ReviewEditController {
 	public String write(@ModelAttribute("review") Review review){
 		logger.trace("insert전 보기 : "+review.toString());
 		service.createReview(review);
-		return "redirect:/review/list?resNo="+review.getResNo();
+		return "redirect:/restaurant/view?resNo="+review.getResNo();
 	}
 	
 	//삭제하기
-	@RequestMapping(value="/review/delete",  method=RequestMethod.GET,  params={"reviewNo"})
-	public String delete(@RequestParam int reviewNo, Model model){
+	@RequestMapping(value="/review/delete",  method=RequestMethod.GET,  params={"reviewNo", "resNo"})
+	public String delete(@RequestParam int reviewNo, int resNo, Model model){
 		service.deleteReview(reviewNo);
-		return "redirect:/review/list?resNo="+2; //session 에 담긴 restaurant정보로 처리해야 할 듯
+		return "redirect:/restaurant/view?resNo="+resNo; //session 에 담긴 restaurant정보로 처리해야 할 듯
 	}
 	
 	//수정폼으로
