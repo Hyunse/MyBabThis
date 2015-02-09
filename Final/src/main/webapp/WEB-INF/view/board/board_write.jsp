@@ -16,7 +16,7 @@
 		<label>아이디</label> : <form:input path="userId" />
 		<br>
 
-		<label>게시판 선택</label> : <form:input path="boardType" />
+		<label>게시판 선택</label> : <form:hidden path="boardType" />
 		<br>
 		<label>제목</label> : <form:input path="boardTitle" />
 		<br>
