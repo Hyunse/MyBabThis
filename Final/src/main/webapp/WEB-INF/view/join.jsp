@@ -20,7 +20,7 @@ $("#idCheck").click(function(){
     url: "<%=request.getContextPath()%>/join/id",
     data: "id="+ id ,
     contentType:"application/x-www-form-urlencoded; charset=utf-8",
-    async: false,
+   
     
     success: function(args){
     	 alert("성공" + args);
@@ -41,7 +41,6 @@ $("#nameCheck").click(function(){
     url: "<%=request.getContextPath()%>/join/name",
     data: "name="+ name,
     contentType:"application/x-www-form-urlencoded; charset=utf-8",
-    async: false,
     
     success: function(args){
     	
@@ -54,6 +53,27 @@ $("#nameCheck").click(function(){
 		console.log(path, args);
 	}
 
+    });
+})
+$("#emailCheck").click(function(){
+	 alert("체크");
+    var id = $('#userEmail').val();
+   
+    $.ajax({
+    type: "POST",
+    url: "<%=request.getContextPath()%>/join/email",
+    data: "email="+ email ,
+    contentType:"application/x-www-form-urlencoded; charset=utf-8",
+  
+    
+    success: function(args){
+    	 alert("성공" + args);
+    	$("#dropEmail").html(args);
+    },
+    error: function (args) {
+    	alert("오류" + args)
+		console.log(path, args);
+	}
     });
 })
 	
@@ -93,11 +113,12 @@ $("#nameCheck").click(function(){
 	<c:url value="/join/confirm" var="confirm" />
 	<c:url value="/join" var="id" />
 	<c:url value="/join" var="name" />
-	<form:form modelAttribute="Users" method="post" action="${confirm}">
+	<c:url value="/join" var="email" />
+	<form:form modelAttribute="Users" method="post" action="${confirm}"	>
 
-		<label>아이디</label> : <form:input path="userId" /><a href="${id}">
+		<label>아이디</label> : <form:input path="userId" />
 		<input type="button" value="중복체크" name="idCheck"
-		id="idCheck"></a><div id="dropId"></div> 
+		id="idCheck"><div id="dropId"></div> 
 
 		<br>
 		<label>닉네임</label> : <form:input path="userName" /><a href="${name}">
@@ -108,7 +129,9 @@ $("#nameCheck").click(function(){
 		<br>
 		<label>비밀번호확인</label> : <form:input path="userPass" id="pass2" onblur = "passchk()"  /> 
 		<br>
-		<label>E-mail</label> : <form:input path="userEmail" />
+		<label>E-mail</label> : <form:input path="userEmail" /><a href="${email}">
+		<input type="button" value="중복체크" name="emailCheck"
+		id="emailCheck"></a><div id="dropEmail"></div> 
 		<br>
 		<label>휴대폰</label> : <form:input path="userPhone" />
 		<br>

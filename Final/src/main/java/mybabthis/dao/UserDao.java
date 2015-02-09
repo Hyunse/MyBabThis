@@ -23,5 +23,6 @@ public interface UserDao {
 	List<Users> getUsersByPage(int page);
 	
 	Users seletUserByName(String name);
+	Users seletUserByEmail(String email);
 }
 
