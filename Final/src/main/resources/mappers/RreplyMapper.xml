@@ -21,7 +21,7 @@
    <update id="updateRreply" parameterType="Rreply">
       update rreply set
 			rreply_content=#{rreplyContent}, 
-			rreply_updatedate=sysdate, 
+			rreply_updatedate=sysdate
 		where rreply_no=#{rreplyNo} 
    </update>
    
@@ -38,5 +38,9 @@
 		where res_no=#{resNo}
 </select>
 
+<!-- 댓글번호로 댓글리스트 가져오기  -->
+<select id="selectRreplyByRreplyNo" parameterType="Integer" resultType="Rreply">
+		select * from rreply where rreply_no=#{rreplyNo}
+		</select>
 
 </mapper>

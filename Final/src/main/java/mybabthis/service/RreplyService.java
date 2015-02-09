@@ -2,13 +2,15 @@ package mybabthis.service;
 
 import java.util.List;
 
+import mybabthis.entity.Review;
 import mybabthis.entity.Rreply;
 
 
 public interface RreplyService {
 
-	int createRreply(Rreply reply); // 맛집 댓글생성
-	int updateRreply(Rreply reply); // Review 맛집 댓글수정
-	int deleteRreply(Rreply reply); // Review 맛집 댓글삭제
+	int createRreply(Rreply reply); 
+	int updateRreply(Rreply reply); 
+	int deleteRreply(Rreply reply);  
 	List<Rreply> getRreplyByResNo(int resNo);
+	Rreply getRreplyByRreplyNo(int rreplyNo); 
 }

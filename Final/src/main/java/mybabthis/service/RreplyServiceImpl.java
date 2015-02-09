@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import mybabthis.dao.RreplyDao;
-
+import mybabthis.entity.Review;
 import mybabthis.entity.Rreply;
 
 @Service
@@ -45,6 +45,12 @@ public class RreplyServiceImpl implements RreplyService {
 		List<Rreply> result = dao.getRreplyByResNo(resNo);
 		return result;
 	
+	}
+
+	@Override
+	public Rreply getRreplyByRreplyNo(int rreplyNo) {
+		Rreply result = dao.getRreplyByRreply(rreplyNo);
+		return result;
 	}
 
 }

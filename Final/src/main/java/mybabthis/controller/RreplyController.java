@@ -2,6 +2,7 @@ package mybabthis.controller;
 
 import java.util.List;
 
+import mybabthis.entity.Review;
 import mybabthis.entity.Rreply;
 import mybabthis.service.RreplyService;
 
@@ -50,5 +51,26 @@ public class RreplyController {
 			model.addAttribute("rreplys", rreplys);
 			return "rreply/list";
 		}
+		
+	
+		//수정폼으로
+		@RequestMapping(value="/rreply/edit", method=RequestMethod.GET,  params={"rreplyNo"})
+		public String edit(@RequestParam int rreplyNo, Model model){
+			Rreply rreply = service.getRreplyByRreplyNo(rreplyNo);  
+			model.addAttribute("rreply",rreply );
+			return "rreply/edit";
+		}
+		
+		
+		//수정하기
+		@RequestMapping(value="/rreply/update", params="_event_confirmed", method=RequestMethod.POST)
+		public String update(@ModelAttribute("rreply") Rreply rreply){
+			service.updateRreply(rreply);
+			return "redirect:/rreply/list?resNo="+rreply.getResNo();
+		}
+		
+		
+		
+	
 	
 }

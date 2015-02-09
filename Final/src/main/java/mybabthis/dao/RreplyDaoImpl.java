@@ -8,6 +8,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import mybabthis.entity.Review;
 import mybabthis.entity.Rreply;
 @Repository
 public class RreplyDaoImpl implements RreplyDao {
@@ -47,6 +48,14 @@ public class RreplyDaoImpl implements RreplyDao {
 	public List<Rreply> getRreplyByResNo(int resNo) {
 		String stmt = nameSpace + "selectRreplyByResNo";
 		return sqlSession.selectList(stmt, resNo);
+	}
+
+	@Override
+	public Rreply getRreplyByRreply(int rreplyNo) {
+		String stmt = nameSpace + "selectRreplyByRreplyNo";
+		Rreply result =null;
+		result = sqlSession.selectOne(stmt, rreplyNo);
+		return result;
 	}
 
 }
