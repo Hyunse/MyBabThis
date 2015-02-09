@@ -16,10 +16,8 @@
 
 <c:url value="/rreply/update" var="action"/>
 <form:form modelAttribute="rreply" method="post" action="${action }">
-
-<label>맛집번호</label> : <form:input path="resNo"/><br>
-<label>댓글번호</label> : <form:input path="rreplyNo"/><br>
-<label>사용자ID</label> : <form:input path="userId"/><br>
+<label>맛집번호</label> : <form:input path="resNo" readonly="true"/><br>
+<label>사용자ID</label> : <form:input path="userId" readonly="true"/><br>
 <label>댓글내용</label> : <form:input path="rreplyContent"/><br>
 <br>
 

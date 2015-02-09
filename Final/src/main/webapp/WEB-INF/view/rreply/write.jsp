@@ -14,9 +14,9 @@
 <h1>댓글작성</h1>
 	<c:url value="/rreply/write" var="action"></c:url>
 	<form:form modelAttribute="rreply" method="post" action="${action }" >
-		<label>맛집번호</label> : <form:input path="resNo" />
+		<label>맛집번호</label> : <form:input path="resNo" vlaue="${rreply.resNo }"/>
 		<br>
-		<label>작성자</label> : <form:input path="userId" />
+		<label>작성자</label> : <form:input path="userId" value="${loginUser.userId }" readonly="true"/>
 		<br>
 		<label>내용</label> : <form:input path="rreplyContent" />
 		<br>

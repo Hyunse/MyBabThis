@@ -1,11 +1,7 @@
 package mybabthis.controller;
 
-import java.util.List;
-
-import mybabthis.entity.Review;
 import mybabthis.entity.Rreply;
 import mybabthis.service.RreplyService;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,9 +24,11 @@ public class RreplyController {
 	RreplyService service;
 	
 	//작성폼
-		@RequestMapping(value="/rreply/write", method=RequestMethod.GET)
-		public String redirToRreplyForm(Model model){
-			model.addAttribute("rreply", new Rreply());
+		@RequestMapping(value="/rreply/write", method=RequestMethod.GET, params={"resNo"})
+		public String redirToRreplyForm(@RequestParam int resNo, Model model){
+			Rreply rreply = new Rreply();
+			rreply.setResNo(resNo);
+			model.addAttribute("rreply", rreply);
 			return "rreply/write";
 		}
 		
@@ -67,14 +65,14 @@ public class RreplyController {
 		@RequestMapping(value="/rreply/update", params="_event_confirmed", method=RequestMethod.POST)
 		public String update(@ModelAttribute("rreply") Rreply rreply){
 			service.updateRreply(rreply);
-			return "redirect:/rreply/list?resNo="+rreply.getResNo();
+			return "redirect:/restaurant/view?resNo="+rreply.getResNo();
 		}
 		
 		//삭제하기
 		@RequestMapping(value="/rreply/delete",  method=RequestMethod.GET,  params={"rreplyNo", "resNo"})
 		public String delete(@RequestParam int rreplyNo, int resNo, Model model){
 			service.deleteRreply(rreplyNo);
-			return "redirect:/rreply/list?resNo="+resNo; 
+			return "redirect:/restaurant/view?resNo="+resNo;
 		}
 		
 		

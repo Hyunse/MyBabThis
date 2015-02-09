@@ -77,7 +77,7 @@
 			</tr>
 		</c:forEach>
 	</table>
-	<c:url value="/rreply/write" var="url"></c:url>
+	<c:url value="/rreply/write?resNo=${resNo }" var="url"></c:url>
 	<a href="${url }"><button>댓글작성</button></a>
   </div>
 
