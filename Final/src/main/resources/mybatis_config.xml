@@ -17,6 +17,8 @@
 	    <typeAlias type="mybabthis.entity.Breply" alias="Breply" />
 	    <typeAlias type="mybabthis.entity.Restaurant" alias="Restaurant" />
 	     <typeAlias type="mybabthis.entity.Favorite" alias="Favorite" />
+	    <typeAlias type="mybabthis.entity.Restaurant" alias="Restaurant" />	    
+	    <typeAlias type="mybabthis.entity.Msg" alias="msg" />	
 	</typeAliases>
 	<mappers>
 		<mapper resource="mappers/UserMapper.xml" />
@@ -26,5 +28,6 @@
 		<mapper resource="mappers/RestaurantMapper.xml"/>
 	    <mapper resource="mappers/BreplyMapper.xml"/>
 	    <mapper resource="mappers/FavoriteMapper.xml"/>
+	    <mapper resource="mappers/MsgMapper.xml"/>
 	</mappers>
 </configuration>

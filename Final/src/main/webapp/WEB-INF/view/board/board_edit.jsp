@@ -8,6 +8,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
+<jsp:include page="/WEB-INF/view/header.jsp" />
 <body>
 <h1>게시글 수정</h1>
 	<c:url value="/board/edit" var="action"></c:url>

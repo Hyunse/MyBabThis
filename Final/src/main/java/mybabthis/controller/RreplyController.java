@@ -38,19 +38,20 @@ public class RreplyController {
 		//작성하기
 		@RequestMapping(value="/rreply/write", params="rwrite", method=RequestMethod.POST)
 		public String write(@ModelAttribute("rreply") Rreply rreply){
-			logger.trace("됫나");
 			service.createRreply(rreply);
-			return "redirect:/rreply/list?resNo="+rreply.getResNo();
+			return "redirect:/restaurant/view?resNo="+rreply.getResNo();
 		}
 		
 		
-		//리스트
+/*		//리스트
 		@RequestMapping(value="/rreply/list", method=RequestMethod.GET, params={"resNo"})
 		public String getRreplyByResNo(@RequestParam int resNo, Model model){
+			logger.error("나오나?1");
 			List<Rreply> rreplys = service.getRreplyByResNo(resNo);
+			logger.error("나오나?2:"+rreplys);
 			model.addAttribute("rreplys", rreplys);
-			return "rreply/list";
-		}
+			return "redirect:/restaurant/view?resNo="+resNo;
+		}*/
 		
 	
 		//수정폼으로

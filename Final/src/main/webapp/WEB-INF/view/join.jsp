@@ -57,7 +57,7 @@ $("#nameCheck").click(function(){
 })
 $("#emailCheck").click(function(){
 	 alert("체크");
-    var id = $('#userEmail').val();
+    var email = $('#userEmail').val();
    
     $.ajax({
     type: "POST",
@@ -77,17 +77,7 @@ $("#emailCheck").click(function(){
     });
 })
 	
-    var password1 = document.getElementById('pass');
-    var password2 = document.getElementById('pass2');
-
-    var checkPasswordValidity = function() {
-        if (password1.value != password2.value) {
-            password1.setCustomValidity('비밀번호와 확인 비밀번호가 일치하지 않습니다.');
-        } else {
-            password1.setCustomValidity('');
-        }        
-    };
-    function passchk(){
+$("#pass2").blur(function(){
         /* var pass = document.form.userPass.value; */
         /* var pass2 = document.form.userPass2.value; */
         var pass = $("#pass").val();
@@ -105,13 +95,13 @@ $("#emailCheck").click(function(){
            alert("비밀번호같습니다.")
         }
         return;
-    }
+    })
 });
 
 </script>
 <body>
 	<c:url value="/join/confirm" var="confirm" />
-	<form:form modelAttribute="Users" method="post" action="${confirm}"	>
+	<form:form modelAttribute="loginUser" method="post" action="${confirm}"	>
 
 		<label>아이디</label> : <form:input path="userId" />
 		<input type="button" value="중복체크" name="idCheck"
@@ -124,7 +114,8 @@ $("#emailCheck").click(function(){
 		<br>
 		<label>비밀번호</label> : <form:input path="userPass" id="pass" />
 		<br>
-		<label>비밀번호확인</label> : <form:input path="userPass" id="pass2" onblur = "passchk()"  /> 
+		<label>비밀번호확인</label> : <input type="text" id="pass2" onblur = "passchk()"  /> 
+		<div id="chk"></div>
 		<br>
 		<label>E-mail</label> : <form:input path="userEmail" />
 		<input type="button" value="중복체크" name="emailCheck"

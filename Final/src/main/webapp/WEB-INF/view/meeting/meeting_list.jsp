@@ -18,7 +18,7 @@ body {
 <script type="text/javascript"
 	src="<%=request.getContextPath()%>/js/jquery-2.1.3.js"></script>
 
-
+<jsp:include page="/WEB-INF/view/header.jsp" />
 <body>
 	<table border="1px solid black" align="center">
 		<tr>

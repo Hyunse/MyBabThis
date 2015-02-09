@@ -26,12 +26,12 @@ public class ReviewController {
 	ReviewService service;
 		
 	//리스트
-	@RequestMapping(value="/review/list", method=RequestMethod.GET, params={"resNo"})
+/*	@RequestMapping(value="/review/list", method=RequestMethod.GET, params={"resNo"})
 	public String getReviewByResNo(@RequestParam int resNo, Model model){
 		List<Review> reviews = service.getReviewByResNo(resNo);
 		model.addAttribute("reviews", reviews);
 		return "review/list";
-	}
+	}*/
 	
 	//상세보기
 	@RequestMapping(value="/review/detail", method=RequestMethod.GET, params={"reviewNo"})
