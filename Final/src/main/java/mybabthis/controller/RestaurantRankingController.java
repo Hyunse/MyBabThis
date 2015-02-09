@@ -60,11 +60,26 @@ public class RestaurantRankingController {
 	 * @param model
 	 * @return
 	 */
-	@RequestMapping(value="/view",params={"locName"}, method=RequestMethod.GET)
+	@RequestMapping(value="/loc",params={"locName"}, method=RequestMethod.GET)
 	public String getRestaurantListbyLoc(@RequestParam String locName, Model model){
 		// 지역 이름을 클릭했을 때 랭킹순으로 보여주기
 		List<Restaurant> restaurants = service.selectRestaurantsByLocation(locName);
 		model.addAttribute("restaurants",restaurants);
+		return "/ranking/ranking_loc";
+		
+	}
+	
+	/**
+	 * 선택한 맛집 페이지로 이동
+	 * @param locName
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping(value="/view",params={"resNo"}, method=RequestMethod.GET)
+	public String enterRestaurant(@RequestParam int resNo, Model model){
+		// 지역 이름을 클릭했을 때 랭킹순으로 보여주기
+		Restaurant restaurant = service.selectRestaurantByNo(resNo);
+		model.addAttribute("restaurant",restaurant);
 		return "/ranking/ranking_view";
 		
 	}

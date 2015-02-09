@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page import="mybabthis.entity.Restaurant" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -9,14 +10,20 @@
 </head>
 <jsp:include page="/WEB-INF/view/header.jsp" />
 <body>
-	<h1>맛집 랭킹</h1>
+	<h1>맛집 top5</h1>
 	<hr>
 	<br>
-	<c:url value="/ranking/all" var="all" />
-	<a href="${all }"><button type="submit">전체</button></a>
-	<c:url value="/ranking/loc?locName=건대" var="loc" />
-	<a href="${loc }"><button type="submit">건대</button></a>
-	<c:url value="/ranking/loc?locName=강남" var="loc" />
-	<a href="${loc }"><button type="submit">강남</button></a>
+	<c:forEach items="${restaurants }" var="restaurant">
+	<table border="1">
+		<tr>
+			<td><c:out value="${restaurant.locName}" />
+			</td>
+		</tr>
+		<tr>
+			<td><c:url value="/ranking/view?resNo=${restaurant.resNo}" var="loc" />
+				<a href="${loc}"><c:out value="${restaurant.resName}" /></a></td>
+		</tr>
+	</table>
+	</c:forEach>
 </body>
 </html>
