@@ -64,7 +64,8 @@ public class UserJoinController {
 	}
 
 	@RequestMapping(value = "/join/id", method = RequestMethod.POST, produces = "text/plain;charset=utf-8")
-	public @ResponseBody String ajaxReceive(@RequestParam String id,
+	@ResponseBody 
+	public String ajaxReceive(@RequestParam String id,
 			HttpServletRequest request) {
 		logger.trace("-------------------------------------------------------------------------------");
 
@@ -72,7 +73,7 @@ public class UserJoinController {
 
 		if (user != null) {
 			logger.trace("----------------------중복 아이디");
-			return "중복된 아이디 입니다.";
+			  return"중복된 아이디 입니다.";
 		}
 		logger.trace("----------------------사용가능 아이디");
 		return "사용 가능한 아이디 입니다.";
