@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 @Controller
-@SessionAttributes("loginUser")
+@SessionAttributes({"loginUser","loginCheck"})
 public class UserLoginController {
 	
 	private static final Logger logger;
@@ -31,23 +31,22 @@ public class UserLoginController {
 	@RequestMapping(value="/login", method=RequestMethod.GET)
 	public String enterLogin(Model model){
 		
-		model.addAttribute("loginUser", new Users());
+		model.addAttribute("loginCheck", new Users());
 		return "login";
 		
 	}
 
 	@RequestMapping(value="/login/confirm", method=RequestMethod.POST)
-	public String login(@ModelAttribute("loginUser") Users user){
+	public String login(@ModelAttribute("loginCheck") Users user,Model model){
 		
-	
+		
 		user= userservice.login(user);
 		
 		if(user == null){
 			logger.trace("로그인 실패");
 			return "redirect:/login/login_fail";
 		}
-		
-		
+		model.addAttribute("loginUser", user);
 		return "redirect:/main";
 		
 	}

@@ -1,6 +1,5 @@
 package mybabthis.controller;
 
-import javax.servlet.http.HttpServletRequest;
 
 import mybabthis.entity.Users;
 import mybabthis.service.UserService;
@@ -34,7 +33,7 @@ public class UserJoinController {
 	 */
 	@RequestMapping(value = "/join", method = RequestMethod.GET)
 	public String enterJoin(Model model) {
-		model.addAttribute("Users", new Users());
+		model.addAttribute("loginUser", new Users());
 		return "join";
 
 	}
@@ -44,10 +43,9 @@ public class UserJoinController {
 	 * 가입 페이지에서 가입 확인을 눌렀을때
 	 */
 	@RequestMapping(value = "/join/confirm", method = RequestMethod.POST)
-	public String join(@ModelAttribute("Users") Users user, Model model) {
+	public String join(@ModelAttribute("loginUser") Users user) {
 
 		userservice.join(user);
-		model.addAttribute("loginUser", user);
 		return "redirect:/main";
 
 	}
@@ -94,6 +92,7 @@ public class UserJoinController {
 		logger.trace("-------------------------------------------------------------------------------");
 
 		Users user = userservice.checkEmail(email);
+		
 		if (user != null) {
 			logger.trace("----------------------중복 이름");
 			  return "중복된 이메일 입니다.";

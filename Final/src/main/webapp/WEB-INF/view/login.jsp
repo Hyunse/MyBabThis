@@ -10,7 +10,7 @@
 </head>
 <body>
 		<c:url value="/login/confirm" var="action"></c:url>
-		<form:form modelAttribute="loginUser" method="post" action="${action}">
+		<form:form modelAttribute="loginCheck" method="post" action="${action}">
 			<label>아이디</label> : <form:input path="userId" />
 			<br>
 			<label>패스워드</label> : <form:input path="userPass" />
