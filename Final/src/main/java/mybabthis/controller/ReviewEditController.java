@@ -1,6 +1,8 @@
 package mybabthis.controller;
 
+import mybabthis.entity.Restaurant;
 import mybabthis.entity.Review;
+import mybabthis.service.RestaurantService;
 import mybabthis.service.ReviewService;
 
 import org.slf4j.Logger;
@@ -25,6 +27,9 @@ public class ReviewEditController {
 	@Autowired
 	ReviewService service;
 	
+	@Autowired
+	RestaurantService res_service;
+	
 	//작성폼으로
 	@RequestMapping(value="/review/write", method=RequestMethod.GET,  params={"userId", "resNo"})
 	public String redirToReviewForm(@RequestParam String userId, int resNo, Model model){
@@ -38,8 +43,13 @@ public class ReviewEditController {
 	//작성하기
 	@RequestMapping(value="/review/write", params="write", method=RequestMethod.POST)
 	public String write(@ModelAttribute("review") Review review){
-		logger.trace("insert전 보기 : "+review.toString());
 		service.createReview(review);
+		float avgScore=service.getAverageScore(review.getResNo());
+		Restaurant restaurant = new Restaurant();
+		restaurant.setResNo(review.getResNo());
+		restaurant.setResScore(avgScore);
+		res_service.updateResScore(restaurant);
+
 		return "redirect:/restaurant/view?resNo="+review.getResNo();
 	}
 	

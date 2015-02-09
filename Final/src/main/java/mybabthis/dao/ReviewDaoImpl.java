@@ -66,5 +66,11 @@ public class ReviewDaoImpl implements ReviewDao {
 		String stmt = nameSpace + "selectAllReview";
 		return sqlSession.selectList(stmt);
 	}
+	
+	@Override
+	public float getAverageScore(int resNo){
+		String stmt = nameSpace+ "selectAvgScoreByResNo";
+		return sqlSession.selectOne(stmt, resNo);
+	}
 
 }

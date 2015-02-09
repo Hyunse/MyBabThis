@@ -17,5 +17,6 @@ public interface RestaurantService {
 	
 
 	Restaurant selectRestaurantByNo(int resNo);
+	public int updateResScore(Restaurant restaurant);
 
 }

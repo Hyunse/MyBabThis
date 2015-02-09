@@ -14,12 +14,13 @@
 
 <h1>맛집 페이지</h1>
 <table border="1">
-<tr><th>맛집 번호</th><th>업체명</th><th>전화번호</th><th></th><th>비고</th>
+<tr><th>맛집 번호</th><th>업체명</th><th>전화번호</th><th>내용</th><th>평점</th><th>비고</th>
 <tr>
 <td><c:out value="${restaurant.resNo}"/></td>
 <td><c:out value="${restaurant.locName}"/></td>
 <td><c:out value="${restaurant.resName}"/></td>
 <td><c:out value="${restaurant.resContent}"/></td>
+<td><c:out value="${restaurant.resScore }"/></td>
 <td>
 <c:url value="/restaurant/edit?resNo=${restaurant.resNo}" var="url"/>
 <a href ="${url }"><button>편집</button></a>
@@ -33,7 +34,7 @@
 	<table border="1">
 		<tr>
 			<th>사진</th>
-			<th>상호명</th>
+			<th>평가</th>
 			<th>설명</th>
 			<th>작성자</th>
 			<th>등록일</th>
@@ -42,7 +43,7 @@
 		<c:forEach items="${reviews }" var="review">
 			<tr>
 				<td>등록된 사진이 없습니다.</td>
-				<td><c:out value="${review.resNo }" /></td>
+				<td><c:out value="${review.reviewScore }" /></td>
 				<c:url value="/review/detail?reviewNo=${review.reviewNo }" var="url"></c:url> 
 				<td><a href="${url }"><c:out value="${review.reviewContent }" /></a></td>
 				<td><c:out value="${review.userId }" /></td>

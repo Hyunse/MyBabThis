@@ -77,7 +77,13 @@ public class RestaurantDaoImpl implements RestaurantDao {
 		return result;
 	}
 
-	
+	@Override
+	public int updateResScore(Restaurant restaurant) {
+		logger.trace("맛집평점 수정 시도");
+		String stmt = nameSpace +"updateResScore";
+		int result=sqlSession.update(stmt,restaurant);
+		return result;
+	}
 	
 
 }

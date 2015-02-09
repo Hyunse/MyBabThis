@@ -12,4 +12,5 @@ public interface ReviewService {
 	List<Review> getReviewByResNo(int resNo); // Review 검색 By ByResNo
 	List<Review> getReviewByUserId(String userId); // Review 검색 By UserId
 	List<Review> getAllReview(); // Review 검색 All Review
+	public float getAverageScore(int resNo);// AverageScore 검색 By ResNo 
 }

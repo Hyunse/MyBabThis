@@ -7,11 +7,8 @@
 	
 	<insert id="createRestaurant" parameterType="Restaurant">
 		insert into
-		restaurant (res_name, res_number, res_score, res_loc,
-		res_content,user_id,res_img,loc_name,res_kind)
-		values(#{resName},#{resNumber},
-		#{resScore}, #{resLoc},
-		#{resContent},#{userId},#{resImg},#{locName},#{resKind})
+		restaurant (res_name, res_number, res_score, res_loc, res_content,user_id,res_img,loc_name,res_kind)
+		values(#{resName},#{resNumber}, 0, #{resLoc},#{resContent},#{userId},#{resImg},#{locName},#{resKind})
 	</insert>
 
 	<update id="updateRestaurant" parameterType="Restaurant">
@@ -58,8 +55,11 @@
 	where res_name=#{resName}
 	</select>
 	
-	
-	
+	<update id="updateResScore" parameterType="Restaurant">
+		update restaurant
+		set res_score=#{resScore}
+		where res_no=#{resNo}
+	</update>
 	
 </mapper>
 

@@ -63,4 +63,10 @@ public class ReviewServiceImpl implements ReviewService {
 		return result;
 	}
 
+	@Override
+	public float getAverageScore(int resNo) {
+		float result=dao.getAverageScore(resNo);
+		return result;
+	}
+
 }

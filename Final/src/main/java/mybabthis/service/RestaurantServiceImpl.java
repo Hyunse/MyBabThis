@@ -66,6 +66,12 @@ public class RestaurantServiceImpl implements RestaurantService {
 		List<Restaurant> result = dao.selectRestaurantsByResName(resName);
 		return result;
 	}
+
+	@Override
+	public int updateResScore(Restaurant restaurant) {
+		int result = dao.updateResScore(restaurant);
+		return result;
+	}
 	
 	
 	

@@ -26,7 +26,7 @@ public class Restaurant implements Serializable {
 	private String resNumber;
 
 	/** 맛집평점. */
-	private Integer resScore;
+	private float resScore;
 
 	/** 맛집주소. */
 	private String resLoc;
@@ -133,11 +133,11 @@ public class Restaurant implements Serializable {
 	/**
 	 * 맛집평점을 설정합니다..
 	 * 
-	 * @param resScore
+	 * @param avgScore
 	 *            맛집평점
 	 */
-	public void setResScore(Integer resScore) {
-		this.resScore = resScore;
+	public void setResScore(float avgScore) {
+		this.resScore = avgScore;
 	}
 
 	/**
@@ -145,7 +145,7 @@ public class Restaurant implements Serializable {
 	 * 
 	 * @return 맛집평점
 	 */
-	public Integer getResScore() {
+	public float getResScore() {
 		return this.resScore;
 	}
 
