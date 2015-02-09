@@ -64,9 +64,10 @@ $("#idCheck").click(function(){
 </script>
 <body>
 	<c:url value="/mypage/myinfo" var="action"></c:url>
+	<c:url value="/id" var="idCheck"></c:url>	
 	<form:form modelAttribute="Users" method="post" action="${action}">
 
-		<label>아이디</label> : <form:input path="userId" /><a href="<%=request.getContextPath()%>/id">
+		<label>아이디</label> : <form:input path="userId" /><a href="${idCheck}">
 		<input type="button" value="중복체크" name="idCheck"
 		id="idCheck"></a><div id="drophere"></div> <!-- 중복체크는 나중에 -->
 
