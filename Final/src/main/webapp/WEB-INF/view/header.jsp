@@ -33,9 +33,10 @@
 	<c:url value="/board/list" var="board" />
 	<c:url value="/meeting/list" var="meeting"/>
 	<c:url value="/ranking/list" var="ranking"/>
+	<c:url value="/main" var="main"/>
 	<table border="1">
 		<tr>
-			<td>메인</td>
+			<td><a href="${main}">메인</a></td>
 			<td><a href="${ranking}">맛집랭킹</a></td>
 			<td><a href="${meeting}">번개모임</a></td>
 			<td><a href="${board}">자유게시판</a></td>
