@@ -18,8 +18,7 @@
 		<label>업체번호</label> : <form:input path="resNumber" value="02-234-2322" />
 		<br>
 		<!-- 어케처리하지 얘는? 가입때 안받지않나? -->
-		<label>일단점수</label> : <form:input path="resScore" value="3" />
-		<br>
+
 		<label>주소</label> : <form:input path="resLoc" value="주소"/>
 		<br>
 		<label>내용</label> : <form:input path="resContent" value="걍밥집임"/>
