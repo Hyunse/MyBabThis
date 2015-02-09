@@ -8,6 +8,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
 <body>
 	<script type="text/javascript">
 	$(document).ready(function() {
@@ -115,7 +116,7 @@
 		<br>
 		<label>비밀번호</label> : <form:input path="userPass" id="pass" />
 		<br>
-		<label>비밀번호확인</label> : <form:input path="userPass" id="pass2"
+		<label>비밀번호확인</label> : <input type="text" id="pass2"
 			onblur="passchk()" />
 		<div id="chk"></div>
 		<br>
