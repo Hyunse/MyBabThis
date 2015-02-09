@@ -76,13 +76,36 @@ public class BoardDaoImpl implements BoardDao {
 		return result;
 	}
 
+	
 	/** 
-	 * 페이지 단위로 게시글 조회 ->  모든 게시글 조회한 후에.....
+	 * 페이지 단위로 게시글 조회 ????????????
 	 */
 	@Override
 	public List<Board> getBoardByPage(int page) {
 		String stmt = nameSpace + "selectBoardByPage";
 		List<Board> result = sqlSession.selectList(stmt, page);
+		return result;
+	}
+	
+
+	/**
+	 * 자유게시판의 게시글을 모두 조회
+	 */
+	@Override
+	public List<Board> getBoardByFree(String boardType) {
+		String stmt = nameSpace + "selectBoardByFree";
+		List<Board> result = sqlSession.selectList(stmt);
+		return result;
+	}
+	
+
+	/**
+	 * 번개모임의 게시글을 모두 조회
+	 */
+	@Override
+	public List<Board> getBoardByMeeting(String boardType) {
+		String stmt = nameSpace + "selectBoardByMeeting";
+		List<Board> result = sqlSession.selectList(stmt);
 		return result;
 	}
 

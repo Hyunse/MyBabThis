@@ -12,17 +12,18 @@
 
 	<c:url value="/board/confirm" var="write"></c:url>
 	<form:form modelAttribute="boardInfo" method="post" action="${write}">
-		
-		<label>자유게시판</label> <form:hidden path="boardType" value="F"/>
+
+		<label>번개모임</label> <form:hidden path="boardType" value="M" />
 		<br>
 		<br>
+
 		<label>아이디</label> : <form:input path="userId" />
 		<br>
 
-		
 		<label>제목</label> : <form:input path="boardTitle" />
 		<br>
-		<label>내용</label> : <form:textarea path="boardContent" cols="150" rows="20" />
+		<label>내용</label> : <form:textarea path="boardContent" cols="150"
+			rows="20" />
 		<br>
 		<br>
 

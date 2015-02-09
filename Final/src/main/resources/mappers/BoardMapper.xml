@@ -49,6 +49,23 @@
 	</select>
 	
 	
+	<!-- 자유게시판의 게시글  모두 조회 -->
+	<select id="selectBoardByFree" parameterType="String" resultType="Board">
+		select *
+		from board
+		where board_type in('f', 'F')
+		order by board_no desc
+	</select>
+	
+	<!-- 번개모임의 게시글  모두 조회 -->
+	<select id="selectBoardByMeeting" parameterType="String" resultType="Board">
+		select *
+		from board
+		where boardType='M'
+		order by board_no desc
+	</select>
+	
+	
 	<!-- 게시판 목록에서 페이지 단위로 게시글 조회 -->
 	<select id="selectBoardByPage" parameterType="int" resultType="Board">
 		select *

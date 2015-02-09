@@ -57,6 +57,18 @@ public class BoardServiceImpl implements BoardService{
 		return result;
 	}
 
+	@Override
+	public List<Board> viewBoardByFree(String boardType) {
+		List<Board> result = dao.getBoardByFree(boardType);
+		return result;
+	}
+
+	@Override
+	public List<Board> viewBoardByMeeting(String boardType) {
+		List<Board> result = dao.getBoardByMeeting(boardType);
+		return result;
+	}
+
 	
 	
 

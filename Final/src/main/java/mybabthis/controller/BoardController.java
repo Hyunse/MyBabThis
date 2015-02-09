@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 @Controller
-@SessionAttributes("logUser")
 @RequestMapping(value = "/board")
 public class BoardController {
 
@@ -30,26 +29,24 @@ public class BoardController {
 	
 	@RequestMapping(value = "/confirm", method = RequestMethod.POST)
 	public String writeBoard(@ModelAttribute("boardInfo") Board board) {	// 새로 입력한 게시글 정보
-		if(board.getBoardContent() != null) {
-			boardService.write(board);
-		} else {
-			logger.error("내용을 입력해주세요");
-		}
+
+		boardService.write(board);
+
 		
 		return "redirect:list";
 
 	}
 
 	/** 
-	 * 게시판 글 목록보기
+	 * 자유게시판 글 목록보기
 	 * @param model
 	 * @return
 	 */
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
-	public String enterBoard(Model model) {
+	public String enterBoard(@ModelAttribute("boardInfo") Board board, Model model) {
 		List<Board> list = null;
 
-		list = boardService.viewAllBoard();
+		list = boardService.viewBoardByFree(board.getBoardType());
 		model.addAttribute("boardList", list);
 		logger.trace("GoBoard : " + list);
 		

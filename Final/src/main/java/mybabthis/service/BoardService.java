@@ -16,6 +16,10 @@ public interface BoardService {
 	List<Board> viewAllBoard(); 		// 게시글 모두 조회
 	
 	List<Board> viewBoardByPage(int page); // 페이지 별 게시글 조회
+	
+	List<Board> viewBoardByFree(String boardType); 			// 자유게시판의 게시글 모두 조회
+	
+	List<Board> viewBoardByMeeting(String boardType); 		// 번개모임의 게시글 모두 조회
 
 
 }
