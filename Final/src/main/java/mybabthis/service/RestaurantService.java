@@ -12,6 +12,8 @@ public interface RestaurantService {
 	
 	List<Restaurant> selectRestaurantsByLocation(String locName);
 	List<Restaurant> selectAllRestuarants();
+
+	List<Restaurant> selectRestaurantsByResName(String resName);
 	
 
 	Restaurant selectRestaurantByNo(int resNo);

@@ -19,6 +19,8 @@ public interface RestaurantDao {
 	
 	Restaurant selectRestaurantByNo(int resNo);
 	
+	List<Restaurant> selectRestaurantsByResName(String resName);
+	
 	
 	
 

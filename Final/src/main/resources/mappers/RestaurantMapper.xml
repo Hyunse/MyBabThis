@@ -52,6 +52,14 @@
 	where res_no=#{resNo}
 	</select>
 	
+	<select id="selectRestaurantByName" parameterType="String" resultType="Restaurant">
+	select *
+	from restaurant
+	where res_name=#{resName}
+	</select>
+	
+	
+	
 	
 </mapper>
 

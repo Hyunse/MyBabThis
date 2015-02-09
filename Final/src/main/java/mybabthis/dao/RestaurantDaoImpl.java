@@ -49,7 +49,7 @@ public class RestaurantDaoImpl implements RestaurantDao {
 	public List<Restaurant> selectRestaurantsByLocation(String locName) {
 		logger.trace("맛집게시판 지역-"+locName+" 불러오기 시도");
 		String stmt = nameSpace +"selectRestaurantsByLocation";
-		List<Restaurant>result=sqlSession.selectList(stmt,locName);
+		List<Restaurant> result=sqlSession.selectList(stmt,locName);
 		return result;
 	}
 
@@ -69,6 +69,15 @@ public class RestaurantDaoImpl implements RestaurantDao {
 		return result;
 	}
 
+	@Override
+	public List<Restaurant> selectRestaurantsByResName(String resName) {
+		logger.trace("맛집게시판 이름-"+" 불러오기 시도");
+		String stmt = nameSpace +"selectRestaurantsByName";
+		List<Restaurant> result=sqlSession.selectList(stmt,resName);
+		return result;
+	}
+
+	
 	
 
 }
