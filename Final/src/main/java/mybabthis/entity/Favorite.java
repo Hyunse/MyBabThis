@@ -18,6 +18,23 @@ public class Favorite implements Serializable {
 
 	/** 맛집. */
 	private Restaurant restaurant;
+	
+	/** 외래키 ******************/
+	private String userId;
+	private Integer resNo;
+	public void setUserId(String userId){
+		this.userId=userId;
+	}
+	public String getUserId(){
+		return this.userId;
+	}
+	public void setResNo(Integer resNo){
+		this.resNo=resNo;
+	}
+	public Integer getResNo(){
+		return this.resNo;
+	}
+	/** 외래키 ******************/
 
 	/**
 	 * 생성자.
