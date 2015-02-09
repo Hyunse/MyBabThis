@@ -71,7 +71,7 @@ public class RestaurantDaoImpl implements RestaurantDao {
 
 	@Override
 	public List<Restaurant> selectRestaurantsByResName(String resName) {
-		logger.trace("맛집게시판 이름-"+" 불러오기 시도");
+		logger.trace("맛집게시판 이름-"+resName+" 불러오기 시도");
 		String stmt = nameSpace +"selectRestaurantsByName";
 		List<Restaurant> result=sqlSession.selectList(stmt,resName);
 		return result;
