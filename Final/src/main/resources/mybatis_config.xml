@@ -15,7 +15,8 @@
 		<typeAlias type="mybabthis.entity.Board" alias="Board" />
 	    <typeAlias type="mybabthis.entity.Rreply" alias="Rreply" />
 	    <typeAlias type="mybabthis.entity.Breply" alias="Breply" />
-	    <typeAlias type="mybabthis.entity.Restaurant" alias="Restaurant" />
+	    <typeAlias type="mybabthis.entity.Restaurant" alias="Restaurant" />	    
+	    <typeAlias type="mybabthis.entity.Msg" alias="msg" />	   
 	</typeAliases>
 	<mappers>
 		<mapper resource="mappers/UserMapper.xml" />
@@ -24,5 +25,6 @@
 		<mapper resource="mappers/RreplyMapper.xml"/>
 		<mapper resource="mappers/RestaurantMapper.xml"/>
 	    <mapper resource="mappers/BreplyMapper.xml"/>
+	    <mapper resource="mappers/MsgMapper.xml"/>
 	</mappers>
 </configuration>

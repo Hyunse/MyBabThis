@@ -18,7 +18,7 @@ public class Msg implements Serializable {
 	private Integer msgNo;
 
 	/** 받는사람. */
-	private String reciever;
+	private String receiver;
 
 	/** 보내는사람. */
 	private String sender;
@@ -66,8 +66,8 @@ public class Msg implements Serializable {
 	 * @param reciever
 	 *            받는사람
 	 */
-	public void setReciever(String reciever) {
-		this.reciever = reciever;
+	public void setReceiver(String receiver) {
+		this.receiver = receiver;
 	}
 
 	/**
@@ -75,8 +75,8 @@ public class Msg implements Serializable {
 	 * 
 	 * @return 받는사람
 	 */
-	public String getReciever() {
-		return this.reciever;
+	public String getReceiver() {
+		return this.receiver;
 	}
 
 	/**
