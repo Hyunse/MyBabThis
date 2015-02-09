@@ -26,7 +26,7 @@
 <br>
 
 <button type="submit" name="_event_confirmed">수정완료</button>
-<button type="submit" name="_event_reverse">재 입력</button>
+<button type="submit" name="_event_reverse">재입력</button>
 </form:form>
 
 </body>

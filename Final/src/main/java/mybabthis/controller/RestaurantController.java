@@ -3,7 +3,9 @@ package mybabthis.controller;
 import java.util.List;
 
 import mybabthis.entity.Restaurant;
+import mybabthis.entity.Review;
 import mybabthis.service.RestaurantService;
+import mybabthis.service.ReviewService;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,6 +24,8 @@ public class RestaurantController {
 
 	@Autowired
 	RestaurantService service;
+	@Autowired
+	ReviewService rev_sevice;
 	
 
 	@RequestMapping(value="/restaurant/list", method=RequestMethod.GET)
@@ -54,8 +58,9 @@ public class RestaurantController {
 	@RequestMapping(value="/restaurant/view",params={"resNo"}, method=RequestMethod.GET)
 	public String getRestaurantView(@RequestParam int resNo, Model model){
 		Restaurant restaurant = service.selectRestaurantByNo(resNo);
-		
+		List<Review> reviews = rev_sevice.getReviewByResNo(resNo);
 		model.addAttribute("restaurant",restaurant);
+		model.addAttribute("reviews", reviews);
 		return "restaurant/restaurant_view";
 		
 	}

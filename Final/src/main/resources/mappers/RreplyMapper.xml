@@ -8,13 +8,13 @@
   <insert id="createRreply" parameterType="Rreply">
     
      insert into rreply 
-		(rreply_no, 
+		(
 		rreply_content, 
 		rreply_regdate, 
 		rreply_updatedate, 
 		res_no, 
 		user_id)
-		values(#{rreplyNo}, #{rreplyContent}, sysdate, sysdate, #{restaurant.resNo}, #{users.userId})
+		values( #{rreplyContent}, sysdate, sysdate, #{resNo}, #{userId})
     </insert>
    
    <!-- 댓글수정 -->
