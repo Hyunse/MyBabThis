@@ -77,7 +77,7 @@ public class UserJoinController {
 		return "사용 가능한 아이디 입니다.";
 	}
 	
-	@RequestMapping(value = "/join", method = RequestMethod.POST, produces = "text/plain;charset=utf-8")
+	/*@RequestMapping(value = "/join", method = RequestMethod.POST, produces = "text/plain;charset=utf-8")
 	public @ResponseBody String ajaxReceive2(@RequestParam String name) {
 		logger.trace("-------------------------------------------------------------------------------");
 
@@ -89,6 +89,6 @@ public class UserJoinController {
 		}
 		logger.trace("----------------------사용가능 아이디");
 		return "사용 가능한 아이디 입니다.";
-	}
+	}*/
 
 }
