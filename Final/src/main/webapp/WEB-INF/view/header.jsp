@@ -31,11 +31,12 @@
 		</div>
 	</div>
 	<c:url value="/board/list" var="board" />
+	<c:url value="/meeting/list" var="meeting"/>
 	<table border="1">
 		<tr>
 			<td>메인</td>
 			<td>맛집랭킹</td>
-			<td>번개모임</td>
+			<td><a href="${meeting}">번개모임</a></td>
 			<td><a href="${board}">자유게시판</a></td>
 			<td>이용규칙</td>
 		</tr>

@@ -21,5 +21,7 @@ public interface UserDao {
 	List<Users> getAllUsers();
 
 	List<Users> getUsersByPage(int page);
+	
+	Users seletUserByName(String name);
 }
 

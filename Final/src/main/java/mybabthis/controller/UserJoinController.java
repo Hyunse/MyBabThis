@@ -55,7 +55,7 @@ public class UserJoinController {
 	/**
 	 * 가입페이지로
 	 */
-	/*@RequestMapping(value = "/join/id", method = RequestMethod.GET)
+/*	@RequestMapping(value = "/join", method = RequestMethod.GET)
 	public String ajaxPageCall(Model model) {
 
 		model.addAttribute("Users", new Users());
@@ -63,17 +63,29 @@ public class UserJoinController {
 
 	}*/
 
-	@RequestMapping(value = "/join/id", method = RequestMethod.POST, produces = "text/plain;charset=utf-8")
-	
-	public @ResponseBody String ajaxReceive(@RequestParam String id,
-			HttpServletRequest request) {
+	@RequestMapping(value = "/join", method = RequestMethod.POST, produces = "text/plain;charset=utf-8")
+	public @ResponseBody String ajaxReceive1(@RequestParam String id) {
 		logger.trace("-------------------------------------------------------------------------------");
 
 		Users user = userservice.selectUser(id);
 
 		if (user != null) {
 			logger.trace("----------------------중복 아이디");
-			  return"중복된 아이디 입니다.";
+			  return "중복된 아이디 입니다.";
+		}
+		logger.trace("----------------------사용가능 아이디");
+		return "사용 가능한 아이디 입니다.";
+	}
+	
+	@RequestMapping(value = "/join", method = RequestMethod.POST, produces = "text/plain;charset=utf-8")
+	public @ResponseBody String ajaxReceive2(@RequestParam String name) {
+		logger.trace("-------------------------------------------------------------------------------");
+
+		Users user = userservice.selectUser(name);
+
+		if (user != null) {
+			logger.trace("----------------------중복 아이디");
+			  return "중복된 아이디 입니다.";
 		}
 		logger.trace("----------------------사용가능 아이디");
 		return "사용 가능한 아이디 입니다.";

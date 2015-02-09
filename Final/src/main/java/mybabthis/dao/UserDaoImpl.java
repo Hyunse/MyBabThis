@@ -63,6 +63,12 @@ public class UserDaoImpl implements UserDao {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public Users seletUserByName(String name) {
+		String stmt = nameSpace + "selectUsersByName";
+		return sqlSession.selectOne(stmt, name);
+	}
 	
 
 }

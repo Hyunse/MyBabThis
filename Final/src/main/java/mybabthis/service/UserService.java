@@ -14,6 +14,8 @@ public interface UserService {
 	
 	Users selectUser(String id); // 회원 검색시  회원 아이디로 검색
 	
+	Users checkName(String name);
+	
 	Users login(Users user);
 	
 	 List<Users> selectUserByPage(int page); // 쓸 일 없을 수도..

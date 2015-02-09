@@ -57,4 +57,10 @@ public class UserServiceImpl implements UserService{
 		return null;
 	}
 
+	@Override
+	public Users checkName(String name) {
+		Users result = dao.seletUserByName(name);
+		return result;
+	}
+
 }
