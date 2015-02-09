@@ -8,6 +8,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
+<jsp:include page="/WEB-INF/view/header.jsp" />
 <body>
 
 	<c:url value="/meeting/confirm" var="write"></c:url>
