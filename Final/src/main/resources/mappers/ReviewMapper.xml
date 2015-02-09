@@ -46,8 +46,6 @@
 	<!-- AllReview -->
 	<select id="selectAllReview" resultType="Review">
 		select * from review
+	</select>	
 	<!-- AverageScoreByResNo -->
-
-	
-	</select>
 </mapper>
