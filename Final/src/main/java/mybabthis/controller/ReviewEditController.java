@@ -26,9 +26,12 @@ public class ReviewEditController {
 	ReviewService service;
 	
 	//작성폼으로
-	@RequestMapping(value="/review/write", method=RequestMethod.GET)
-	public String redirToReviewForm(Model model){
-		model.addAttribute("review", new Review());
+	@RequestMapping(value="/review/write", method=RequestMethod.GET,  params={"userId", "resNo"})
+	public String redirToReviewForm(@RequestParam String userId, int resNo, Model model){
+		Review review = new Review();
+		review.setUserId(userId);
+		review.setResNo(resNo);
+		model.addAttribute("review", review);
 		return "review/write";
 	}
 	

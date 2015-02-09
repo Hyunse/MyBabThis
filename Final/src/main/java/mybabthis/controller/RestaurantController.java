@@ -61,6 +61,7 @@ public class RestaurantController {
 		List<Review> reviews = rev_sevice.getReviewByResNo(resNo);
 		model.addAttribute("restaurant",restaurant);
 		model.addAttribute("reviews", reviews);
+		model.addAttribute("resNo",resNo);
 		return "restaurant/restaurant_view";
 		
 	}

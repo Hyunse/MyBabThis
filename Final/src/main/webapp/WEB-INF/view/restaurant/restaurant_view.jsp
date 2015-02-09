@@ -51,7 +51,7 @@
 		</c:forEach>
 		
 	</table>
-	<c:url value="/review/write" var="url"></c:url> 
+	<c:url value="/review/write?userId=${loginUser.userId }&resNo=${resNo }" var="url"></c:url> 
 	<a href="${url }"><button>리뷰작성</button></a> 
 
 

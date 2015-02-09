@@ -17,11 +17,17 @@
 <c:url value="/review/update" var="action"/>
 <form:form modelAttribute="review" method="post" action="${action }">
 <!-- 수정불가능 -->
-<label>맛집번호</label> : <form:input path="resNo"/><br>
-<label>리뷰번호</label> : <form:input path="reviewNo"/><br>
-<label>사용자ID</label> : <form:input path="userId"/><br>
+<label>맛집번호</label> : <form:input path="resNo" readonly="true"/><br>
+<label>리뷰번호</label> : <form:input path="reviewNo" readonly="true"/><br>
+<label>사용자ID</label> : <form:input path="userId" readonly="true"/><br>
 <!-- 수정가능 -->
-<label>리뷰점수</label> : <form:input path="reviewScore"/><br>
+<label>리뷰점수</label> : <form:radiobutton path="reviewScore" value="0"/>0
+						 <form:radiobutton path="reviewScore" value="1"/>1
+						 <form:radiobutton path="reviewScore" value="2"/>2
+						 <form:radiobutton path="reviewScore" value="3"/>3
+						 <form:radiobutton path="reviewScore" value="4"/>4
+						 <form:radiobutton path="reviewScore" value="5"/>5<br>
+
 <label>리뷰내용</label> : <form:input path="reviewContent"/><br>
 <br>
 
