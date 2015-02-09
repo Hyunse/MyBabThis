@@ -13,21 +13,21 @@
 
 <c:url value="/restaurant/writed" var="action"></c:url>
 	<form:form modelAttribute="restaurant" method="post" action="${action}">
-	<label>업체명</label> : <form:input path="resName" value="일감호"/>
+	<label>업체명</label> : <form:input path="resName" />
 		<br>
-		<label>업체번호</label> : <form:input path="resNumber" value="02-234-2322" />
+		<label>업체전화번호</label> : <form:input path="resNumber" />
 		<br>
 		<!-- 어케처리하지 얘는? 가입때 안받지않나? -->
 
-		<label>주소</label> : <form:input path="resLoc" value="주소"/>
+		<label>주소</label> : <form:input path="resLoc" />
 		<br>
-		<label>내용</label> : <form:input path="resContent" value="걍밥집임"/>
+		<label>내용</label> : <form:input path="resContent" />
 		<br>
 		
 		<!-- 나중에 세션으로처리 -->
-		<label>일단아이디</label> : <form:input path="userId" value="eun"/>
+		<label>일단아이디</label> : <form:input path="userId" value="${loginUser.userId }" readonly="true"/>
 		<br>
-		<label>이미지</label> : <form:input path="resImg" value="image.jpg"/>
+		<label>이미지</label> : <form:input path="resImg" value="Noimage.jpg"/>
 		<br>
 		<label>지역</label> : <form:select path="locName">
 		<form:option value="강남">강남</form:option>

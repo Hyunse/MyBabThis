@@ -13,7 +13,7 @@
 <hr>
 <h2>맛집 리스트</h2>
 <br>
-<c:url value="/restaurant/write" var="url"/>
+<c:url value="/restaurant/write?userId=${loginUser.userId }" var="url"/>
 <a href ="${url }"><button>글쓰기</button></a>
 <br>
 <c:forEach items="${restaurants }" var="restaurant">
