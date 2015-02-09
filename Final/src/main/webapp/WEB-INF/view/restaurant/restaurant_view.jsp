@@ -7,6 +7,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script>
+  $(function() {
+    $( "#tabs" ).tabs();
+  });
+	</script>
+
+
 </head>
 <body>
 <jsp:include page="/WEB-INF/view/header.jsp"/>
@@ -30,7 +41,47 @@
 </table>
 
 <hr>
-	<h1>리뷰목록</h1>
+
+
+<div id="tabs">
+  <ul>
+    <li><a href="#tabs-1">댓글</a></li>
+    <li><a href="#tabs-2">리뷰</a></li>
+  </ul>
+  <div id="tabs-1">
+	<table border="1">
+		<tr>
+		    <th>댓글번호</th>
+			<th>상호명</th>
+			<th>설명</th>
+			<th>작성자</th>
+			<th>등록일</th>
+			<th>수정</th>
+			<th>삭제</th>
+		</tr>
+		<c:forEach items="${rreplys }" var="rreply">
+			<tr>
+				<td><c:out value="${rreply.rreplyNo }" /></td>
+				<td><c:out value="${rreply.resNo }" /></td>
+				<td><c:out value="${rreply.rreplyContent }" /></td>
+				<td><c:out value="${rreply.userId }" /></td>
+				<td><c:out value="${rreply.rreplyUpdatedate }" /></td>
+				<td>
+			<c:url value="/rreply/edit?rreplyNo=${rreply.rreplyNo }" var="url"></c:url>
+			<a href="${url}"><button>수정</button></a>
+			</td>
+				<td>
+			<c:url value="/rreply/delete?rreplyNo=${rreply.rreplyNo }&resNo=${rreply.resNo }" var="url"></c:url>
+			<a href="${url}"><button>삭제</button></a>
+			</td>
+			</tr>
+		</c:forEach>
+	</table>
+	<c:url value="/rreply/write" var="url"></c:url>
+	<a href="${url }"><button>댓글작성</button></a>
+  </div>
+
+  <div id="tabs-2">
 	<table border="1">
 		<tr>
 			<th>사진</th>
@@ -50,10 +101,20 @@
 				<td><c:out value="${review.reviewUpdatedate }" /></td>
 			</tr>
 		</c:forEach>
-		
 	</table>
 	<c:url value="/review/write?userId=${loginUser.userId }&resNo=${resNo }" var="url"></c:url> 
 	<a href="${url }"><button>리뷰작성</button></a> 
+  </div>
+
+
+</div>
+
+ 
+
+
+
+
+
 
 
 </body>

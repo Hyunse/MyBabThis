@@ -4,8 +4,10 @@ import java.util.List;
 
 import mybabthis.entity.Restaurant;
 import mybabthis.entity.Review;
+import mybabthis.entity.Rreply;
 import mybabthis.service.RestaurantService;
 import mybabthis.service.ReviewService;
+import mybabthis.service.RreplyService;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,6 +28,8 @@ public class RestaurantController {
 	RestaurantService service;
 	@Autowired
 	ReviewService rev_sevice;
+	@Autowired
+	RreplyService rrep_service;
 	
 
 	@RequestMapping(value="/restaurant/list", method=RequestMethod.GET)
@@ -59,8 +63,10 @@ public class RestaurantController {
 	public String getRestaurantView(@RequestParam int resNo, Model model){
 		Restaurant restaurant = service.selectRestaurantByNo(resNo);
 		List<Review> reviews = rev_sevice.getReviewByResNo(resNo);
+		List<Rreply> rreplys = rrep_service.getRreplyByResNo(resNo);
 		model.addAttribute("restaurant",restaurant);
 		model.addAttribute("reviews", reviews);
+		model.addAttribute("rreplys", rreplys);
 		model.addAttribute("resNo",resNo);
 		return "restaurant/restaurant_view";
 		

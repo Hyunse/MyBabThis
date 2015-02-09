@@ -20,7 +20,7 @@
 		<br>
 		<label>내용</label> : <form:input path="rreplyContent" />
 		<br>
-		<button type="submit" name="bwrite">작성</button>
+		<button type="submit" name="rwrite">작성</button>
 	</form:form>
 	
 	
