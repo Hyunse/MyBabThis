@@ -34,9 +34,9 @@ public class RreplyServiceImpl implements RreplyService {
 	}
 
 	@Override
-	public int deleteRreply(Rreply reply) {
+	public int deleteRreply(int rreply) {
 
-		int result= dao.deleteRreply(reply);
+		int result= dao.deleteRreply(rreply);
 		return result;
 	}
 

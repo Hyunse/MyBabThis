@@ -37,9 +37,9 @@ public class RreplyDaoImpl implements RreplyDao {
 	}
 
 	@Override
-	public int deleteRreply(Rreply reply) {
+	public int deleteRreply(int rreplyNo) {
 		String stmt = nameSpace + "deleteRreply";
-		return sqlSession.delete(stmt, reply);
+		return sqlSession.delete(stmt, rreplyNo);
 	}
 
 	

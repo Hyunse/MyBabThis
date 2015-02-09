@@ -10,7 +10,7 @@ public interface RreplyService {
 
 	int createRreply(Rreply reply); 
 	int updateRreply(Rreply reply); 
-	int deleteRreply(Rreply reply);  
+	int deleteRreply(int rreplyNo);
 	List<Rreply> getRreplyByResNo(int resNo);
 	Rreply getRreplyByRreplyNo(int rreplyNo); 
 }

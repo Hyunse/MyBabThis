@@ -33,7 +33,7 @@
 			<th>작성자</th>
 			<th>등록일</th>
 			<th>수정</th>
-			
+			<th>삭제</th>
 		</tr>
 		
 		<c:forEach items="${rreplys }" var="rreply">
@@ -47,6 +47,11 @@
 			<c:url value="/rreply/edit?rreplyNo=${rreply.rreplyNo }" var="url"></c:url>
 			<a href="${url}"><button>수정</button></a>
 			</td>
+				<td>
+			<c:url value="/rreply/delete?rreplyNo=${rreply.rreplyNo }&resNo=${rreply.resNo }" var="url"></c:url>
+			<a href="${url}"><button>삭제</button></a>
+			</td>
+			
 
 			</tr>
 		</c:forEach>

@@ -69,6 +69,12 @@ public class RreplyController {
 			return "redirect:/rreply/list?resNo="+rreply.getResNo();
 		}
 		
+		//삭제하기
+		@RequestMapping(value="/rreply/delete",  method=RequestMethod.GET,  params={"rreplyNo", "resNo"})
+		public String delete(@RequestParam int rreplyNo, int resNo, Model model){
+			service.deleteRreply(rreplyNo);
+			return "redirect:/rreply/list?resNo="+resNo; 
+		}
 		
 		
 	
