@@ -40,9 +40,9 @@ public class ServiceTest {
 
 		
 		
-		/*ReviewService reviewSt = ctx.getBean(ReviewService.class);
+		ReviewService reviewSt = ctx.getBean(ReviewService.class);
 		logger.trace("review service : " + reviewSt);
-		Restaurant restaurant = new Restaurant();
+		/*Restaurant restaurant = new Restaurant();
 		Loc loc = new Loc();
 		loc.setLocName("성남");
 		restaurant.setResNo(2);
@@ -64,6 +64,7 @@ public class ServiceTest {
 		review.setReviewNo(8);*/
 		//logger.trace("리뷰 작성 : "+reviewSt.createReview(review));
 		//logger.trace("리뷰 검색 : "+reviewSt.getReviewByReviewNo(8));
+		//logger.trace("리뷰 검색 : "+reviewSt.getReviewByResNo(2));
 		//logger.trace("리뷰 수정 : "+reviewSt.updateReview(review));
 		//logger.trace("리뷰 삭제 : "+reviewSt.deleteReview(review));
 	}

@@ -30,7 +30,6 @@ public class BoardController {
 	
 	@RequestMapping(value = "/confirm", method = RequestMethod.POST)
 	public String writeBoard(@ModelAttribute("boardInfo") Board board) {	// 새로 입력한 게시글 정보
-		
 		if(board.getBoardContent() != null) {
 			boardService.write(board);
 		} else {
@@ -42,7 +41,7 @@ public class BoardController {
 	}
 
 	/** 
-	 * 게시글 목록보기
+	 * 게시판 글 목록보기
 	 * @param model
 	 * @return
 	 */
@@ -77,13 +76,15 @@ public class BoardController {
 	
 	
 	/**
-	 * 게시글 작성하기
+	 * 게시판 글 작성하기
 	 * @param model
 	 * @return
 	 */
 	@RequestMapping(value = "/write", method = RequestMethod.GET)
 	public String enterBoardByNo(Model model) {
-		model.addAttribute("boardInfo", new Board());
+		Board board = new Board();
+		board.setBoardType("F");
+		model.addAttribute("boardInfo", board);
 		return "board/board_write";
 	}
 	
