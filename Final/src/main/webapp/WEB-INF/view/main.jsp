@@ -7,23 +7,25 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
-<!-- <script type="text/javascript">
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script>
+$(document).ready(function(){
 $("#search").click(function(){
 
-	var name = $('#search').val();
+	var name = $('#resName').val();
 	
-	$.get()
+	$.get("<%=request.getContextPath()%>/restaurant/list?resName="+name);
 });
-  
+});
 
-</script> -->
+</script>
+
 <body>
 	<jsp:include page="/WEB-INF/view/header.jsp" />
 	<hr>
 	
 	<input type="text" id="resName" name="resName">
-	<%-- <c:url value="/restaurant/list?resName=${resName}" var="loc" />
-	<a href="${loc }"><button type="submit">건대</button></a> --%>
+	<button type="submit" id="search" name="search">검색</button><br>
 	<h1>환영합니다 메인입니다.</h1>
 	<c:url value="/restaurant/list?locName=건대" var="loc" />
 	<a href="${loc }"><button type="submit">건대</button></a>
