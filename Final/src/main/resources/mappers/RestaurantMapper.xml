@@ -61,6 +61,22 @@
 		where res_no=#{resNo}
 	</update>
 	
+	<select id="selectRankingAll" resultType="Restaurant">
+	select *
+	from (select *
+		  from restaurant
+		  order by res_score desc)
+	where rownum &lt;= 10
+	</select>
+	
+	<select id="selectRankingByLocName" parameterType="String" resultType="Restaurant">
+	select *
+	from (select *
+		  from restaurant
+		  order by res_score desc)
+	where rownum &lt;= 10 and loc_name=#{locName }
+	</select>
+	
 </mapper>
 
 
