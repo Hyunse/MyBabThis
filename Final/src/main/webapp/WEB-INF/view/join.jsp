@@ -111,9 +111,6 @@ $("#emailCheck").click(function(){
 </script>
 <body>
 	<c:url value="/join/confirm" var="confirm" />
-	<c:url value="/join" var="id" />
-	<c:url value="/join" var="name" />
-	<c:url value="/join" var="email" />
 	<form:form modelAttribute="Users" method="post" action="${confirm}"	>
 
 		<label>아이디</label> : <form:input path="userId" />
@@ -121,17 +118,17 @@ $("#emailCheck").click(function(){
 		id="idCheck"><div id="dropId"></div> 
 
 		<br>
-		<label>닉네임</label> : <form:input path="userName" /><a href="${name}">
+		<label>닉네임</label> : <form:input path="userName" />
 		<input type="button" value="중복체크" name="nameCheck"
-		id="nameCheck"></a><div id="dropName"></div> 
+		id="nameCheck"><div id="dropName"></div> 
 		<br>
 		<label>비밀번호</label> : <form:input path="userPass" id="pass" />
 		<br>
 		<label>비밀번호확인</label> : <form:input path="userPass" id="pass2" onblur = "passchk()"  /> 
 		<br>
-		<label>E-mail</label> : <form:input path="userEmail" /><a href="${email}">
+		<label>E-mail</label> : <form:input path="userEmail" />
 		<input type="button" value="중복체크" name="emailCheck"
-		id="emailCheck"></a><div id="dropEmail"></div> 
+		id="emailCheck"><div id="dropEmail"></div> 
 		<br>
 		<label>휴대폰</label> : <form:input path="userPhone" />
 		<br>
