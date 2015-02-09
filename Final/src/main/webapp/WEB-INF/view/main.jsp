@@ -14,7 +14,8 @@ $("#search").click(function(){
 
 	var name = $('#resName').val();
 	
-	$.get("<%=request.getContextPath()%>/restaurant/list?resName="+name);
+	<%-- $.get("<%=request.getContextPath()%>/restaurant/list?resName="+name); --%>
+	$(location).attr('href',"<%=request.getContextPath()%>/restaurant/list?resName="+name);
 });
 });
 
