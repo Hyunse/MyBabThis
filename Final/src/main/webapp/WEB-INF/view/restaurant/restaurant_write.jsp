@@ -26,7 +26,7 @@
 		<br>
 		
 		<!-- 나중에 세션으로처리 -->
-		<label>일단아이디</label> : <form:input path="userId" value="crackjj"/>
+		<label>일단아이디</label> : <form:input path="userId" value="eun"/>
 		<br>
 		<label>이미지</label> : <form:input path="resImg" value="image.jpg"/>
 		<br>

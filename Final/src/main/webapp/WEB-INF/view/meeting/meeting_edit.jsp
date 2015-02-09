@@ -9,11 +9,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>게시글 수정</h1>
-	<c:url value="/board/edit" var="action"></c:url>
+<h1>번개모임 글 수정</h1>
+	<c:url value="/meeting/edit" var="action"></c:url>
 	<form:form modelAttribute="editBoard" method="post" action="${action}">
-	<form:input path="boardNo"/><br>
-	<label>게시판 종류</label> : <form:input path="boardType"/><br>
+	<label>글번호</label> : <c:out value="${editBoard.boardNo}"></c:out> <br>
+	<label>번개모임</label> <form:hidden path="boardType" value="M"/><br>
 	<label>제목</label> : <form:input path="boardTitle"/><br>
 	<label>작성자</label> : <form:input path="userId"/><br>
 	<label>내용</label> : <form:textarea path="boardContent" cols="150" rows="20"/><br>

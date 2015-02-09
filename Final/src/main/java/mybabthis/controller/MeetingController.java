@@ -13,6 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping(value = "/meeting")
@@ -25,34 +26,112 @@ public class MeetingController {
 
 	@Autowired
 	BoardService boardService;
-	
+
+	/**
+	 * 번개모임 게시판에 글 작성 확인하기
+	 * @param board
+	 * @return
+	 */
 	@RequestMapping(value = "/confirm", method = RequestMethod.POST)
 	public String writeBoard(@ModelAttribute("boardInfo") Board board) {	// 새로 입력한 게시글 정보
 		// 에러처리
 
 		boardService.write(board);		
-		return "redirect:meeting/list";		
+		return "redirect:list";		
 
 	}
 
 	
 
 	/** 
-	 * 번개모임 글 목록보기
+	 * 번개모임 게시판 목록보기
 	 * @param model
 	 * @return
 	 */
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
-	public String enterMeeting(Model model) {
+	public String enterMeeting(@ModelAttribute("boardInfo") Board board, Model model) {
 		List<Board> list = null;
 		
 		// 타입이 M인거 불러오기
-		list = boardService.viewAllBoard();
+		list = boardService.viewBoardByMeeting(board.getBoardType());
 		model.addAttribute("boardList", list);
 		logger.trace("GoBoard : " + list);
 		
 		return "meeting/meeting_list";
 
+	}
+	
+	
+	/**
+	 * 번개모임 게시판에서 선택한 글 내용 보기
+	 * @param boardNo
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping(value = "/detail", method = RequestMethod.GET, params={"boardNo"})
+	public String enterBoardByNo(@RequestParam int boardNo, Model model) {
+		Board board = null;
+
+		board = boardService.viewBoardByNo(boardNo);
+		model.addAttribute("boardDetail", board);
+		logger.trace("게시글 정보 : " + board.toString());
+		
+		return "meeting/meeting_detail";
+	}
+	
+	
+	/**
+	 *  번개모임 게시판 글 작성하기
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping(value = "/write", method = RequestMethod.GET)
+	public String enterBoardByNo(Model model) {
+		Board board = new Board();
+		board.setBoardType("M");
+		model.addAttribute("boardInfo", board);
+		return "meeting/meeting_write";
+	}
+	
+	/**
+	 * 번개모임 게시판 수정화면으로 이동
+	 * @param boardNo
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping(value="/update",  method=RequestMethod.GET, params={"boardNo"})
+	public String goEditBoard(@RequestParam int boardNo, Model model){
+		
+		Board board = boardService.viewBoardByNo(boardNo);
+		model.addAttribute("editBoard",board);
+		
+		return "/meeting/meeting_edit";
+	}
+	
+	/**
+	 * 번개모임 게시판 글 수정하기
+	 * @param board
+	 * @return
+	 */
+	@RequestMapping(value="/edit", params="_event_edit", method=RequestMethod.POST)
+	public String editBoard(@ModelAttribute("editBoard") Board board){
+		
+		boardService.updateBoard(board);
+		
+		return "redirect:/meeting/list";
+	}
+
+	/**
+	 * 번개모임 게시판 글 삭제하기
+	 * @param board
+	 * @return
+	 */
+	@RequestMapping(value="/edit", params="_event_delete", method=RequestMethod.POST)
+	public String deleteBoard(@ModelAttribute("editBoard") Board board){
+		
+		boardService.delete(board.getBoardNo());
+		logger.trace("번호: " +board.getBoardNo());
+		return "redirect:/meeting/list";
 	}
 
 }

@@ -10,7 +10,7 @@
 </head>
 <body>
 
-	<c:url value="/board/confirm" var="write"></c:url>
+	<c:url value="/meeting/confirm" var="write"></c:url>
 	<form:form modelAttribute="boardInfo" method="post" action="${write}">
 
 		<label>번개모임</label> <form:hidden path="boardType" value="M" />

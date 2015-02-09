@@ -40,7 +40,7 @@ body {
 		
 		<tr>
 			<td> <c:out value="${boardList.boardNo}"/> </td>
-			<td> <c:url value= "/board/detail?boardNo=${boardList.boardNo}" var="go"/> 
+			<td> <c:url value= "/meeting/detail?boardNo=${boardList.boardNo}" var="go"/> 
 			     <a href="${go}"><c:out value="${boardList.boardTitle}"/> </a>
 			<!-- 
 			<c:if test="${fn:length(boardList.boardTitle) > 20 }">
@@ -60,7 +60,7 @@ body {
 		</c:if>
 		
 	</table>
-	<c:url value= "/board/write" var="write"/> 
+	<c:url value= "/meeting/write" var="write"/> 
 	<a href="${write}"><button type="submit">글쓰기</button></a>
 	
 </body>

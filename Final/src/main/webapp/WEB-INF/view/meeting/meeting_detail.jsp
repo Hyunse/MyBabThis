@@ -14,7 +14,7 @@
 작성자 : ${boardDetail.userId } <br>
 내용 : ${boardDetail.boardContent } <br>
 
-<c:url value= "/board/update?boardNo=${boardDetail.boardNo}" var="goEdit"/> 
+<c:url value= "/meeting/update?boardNo=${boardDetail.boardNo}" var="goEdit"/> 
 <a href="${goEdit}"><button type="submit">수정</button></a>
 	
 </body>

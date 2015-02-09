@@ -61,7 +61,7 @@
 	<select id="selectBoardByMeeting" parameterType="String" resultType="Board">
 		select *
 		from board
-		where boardType='M'
+		where board_type in('m', 'M')
 		order by board_no desc
 	</select>
 	
