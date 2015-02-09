@@ -26,7 +26,11 @@
 	<select id="selectAllUser" resultType="Users">
 		select * from users
 	</select>	
-
+	<select id="selectUsersByName" parameterType="String" resultType="Users">
+			select *
+		from users
+		where user_name=#{userName}
+	</select>
 
 	<!-- 관심 지역 만들어야한다. -->
 	<update id="updateUser" parameterType="Users">
@@ -44,4 +48,5 @@
 		delete from users where
 		user_id=#{userId}
 	</delete>
+	
 </mapper>

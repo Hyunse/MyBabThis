@@ -17,12 +17,12 @@ $("#idCheck").click(function(){
    
     $.ajax({
     type: "POST",
-    url: "<%=request.getContextPath()%>/join",
+    url: "<%=request.getContextPath()%>/join/id",
     data: "id="+ id ,
     contentType:"application/x-www-form-urlencoded; charset=utf-8",
     success: function(args){
     	 alert("성공" + args);
-    	$("#dropId").html(args);
+    	$("#dropId").html(args.responseText);
     }
     });
 })
@@ -32,12 +32,12 @@ $("#nameCheck").click(function(){
    
     $.ajax({
     type: "POST",
-    url: "<%=request.getContextPath()%>/join",
+    url: "<%=request.getContextPath()%>/join/name",
     data: "name="+ name ,
     contentType:"application/x-www-form-urlencoded; charset=utf-8",
     success: function(args){
     	 alert("성공" + args);
-    	$("#dropName").html(args);
+    	$("#dropName").html(args.responseText);
     }
     });
 })

@@ -63,7 +63,7 @@ public class UserJoinController {
 
 	}*/
 
-	@RequestMapping(value = "/join", method = RequestMethod.POST, produces = "text/plain;charset=utf-8")
+	@RequestMapping(value = "/join/id", method = RequestMethod.POST, produces = "text/plain;charset=utf-8")
 	public @ResponseBody String ajaxReceive1(@RequestParam String id) {
 		logger.trace("-------------------------------------------------------------------------------");
 
@@ -77,18 +77,17 @@ public class UserJoinController {
 		return "사용 가능한 아이디 입니다.";
 	}
 	
-	/*@RequestMapping(value = "/join", method = RequestMethod.POST, produces = "text/plain;charset=utf-8")
+	@RequestMapping(value = "/join/name", method = RequestMethod.POST, produces = "text/plain;charset=utf-8")
 	public @ResponseBody String ajaxReceive2(@RequestParam String name) {
 		logger.trace("-------------------------------------------------------------------------------");
 
-		Users user = userservice.selectUser(name);
-
+		Users user = userservice.checkName(name);
 		if (user != null) {
-			logger.trace("----------------------중복 아이디");
-			  return "중복된 아이디 입니다.";
+			logger.trace("----------------------중복 이름");
+			  return "중복된 이름 입니다.";
 		}
-		logger.trace("----------------------사용가능 아이디");
-		return "사용 가능한 아이디 입니다.";
-	}*/
+		logger.trace("----------------------사용가능 이름");
+		return "사용 가능한 이름 입니다.";
+	}
 
 }
