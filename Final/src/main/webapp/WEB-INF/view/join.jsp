@@ -20,10 +20,16 @@ $("#idCheck").click(function(){
     url: "<%=request.getContextPath()%>/join/id",
     data: "id="+ id ,
     contentType:"application/x-www-form-urlencoded; charset=utf-8",
+    async: false,
+    
     success: function(args){
     	 alert("성공" + args);
-    	$("#dropId").html(args.responseText);
-    }
+    	$("#dropId").html(args);
+    },
+    error: function (args) {
+    	alert("오류" + args)
+		console.log(path, args);
+	}
     });
 })
 $("#nameCheck").click(function(){
@@ -33,12 +39,21 @@ $("#nameCheck").click(function(){
     $.ajax({
     type: "POST",
     url: "<%=request.getContextPath()%>/join/name",
-    data: "name="+ name ,
+    data: "name="+ name,
     contentType:"application/x-www-form-urlencoded; charset=utf-8",
+    async: false,
+    
     success: function(args){
+    	
     	 alert("성공" + args);
-    	$("#dropName").html(args.responseText);
-    }
+    	$("#dropName").html(args);
+    },
+    error: function (args) {
+    	
+    	alert("오류" + args);
+		console.log(path, args);
+	}
+
     });
 })
 	
