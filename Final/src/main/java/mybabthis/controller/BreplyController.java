@@ -1,9 +1,8 @@
 package mybabthis.controller;
 
-import java.util.List;
 
 import mybabthis.entity.Breply;
-import mybabthis.entity.Rreply;
+import mybabthis.entity.Users;
 import mybabthis.service.BreplyService;
 
 import org.slf4j.Logger;
@@ -15,10 +14,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
-@SessionAttributes("breply")
+
 public class BreplyController {
 	private static final Logger logger;
 	static {
@@ -36,44 +35,42 @@ public class BreplyController {
 		
 		
 		//작성하기
-		@RequestMapping(value="/breply/write", params="bwrite", method=RequestMethod.POST)
+		@RequestMapping(value="/breply/write", params="breply_write", method=RequestMethod.POST)
 		public String write(@ModelAttribute("breply") Breply breply){
-			logger.trace("됫나");
 			service.createBreply(breply);
-			return "redirect:/breply/list?boardNo="+breply.getBoardNo();
+			return "redirect:/board/detail?boardNo="+breply.getBoardNo();
 		}
 		
 		
-		//리스트
+/*		//리스트로가기
 		@RequestMapping(value="/breply/list", method=RequestMethod.GET, params={"boardNo"})
 		public String getRreplyByBoardNo(@RequestParam int boardNo, Model model){
-			List<Breply> breplys = service.getBreplyByBoardNo(boardNo);
-			model.addAttribute("breplys", breplys);
-			return "breply/list";
-		}
+			return "redirect:/board/detail?boardNo="+boardNo;
+		}*/
 		
 	
-		//수정폼으로
+/*		//수정폼으로
 		@RequestMapping(value="/breply/edit", method=RequestMethod.GET,  params={"breplyNo"})
 		public String edit(@RequestParam int breplyNo, Model model){
 			Breply breply = service.getBreplyByBreplyNo(breplyNo);  
 			model.addAttribute("breply",breply );
 			return "breply/edit";
 		}
+		*/
 		
-		
+			
 		//수정하기
-		@RequestMapping(value="/breply/update", params="_event_confirmed", method=RequestMethod.POST)
+		@RequestMapping(value="/breply/update", params="breply_update", method=RequestMethod.POST)
 		public String update(@ModelAttribute("breply") Breply breply){
 			service.updateBreply(breply);
-			return "redirect:/breply/list?boardNo="+breply.getBoardNo();
+			return "redirect:/board/detail?boardNo="+breply.getBoardNo();
 		}
 		
 		//삭제하기
 		@RequestMapping(value="/breply/delete",  method=RequestMethod.GET,  params={"breplyNo", "boardNo"})
 		public String delete(@RequestParam int breplyNo, int boardNo, Model model){
 			service.deleteBreply(breplyNo);
-			return "redirect:/breply/list?boardNo="+boardNo; 
+			return "redirect:/board/detail?boardNo="+boardNo;
 		}
 		
 		

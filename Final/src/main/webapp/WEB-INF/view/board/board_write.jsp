@@ -19,8 +19,6 @@
 		<br>
 		<label>아이디</label> : <form:input path="userId" />
 		<br>
-
-		
 		<label>제목</label> : <form:input path="boardTitle" />
 		<br>
 		<label>내용</label> : <form:textarea path="boardContent" cols="150" rows="20" />

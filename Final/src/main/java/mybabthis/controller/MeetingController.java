@@ -3,7 +3,9 @@ package mybabthis.controller;
 import java.util.List;
 
 import mybabthis.entity.Board;
+import mybabthis.entity.Breply;
 import mybabthis.service.BoardService;
+import mybabthis.service.BreplyService;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,6 +28,8 @@ public class MeetingController {
 
 	@Autowired
 	BoardService boardService;
+	@Autowired
+	BreplyService breplyService;
 
 	/**
 	 * 번개모임 게시판에 글 작성 확인하기
@@ -70,12 +74,12 @@ public class MeetingController {
 	 */
 	@RequestMapping(value = "/detail", method = RequestMethod.GET, params={"boardNo"})
 	public String enterBoardByNo(@RequestParam int boardNo, Model model) {
-		Board board = null;
-
-		board = boardService.viewBoardByNo(boardNo);
+		Board board = boardService.viewBoardByNo(boardNo);
+		List<Breply> breplys = breplyService.getBreplyByBoardNo(boardNo);
 		model.addAttribute("boardDetail", board);
+		model.addAttribute("breplys", breplys);
+		model.addAttribute("breply", new Breply());
 		logger.trace("게시글 정보 : " + board.toString());
-		
 		return "meeting/meeting_detail";
 	}
 	

@@ -1,8 +1,11 @@
 package mybabthis.controller;
 
 import java.util.List;
+
 import mybabthis.entity.Board;
+import mybabthis.entity.Breply;
 import mybabthis.service.BoardService;
+import mybabthis.service.BreplyService;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,6 +29,8 @@ public class BoardController {
 
 	@Autowired
 	BoardService boardService;
+	@Autowired
+	BreplyService breplyService;
 	
 	@RequestMapping(value = "/confirm", method = RequestMethod.POST)
 	public String writeBoard(@ModelAttribute("boardInfo") Board board) {	// 새로 입력한 게시글 정보
@@ -62,12 +67,12 @@ public class BoardController {
 	 */
 	@RequestMapping(value = "/detail", method = RequestMethod.GET, params={"boardNo"})
 	public String enterBoardByNo(@RequestParam int boardNo, Model model) {
-		Board board = null;
-
-		board = boardService.viewBoardByNo(boardNo);
+		Board board = boardService.viewBoardByNo(boardNo);
+		List<Breply> breplys = breplyService.getBreplyByBoardNo(boardNo);
 		model.addAttribute("boardDetail", board);
+		model.addAttribute("breplys", breplys);
+		model.addAttribute("breply", new Breply());
 		logger.trace("게시글 정보 : " + board.toString());
-		
 		return "board/board_detail";
 	}
 	
