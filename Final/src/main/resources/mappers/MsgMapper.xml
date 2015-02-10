@@ -24,7 +24,7 @@
 		where msg_no=#{msgNo}
 	</delete>
 
-	<select id="selectMsgByReceiver" resultType="Msg">
+	<select id="selectMsgByReceiver" parameterType="string" resultType="Msg">
 		select *
 		from msg
 		where receiver=#{receiver} and write_type='N'
@@ -43,7 +43,7 @@
 		select *
 		from msg
 		where
-		receiver=#{admin} and write_type!='N'
+		receiver=admin and write_type!='N'
 		order by msg_no desc
 	</select>
 
