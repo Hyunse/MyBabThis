@@ -17,5 +17,9 @@
 		<br>
 		<button type="submit" name="proceed">즐겨찾기</button>
 	</form:form>
+
+
+
+
 </body>
 </html>
