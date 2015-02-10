@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping(value = "/admin")
@@ -40,6 +41,12 @@ public class AdminController {
 	public String goAdminMyinfo(Model model){
 		
 		return "admin/admin_myinfo";
+	}
+	
+	@RequestMapping(value="/users_list", params={"userId"},  method=RequestMethod.GET)
+	public String enterAdminUsersList(@RequestParam int resNo, Model model){
+		
+		return "admin/admin_user_detail";
 	}
 	
 	@RequestMapping(value="/users",  method=RequestMethod.GET)
