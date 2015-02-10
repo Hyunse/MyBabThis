@@ -13,10 +13,8 @@
 
 
 	<c:forEach items="${rastaurants }" var="restaurant">
-
-		<table border="1">
-		
-			
+<c:url value="/restaurant/view?resNo=${restaurant.resNo}" var="url"/>
+<table border="1" onclick="location.href='${url}'" style="cursor:pointer;">
 				<tr>
 					<th>맛집 번호</th>
 					<th>맛집지역</th>
