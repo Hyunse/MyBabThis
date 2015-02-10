@@ -11,18 +11,25 @@
 <jsp:include page="/WEB-INF/view/header.jsp" />
 </head>
 <script src="http://code.jquery.com/jquery-latest.js"></script>
-<script>
+<script language="javascript"> 
+var attr;
+<%-- select box에서 선택한 value 값을 가져옴 --%>
+function selected(opt) // select box에서 받은 opt는 object
+{ 
+ if(opt.options[opt.selectedIndex].value) {  		// 셀렉트 option에 값이 있으면 실행 
+	 attr = opt.options[opt.selectedIndex].value; 	// value값을 가져오기 
+    } 
+} 
+
 $(document).ready(function(){
 $("#search").click(function(){
 
-	alert("검색");
-	
 	var word = $('#searchWord').val();
-	
-	<%-- $.get("<%=request.getContextPath()%>/restaurant/list?resName="+name); --%>
-	$(location).attr('href',"<%=request.getContextPath()%>/admin/users?userId="+word); 
+	$(location).attr('href',"<%=request.getContextPath()%>/admin/users?" + attr +"="+word); 
 });
 });
+
+
 
 </script>
 
@@ -30,9 +37,11 @@ $("#search").click(function(){
 	<h1>회원관리</h1>
 	<jsp:include page="/WEB-INF/view/admin/left.jsp" />
 	<label>맛집장르</label> :
-	<select id="select">
-		<option value="userName">이름</option>
+	<%-- selected(this) : 자기자신을 스크립트로 보냄 --%>
+	<select id="select" onChange="selected(this)">
+		<option value="">▒ 선택 ▒ </option>
 		<option value="userId">아이디</option>
+		<option value="userName">이름</option>
 		<option value="userRegdate">등록일</option>
 		<option value="userUpdatedate">수정일</option>
 		<option value="userGrade">등급</option>
