@@ -25,6 +25,13 @@ $(document).ready(function(){
 		$("#writeform").show();
 		$("#updateform").hide();
 	})
+	
+	$(".content").each(function(index){
+		$("this").attr({
+			"id" : "para-"+index
+		});
+	});
+	
 })
 </script>
 <!-- <script>
@@ -60,6 +67,7 @@ $('a[data-href]').each(function() {
 		</tr>
 		
 		<c:forEach items="${breplys }" var="breply">
+		<% int i = 1; %>
 			<tr>
 				<td ><c:out value="${breply.breplyNo }"  /></td>
 				<td><c:out value="${breply.boardNo }" /></td>
@@ -69,12 +77,13 @@ $('a[data-href]').each(function() {
 				<td>
 				<%-- <c:url value="/breply/edit?breplyNo=${breply.breplyNo}" var="url"></c:url>
 				<a href="${url}"><button id="updateBtn">수정</button></a> --%>
-					<button class="updateBtn" id="updateBtn">수정</button>
+					<button class="updateBtn" id="updateBtn<%= i %>">수정</button>
 				</td>
 				<td><c:url
 						value="/breply/delete?breplyNo=${breply.breplyNo }&boardNo=${breply.boardNo }"
 						var="url"></c:url> <a href="${url}"><button>삭제</button></a></td>
 			</tr>
+			<% i++; %>
 		</c:forEach>
 	</table>
 	<input type="button" id="writeButton" value="새 댓글 적기">
@@ -98,7 +107,7 @@ $(obj).parent.find(:textarea).html()
 	</form:form>
 
 	<c:url value="/breply/update" var="action" />
-	<form:form modelAttribute="breply" method="post" action="${action }" id="updateform">
+	<form:form modelAttribute="breply" method="post" action="${action }" id="updateform" >
 	<h2>댓글수정</h2>
 		<form:hidden path="boardNo" value="${boardDetail.boardNo }" />
 		<form:hidden path="userId" value="${loginUser.userId }" />
