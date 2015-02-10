@@ -1,5 +1,7 @@
 package mybabthis.controller;
 
+import java.util.List;
+
 import mybabthis.entity.Users;
 import mybabthis.service.BoardService;
 import mybabthis.service.UserService;
@@ -53,6 +55,11 @@ public class AdminController {
 	
 	@RequestMapping(value="/users",  method=RequestMethod.GET)
 	public String goAdminUsers(@ModelAttribute("userList") Users user, Model model){
+		List<Users> list = null;
+
+		list = userService.selectAllUser();
+		model.addAttribute("userList", list);
+		logger.trace("userList : " + list);
 		
 		return "admin/admin_users";
 	}
