@@ -17,8 +17,8 @@
 		${loginUser.userId }님 반갑습니다. 
 		<c:url value="/logout" var="logout" />
 				<a href="${logout}"><button>로그아웃</button></a>
-				<c:url value="/mypage/myinfo" var="myinfo" />
-				<a href="${myinfo}"><button>개인정보</button></a>
+				<c:url value="/mypage" var="mypage" />
+				<a href="${mypage}"><button>개인정보</button></a>
 			</c:if>
 			<c:if test="${empty loginUser }">
 

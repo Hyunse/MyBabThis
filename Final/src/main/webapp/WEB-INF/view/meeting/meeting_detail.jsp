@@ -46,8 +46,8 @@
 				<td><c:out value="${breply.userId }" /></td>
 				<td><c:out value="${breply.breplyUpdatedate }" /></td>
 				<td>
-<%-- 			<c:url value="/breply/edit?breplyNo=${breply.breplyNo }" var="url"></c:url>
-			<a href="${url}"><button>수정</button></a> --%>
+		<%--  	<c:url value="/breply/edit?breplyNo=${breply.breplyNo }" var="url"></c:url>
+			<a href="${url}"><button>수정</button></a>--%>
 			<button id="updateBtn">수정</button>
 			</td>
 				<td>
