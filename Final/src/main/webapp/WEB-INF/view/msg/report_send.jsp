@@ -14,13 +14,13 @@
 </head>
 <body>
 <h2>쪽지보내기</h2>
-<c:url value="/msg/sended" var="action"></c:url>
+<c:url value="/msg/reportsended" var="action"></c:url>
 	<form:form modelAttribute="msg" method="post" action="${action}">
-	<label>보낸사람</label> : <form:hidden path="sender" value="${loginUser.userId}"/>
-		<br>
-		<label>받는사람</label> : <form:input path="receiver" value="${receiver}" readonly="true"/>
+	<label>보낸사람</label> : <form:input path="sender" value="${loginUser.userId}"/>
 		<br>
 		<label>내용</label> : <form:input path="msgContent"/>
+		<br>
+		<label>게시판종류</label> : <form:input path="writeType" value="${writeType} }" readonly="true"/>
 		<br>
 		
 	<button type="submit" name="proceed">쪽지 전송</button>

@@ -21,5 +21,7 @@ public interface UserService {
 	 List<Users> selectUserByPage(int page); // 쓸 일 없을 수도..
 	
 	 Users checkEmail(String email); // 이메일 체크
+	 
+	 List<Users> selectAllUser();
 
 }

@@ -22,19 +22,44 @@ public class MsgController {
 	@Autowired
 	MsgService service;
 	
+	
+	//쪽지보내기
 	@RequestMapping(value="/send",params={"receiver"},method=RequestMethod.GET)
-	public String sendMsg(@RequestParam String receiver, Model model){
+	public String enterSendMsg(@RequestParam String receiver, Model model){
 		model.addAttribute("receiver",receiver);
 		model.addAttribute("msg", new Msg());
 		return "msg/msg_send";
 	}
 	
 	@RequestMapping(value="/sended",method=RequestMethod.POST)
-	public String sendMsg(@ModelAttribute("msg") Msg msg){
+	public String afterSendedMsg(@ModelAttribute("msg") Msg msg){
 		service.sendMsg(msg);
 		return "msg/msg_send";
 	}
 	
+	
+	//신고하기
+	@RequestMapping(value="/sendReport",params={"writeType"} ,method=RequestMethod.GET)
+	public String enterSendReport(@RequestParam String writeType,Model model){
+		model.addAttribute("writeType",writeType);
+		model.addAttribute("msg", new Msg());
+		return "msg/report_send";
+	}
+	
+	@RequestMapping(value="/sendedReport",method=RequestMethod.POST)
+	public String afterSendRepor(@ModelAttribute("msg") Msg msg){
+		service.sendReport(msg);
+		return "msg/report_send";
+	}
+	
+	@RequestMapping(value="/sendList",method=RequestMethod.GET)
+	public String getSendList(){
+		return "msg/list";
+	}
+	
+	
+	
+	//리스트 필요함 - 받은쪽지, 보낸쪽지, 신고쪽지
 	
 	/*메시지컨트롤러에서
 

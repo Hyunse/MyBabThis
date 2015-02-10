@@ -93,7 +93,7 @@
 		           alert("비밀번호다르다.");
 		        } else {
 		           $("#chk").val(message3);
-		           alert("비밀번호같습니다.")
+		           alert("비밀번호같습니다.");
 		        }
 		        return;
 		    })
