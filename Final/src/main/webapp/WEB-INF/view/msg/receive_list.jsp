@@ -7,12 +7,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>보낸 쪽지함</title>
+<title>받은 쪽지함</title>
 </head>
 <body>
-<h2>보낸 쪽지함</h2>
+<h2>받은 쪽지함</h2>
 <table border="1">
-<c:forEach var= "msg" items="${sendMsgs}" varStatus="status">
+<c:forEach var= "msg" items="${receiveMsgs}" varStatus="status">
 		<tr>
 		<th>보낸사람</th><th>받은사람</th><th>내용</th><th>전송시각</th>
 		</tr>
@@ -21,8 +21,12 @@
 			<td> <c:out value="${msg.receiver}"/> </td>
 			<td> <c:out value="${msg.msgContent}"/></td>
 			<td> <c:out value="${msg.writeDate}"/></td>
+			<td>
+		<a href="<%=request.getContextPath()%>/msg/send?receiver=${msg.sender}">
+		<button>답장하기</button>
+		</a>
+		</td>
 		</tr>
-		
 		</c:forEach>
 </table>
 

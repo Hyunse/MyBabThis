@@ -12,28 +12,30 @@
 	<h2>즐겨찾기목록</h2>
 
 
-	<c:forEach items="${resNos }" var="resNo">
-		<table border="1">
-			<tr>
-				<th>맛집번호</th>
-				<th>삭제</th>
+	<c:forEach items="${rastaurants }" var="restaurant">
+<c:url value="/restaurant/view?resNo=${restaurant.resNo}" var="url"/>
+<table border="1" onclick="location.href='${url}'" style="cursor:pointer;">
+				<tr>
+					<th>맛집 번호</th>
+					<th>맛집지역</th>
+					<th>맛집 이름</th>
+					<th>맛집내용</th>
+				</tr>
+				<tr>
+					<td><c:out value="${restaurant.resNo}" /></td>
+					<td><c:out value="${restaurant.locName}" /></td>
+					<td><c:out value="${restaurant.resName}" /></td>
+					<td><c:out value="${restaurant.resContent}" /></td>
+					<td>
+					<c:url value="/favorite/delete?userId=${loginUser.userId}&resNo=${restaurant.resNo}" var="url"/>
+				<a href="${url}"><button>삭제</button></a></td>
+					</table>
+				</c:forEach>
+				
+			
 
-			</tr>
-
-
-			<tr>
-
-				<c:url value="/favorite/delete" var="action"></c:url>
-				<form:form modelAttribute="favorite" method="post"
-					action="${action }">
-					<td><form:input path="resNo" value="${resNo}" /></td>
-					<form:hidden path="userId" value="choeh" />
-					<td><button type="submit" name="delete">삭제</button>
-				</form:form>
-				</td>
-			</tr>
-		</table>
-	</c:forEach>
+					
+				
 
 </body>
 </html>

@@ -36,7 +36,9 @@ where user_id=#{userId}
 <select id="selectResByResNo" parameterType="Favorite" resultType="Restaurant">
 select *
 from favorite,restaurant
-where favorite.res_no=restaurant.res_no
+where favorite.res_no=restaurant.res_no 
+     and favorite.user_id=#{userId}
+      
 </select>
 
 <select id="validationCheck" parameterType="Favorite" resultType="Integer">

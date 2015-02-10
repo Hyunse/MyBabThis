@@ -11,18 +11,25 @@
 <jsp:include page="/WEB-INF/view/header.jsp" />
 </head>
 <script src="http://code.jquery.com/jquery-latest.js"></script>
-<script>
+<script language="javascript"> 
+var attr;
+<%-- select box에서 선택한 value 값을 가져옴 --%>
+function selected(opt) // select box에서 받은 opt는 object
+{ 
+ if(opt.options[opt.selectedIndex].value) {  		// 셀렉트 option에 값이 있으면 실행 
+	 attr = opt.options[opt.selectedIndex].value; 	// value값을 가져오기 
+    } 
+} 
+
 $(document).ready(function(){
 $("#search").click(function(){
 
-	alert("검색");
-	
 	var word = $('#searchWord').val();
-	
-	<%-- $.get("<%=request.getContextPath()%>/restaurant/list?resName="+name); --%>
-	$(location).attr('href',"<%=request.getContextPath()%>/admin/users?userId="+word); 
+	$(location).attr('href',"<%=request.getContextPath()%>/admin/users?" + attr +"="+word); 
 });
 });
+
+
 
 </script>
 
@@ -30,9 +37,12 @@ $("#search").click(function(){
 	<h1>회원관리</h1>
 	<jsp:include page="/WEB-INF/view/admin/left.jsp" />
 	<label>맛집장르</label> :
-	<select id="select">
-		<option value="userName">이름</option>
+	<%-- selected(this) : 자기자신을 스크립트로 보냄 --%>
+	<select id="select" onChange="selected(this)">
+		<option value="">▒ 선택 ▒ </option>
 		<option value="userId">아이디</option>
+		<option value="userName">이름</option>
+		<option value="userEmail">이메일</option>
 		<option value="userRegdate">등록일</option>
 		<option value="userUpdatedate">수정일</option>
 		<option value="userGrade">등급</option>
@@ -42,12 +52,8 @@ $("#search").click(function(){
 	<input type="button" id="search" name="search" value="검색" >
 	<br>
 	<br>
-	<%
-		int i = 1;
-	%>
 
-	<table border="1" onclick="location.href='${url}'"
-		style="cursor: pointer;">
+	<table border="1">
 		<tr>
 			<th>번호</th>
 			<th>아이디</th>
@@ -59,11 +65,13 @@ $("#search").click(function(){
 			<th>등록일</th>
 			<th>수정일</th>
 		</tr>
-		<c:forEach items="${userList}" var="user">
-			<c:url value="/admin/users_list?userId=${user.userId}" var="url" />
+		<c:if test="${empty searchUser }">
+		<%-- <c:if test="${!empty count}"> --%>
+		<c:forEach items="${userList}" var="user" varStatus="status">
+			<%-- <c:url value="/admin/users_list?userId=${user.userId}" var="url" /> --%>
 			<tr>
 
-				<td><c:out value="<%=i%>" /></td>
+				<td><c:out  value="${status.count}" /></td>
 				<td><c:out value="${user.userId}" /></td>
 				<td><c:out value="${user.userPass}" /></td>
 				<td><c:out value="${user.userName}" /></td>
@@ -73,11 +81,30 @@ $("#search").click(function(){
 				<td><c:out value="${user.userRegdate}" /></td>
 				<td><c:out value="${user.userUpdatedate}" /></td>
 			</tr>
-			<%
-				i++;
-			%>
 		</c:forEach>
+		</c:if>
+		<c:if test="${count == 1 }">
+		
+			<%-- <c:url value="/admin/users_list?userId=${user.userId}" var="url" /> --%>
+			
+			<tr>
+
+				<td><c:out value="<%=1%>" /></td>
+				<td><c:out value="${searchUser.userId}" /></td>
+				<td><c:out value="${searchUser.userPass}" /></td>
+				<td><c:out value="${searchUser.userName}" /></td>
+				<td><c:out value="${searchUser.userGender}" /></td>
+				<td><c:out value="${searchUser.userEmail}" /></td>
+				<td><c:out value="${searchUser.userPhone}" /></td>
+				<td><c:out value="${searchUser.userRegdate}" /></td>
+				<td><c:out value="${searchUser.userUpdatedate}" /></td>
+			</tr>
+			
+		
+		</c:if>
 	</table>
+	
+	
 	<br>
 	<br>
 

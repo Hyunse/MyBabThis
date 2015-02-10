@@ -16,7 +16,7 @@
 <h2>쪽지보내기</h2>
 <c:url value="/msg/sended" var="action"></c:url>
 	<form:form modelAttribute="msg" method="post" action="${action}">
-	<label>보낸사람</label> : <form:hidden path="sender" value="${loginUser.userId}"/>
+	<label>보낸사람</label> : <form:input path="sender" value="${loginUser.userId}" readonly="true"/>
 		<br>
 		<label>받는사람</label> : <form:input path="receiver" value="${receiver}" readonly="true"/>
 		<br>
