@@ -15,7 +15,6 @@
 		$("#idCheck").click(function(){
 			 alert("체크");
 		    var id = $('#userId').val();
-		   
 		    $.ajax({
 		    type: "POST",
 		    url: "<%=request.getContextPath()%>/join/id",
