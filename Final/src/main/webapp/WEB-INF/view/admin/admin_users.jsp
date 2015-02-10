@@ -2,18 +2,44 @@
 	pageEncoding="UTF-8"%>
 <%@ page import="mybabthis.entity.Users"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-</head>
 <jsp:include page="/WEB-INF/view/header.jsp" />
+</head>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script>
+$(document).ready(function(){
+$("#search").click(function(){
+
+	alert("검색");
+	
+	var word = $('#searchWord').val();
+	
+	<%-- $.get("<%=request.getContextPath()%>/restaurant/list?resName="+name); --%>
+	$(location).attr('href',"<%=request.getContextPath()%>/admin/users?userId="+word); 
+});
+});
+
+</script>
+
 <body>
 	<h1>회원관리</h1>
 	<jsp:include page="/WEB-INF/view/admin/left.jsp" />
-	<input type="text" id="user" name="user">
-	<button type="submit" id="search" name="search">검색</button>
+	<label>맛집장르</label> :
+	<select id="select">
+		<option value="userName">이름</option>
+		<option value="userId">아이디</option>
+		<option value="userRegdate">등록일</option>
+		<option value="userUpdatedate">수정일</option>
+		<option value="userGrade">등급</option>
+		<option value="userGender">성별</option>
+	</select>
+	<input type="text" id="searchWord" name="searchWord">
+	<input type="button" id="search" name="search" value="검색" >
 	<br>
 	<br>
 	<%

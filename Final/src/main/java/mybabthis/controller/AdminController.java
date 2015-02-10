@@ -63,22 +63,41 @@ public class AdminController {
 		return "redirect:/admin/main";
 	}
 	
-	@RequestMapping(value="/users_list", params={"userId"},  method=RequestMethod.GET)
-	public String enterAdminUsersList(@RequestParam int resNo, Model model){
-		
-		return "admin/admin_user_detail";
-	}
 	
+	/**
+	 * 회원관리 페이지에서 전체 회원을 목록으로 보여주기
+	 * @param user
+	 * @param model
+	 * @return
+	 */
 	@RequestMapping(value="/users",  method=RequestMethod.GET)
-	public String goAdminUsers(@ModelAttribute("userList") Users user, Model model){
-		List<Users> list = null;
-
-		list = userService.selectAllUser();
+	public String userListAll(Model model){
+		
+		List<Users> list = userService.selectAllUser();
 		model.addAttribute("userList", list);
+		logger.trace("*******전체회원목록*******");
 		logger.trace("userList : " + list);
 		
 		return "admin/admin_users";
 	}
+	
+	/**
+	 * 회원관리 페이지에서 회원을 아이디로 검색하기
+	 * @param user
+	 * @param userId
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping(value="/users", params={"userId"},  method=RequestMethod.GET)
+	public String enterAdminUsersList(@RequestParam String userId,  Model model){
+		Users user = userService.selectUser(userId);
+		model.addAttribute("userList", user);
+		
+		logger.trace("*******특정회원검색*******");
+		logger.trace("@@@@사용자정보:" +user);
+		return "admin/admin_users";
+	}
+	
 	
 	@RequestMapping(value="/board",  method=RequestMethod.GET)
 	public String goAdminBoard(Model model){
