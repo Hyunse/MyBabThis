@@ -46,8 +46,7 @@ $("#search").click(function(){
 		int i = 1;
 	%>
 
-	<table border="1" onclick="location.href='${url}'"
-		style="cursor: pointer;">
+	<table border="1">
 		<tr>
 			<th>번호</th>
 			<th>아이디</th>
@@ -59,8 +58,9 @@ $("#search").click(function(){
 			<th>등록일</th>
 			<th>수정일</th>
 		</tr>
+		<c:if test="${empty searchUser }">
 		<c:forEach items="${userList}" var="user">
-			<c:url value="/admin/users_list?userId=${user.userId}" var="url" />
+			<%-- <c:url value="/admin/users_list?userId=${user.userId}" var="url" /> --%>
 			<tr>
 
 				<td><c:out value="<%=i%>" /></td>
@@ -77,7 +77,29 @@ $("#search").click(function(){
 				i++;
 			%>
 		</c:forEach>
+		</c:if>
+		<c:if test="${!empty searchUser }">
+		
+			<%-- <c:url value="/admin/users_list?userId=${user.userId}" var="url" /> --%>
+			
+			<tr>
+
+				<td><c:out value="<%=1%>" /></td>
+				<td><c:out value="${searchUser.userId}" /></td>
+				<td><c:out value="${searchUser.userPass}" /></td>
+				<td><c:out value="${searchUser.userName}" /></td>
+				<td><c:out value="${searchUser.userGender}" /></td>
+				<td><c:out value="${searchUser.userEmail}" /></td>
+				<td><c:out value="${searchUser.userPhone}" /></td>
+				<td><c:out value="${searchUser.userRegdate}" /></td>
+				<td><c:out value="${searchUser.userUpdatedate}" /></td>
+			</tr>
+			
+		
+		</c:if>
 	</table>
+	
+	
 	<br>
 	<br>
 

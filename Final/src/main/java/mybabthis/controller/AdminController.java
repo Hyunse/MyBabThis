@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 @Controller
-@SessionAttributes("loginUser")
+@SessionAttributes({"loginUser", "userList"})
 @RequestMapping(value = "/admin")
 public class AdminController {
 	
@@ -91,7 +91,7 @@ public class AdminController {
 	@RequestMapping(value="/users", params={"userId"},  method=RequestMethod.GET)
 	public String enterAdminUsersList(@RequestParam String userId,  Model model){
 		Users user = userService.selectUser(userId);
-		model.addAttribute("userList", user);
+		model.addAttribute("searchUser", user);
 		
 		logger.trace("*******특정회원검색*******");
 		logger.trace("@@@@사용자정보:" +user);
