@@ -32,5 +32,9 @@ $("#search").click(function(){
 	<a href="${loc }"><button type="submit">건대</button></a>
 	<c:url value="/restaurant/list?locName=강남" var="loc" />
 	<a href="${loc }"><button type="submit">강남</button></a>
+	
+	
+	<jsp:include page="/WEB-INF/view/ranking/new_restaurant.jsp" />
+	
 </body>
 </html>

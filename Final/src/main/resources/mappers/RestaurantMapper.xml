@@ -77,6 +77,14 @@
 	where rownum &lt;= 10 and loc_name=#{locName }
 	</select>
 	
+	<select id="selectNewRestaurant" resultType="Restaurant">
+	select *
+	from (select * 
+		  from restaurant
+		  order by res_no desc)
+	where rownum &lt;= 3
+	</select>
+	
 </mapper>
 
 

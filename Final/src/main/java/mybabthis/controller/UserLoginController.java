@@ -2,7 +2,11 @@ package mybabthis.controller;
 
 
 
+import java.util.List;
+
+import mybabthis.entity.Restaurant;
 import mybabthis.entity.Users;
+import mybabthis.service.RestaurantService;
 import mybabthis.service.UserService;
 
 import org.slf4j.Logger;
@@ -27,6 +31,8 @@ public class UserLoginController {
 	
 	@Autowired
 	UserService userservice;
+	@Autowired
+	RestaurantService restaurantservice;
 	
 	@RequestMapping(value="/login", method=RequestMethod.GET)
 	public String enterLogin(Model model){
@@ -67,8 +73,9 @@ public class UserLoginController {
 	}
 	
 	@RequestMapping(value="/main", method=RequestMethod.GET)
-	public String goMain(){
-		
+	public String goMain(Model model){
+		List<Restaurant> restaurants = restaurantservice.selectNewRestaurant();	
+		model.addAttribute("restaurants",restaurants);
 		return "main";
 		
 	}

@@ -11,7 +11,7 @@
 <body>
 	<h1>맛집 랭킹</h1>
 	<br>
-	<jsp:include page="/WEB-INF/view/ranking/ranking_header.jsp" />
+<jsp:include page="/WEB-INF/view/ranking/ranking_header.jsp" />
 
 </body>
 </html>

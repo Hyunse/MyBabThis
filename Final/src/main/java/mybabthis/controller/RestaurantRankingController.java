@@ -46,7 +46,6 @@ public class RestaurantRankingController {
 	 */
 	@RequestMapping(value="/all", method=RequestMethod.GET)
 	public String getAllRestaurantList(Model model){
-		
 		List<Restaurant> restaurants = service.getRankingAll();	
 		model.addAttribute("restaurants",restaurants);
 		return "/ranking/ranking_all";
@@ -64,6 +63,19 @@ public class RestaurantRankingController {
 		List<Restaurant> restaurants = service.getRankingByLoc(locName);
 		model.addAttribute("restaurants",restaurants);
 		return "/ranking/ranking_loc";
+		
+	}
+	
+	/**
+	 * New맛집 순위를 모든 지역을 기준으로 보여주기
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping(value="/new", method=RequestMethod.GET)
+	public String getNewRestaurant(Model model){
+		List<Restaurant> restaurants = service.selectNewRestaurant();	
+		model.addAttribute("restaurants",restaurants);
+		return "/ranking/new_restaurant";
 		
 	}
 }
