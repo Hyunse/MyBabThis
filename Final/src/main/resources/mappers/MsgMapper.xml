@@ -15,8 +15,8 @@
 	<insert id="sendReport" parameterType="Msg">
 		insert into
 		msg (sender,
-		receiver, msg_content, write_type)
-		values(#{sender},'admin',#{msgContent},#{writeType})
+		receiver, msg_content, write_type,warn_no)
+		values(#{sender},'admin',#{msgContent},#{writeType},#{warnNo})
 	</insert>
 
 	<delete id="deleteMsg" parameterType="integer">
@@ -43,7 +43,7 @@
 		select *
 		from msg
 		where
-		receiver=admin and write_type!='N'
+		receiver='admin' and write_type!='N'
 		order by msg_no desc
 	</select>
 

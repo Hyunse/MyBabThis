@@ -7,10 +7,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>보낸 쪽지함</title>
+<title>받은 쪽지함</title>
 </head>
 <body>
-<h2>보낸 쪽지함</h2>
+<h2>받은 쪽지함</h2>
 <table border="1">
 <c:forEach var= "msg" items="${msgs}" varStatus="status">
 		<tr>
