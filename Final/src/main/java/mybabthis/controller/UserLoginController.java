@@ -46,11 +46,10 @@ public class UserLoginController {
 			logger.trace("로그인 실패");
 			return "redirect:/login/login_fail";
 		}
-		
+
 		//관리자 로그인시 관리자 페이지로 바로 이동
-		if(user.getUserId() == "admin"){
-			
-			logger.trace("관리자 로그인");
+		if(user.getUserId().equals("admin")){
+
 			model.addAttribute("loginUser",user);
 			return "redirect:/admin/main";
 			

@@ -13,7 +13,7 @@
 		values(#{userId},#{userPass}, #{userName}, #{userEmail},#{userGender},
 		#{userPhone})
 	</insert>
-
+	
 	<select id="selectUser" parameterType="String" resultType="Users">
 		select * from users where user_id=#{userId}
 	</select>

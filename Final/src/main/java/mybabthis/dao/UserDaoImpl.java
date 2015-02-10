@@ -54,8 +54,8 @@ public class UserDaoImpl implements UserDao {
 
 	@Override
 	public List<Users> getAllUsers() {
-		// TODO Auto-generated method stub
-		return null;
+		String stmt = nameSpace + "selectAllUser";
+		return sqlSession.selectList(stmt);
 	}
 
 	@Override
