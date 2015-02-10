@@ -71,12 +71,9 @@ public class AdminController {
 	 * @return
 	 */
 	@RequestMapping(value="/users",  method=RequestMethod.GET)
-	public String userListAll(Model model){
-		
+	public String userListAll(Model model){		
 		List<Users> list = userService.selectAllUser();
 		model.addAttribute("userList", list);
-		logger.trace("*******전체회원목록*******");
-		logger.trace("userList : " + list);
 		
 		return "admin/admin_users";
 	}
@@ -89,12 +86,58 @@ public class AdminController {
 	 * @return
 	 */
 	@RequestMapping(value="/users", params={"userId"},  method=RequestMethod.GET)
-	public String enterAdminUsersList(@RequestParam String userId,  Model model){
-		Users user = userService.selectUser(userId);
+	public String searchUserId(@RequestParam String userId,  Model model){
+		Users user = userService.searchUserId(userId);
 		model.addAttribute("searchUser", user);
 		
-		logger.trace("*******특정회원검색*******");
-		logger.trace("@@@@사용자정보:" +user);
+		return "admin/admin_users";
+	}
+	
+	@RequestMapping(value="/users", params={"userName"},  method=RequestMethod.GET)
+	public String searchUserName(@RequestParam String userName,  Model model){
+		List<Users> user = userService.searchUserName(userName);
+		model.addAttribute("userList", user);
+		model.addAttribute("count", user.size());
+		return "admin/admin_users";
+	}
+	
+	@RequestMapping(value="/users", params={"userEmail"},  method=RequestMethod.GET)
+	public String searchUseruserEmail(@RequestParam String userEmail,  Model model){
+		Users user = userService.searchUserEmail(userEmail);
+		model.addAttribute("searchUser", user);
+		
+		return "admin/admin_users";
+	}
+	
+	@RequestMapping(value="/users", params={"userGender"},  method=RequestMethod.GET)
+	public String searchUserGender(@RequestParam String userGender,  Model model){
+		List<Users> user = userService.searchUserGender(userGender);
+		model.addAttribute("userList", user);
+		
+		return "admin/admin_users";
+	}
+	
+	@RequestMapping(value="/users", params={"userRegdate"},  method=RequestMethod.GET)
+	public String searchUserRegdate(@RequestParam String userRegdate,  Model model){
+		List<Users> user = userService.searchUserRegdate(userRegdate);
+		model.addAttribute("userList", user);
+		
+		return "admin/admin_users";
+	}
+	
+	@RequestMapping(value="/users", params={"userUpdateDate"},  method=RequestMethod.GET)
+	public String searchUserUpdateDate(@RequestParam String userUpdateDate,  Model model){
+		List<Users> user = userService.searchUserUpdateDate(userUpdateDate);
+		model.addAttribute("userList", user);
+		
+		return "admin/admin_users";
+	}
+	
+	@RequestMapping(value="/users", params={"userGrade"},  method=RequestMethod.GET)
+	public String searchUserGrade(@RequestParam String userGrade,  Model model){
+		List<Users> user = userService.searchUserGrade(userGrade);
+		model.addAttribute("userList", user);
+		
 		return "admin/admin_users";
 	}
 	

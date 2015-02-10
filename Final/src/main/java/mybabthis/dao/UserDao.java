@@ -22,7 +22,14 @@ public interface UserDao {
 
 	List<Users> getUsersByPage(int page);
 	
-	Users seletUserByName(String name);
-	Users seletUserByEmail(String email);
+	/* 관리자 페이지에서 회원 검색하기 위한 메소드 */
+	
+	List<Users> selectUserByName(String name);
+	Users selectUserByEmail(String email);
+	Users selectUserById(String id);
+	List<Users> selectUserByGender(String gender);
+	List<Users> selectUserByRegdate(String regDate);
+	List<Users> selectUserByUpdateDate(String updateDate);
+	List<Users> selectUserByGrade(String grade);
 }
 

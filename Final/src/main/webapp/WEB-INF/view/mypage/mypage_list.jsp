@@ -20,6 +20,7 @@
 		<c:url value="/mypage/myfriends" var="myfriends" />
 		<c:url value="/favorite/list?userId=${loginUser.userId}" var="list"/>
 		
+		<c:url value="/msg/main" var="message" />
 		<tr>
 			<td><a href="${myinfo}"><br>개인정보<br></a></td>
 			<td><a href="${list}"><br>즐겨찾기<br></a></td>

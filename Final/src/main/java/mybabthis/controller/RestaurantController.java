@@ -2,9 +2,11 @@ package mybabthis.controller;
 
 import java.util.List;
 
+import mybabthis.entity.Favorite;
 import mybabthis.entity.Restaurant;
 import mybabthis.entity.Review;
 import mybabthis.entity.Rreply;
+import mybabthis.service.FavoriteService;
 import mybabthis.service.RestaurantService;
 import mybabthis.service.ReviewService;
 import mybabthis.service.RreplyService;
@@ -17,8 +19,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 @Controller
+@SessionAttributes("favorite")
 public class RestaurantController {
 	static final Logger logger = LoggerFactory
 			.getLogger(RestaurantController.class);
@@ -30,6 +34,8 @@ public class RestaurantController {
 	ReviewService rev_sevice;
 	@Autowired
 	RreplyService rrep_service;
+	
+
 	
 
 	@RequestMapping(value="/restaurant/list", method=RequestMethod.GET)
@@ -71,6 +77,8 @@ public class RestaurantController {
 		return "restaurant/restaurant_view";
 		
 	}
+
+
 	
 	
 }

@@ -1,6 +1,8 @@
 package mybabthis.controller;
 
 
+import java.util.List;
+
 import mybabthis.entity.Users;
 import mybabthis.service.UserService;
 
@@ -66,7 +68,7 @@ public class UserJoinController {
 	public @ResponseBody String ajaxReceive1(@RequestParam String id) {
 		logger.trace("-------------------------------------------------------------------------------");
 
-		Users user = userservice.selectUser(id);
+		Users user = userservice.searchUserId(id);
 
 		if (user != null) {
 			logger.trace("----------------------중복 아이디");
@@ -80,7 +82,7 @@ public class UserJoinController {
 	public @ResponseBody String ajaxReceive2(@RequestParam String name) {
 		logger.trace("-------------------------------------------------------------------------------");
 
-		Users user = userservice.checkName(name);
+		List<Users> user = userservice.searchUserName(name);
 		if (user != null) {
 			logger.trace("----------------------중복 이름");
 			  return "중복된 이름 입니다.";
@@ -92,7 +94,7 @@ public class UserJoinController {
 	public @ResponseBody String ajaxReceive3(@RequestParam String email) {
 		logger.trace("-------------------------------------------------------------------------------");
 
-		Users user = userservice.checkEmail(email);
+		Users user = userservice.searchUserEmail(email);
 		
 		if (user != null) {
 			logger.trace("----------------------중복 이름");

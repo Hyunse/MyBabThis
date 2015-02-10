@@ -18,6 +18,7 @@ body {
 	<c:url value="/admin/users" var="users" />
 	<c:url value="/admin/board" var="board" />
 	<c:url value="/admin/message" var="message" />
+	<c:url value="/admin/message" var="report" />
 
 	<table border="1">
 		<tr>
@@ -25,6 +26,7 @@ body {
 			<td><a href="${users}"><br>회원관리<br></a></td>
 			<td><a href="${board}"><br>게시물관리<br></a></td>
 			<td><a href="${message}"><br>쪽지함<br></a></td>
+			<td><a href="${report}"><br>신고함<br></a></td>
 		</tr>
 	</table>
 	<br>

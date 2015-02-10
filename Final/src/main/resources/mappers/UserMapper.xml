@@ -13,10 +13,8 @@
 		values(#{userId},#{userPass}, #{userName}, #{userEmail},#{userGender},
 		#{userPhone})
 	</insert>
-	
-	<select id="selectUser" parameterType="String" resultType="Users">
-		select * from users where user_id=#{userId}
-	</select>
+
+
 
 	<select id="selectUserByIdAndPass" parameterType="Users"
 		resultType="Users">
@@ -26,21 +24,57 @@
 		user_pass=#{userPass}
 	</select>
 
+	<select id="selectUser" parameterType="String" resultType="Users">
+		select * from users where user_id=#{userId}
+	</select>
+	
 	<select id="selectAllUser" resultType="Users">
 		select * from users
 	</select>
-	<select id="selectUsersByName" parameterType="String"
-		resultType="Users">
+
+	<select id="selectUsersByName" parameterType="String" resultType="Users">
 		select *
 		from users
 		where user_name=#{userName}
 	</select>
-	<select id="selectUsersByEmail" parameterType="String"
-		resultType="Users">
+
+	<select id="selectUsersByEmail" parameterType="String" 	resultType="Users">
 		select *
 		from users
 		where user_email=#{userEmail}
 	</select>
+
+	<select id="selectUsersById" parameterType="String" resultType="Users">
+		select *
+		from users
+		where user_id=#{userId}
+	</select>
+	
+	<select id="selectUsersByGender" parameterType="String"	resultType="Users">
+		select *
+		from users
+		where user_gender=#{userGender}
+		order by name
+	</select>
+	
+	<select id="selectUsersByRegdate" parameterType="String" resultType="Users">
+		select *
+		from users
+		where user_regdate=#{userRegdate}
+	</select>
+	
+	<select id="selectUsersByUpdateDate" parameterType="String"	resultType="Users">
+		select *
+		from users
+		where user_updatedate=#{userUpdatedate}
+	</select>
+	
+	<select id="selectUsersByGrade" parameterType="String" resultType="Users">
+		select *
+		from users
+		where user_grade=#{userGrade}
+	</select>
+	
 	
 	<!-- 관심 지역 만들어야한다. -->
 	<update id="updateUser" parameterType="Users">

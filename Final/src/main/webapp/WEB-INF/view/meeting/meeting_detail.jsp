@@ -12,12 +12,19 @@
 </head>
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <script>
-$(document).ready(function() {
-
-update(obj) 
-	$(inputTextAreaData).val( 
-	$(obj).parent.find(:textarea).html() 
-	) 
+$(document).ready(function(){
+	$("#updateform").hide();
+	$(".updateBtn").click(function(){
+		
+		$("#writeform").hide();
+		$("#updateform").show();
+		
+	})
+	$("#writeButton").click(function(){
+		
+		$("#writeform").show();
+		$("#updateform").hide();
+	})
 })
 </script>
 <!-- <script>
@@ -51,18 +58,18 @@ $('a[data-href]').each(function() {
 			<th>수정</th>
 			<th>삭제</th>
 		</tr>
-
+		
 		<c:forEach items="${breplys }" var="breply">
 			<tr>
-				<td id="d"><c:out value="${breply.breplyNo }" /></td>
+				<td ><c:out value="${breply.breplyNo }"  /></td>
 				<td><c:out value="${breply.boardNo }" /></td>
-				<td><c:out value="${breply.breplyContent }" /></td>
-				<td><c:out value="${breply.userId }" /></td>
+				<td class="content"><c:out value="${breply.breplyContent }" /></td>
+				<td ><c:out value="${breply.userId }" /></td>
 				<td><c:out value="${breply.breplyUpdatedate }" /></td>
 				<td>
-					<%--  	<c:url value="/breply/edit?breplyNo=${breply.breplyNo }" var="url"></c:url>
-			<a href="${url}"><button>수정</button></a>--%>
-					<button id="updateBtn" onClick="update()">수정</button>
+				<%-- <c:url value="/breply/edit?breplyNo=${breply.breplyNo}" var="url"></c:url>
+				<a href="${url}"><button id="updateBtn">수정</button></a> --%>
+					<button class="updateBtn" id="updateBtn">수정</button>
 				</td>
 				<td><c:url
 						value="/breply/delete?breplyNo=${breply.breplyNo }&boardNo=${breply.boardNo }"
@@ -70,6 +77,7 @@ $('a[data-href]').each(function() {
 			</tr>
 		</c:forEach>
 	</table>
+	<input type="button" id="writeButton" value="새 댓글 적기">
 	<hr>
 	<!-- c: if userid = loginid 
 <textarea > </ > 
@@ -79,24 +87,25 @@ aaa(obj)
 $(inputTextAreaData).val( 
 $(obj).parent.find(:textarea).html() 
 )  -->
-	<h2>댓글작성</h2>
+
 	<c:url value="/breply/write" var="action"></c:url>
-	<form:form modelAttribute="breply" method="post" action="${action }">
+	<form:form modelAttribute="breply" method="post" action="${action }" id="writeform">
+		<h2>댓글작성</h2>
 		<form:hidden path="boardNo" value="${boardDetail.boardNo }" />
 		<form:hidden path="userId" value="${loginUser.userId }" />
 		<label>내용</label> : <form:textarea path="breplyContent" />
 		<button type="submit" name="breply_write">작성</button>
 	</form:form>
 
-	<h2>댓글수정</h2>
 	<c:url value="/breply/update" var="action" />
-	<form:form modelAttribute="breply" method="post" action="${action }">
+	<form:form modelAttribute="breply" method="post" action="${action }" id="updateform">
+	<h2>댓글수정</h2>
 		<form:hidden path="boardNo" value="${boardDetail.boardNo }" />
 		<form:hidden path="userId" value="${loginUser.userId }" />
 		<label>내용</label> : <form:textarea path="breplyContent" />
 		<button type="submit" name="breply_update">수정</button>
 	</form:form>
-	
+
 
 	<!-- <script>
 		(function(d, s, id) {
