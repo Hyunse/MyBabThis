@@ -65,15 +65,45 @@ public class UserDaoImpl implements UserDao {
 	}
 
 	@Override
-	public Users seletUserByName(String name) {
+	public List<Users> selectUserByName(String name) {
 		String stmt = nameSpace + "selectUsersByName";
-		return sqlSession.selectOne(stmt, name);
+		return sqlSession.selectList(stmt, name);
 	}
 
 	@Override
-	public Users seletUserByEmail(String email) {
+	public Users selectUserByEmail(String email) {
 		String stmt = nameSpace + "selectUsersByEmail";
 		return sqlSession.selectOne(stmt, email);
+	}
+
+	@Override
+	public Users selectUserById(String id) {
+		String stmt = nameSpace + "selectUsersById";
+		return sqlSession.selectOne(stmt, id);
+	}
+
+	@Override
+	public List<Users> selectUserByGender(String gender) {
+		String stmt = nameSpace + "selectUsersByGender";
+		return sqlSession.selectList(stmt, gender);
+	}
+
+	@Override
+	public List<Users> selectUserByRegdate(String regDate) {
+		String stmt = nameSpace + "selectUsersByRegdate";
+		return sqlSession.selectList(stmt, regDate);
+	}
+
+	@Override
+	public List<Users> selectUserByUpdateDate(String updateDate) {
+		String stmt = nameSpace + "selectUsersByUpdateDate";
+		return sqlSession.selectList(stmt, updateDate);
+	}
+
+	@Override
+	public List<Users> selectUserByGrade(String grade) {
+		String stmt = nameSpace + "selectUsersByGrade";
+		return sqlSession.selectList(stmt, grade);
 	}
 	
 

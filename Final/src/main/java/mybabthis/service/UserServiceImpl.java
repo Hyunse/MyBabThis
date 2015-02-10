@@ -39,11 +39,6 @@ public class UserServiceImpl implements UserService{
 		return result;
 	}
 
-	@Override
-	public Users selectUser(String id) {
-		Users result = dao.getUserById(id);
-		return result;
-	}
 
 	@Override
 	public Users login(Users user) {
@@ -57,21 +52,52 @@ public class UserServiceImpl implements UserService{
 		return null;
 	}
 
-	@Override
-	public Users checkName(String name) {
-		Users result = dao.seletUserByName(name);
-		return result;
-	}
-
-	@Override
-	public Users checkEmail(String email) {
-		Users result = dao.seletUserByEmail(email);
-		return result;
-	}
 
 	@Override
 	public List<Users> selectAllUser() {		
 		List<Users> result = dao.getAllUsers();
+		return result;
+	}
+	
+	@Override
+	public Users searchUserId(String id) {
+		Users result = dao.getUserById(id);
+		return result;
+	}
+	
+	@Override
+	public Users searchUserEmail(String email) {
+		Users result = dao.selectUserByEmail(email);
+		return result;
+	}
+	
+	@Override
+	public List<Users> searchUserName(String name) {
+		List<Users> result = dao.selectUserByName(name);
+		return result;
+	}
+
+	@Override
+	public List<Users> searchUserGender(String gender) {
+		List<Users> result = dao.selectUserByGender(gender);
+		return result;	
+	}
+
+	@Override
+	public List<Users> searchUserRegdate(String regdate) {
+		List<Users> result = dao.selectUserByRegdate(regdate);
+		return result;
+	}
+
+	@Override
+	public List<Users> searchUserUpdateDate(String updateDate) {
+		List<Users> result = dao.selectUserByUpdateDate(updateDate);
+		return result;
+	}
+
+	@Override
+	public List<Users> searchUserGrade(String grade) {
+		List<Users> result = dao.selectUserByGrade(grade);
 		return result;
 	}
 

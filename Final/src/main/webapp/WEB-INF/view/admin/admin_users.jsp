@@ -42,6 +42,7 @@ $("#search").click(function(){
 		<option value="">▒ 선택 ▒ </option>
 		<option value="userId">아이디</option>
 		<option value="userName">이름</option>
+		<option value="userEmail">이메일</option>
 		<option value="userRegdate">등록일</option>
 		<option value="userUpdatedate">수정일</option>
 		<option value="userGrade">등급</option>
@@ -51,9 +52,6 @@ $("#search").click(function(){
 	<input type="button" id="search" name="search" value="검색" >
 	<br>
 	<br>
-	<%
-		int i = 1;
-	%>
 
 	<table border="1">
 		<tr>
@@ -68,11 +66,12 @@ $("#search").click(function(){
 			<th>수정일</th>
 		</tr>
 		<c:if test="${empty searchUser }">
-		<c:forEach items="${userList}" var="user">
+		<%-- <c:if test="${!empty count}"> --%>
+		<c:forEach items="${userList}" var="user" varStatus="status">
 			<%-- <c:url value="/admin/users_list?userId=${user.userId}" var="url" /> --%>
 			<tr>
 
-				<td><c:out value="<%=i%>" /></td>
+				<td><c:out  value="${status.count}" /></td>
 				<td><c:out value="${user.userId}" /></td>
 				<td><c:out value="${user.userPass}" /></td>
 				<td><c:out value="${user.userName}" /></td>
@@ -82,12 +81,9 @@ $("#search").click(function(){
 				<td><c:out value="${user.userRegdate}" /></td>
 				<td><c:out value="${user.userUpdatedate}" /></td>
 			</tr>
-			<%
-				i++;
-			%>
 		</c:forEach>
 		</c:if>
-		<c:if test="${!empty searchUser }">
+		<c:if test="${count == 1 }">
 		
 			<%-- <c:url value="/admin/users_list?userId=${user.userId}" var="url" /> --%>
 			
