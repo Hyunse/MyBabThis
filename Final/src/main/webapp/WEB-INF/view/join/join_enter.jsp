@@ -101,7 +101,7 @@ $("#pass2").blur(function(){
 </script>
 <body>
 	<c:url value="/join/confirm" var="confirm" />
-	<form:form modelAttribute="loginUser" method="post" action="${confirm}"	>
+	<form:form modelAttribute="loginCheck" method="post" action="${confirm}"	>
 
 		<label>아이디</label> : <form:input path="userId" />
 		<input type="button" value="중복체크" name="idCheck"

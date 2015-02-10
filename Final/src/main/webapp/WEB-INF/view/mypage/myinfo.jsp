@@ -134,35 +134,6 @@
 		<button type="submit" name="_event_update">수정</button>
 		<button type="submit" name="_event_delete">삭제</button>
 	</form:form>
-	<%-- 	<c:url value="/mypage/myinfo" var="action"></c:url>
-	<c:url value="/id" var="idCheck"></c:url>
-	<form:form modelAttribute="Users" method="post" action="${action}">
-
-		<label>아이디</label> : <form:input path="userId" />
-		<a href="${idCheck}"> <input type="button" value="중복체크"
-			name="idCheck" id="idCheck"></a>
-		<div id="drophere"></div>
-		<!-- 중복체크는 나중에 -->
-
-		<br>
-		<label>닉네임</label> : <form:input path="userName" />
-		<br>
-		<label>비밀번호</label> : <form:input path="userPass" id="pass" />
-		<br>
-		<label>비밀번호확인</label> : <form:input path="userPass" id="pass2"  />
-		<br>
-		<label>E-mail</label> : <form:input path="userEmail" />
-		<br>
-		<label>휴대폰</label> : <form:input path="userPhone" />
-		<br>
-		<br>
-		<label>성별</label>
-		<form:radiobutton path="userGender" value="1" />남
-							<form:radiobutton path="userGender" value="0" />여
-							
-
-		<button type="submit" name="_event_update">수정</button>
-		<button type="submit" name="_event_delete">삭제</button>
-	</form:form> --%>
+	
 </body>
 </html>

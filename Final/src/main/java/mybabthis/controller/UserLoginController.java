@@ -32,7 +32,7 @@ public class UserLoginController {
 	public String enterLogin(Model model){
 		
 		model.addAttribute("loginCheck", new Users());
-		return "login";
+		return "login/login_enter";
 		
 	}
 

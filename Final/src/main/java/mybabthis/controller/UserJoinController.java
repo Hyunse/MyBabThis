@@ -33,8 +33,8 @@ public class UserJoinController {
 	 */
 	@RequestMapping(value = "/join", method = RequestMethod.GET)
 	public String enterJoin(Model model) {
-		model.addAttribute("loginUser", new Users());
-		return "join";
+		model.addAttribute("loginCheck", new Users());
+		return "join/join_enter";
 
 	}
 
@@ -43,23 +43,24 @@ public class UserJoinController {
 	 * 가입 페이지에서 가입 확인을 눌렀을때
 	 */
 	@RequestMapping(value = "/join/confirm", method = RequestMethod.POST)
-	public String join(@ModelAttribute("loginUser") Users user) {
+	public String join(@ModelAttribute("loginCheck") Users user,Model model) {
 
-		userservice.join(user);
-		return "redirect:/main";
+		int result =0;
+		result =userservice.join(user);
+		if(result >0 ){
+			logger.trace("가입 성공!!" + user);
+			model.addAttribute("loginUser",user);
+			return "redirect:/main";
+		}
+		
+		return "join/join_fail";
 
 	}
 
 	/**
 	 * 가입페이지로
 	 */
-/*	@RequestMapping(value = "/join", method = RequestMethod.GET)
-	public String ajaxPageCall(Model model) {
 
-		model.addAttribute("Users", new Users());
-		return "join";
-
-	}*/
 
 	@RequestMapping(value = "/join/id", method = RequestMethod.POST, produces = "text/plain;charset=utf-8")
 	public @ResponseBody String ajaxReceive1(@RequestParam String id) {
