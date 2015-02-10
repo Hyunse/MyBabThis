@@ -25,18 +25,20 @@
 
 <h1>맛집 페이지</h1>
 <table border="1">
-<tr><th>맛집 번호</th><th>업체명</th><th>전화번호</th><th>내용</th><th>평점</th><th>비고</th>
+<tr><th>맛집 번호</th><th>업체명</th><th>전화번호</th><th>내용</th><th>평점</th><th>비고</th><th>즐겨찾기</th>
 <tr>
 <td><c:out value="${restaurant.resNo}"/></td>
 <td><c:out value="${restaurant.locName}"/></td>
 <td><c:out value="${restaurant.resName}"/></td>
 <td><c:out value="${restaurant.resContent}"/></td>
 <td><c:out value="${restaurant.resScore }"/></td>
+
 <td>
 <c:url value="/restaurant/edit?resNo=${restaurant.resNo}" var="url"/>
 <a href ="${url }"><button>편집</button></a>
 <c:url value="/restaurant/delete?resNo=${restaurant.resNo}" var="url"/>
 <a href ="${url }"><button>삭제</button></a>
+<td><a href="<%=request.getContextPath()%>/favorite/create?resNo=${restaurant.resNo}&userId=${loginUser.userId}" ><button>즐겨찾기</button></a>
 </td></tr>
 </table>
 

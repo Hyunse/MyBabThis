@@ -25,28 +25,46 @@ public class FavoriteController {
 	@Autowired
 	FavoriteService service;
 
+	/*
 	@RequestMapping(value = "/restaurant/restaurant_list", method = RequestMethod.GET)
 	public String favoriteForm(Model model) {
 		model.addAttribute("favorite", new Favorite());
 		return "restaurant/restaurant_list";
 	}
 
+*/
 	//즐겨찾기 버튼 으로
 	@RequestMapping(value = "/favorite/create", params={"resNo","userId"}, method = RequestMethod.GET)
 	public String write(@RequestParam int resNo, String userId) {
+		//생성하기전에 아이디랑 넘버로 where id =? and no=? 식으로 셀렉 카운트해와서,
+		//셀렉한 리절트가 0이면 크리에이트.
+		//셀렉한 리절트가 0보다 크면 크리에이트안하고 겹친다고 처리.
 		Favorite favorite=new Favorite();
 		favorite.setResNo(resNo);
 		favorite.setUserId(userId);
-		service.createFavorite(favorite);
-		return "restaurant/restaurant_list";
+		int result=service.validationCheck(favorite);
+		if(result==0){
+		
+			service.createFavorite(favorite);
+		
+		}
+		else{
+			return "favorite/fail";
+		}
+		
+		return "redirect:/restaurant/view?resNo="+resNo;
 	}
-//즐겨찾기 추가 
-	@RequestMapping(value = "/favorite/list", params = "userId", method = RequestMethod.GET)
+	
+	
+//즐겨찾기 리스트 
+	@RequestMapping(value = "/favorite/list", params = {"userId"}, method = RequestMethod.GET)
 	public String getFavorite(@RequestParam String userId, Model model) {
 		logger.trace("됫나");
 		List<Integer> resNos = service.getFavoriteByUserId(userId);
+		
 		model.addAttribute("resNos", resNos);
-		return "redirect:/favorite/list";
+		model.addAttribute("favorite", new Favorite());
+		return "favorite/list";
 	}
 
 	// 삭제하기

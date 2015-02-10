@@ -25,6 +25,7 @@ public interface RestaurantDao {
 	
 	List<Restaurant> selectRankingAll();
 	List<Restaurant> selectRankingByLoc(String locName);
+	List<Restaurant> selectNewRestaurant();
 
 	
 	

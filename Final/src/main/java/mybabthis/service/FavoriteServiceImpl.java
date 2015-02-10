@@ -4,6 +4,7 @@ import java.util.List;
 
 import mybabthis.dao.FavoriteDao;
 import mybabthis.entity.Favorite;
+import mybabthis.entity.Restaurant;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -36,6 +37,19 @@ public class FavoriteServiceImpl implements FavoriteService {
 		List<Integer> result = dao.getFavoriteByUserId(userId);
 		return result;
 	
+	}
+
+	@Override
+	public List<Restaurant> getResByJoin(Favorite favorite) {
+		
+		List<Restaurant> result = dao.getResByJoin(favorite);
+		return result;
+	}
+
+	@Override
+	public int validationCheck(Favorite favorite) {
+		int result=dao.validationCheck(favorite);
+		return result;
 	}
 
 }

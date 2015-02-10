@@ -9,7 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 
+
 import mybabthis.entity.Favorite;
+import mybabthis.entity.Restaurant;
 
 @Repository
 public class FavoriteDaoImpl implements FavoriteDao{
@@ -41,6 +43,18 @@ public class FavoriteDaoImpl implements FavoriteDao{
 	public List<Integer> getFavoriteByUserId(String userId) {
 		String stmt = nameSpace + "selectFavoriteByUserId";
 		return sqlSession.selectList(stmt,userId);
+	}
+
+	@Override
+	public List<Restaurant> getResByJoin(Favorite favorite) {
+		String stmt = nameSpace + "selectResByResNo";
+		return sqlSession.selectList(stmt,favorite);
+	}
+
+	@Override
+	public int validationCheck(Favorite favorite) {
+		String stmt=nameSpace + "validationCheck";
+		return sqlSession.selectOne(stmt, favorite);
 	}
 
 }

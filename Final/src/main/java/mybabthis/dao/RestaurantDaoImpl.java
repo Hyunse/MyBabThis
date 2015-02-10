@@ -100,6 +100,14 @@ public class RestaurantDaoImpl implements RestaurantDao {
 		List<Restaurant> result=sqlSession.selectList(stmt,locName);
 		return result;
 	}
+
+	@Override
+	public List<Restaurant> selectNewRestaurant() {
+		logger.trace("new맛집 불러오기 시도");
+		String stmt = nameSpace +"selectNewRestaurant";
+		List<Restaurant> result=sqlSession.selectList(stmt);
+		return result;
+	}
 	
 
 }
