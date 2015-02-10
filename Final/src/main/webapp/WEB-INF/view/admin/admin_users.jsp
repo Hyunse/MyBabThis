@@ -14,25 +14,27 @@
 	<jsp:include page="/WEB-INF/view/admin/left.jsp" />
 	<input type="text" id="user" name="user">
 	<button type="submit" id="search" name="search">검색</button>
-	<br><br>
+	<br>
+	<br>
 	<%
 		int i = 1;
 	%>
-	<c:forEach items="${userList}" var="user">
-		<c:url value="/admin/users_list?userId=${user.userId}" var="url" />
-		<table border="1" onclick="location.href='${url}'"
-			style="cursor: pointer;">
-			<tr>
-				<th>번호</th>
-				<th>아이디</th>
-				<th>비밀번호</th>
-				<th>이름</th>
-				<th>성별</th>
-				<th>이메일</th>
-				<th>전화번호</th>
-				<th>등록일</th>
-				<th>수정일</th>
-				
+
+	<table border="1" onclick="location.href='${url}'"
+		style="cursor: pointer;">
+		<tr>
+			<th>번호</th>
+			<th>아이디</th>
+			<th>비밀번호</th>
+			<th>이름</th>
+			<th>성별</th>
+			<th>이메일</th>
+			<th>전화번호</th>
+			<th>등록일</th>
+			<th>수정일</th>
+		</tr>
+		<c:forEach items="${userList}" var="user">
+			<c:url value="/admin/users_list?userId=${user.userId}" var="url" />
 			<tr>
 
 				<td><c:out value="<%=i%>" /></td>
@@ -45,14 +47,15 @@
 				<td><c:out value="${user.userRegdate}" /></td>
 				<td><c:out value="${user.userUpdatedate}" /></td>
 			</tr>
+			<%
+				i++;
+			%>
+		</c:forEach>
+	</table>
+	<br>
+	<br>
 
-		</table>
-		<br>
-		<br>
-		<%
-			i++;
-		%>
-	</c:forEach>
+
 
 </body>
 </html>

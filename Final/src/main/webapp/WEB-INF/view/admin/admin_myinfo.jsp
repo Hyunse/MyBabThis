@@ -9,6 +9,7 @@
 <title>Insert title here</title>
 </head>
 <script src="http://code.jquery.com/jquery-latest.js"></script>
+<jsp:include page="/WEB-INF/view/header.jsp" />
 <body>
 	<h1>관리자페이지 메인</h1>
 <jsp:include page="/WEB-INF/view/admin/left.jsp" />
@@ -74,7 +75,7 @@
 		    	$("#dropEmail").html(args);
 		    },
 		    error: function (args) {
-		    	alert("오류" + args)
+		    	alert("오류" + args);
 				console.log(path, args);
 			}
 		    });
@@ -95,7 +96,7 @@
 		           alert("비밀번호다르다.");
 		        } else {
 		           $("#chk").val(message3);
-		           alert("비밀번호같습니다.")
+		           alert("비밀번호같습니다.");
 		        }
 		        return;
 		    })
@@ -116,9 +117,9 @@
 		<input type="button" value="중복체크" name="nameCheck" id="nameCheck">
 		<div id="dropName"></div>
 		<br>
-		<label>비밀번호</label> : <form:input path="userPass" id="pass" />
+		<label>비밀번호</label> : <form:input path="userPass" id="pass" name="pass" />
 		<br>
-		<label>비밀번호확인</label> : <input type="text" id="pass2"
+		<label>비밀번호확인</label> : <input type="text" id="pass2" name="pass2"
 			onblur="passchk()" />
 		<div id="chk"></div>
 		<br>

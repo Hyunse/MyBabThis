@@ -51,11 +51,14 @@ public class AdminController {
 	 */
 	@RequestMapping(value="/myinfo", method=RequestMethod.GET)
 	public String goAdminMyinfo(@ModelAttribute("loginUser") Users user, Model model){
+		model.addAttribute("loginUser", user);
 		return "admin/admin_myinfo";
+
 	}
 	
-	@RequestMapping(value="/myinfo",  params="_event_update", method=RequestMethod.POST)
+	@RequestMapping(value="/myinfo",  params={"_event_update"}, method=RequestMethod.POST)
 	public String myinfoUpdate(@ModelAttribute("loginUser") Users user, Model model){
+
 		userService.updateUser(user);
 		return "redirect:/admin/main";
 	}
