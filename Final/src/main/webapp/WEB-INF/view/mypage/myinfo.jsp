@@ -11,6 +11,7 @@
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <body>
 	<script type="text/javascript">
+	
 	$(document).ready(function() {
 		$("#idCheck").click(function(){
 			 alert("체크");
