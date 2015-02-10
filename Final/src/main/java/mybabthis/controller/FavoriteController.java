@@ -37,9 +37,7 @@ public class FavoriteController {
 	//즐겨찾기 버튼 으로
 	@RequestMapping(value = "/favorite/create", params={"resNo","userId"}, method = RequestMethod.GET)
 	public String write(@RequestParam int resNo, String userId) {
-		//생성하기전에 아이디랑 넘버로 where id =? and no=? 식으로 셀렉 카운트해와서,
-		//셀렉한 리절트가 0이면 크리에이트.
-		//셀렉한 리절트가 0보다 크면 크리에이트안하고 겹친다고 처리.
+		
 		Favorite favorite=new Favorite();
 		favorite.setResNo(resNo);
 		favorite.setUserId(userId);
