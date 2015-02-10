@@ -30,17 +30,20 @@ public class MsgController {
 	@Autowired
 	MsgService service;
 	
-
-	@RequestMapping(value="/test",method=RequestMethod.GET)
-	public String test(){
-
+	@RequestMapping(value = "/main", method = RequestMethod.GET)
+	public String msg(Model model) {
 		HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
 		HttpSession session=request.getSession();
 		Users user=(Users)(session.getAttribute("loginUser"));
 		
-		logger.trace("이거다"+user.getUserId());
-		return "redirect:/main";
+		List<Msg> sendMsgs = service.selectMsgBySender(user.getUserId());
+		List<Msg> receiveMsgs = service.selectMsgByReceiver(user.getUserId());
+		
+		model.addAttribute("sendMsgs", sendMsgs);
+		model.addAttribute("receiveMsgs", receiveMsgs);
+		return "msg/msg";
 	}
+
 	
 
 	// 쪽지보내기
@@ -55,7 +58,7 @@ public class MsgController {
 	@RequestMapping(value = "/sended", method = RequestMethod.POST)
 	public String afterSendedMsg(@ModelAttribute("msg") Msg msg) {
 		service.sendMsg(msg);
-		return "redirect:/msg/sendList?userId=" + msg.getSender();
+		return "redirect:/msg/main";
 	}
 
 	// 신고하기
@@ -79,8 +82,8 @@ public class MsgController {
 		HttpSession session=request.getSession();
 		Users user=(Users)(session.getAttribute("loginUser"));
 		
-		List<Msg> msgs = service.selectMsgBySender(user.getUserId());
-		model.addAttribute("msgs", msgs);
+		List<Msg> sendMsgs = service.selectMsgBySender(user.getUserId());
+		model.addAttribute("sendMsgs", sendMsgs);
 		return "msg/send_list";
 	}
 
@@ -91,8 +94,8 @@ public class MsgController {
 		HttpSession session=request.getSession();
 		Users user=(Users)(session.getAttribute("loginUser"));
 		
-		List<Msg> msgs = service.selectMsgByReceiver(user.getUserId());
-		model.addAttribute("msgs", msgs);
+		List<Msg> receiveMsgs = service.selectMsgByReceiver(user.getUserId());
+		model.addAttribute("receiveMsgs", receiveMsgs);
 		return "msg/receive_list";
 	}
 
