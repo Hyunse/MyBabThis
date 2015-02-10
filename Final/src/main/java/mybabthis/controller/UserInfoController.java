@@ -25,6 +25,14 @@ public class UserInfoController {
 	@Autowired
 	UserService userservice;
 	
+	@RequestMapping(value="/mypage", method=RequestMethod.GET)
+	public String enterMypage(@ModelAttribute("loginUser") Users user){
+		
+		logger.trace("개인정보 위치입니다.");
+		return "mypage/mypage_enter";
+		
+	}
+	
 	@RequestMapping(value="/mypage/myinfo", method=RequestMethod.GET)
 	public String enterLogin(@ModelAttribute("loginUser") Users user){
 		
