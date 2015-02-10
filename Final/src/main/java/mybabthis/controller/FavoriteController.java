@@ -3,6 +3,7 @@ package mybabthis.controller;
 import java.util.List;
 
 import mybabthis.entity.Favorite;
+import mybabthis.entity.Restaurant;
 import mybabthis.service.FavoriteService;
 
 import org.slf4j.Logger;
@@ -56,25 +57,28 @@ public class FavoriteController {
 	}
 	
 	
-//즐겨찾기 리스트 
+//즐겨찾기 리스트  
 	@RequestMapping(value = "/favorite/list", params = {"userId"}, method = RequestMethod.GET)
 	public String getFavorite(@RequestParam String userId, Model model) {
-		logger.trace("됫나");
-		List<Integer> resNos = service.getFavoriteByUserId(userId);
+
+		Favorite favorite= new Favorite();
+		favorite.setUserId(userId);
+		List<Restaurant> rastaurants = service.getResByJoin(favorite);
 		
-		model.addAttribute("resNos", resNos);
-		model.addAttribute("favorite", new Favorite());
+		model.addAttribute("rastaurants",rastaurants);
 		return "favorite/list";
 	}
 
 	// 삭제하기
-	@RequestMapping(value = "/favorite/delete", method = RequestMethod.POST)
+	@RequestMapping(value = "/favorite/delete",params={"userId", "resNo"}, method = RequestMethod.GET)
 	public String delete(@RequestParam String userId, int resNo) {
 		Favorite favorite = new Favorite();
 		favorite.setResNo(resNo);
 		favorite.setUserId(userId);
+		logger.error("rr");
 		service.deleteFavorite(favorite);
-		return "redirect:/favorite/list?userId=" + favorite.getUserId();
+		logger.error("ddd");
+		return "redirect:/favorite/list?userId="+userId;
 	}
 
 	
