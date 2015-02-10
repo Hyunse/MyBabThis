@@ -1,5 +1,9 @@
 package mybabthis.controller;
 
+import java.io.UnsupportedEncodingException;
+
+import javax.servlet.http.HttpServletResponse;
+
 import mybabthis.entity.Restaurant;
 import mybabthis.service.RestaurantService;
 
@@ -29,10 +33,24 @@ public class RestaurantWriteController {
 	
 	
 	@RequestMapping(value="/restaurant/writed",method=RequestMethod.POST)
-	public String afterWriteRestaurant(@ModelAttribute("restaurant") Restaurant restaurant){
-		logger.trace("이거출력 : "+restaurant);
+	public String afterWriteRestaurant(@ModelAttribute("restaurant") Restaurant restaurant, Model model, HttpServletResponse response){
 		service.createRestaurant(restaurant);
-		return  "redirect:/restaurant/list";
+		//model.addAttribute("restaurant", new Restaurant());
+		String url;
+		url=restaurant.getLocName();
+		logger.error("이거출력 : "+restaurant.getLocName());
+		logger.error("이거출력 : "+url);
+String uname="";
+try {
+	uname = java.net.URLEncoder.encode(url,"utf-8");
+} catch (UnsupportedEncodingException e) {
+	// TODO Auto-generated catch block
+	e.printStackTrace();
+}
+
+
+		return  "redirect:/restaurant/list?locName="+uname;
+		
 	}
 
 }

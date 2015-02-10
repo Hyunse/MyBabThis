@@ -44,7 +44,7 @@ public class RestaurantController {
 	@RequestMapping(value="/restaurant/list",params={"locName"}, method=RequestMethod.GET)
 	public String getRestaurantListbyLoc(@RequestParam String locName, Model model){
 		List<Restaurant> restaurants = service.selectRestaurantsByLocation(locName);
-		
+		model.addAttribute("restaurant", new Restaurant());
 		model.addAttribute("restaurants",restaurants);
 		return "/restaurant/restaurant_list";
 		
