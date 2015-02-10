@@ -10,7 +10,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-<table>
+<h2>NEW 맛집!</h2>
+<table border="1">
 	<c:forEach items="${restaurants }" var="restaurant">
 		<tr>
 			<td><c:out value="${restaurant.resNo }" /></td>

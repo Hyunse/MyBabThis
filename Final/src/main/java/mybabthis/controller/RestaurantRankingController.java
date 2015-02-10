@@ -66,16 +66,4 @@ public class RestaurantRankingController {
 		
 	}
 	
-	/**
-	 * New맛집 순위를 모든 지역을 기준으로 보여주기
-	 * @param model
-	 * @return
-	 */
-	@RequestMapping(value="/new", method=RequestMethod.GET)
-	public String getNewRestaurant(Model model){
-		List<Restaurant> restaurants = service.selectNewRestaurant();	
-		model.addAttribute("restaurants",restaurants);
-		return "/ranking/new_restaurant";
-		
-	}
 }

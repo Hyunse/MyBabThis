@@ -33,8 +33,9 @@ $("#search").click(function(){
 	<c:url value="/restaurant/list?locName=강남" var="loc" />
 	<a href="${loc }"><button type="submit">강남</button></a>
 	
-	
+	<hr>
 	<jsp:include page="/WEB-INF/view/ranking/new_restaurant.jsp" />
+	<hr>
 	<jsp:include page="/WEB-INF/view/footer.jsp" />
 	
 	
