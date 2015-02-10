@@ -27,6 +27,7 @@ body {
 			<td><a href="${message}"><br>쪽지함<br></a></td>
 		</tr>
 	</table>
+	<br>
 
 <!-- 	<xhtml>
 	<head>

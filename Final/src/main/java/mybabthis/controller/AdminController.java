@@ -15,8 +15,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 @Controller
+@SessionAttributes("loginUser")
 @RequestMapping(value = "/admin")
 public class AdminController {
 	
@@ -41,10 +43,21 @@ public class AdminController {
 		return "admin/main";
 	}
 	
-	@RequestMapping(value="/myinfo",  method=RequestMethod.GET)
-	public String goAdminMyinfo(Model model){
-		
+	/**
+	 * 개인정보 페이지로 이동
+	 * @param user
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping(value="/myinfo", method=RequestMethod.GET)
+	public String goAdminMyinfo(@ModelAttribute("loginUser") Users user, Model model){
 		return "admin/admin_myinfo";
+	}
+	
+	@RequestMapping(value="/myinfo",  params="_event_update", method=RequestMethod.POST)
+	public String myinfoUpdate(@ModelAttribute("loginUser") Users user, Model model){
+		userService.updateUser(user);
+		return "redirect:/admin/main";
 	}
 	
 	@RequestMapping(value="/users_list", params={"userId"},  method=RequestMethod.GET)
