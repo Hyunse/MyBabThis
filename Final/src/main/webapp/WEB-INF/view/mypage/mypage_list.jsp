@@ -17,10 +17,11 @@
 	
 <table border="1">
 		<c:url value="/mypage/myinfo" var="myinfo" />
+		<c:url value="/mypage/myfriends" var="myfriends" />
 		<tr>
 			<td><a href="${myinfo}"><br>개인정보<br></a></td>
 			<td><a href="${users}"><br>즐겨찾기<br></a></td>
-			<td><a href="${board}"><br>친구리스트<br></a></td>
+			<td><a href="${myfriends}"><br>친구리스트<br></a></td>
 			<td><a href="${message}"><br>쪽지함<br></a></td>
 		</tr>
 	</table>
