@@ -74,7 +74,7 @@ public class AdminController {
 	public String userListAll(Model model){		
 		List<Users> list = userService.selectAllUser();
 		model.addAttribute("userList", list);
-		
+		model.addAttribute("count", list.size());
 		return "admin/admin_users";
 	}
 	
@@ -88,8 +88,7 @@ public class AdminController {
 	@RequestMapping(value="/users", params={"userId"},  method=RequestMethod.GET)
 	public String searchUserId(@RequestParam String userId,  Model model){
 		Users user = userService.searchUserId(userId);
-		model.addAttribute("searchUser", user);
-		
+		model.addAttribute("userList", user);
 		return "admin/admin_users";
 	}
 	
@@ -104,8 +103,7 @@ public class AdminController {
 	@RequestMapping(value="/users", params={"userEmail"},  method=RequestMethod.GET)
 	public String searchUseruserEmail(@RequestParam String userEmail,  Model model){
 		Users user = userService.searchUserEmail(userEmail);
-		model.addAttribute("searchUser", user);
-		
+		model.addAttribute("userList", user);
 		return "admin/admin_users";
 	}
 	
