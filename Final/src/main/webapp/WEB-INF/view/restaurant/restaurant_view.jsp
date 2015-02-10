@@ -51,9 +51,8 @@
   <div id="tabs-1">
 	<table border="1">
 		<tr>
-		    <th>댓글번호</th>
-			<th>상호명</th>
-			<th>설명</th>
+		    <th>번호</th>
+			<th>내용</th>
 			<th>작성자</th>
 			<th>등록일</th>
 			<th>수정</th>
@@ -62,7 +61,6 @@
 		<c:forEach items="${rreplys }" var="rreply">
 			<tr>
 				<td><c:out value="${rreply.rreplyNo }" /></td>
-				<td><c:out value="${rreply.resNo }" /></td>
 				<td><c:out value="${rreply.rreplyContent }" /></td>
 				<td><c:out value="${rreply.userId }" /></td>
 				<td><c:out value="${rreply.rreplyUpdatedate }" /></td>
@@ -110,12 +108,5 @@
 </div>
 
  
-
-
-
-
-
-
-
 </body>
 </html>
