@@ -12,6 +12,7 @@
 		user_id, 
 		res_no)
 		values( #{userId},#{resNo})
+		
     </insert>
 
 <!-- 즐겨찾기삭제 -->
@@ -31,11 +32,17 @@ where user_id=#{userId}
 
 </select>
 
+<!-- 맛집게시판 리스트 가져오기  -->
 <select id="selectResByResNo" parameterType="Favorite" resultType="Restaurant">
 select *
 from favorite,restaurant
-where favorite.res_no=restaurant.res_no;
+where favorite.res_no=restaurant.res_no
 </select>
 
+<select id="validationCheck" parameterType="Favorite" resultType="Integer">
+select count(*)
+from favorite
+where res_no=#{resNo} and user_id=#{userId}
+</select>
 
 </mapper>

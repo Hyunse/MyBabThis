@@ -22,13 +22,15 @@
 
 
 			<tr>
-				
-				<c:url value="/favorite/delete" var="action"></c:url> <form:form
-						modelAttribute="favorite" method="post" action="${action }">
-				<td>		<form:input path="resNo" value="${resNo}" /></td>
-						<form:hidden path="userId" value="choeh" />
-						<td><button type="submit" name="delete">삭제</button>
-					</form:form></td>
+
+				<c:url value="/favorite/delete" var="action"></c:url>
+				<form:form modelAttribute="favorite" method="post"
+					action="${action }">
+					<td><form:input path="resNo" value="${resNo}" /></td>
+					<form:hidden path="userId" value="choeh" />
+					<td><button type="submit" name="delete">삭제</button>
+				</form:form>
+				</td>
 			</tr>
 		</table>
 	</c:forEach>
