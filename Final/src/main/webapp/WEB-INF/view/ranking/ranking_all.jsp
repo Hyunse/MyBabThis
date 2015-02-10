@@ -11,8 +11,8 @@
 <body>
 	<jsp:include page="/WEB-INF/view/header.jsp" />
 	<h1>맛집 랭킹</h1>
-	<hr>
 	<br>
+	<jsp:include page="/WEB-INF/view/ranking/ranking_header.jsp" />
 
 
 	<c:forEach items="${restaurants }" var="restaurant">

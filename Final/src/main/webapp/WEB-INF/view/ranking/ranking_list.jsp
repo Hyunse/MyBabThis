@@ -10,13 +10,8 @@
 <jsp:include page="/WEB-INF/view/header.jsp" />
 <body>
 	<h1>맛집 랭킹</h1>
-	<hr>
 	<br>
-	<c:url value="/ranking/all" var="all" />
-	<a href="${all }"><button type="submit">전체</button></a>
-	<c:url value="/ranking/loc?locName=건대" var="loc" />
-	<a href="${loc }"><button type="submit">건대</button></a>
-	<c:url value="/ranking/loc?locName=강남" var="loc" />
-	<a href="${loc }"><button type="submit">강남</button></a>
+	<jsp:include page="/WEB-INF/view/ranking/ranking_header.jsp" />
+
 </body>
 </html>
