@@ -35,7 +35,7 @@ public class RestaurantEditController {
 	}
 	
 	@RequestMapping(value="/restaurant/edited", method=RequestMethod.POST)
-	public String enterEditRestaurant(@ModelAttribute("restaurant") Restaurant restaurant,SessionStatus sessionStatus){
+	public String afterEditRestaurant(@ModelAttribute("restaurant") Restaurant restaurant,SessionStatus sessionStatus){
 		logger.trace("맛집게시물 수정시도");
 		service.updateRestaurant(restaurant);
 		logger.trace("맛집게시물 수정했음");
