@@ -35,6 +35,8 @@ $("#search").click(function(){
 	
 	
 	<jsp:include page="/WEB-INF/view/ranking/new_restaurant.jsp" />
+	<jsp:include page="/WEB-INF/view/footer.jsp" />
+	
 	
 </body>
 </html>
