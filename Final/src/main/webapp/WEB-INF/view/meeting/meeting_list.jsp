@@ -64,7 +64,6 @@
 			</c:if>
 			 -->
 			</td>
-			
 			<td>
 						<ul class="menu">
 							<li><c:out value="${boardList.userId}" />

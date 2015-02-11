@@ -54,7 +54,6 @@
 
 <hr>
 
-
 <div id="tabs">
   <ul>
     <li><a href="#tabs-1">댓글</a></li>
