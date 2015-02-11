@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -11,7 +12,7 @@
 </head>
 <body>
 
-
+ 
 <div id="grid" style="width: 100%; height: 400px; overflow: hidden;"></div>
 <br>
 <button class="btn" onclick="var obj = w2ui['grid']; obj.show.header = !obj.show.header; w2ui['grid'].refresh();">Header</button>
@@ -27,7 +28,7 @@ $(function () {
     $('#grid').w2grid({ 
         name: 'grid', 
         header: 'List of Names',
-        url: '<%=request.getContextPath()%>/sample/users',
+        url: '<%=request.getContextPath()%>/a',
         method: 'GET', // need this to avoid 412 error on Safari
         show: {
             header         : true,
@@ -38,13 +39,13 @@ $(function () {
             expandColumn: true
         },        
         columns: [                
-            { field: 'jsonView.list.userId', caption: 'First Name', size: '30%' },
-            { field: 'jsonView.userId', caption: 'Last Name', size: '30%' },
-            { field: 'list.userId', caption: 'Start Date', size: '120px' },
+            { field: 'userId', caption: '아이디', size: '200px' },
+            { field: 'userPass', caption: '비밀번호', size: '200px' },
+            { field: 'userName', caption: '이름', size: '120px' },
         ],
         searches: [
-            { type: 'text',  field: 'jsonView.list.userId', caption: 'ID' },
-            { type: 'text', field: 'jsonView.userId', caption: 'Name' },
+            { type: 'text',  field: 'list.userId', caption: 'ID' },
+            { type: 'text', field: 'list.userId', caption: 'Name' },
             { type: 'date', field: 'list.userId', caption: 'Start Date' }
         ],
         onExpand: function (event) {
