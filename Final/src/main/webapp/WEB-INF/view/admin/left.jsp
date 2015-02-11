@@ -15,7 +15,7 @@ body {
 <body>
 	<c:url value="/main" var="main" />
 	<c:url value="/admin/myinfo" var="myinfo" />
-	<c:url value="/admin/users" var="users" />
+	<c:url value="/admin/list" var="list" />
 	<c:url value="/admin/board" var="board" />
 	<c:url value="/admin/message" var="message" />
 	<c:url value="/admin/message" var="report" />
@@ -24,7 +24,7 @@ body {
 		<tr>
 			<td><a href="${myinfo}"><br>개인정보<br></a></td>
 			<td><a href="${users}"><br>회원관리<br></a></td>
-			<td><a href="${board}"><br>게시물관리<br></a></td>
+			<td><a href="${list}"><br>게시물관리<br></a></td>
 			<td><a href="${message}"><br>쪽지함<br></a></td>
 			<td><a href="${report}"><br>신고함<br></a></td>
 		</tr>

@@ -41,7 +41,7 @@ public class RestaurantController {
 	@RequestMapping(value="/restaurant/list", method=RequestMethod.GET)
 	public String getAllRestaurantList(Model model){
 		List<Restaurant> restaurants = service.selectAllRestuarants();
-		
+		model.addAttribute("restaurant", new Restaurant());
 		model.addAttribute("restaurants",restaurants);
 		return "/restaurant/restaurant_list";
 		
@@ -59,7 +59,8 @@ public class RestaurantController {
 	@RequestMapping(value="/restaurant/list",params={"resName"}, method=RequestMethod.GET)
 	public String getRestaurantListbyName(@RequestParam String resName, Model model){
 		List<Restaurant> restaurants = service.selectRestaurantsByResName(resName);
-		
+
+		model.addAttribute("restaurant", new Restaurant());
 		model.addAttribute("restaurants",restaurants);
 		return "/restaurant/restaurant_list";
 		

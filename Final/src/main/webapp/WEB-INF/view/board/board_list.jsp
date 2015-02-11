@@ -8,6 +8,22 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+
+<link rel="stylesheet"
+	href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+<link rel="stylesheet" href="/resources/demos/style.css">
+<script>
+	$(function() {
+		$(".menu").menu();
+	});
+</script>
+<style>
+.ui-menu {
+	width: 150px;
+}
+</style>
 </head>
 
 <script type="text/javascript"
@@ -16,6 +32,11 @@
 <jsp:include page="/WEB-INF/view/header.jsp" />
 <body>
 
+
+
+
+
+
 	<table border="1px solid black" align="center">
 		<tr>
 			<th width="10%">글 번호</th>
@@ -23,22 +44,21 @@
 			<th width="30%">작성자</th>
 			<th width="20%">날짜</th>
 		</tr>
-		
-		
-		
+
+
+
 		<c:if test="${empty boardList}">
-		<tr>
-			<td colspan="4">작성 된 글이 없습니다...</td>
-			
+			<tr>
+				<td colspan="4">작성 된 글이 없습니다...</td>
 		</c:if>
 		<c:if test="${!empty boardList}">
-		<c:forEach var= "boardList" items="${boardList}" varStatus="status">
-		
-		<tr>
-			<td> <c:out value="${boardList.boardNo}"/> </td>
-			<td> <c:url value= "/board/detail?boardNo=${boardList.boardNo}" var="go"/> 
-			     <a href="${go}"><c:out value="${boardList.boardTitle}"/> </a>
-			<!-- 
+			<c:forEach var="boardList" items="${boardList}" varStatus="status">
+
+				<tr>
+					<td><c:out value="${boardList.boardNo}" /></td>
+					<td><c:url value="/board/detail?boardNo=${boardList.boardNo}"
+							var="go" /> <a href="${go}"><c:out
+								value="${boardList.boardTitle}" /> </a> <!-- 
 			<c:if test="${fn:length(boardList.boardTitle) > 20 }">
 			<a href="${go}"><c:out value ="${fn:substring(boardList.boardTitle,0,15)}" />...</a>
 			</c:if>
@@ -46,18 +66,36 @@
 			<c:if test="${fn:length(boardList.boardTitle) <= 20 }">
 				<a href="${go}">${boardList.boardTitle}</a>
 			</c:if>
-			 -->
-			</td>
-			
-			<td> <c:out value="${boardList.userId}"/></td>
-			<td> <c:out value="${boardList.boardRegdate}"/></td>
-		</tr>
-		</c:forEach>
+			 --></td>
+					<td>
+						<ul class="menu">
+							<li><c:out value="${boardList.userId}" />
+								<ul>
+									<li>친구추가</li>
+									<li>쪽지보내기</li>
+								</ul>
+							</li>
+						</ul>
+					</td>
+					<td><c:out value="${boardList.boardRegdate}" /></td>
+				</tr>
+			</c:forEach>
 		</c:if>
-		
+
 	</table>
-	<c:url value= "/board/write" var="write"/> 
+	<c:url value="/board/write" var="write" />
 	<a href="${write}"><button type="submit">글쓰기</button></a>
-	
+
+
+
+
+
+
+
+
+
+
+
+
 </body>
 </html>

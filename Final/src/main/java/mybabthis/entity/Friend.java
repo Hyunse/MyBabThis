@@ -15,6 +15,8 @@ public class Friend implements Serializable {
 
 	/** 사용자. */
 	private Users users;
+	
+	private String userId;
 
 	/** 친구아이디. */
 	private String friendId;
@@ -63,5 +65,20 @@ public class Friend implements Serializable {
 		return this.friendId;
 	}
 
+	public String getUserId() {
+		return userId;
+	}
+
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
+
+	@Override
+	public String toString() {
+		return "Friend [users=" + users + ", userId=" + userId + ", friendId="
+				+ friendId + "]";
+	}
+
+	
 
 }

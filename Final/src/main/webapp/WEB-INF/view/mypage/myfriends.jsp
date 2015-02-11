@@ -37,7 +37,7 @@
 			<th>등록일</th>
 			<th>수정일</th>
 		</tr>
-		<c:forEach items="${friendsList}" var="friends">
+		<c:forEach items="${users}" var="user">
 			<c:url value="/admin/users_list?userId=${user.userId}" var="url" />
 			<tr>
 
