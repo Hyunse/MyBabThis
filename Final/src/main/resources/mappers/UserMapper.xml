@@ -23,6 +23,11 @@
 		where user_id=#{userId} and
 		user_pass=#{userPass}
 	</select>
+	<select id="selectUsersByNameAtJoin" parameterType="String" resultType="Users">
+	select *
+		from users
+		where user_name=#{userName}
+	</select>
 
 	<select id="selectUser" parameterType="String" resultType="Users">
 		select * from users where user_id=#{userId}

@@ -112,6 +112,13 @@ public class MeetingController {
 		return "/meeting/meeting_edit";
 	}
 	
+	@RequestMapping(value="/write", params="breply_write", method=RequestMethod.POST)
+	public String write(@ModelAttribute("breply") Breply breply){
+		breplyService.createBreply(breply);
+		return "redirect:/meeting/detail?boardNo="+breply.getBoardNo();
+	}
+	
+	
 	/**
 	 * 번개모임 게시판 글 수정하기
 	 * @param board
@@ -136,6 +143,12 @@ public class MeetingController {
 		boardService.delete(board.getBoardNo());
 		logger.trace("번호: " +board.getBoardNo());
 		return "redirect:/meeting/list";
+	}
+	
+	@RequestMapping(value="/delete",  method=RequestMethod.GET,  params={"breplyNo", "boardNo"})
+	public String delete(@RequestParam int breplyNo, int boardNo, Model model){
+		breplyService.deleteBreply(breplyNo);
+		return "redirect:/meeting/detail?boardNo="+boardNo;
 	}
 
 }

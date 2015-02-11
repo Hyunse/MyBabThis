@@ -105,6 +105,12 @@ public class UserDaoImpl implements UserDao {
 		String stmt = nameSpace + "selectUsersByGrade";
 		return sqlSession.selectList(stmt, grade);
 	}
+
+	@Override
+	public Users selectUserByNameAtJoin(String name) {
+		String stmt = nameSpace + "selectUsersByNameAtJoin";
+		return sqlSession.selectOne(stmt, name);
+	}
 	
 
 }

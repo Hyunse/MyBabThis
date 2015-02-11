@@ -10,29 +10,90 @@
 <title>Insert title here</title>
 
 </head>
+<style> 
+pre { display: inline; } 
+</style> 
+
 <script src="http://code.jquery.com/jquery-latest.js"></script>
+
 <script>
-$(document).ready(function(){
-	$("#updateform").hide();
-	$(".updateBtn").click(function(){
+
+	$(document).ready(function() {
+
+		$(".updateform").hide();
+
+		/* $(".updateBtn").each(function(index){
+			alert(index + this);
+			$("this").attr({
+				"id" : "b_"+index 
+			});
+			var bbi = $("this").attr("id");
+			alert("업데이트 버튼 아이디 확인 : " + bbi);
+			alert("업데이트 버튼 value : " + $("#b_1").val());
+		}); */
+
+		/* 	$(".updateBtn").click(function(index){
 		
-		$("#writeform").hide();
-		$("#updateform").show();
 		
-	})
-	$("#writeButton").click(function(){
+		 $(".hide").hide();
+		 $(".updateform").show();
 		
-		$("#writeform").show();
-		$("#updateform").hide();
-	})
-	
-	$(".content").each(function(index){
-		$("this").attr({
-			"id" : "para-"+index
+		 var bid= $(".updateBtn").attr("id");
+		 var tid= $(".content").attr("id")
+		 alert("버튼 아이디" +bid);
+		 /* alert("업데이트 버튼 번호 추출: "+bid.substring(3))
+		 alert("td  번호 추출: "+substring(3)) */
+
+		/* 	$(".breplyContentTxtUp").val($("#con").val())
+		})
+		 */
+
+		/* $("#btn3").click(function(){
+		    $("#test3").val("Dolly Duck");
+		}); */
+		
+		$(".updateBtn").click(function() {
+			alert(this.id); // or alert($(this).attr('id'));
+			var bid = $(this).attr("id");
+			var hid = "#h" + bid;
+			alert("td 아이디" + hid);
+			var content = $(hid).html();
+			alert(hid + " : " + content)
+
+			var uid = "#u" + bid;
+		
+			var tid = "#t" + bid;
+
+			$(tid).val(content);
+			
+			$(hid).hide();
+			$(uid).show();
+
 		});
-	});
-	
-})
+
+	})
+
+	/* function goupdate(){
+			alert("this : " +  this);
+		 	var bid = $("this").attr("id");
+			var hid = "#h" + bid;
+			alert("td 아이디"+ hid);
+		 	var content = $(hid).html();
+			alert(hid + " : " + content)
+		 	//alert(tid+ " : "+document.querySelector("#write"+"Button"));
+			//alert("버튼 아이디 : " + bid);
+			//alert("td 안의 내용 : " + content);
+		}
+	 */
+	/* 	$('#myTable tr').each(function() {
+		var $tds = $(this).find('td');
+		
+		if($tds.length != 0) {
+		var $currText = $tds.eq(0).text();
+		alert('Curr Source Language: ' + $currText);
+		}
+		
+		}); */
 </script>
 <!-- <script>
 $('a[data-href]').each(function() { 
@@ -55,7 +116,7 @@ $('a[data-href]').each(function() {
 
 	<hr>
 	<h2>댓글목록</h2>
-	<table border="1">
+	<table border="1" id="Table">
 		<tr>
 			<th>댓글번호</th>
 			<th>게시글번호</th>
@@ -65,29 +126,45 @@ $('a[data-href]').each(function() {
 			<th>수정</th>
 			<th>삭제</th>
 		</tr>
-		
+
 		<c:forEach items="${breplys }" var="breply">
-		<% int i = 1; %>
 			<tr>
-				<td ><c:out value="${breply.breplyNo }"  /></td>
+				<td><c:out value="${breply.breplyNo }" /></td>
 				<td><c:out value="${breply.boardNo }" /></td>
-				<td class="content"><c:out value="${breply.breplyContent }" /></td>
-				<td ><c:out value="${breply.userId }" /></td>
-				<td><c:out value="${breply.breplyUpdatedate }" /></td>
-				<td>
-				<%-- <c:url value="/breply/edit?breplyNo=${breply.breplyNo}" var="url"></c:url>
-				<a href="${url}"><button id="updateBtn">수정</button></a> --%>
-					<button class="updateBtn" id="updateBtn<%= i %>">수정</button>
+				<td id="bbtn${breply.breplyNo }">
+
+					<div id="hbtn${breply.breplyNo}">
+
+						<c:out value="${breply.breplyContent }" />
+
+					</div> <c:url value="/breply/update" var="action" /> 
+					<form:form modelAttribute="breply" method="post" action="${action }"
+						class="updateform" id="ubtn${breply.breplyNo }">
+						<form:hidden path="boardNo" value="${boardDetail.boardNo }" />
+						<form:hidden path="userId" value="${loginUser.userId }" />
+						<label>내용</label> :
+						<textarea id="tbtn${breply.breplyNo}" rows='15' cols='65'class="droptext"></textarea>
+						<button type="submit" name="breply_update">수정</button>
+
+					</form:form>
+
 				</td>
+				<td><c:out value="${breply.userId }" /></td>
+				<td><c:out value="${breply.breplyUpdatedate }" /></td>
+
+				<td><button class="updateBtn" id="btn${breply.breplyNo}">수정</button></td>
+
 				<td><c:url
-						value="/breply/delete?breplyNo=${breply.breplyNo }&boardNo=${breply.boardNo }"
+						value="/meeting/delete?breplyNo=${breply.breplyNo }&boardNo=${breply.boardNo }"
 						var="url"></c:url> <a href="${url}"><button>삭제</button></a></td>
 			</tr>
-			<% i++; %>
 		</c:forEach>
 	</table>
+
 	<input type="button" id="writeButton" value="새 댓글 적기">
 	<hr>
+
+
 	<!-- c: if userid = loginid 
 <textarea > </ > 
 <button oncick= aaa(this)/> 
@@ -97,24 +174,23 @@ $(inputTextAreaData).val(
 $(obj).parent.find(:textarea).html() 
 )  -->
 
-	<c:url value="/breply/write" var="action"></c:url>
-	<form:form modelAttribute="breply" method="post" action="${action }" id="writeform">
+	<c:url value="/meeting/write" var="action"></c:url>
+	<form:form modelAttribute="breply" method="post" action="${action }"
+		id="writeform">
 		<h2>댓글작성</h2>
 		<form:hidden path="boardNo" value="${boardDetail.boardNo }" />
 		<form:hidden path="userId" value="${loginUser.userId }" />
 		<label>내용</label> : <form:textarea path="breplyContent" />
 		<button type="submit" name="breply_write">작성</button>
 	</form:form>
-
+	<%-- 
 	<c:url value="/breply/update" var="action" />
 	<form:form modelAttribute="breply" method="post" action="${action }" id="updateform" >
+	<form id="updateform">
 	<h2>댓글수정</h2>
-		<form:hidden path="boardNo" value="${boardDetail.boardNo }" />
-		<form:hidden path="userId" value="${loginUser.userId }" />
-		<label>내용</label> : <form:textarea path="breplyContent" />
+		<label>내용</label> : <textarea id="breplyContentTxt"></textarea>
 		<button type="submit" name="breply_update">수정</button>
-	</form:form>
-
+	</form> --%>
 
 	<!-- <script>
 		(function(d, s, id) {
