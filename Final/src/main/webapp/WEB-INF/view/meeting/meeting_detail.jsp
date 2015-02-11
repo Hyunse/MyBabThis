@@ -10,8 +10,14 @@
 <title>Insert title here</title>
 
 </head>
+<style> 
+pre { display: inline; } 
+</style> 
+
 <script src="http://code.jquery.com/jquery-latest.js"></script>
+
 <script>
+
 	$(document).ready(function() {
 
 		$(".updateform").hide();
@@ -135,7 +141,8 @@ $('a[data-href]').each(function() {
 						class="updateform" id="ubtn${breply.breplyNo }">
 						<form:hidden path="boardNo" value="${boardDetail.boardNo }" />
 						<form:hidden path="userId" value="${loginUser.userId }" />
-						<label>내용</label> : <textarea id="tbtn${breply.breplyNo}"></textarea>
+						<label>내용</label> :
+						<textarea id="tbtn${breply.breplyNo}" rows='15' cols='65'class="droptext"></textarea>
 						<button type="submit" name="breply_update">수정</button>
 
 					</form:form>
@@ -147,7 +154,7 @@ $('a[data-href]').each(function() {
 				<td><button class="updateBtn" id="btn${breply.breplyNo}">수정</button></td>
 
 				<td><c:url
-						value="/breply/delete?breplyNo=${breply.breplyNo }&boardNo=${breply.boardNo }"
+						value="/meeting/delete?breplyNo=${breply.breplyNo }&boardNo=${breply.boardNo }"
 						var="url"></c:url> <a href="${url}"><button>삭제</button></a></td>
 			</tr>
 		</c:forEach>

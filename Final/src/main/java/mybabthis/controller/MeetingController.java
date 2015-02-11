@@ -144,5 +144,11 @@ public class MeetingController {
 		logger.trace("번호: " +board.getBoardNo());
 		return "redirect:/meeting/list";
 	}
+	
+	@RequestMapping(value="/delete",  method=RequestMethod.GET,  params={"breplyNo", "boardNo"})
+	public String delete(@RequestParam int breplyNo, int boardNo, Model model){
+		breplyService.deleteBreply(breplyNo);
+		return "redirect:/meeting/detail?boardNo="+boardNo;
+	}
 
 }
