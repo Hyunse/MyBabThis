@@ -82,7 +82,7 @@ public class UserJoinController {
 	public @ResponseBody String ajaxReceive2(@RequestParam String name) {
 		logger.trace("-------------------------------------------------------------------------------");
 
-		List<Users> user = userservice.searchUserName(name);
+		Users user = userservice.searchUserByName(name);
 		if (user != null) {
 			logger.trace("----------------------중복 이름");
 			  return "중복된 이름 입니다.";
@@ -97,10 +97,10 @@ public class UserJoinController {
 		Users user = userservice.searchUserEmail(email);
 		
 		if (user != null) {
-			logger.trace("----------------------중복 이름");
+			logger.trace("----------------------중복 이메일");
 			  return "중복된 이메일 입니다.";
 		}
-		logger.trace("----------------------사용가능 이름");
+		logger.trace("----------------------사용가능 이메일");
 		return "사용 가능한 이메일 입니다.";
 	}
 

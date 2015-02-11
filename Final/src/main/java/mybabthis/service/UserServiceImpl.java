@@ -101,4 +101,10 @@ public class UserServiceImpl implements UserService{
 		return result;
 	}
 
+	@Override
+	public Users searchUserByName(String name) {
+		Users result = dao.selectUserByNameAtJoin(name);
+		return result;
+	}
+
 }

@@ -51,6 +51,7 @@ pre { display: inline; }
 		/* $("#btn3").click(function(){
 		    $("#test3").val("Dolly Duck");
 		}); */
+		
 		$(".updateBtn").click(function() {
 			alert(this.id); // or alert($(this).attr('id'));
 			var bid = $(this).attr("id");
@@ -136,8 +137,8 @@ $('a[data-href]').each(function() {
 
 						<c:out value="${breply.breplyContent }" />
 
-					</div> <c:url value="/breply/update" var="action" /> <form:form
-						modelAttribute="breply" method="post" action="${action }"
+					</div> <c:url value="/breply/update" var="action" /> 
+					<form:form modelAttribute="breply" method="post" action="${action }"
 						class="updateform" id="ubtn${breply.breplyNo }">
 						<form:hidden path="boardNo" value="${boardDetail.boardNo }" />
 						<form:hidden path="userId" value="${loginUser.userId }" />
