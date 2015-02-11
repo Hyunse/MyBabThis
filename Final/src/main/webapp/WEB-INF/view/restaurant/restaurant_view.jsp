@@ -16,9 +16,20 @@
     $( "#tabs" ).tabs();
   }); 
  </script>
-
+<script>
+	$(function() {
+		$(".menu").menu();
+	});
+</script>
+<style>
+.ui-menu {
+	width: 150px;
+}
+</style>
 
 </head>
+<script type="text/javascript"
+	src="<%=request.getContextPath()%>/js/jquery-2.1.3.js"></script>
 <body>
 <jsp:include page="/WEB-INF/view/header.jsp"/>
 <hr>
@@ -63,7 +74,16 @@
 			<tr>
 				<td><c:out value="${rreply.rreplyNo }" /></td>
 				<td><c:out value="${rreply.rreplyContent }" /></td>
-				<td><c:out value="${rreply.userId }" /></td>
+				<td>
+						<ul class="menu">
+							<li><c:out value="${rreply.userId}" />
+								<ul>
+									<li>친구추가</li>
+									<li>쪽지보내기</li>
+								</ul>
+							</li>
+						</ul>
+					</td>
 				<td><c:out value="${rreply.rreplyUpdatedate }" /></td>
 				<td>
 			<c:url value="/rreply/edit?rreplyNo=${rreply.rreplyNo }" var="url"></c:url>
@@ -95,7 +115,16 @@
 				<td><c:out value="${review.reviewScore }" /></td>
 				<c:url value="/review/detail?reviewNo=${review.reviewNo }" var="url"></c:url> 
 				<td><a href="${url }"><c:out value="${review.reviewContent }" /></a></td>
-				<td><c:out value="${review.userId }" /></td>
+				<td>
+						<ul class="menu">
+							<li><c:out value="${review.userId}" />
+								<ul>
+									<li>친구추가</li>
+									<li>쪽지보내기</li>
+								</ul>
+							</li>
+						</ul>
+					</td>
 				<td><c:out value="${review.reviewUpdatedate }" /></td>
 			</tr>
 		</c:forEach>
