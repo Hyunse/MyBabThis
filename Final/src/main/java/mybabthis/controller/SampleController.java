@@ -1,9 +1,10 @@
 package mybabthis.controller;
 
 import java.util.List;
+
 import mybabthis.entity.Users;
-import mybabthis.service.BoardService;
 import mybabthis.service.UserService;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,11 +38,7 @@ public class SampleController {
 		ModelAndView mav = new ModelAndView();
 		List<Users> list = userService.selectAllUser();
 		mav.addObject("list", list);
-		mav.setViewName("jsonView");
-		logger.error("mav: "+mav);
 		return mav;
 	}
-
 	
-
 }
