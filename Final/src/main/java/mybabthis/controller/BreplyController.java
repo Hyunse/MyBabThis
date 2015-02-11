@@ -42,11 +42,11 @@ public class BreplyController {
 		}
 		
 		
-/*		//리스트로가기
+		//리스트로가기
 		@RequestMapping(value="/breply/list", method=RequestMethod.GET, params={"boardNo"})
 		public String getRreplyByBoardNo(@RequestParam int boardNo, Model model){
 			return "redirect:/board/detail?boardNo="+boardNo;
-		}*/
+		}
 		
 	
 /*		//수정폼으로

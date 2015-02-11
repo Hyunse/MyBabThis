@@ -8,7 +8,24 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet"
+	href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+<link rel="stylesheet" href="/resources/demos/style.css">
+<script>
+	$(function() {
+		$(".menu").menu();
+	});
+</script>
+<style>
+.ui-menu {
+	width: 150px;
+}
+</style>
 </head>
+
+
 
 <script type="text/javascript"
 	src="<%=request.getContextPath()%>/js/jquery-2.1.3.js"></script>
@@ -47,8 +64,16 @@
 			</c:if>
 			 -->
 			</td>
-			
-			<td> <c:out value="${boardList.userId}"/></td>
+			<td>
+						<ul class="menu">
+							<li><c:out value="${boardList.userId}" />
+								<ul>
+									<li>친구추가</li>
+									<li><a href="/Final/msg/send?receiver=${boardList.userId}">쪽지보내기</li>
+								</ul>
+							</li>
+						</ul>
+					</td>
 			<td> <c:out value="${boardList.boardRegdate}"/></td>
 		</tr>
 		</c:forEach>
