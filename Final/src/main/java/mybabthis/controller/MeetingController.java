@@ -112,6 +112,13 @@ public class MeetingController {
 		return "/meeting/meeting_edit";
 	}
 	
+	@RequestMapping(value="/write", params="breply_write", method=RequestMethod.POST)
+	public String write(@ModelAttribute("breply") Breply breply){
+		breplyService.createBreply(breply);
+		return "redirect:/meeting/detail?boardNo="+breply.getBoardNo();
+	}
+	
+	
 	/**
 	 * 번개모임 게시판 글 수정하기
 	 * @param board
