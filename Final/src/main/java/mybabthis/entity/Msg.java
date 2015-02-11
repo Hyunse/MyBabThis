@@ -36,7 +36,7 @@ public class Msg implements Serializable {
 	private Integer warnNo;
 	
 	/** 메세지 확인 여부. */
-	private Character check;
+	private Character checkSum;
 
 	/**
 	 * 생성자.
@@ -183,8 +183,8 @@ public class Msg implements Serializable {
 	 * @param check
 	 *            메세지 확인 여부
 	 */
-	public void setCheck(Character check) {
-		this.check = check;
+	public void setCheckSum(Character checkSum) {
+		this.checkSum = checkSum;
 	}
 	
 	/**
@@ -192,8 +192,8 @@ public class Msg implements Serializable {
 	 * 
 	 * @return 메세지 확인 여부
 	 */
-	public Character getCheck() {
-		return this.check;
+	public Character getCheckSum() {
+		return this.checkSum;
 	}
 
 	/**

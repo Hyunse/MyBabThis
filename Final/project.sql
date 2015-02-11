@@ -217,97 +217,97 @@ CREATE TABLE users
 ALTER TABLE breply
 	ADD FOREIGN KEY (board_no)
 	REFERENCES board (board_no)
-;
+on delete cascade;
 
 
 ALTER TABLE licensed_user
 	ADD FOREIGN KEY (license_no)
 	REFERENCES license (license_no)
-;
+on delete cascade;
 
 
 ALTER TABLE favorite_loc
 	ADD FOREIGN KEY (loc_name)
 	REFERENCES loc (loc_name)
-;
+on delete cascade;
 
 
 ALTER TABLE restaurant
 	ADD FOREIGN KEY (loc_name)
 	REFERENCES loc (loc_name)
-;
+on delete cascade;
 
 
 ALTER TABLE review
 	ADD FOREIGN KEY (res_no)
 	REFERENCES restaurant (res_no)
-;
+on delete cascade;
 
 
 ALTER TABLE favorite
 	ADD FOREIGN KEY (res_no)
 	REFERENCES restaurant (res_no)
-;
+on delete cascade;
 
 
 ALTER TABLE rreply
 	ADD FOREIGN KEY (res_no)
 	REFERENCES restaurant (res_no)
-;
+on delete cascade;
 
 
 ALTER TABLE friend
 	ADD FOREIGN KEY (user_id)
 	REFERENCES users (user_id)
-;
+on delete cascade;
 
 
 ALTER TABLE review
 	ADD FOREIGN KEY (user_id)
 	REFERENCES users (user_id)
-;
+on delete cascade;
 
 
 ALTER TABLE licensed_user
 	ADD FOREIGN KEY (user_id)
 	REFERENCES users (user_id)
-;
+on delete cascade;
 
 
 ALTER TABLE rreply
 	ADD FOREIGN KEY (user_id)
 	REFERENCES users (user_id)
-;
+on delete cascade;
 
 
 ALTER TABLE restaurant
 	ADD FOREIGN KEY (user_id)
 	REFERENCES users (user_id)
-;
+on delete cascade;
 
 
 ALTER TABLE breply
 	ADD FOREIGN KEY (user_id)
 	REFERENCES users (user_id)
-;
+on delete cascade;
 
 
 ALTER TABLE favorite_loc
 	ADD FOREIGN KEY (user_id)
 	REFERENCES users (user_id)
-;
+on delete cascade;
 
 
 ALTER TABLE board
 	ADD FOREIGN KEY (user_id)
 	REFERENCES users (user_id)
-;
+on delete cascade;
 
 
 ALTER TABLE favorite
 	ADD FOREIGN KEY (user_id)
 	REFERENCES users (user_id)
-;
+on delete cascade;
 
 
 
@@ -392,7 +392,16 @@ BEGIN
 END;
 
 /
-
+/*디폴트 데이터 - 지역이름*/
+insert into loc (loc_name) values('강남');
+insert into loc (loc_name) values('송파');
+insert into loc (loc_name) values('대학로');
+insert into loc (loc_name) values('신림');
+insert into loc (loc_name) values('건대');
+insert into loc (loc_name) values('홍대');
+insert into loc (loc_name) values('신촌');
+insert into loc (loc_name) values('종로');
+insert into loc (loc_name) values('영등포');
 
 
 
