@@ -48,7 +48,6 @@ public class SampleController {
 		String jsonString = "{\"total\":" + list.size() + ", \"records\" :"
 				+ json + "}";
 		
-		JsonObject j;
 		
 		mav.addObject("jsonString", jsonString);
 		mav.setViewName("jsonView");
@@ -65,11 +64,9 @@ public class SampleController {
 		String json = new Gson().toJson(list);
 		String jsonString = "{\"total\":" + list.size() + ", \"records\" :"
 				+ json + "}";
-		String aaa = "{\"total\":1,\"records\":[{\"userId\":\"John\"}]}";
 		mav.addObject("jsonString", jsonString);
 		logger.trace(jsonString);
 		logger.trace(abc);
-		logger.trace(aaa);
 		mav.setViewName("../../listData");
 		return mav;
 	}
