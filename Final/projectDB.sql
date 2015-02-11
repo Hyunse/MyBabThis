@@ -410,6 +410,16 @@ END;
 
 /
 
+/*디폴트쿼리 - 지역이름*/
 
+insert into loc (loc_name) values('송파');
+insert into loc (loc_name) values('대학로');
+insert into loc (loc_name) values('신림');
+insert into loc (loc_name) values('건대');
+insert into loc (loc_name) values('홍대');
+insert into loc (loc_name) values('신촌');
+insert into loc (loc_name) values('종로');
+insert into loc (loc_name) values('영등포');
+/
 
 
