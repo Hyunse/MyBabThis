@@ -22,6 +22,8 @@ public interface UserDao {
 
 	List<Users> getUsersByPage(int page);
 	
+	Users selectUserByNameAtJoin(String name);
+	
 	/* 관리자 페이지에서 회원 검색하기 위한 메소드 */
 	
 	List<Users> selectUserByName(String name);
