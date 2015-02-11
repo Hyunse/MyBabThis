@@ -3,7 +3,9 @@ package mybabthis.controller;
 import java.util.List;
 
 import mybabthis.entity.Users;
+import mybabthis.entity.Restaurant;
 import mybabthis.service.BoardService;
+import mybabthis.service.RestaurantService;
 import mybabthis.service.UserService;
 
 import org.slf4j.Logger;
@@ -31,6 +33,8 @@ public class AdminController {
 	BoardService boardService;
 	@Autowired
 	UserService userService;
+	@Autowired
+	RestaurantService restaurantService;
 
 	/**
 	 * 관리자 페이지 메인으로 이동
@@ -63,6 +67,36 @@ public class AdminController {
 		return "redirect:/admin/main";
 	}
 	
+	
+	/*게시물 관리 페이지에서 맛집 게시판 
+	public String restaurantListAll(Model model){
+	 List<Restaurant> list = restaurantService.selectAllRestuarants();
+	 model.addAttribute("restaurantList", list);
+	 model.addAttributes("count", list.size());
+	 return "";
+	 
+	 
+	}*/
+	@RequestMapping(value="/list", method=RequestMethod.GET)
+	public String getAllRestaurantList(Model model){
+		List<Restaurant> restaurants = restaurantService.selectAllRestuarants();
+		model.addAttribute("restaurants",restaurants);
+		return "admin/admin_board";
+	}
+	
+	@RequestMapping(value="/list",params={"locName"}, method=RequestMethod.GET)
+	public String getRestaurantListbyLoc(@RequestParam String locName, Model model){
+		List<Restaurant> restaurants = restaurantService.selectRestaurantsByLocation(locName);
+		model.addAttribute("restaurant", new Restaurant());
+		model.addAttribute("restaurants",restaurants);
+		return "admin/admin_board";
+		
+	}
+	
+	public String restaurantListAll(Model model){
+		
+		return "/restaurant/list";
+	}
 	
 	/**
 	 * 회원관리 페이지에서 전체 회원을 목록으로 보여주기
