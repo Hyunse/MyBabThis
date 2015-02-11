@@ -73,5 +73,12 @@ public class Friend implements Serializable {
 		this.userId = userId;
 	}
 
+	@Override
+	public String toString() {
+		return "Friend [users=" + users + ", userId=" + userId + ", friendId="
+				+ friendId + "]";
+	}
+
+	
 
 }

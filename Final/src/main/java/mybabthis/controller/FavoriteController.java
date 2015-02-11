@@ -61,9 +61,9 @@ public class FavoriteController {
 
 		Favorite favorite= new Favorite();
 		favorite.setUserId(userId);
-		List<Restaurant> rastaurants = service.getResByJoin(favorite);
+		List<Restaurant> restaurants = service.getResByJoin(favorite);
 		
-		model.addAttribute("rastaurants",rastaurants);
+		model.addAttribute("restaurants",restaurants);
 		return "favorite/list";
 	}
 

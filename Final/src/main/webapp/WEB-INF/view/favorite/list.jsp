@@ -12,7 +12,7 @@
 	<h2>즐겨찾기목록</h2>
 
 
-	<c:forEach items="${rastaurants }" var="restaurant">
+	<c:forEach items="${restaurants }" var="restaurant">
 <c:url value="/restaurant/view?resNo=${restaurant.resNo}" var="url"/>
 <table border="1" onclick="location.href='${url}'" style="cursor:pointer;">
 				<tr>

@@ -15,7 +15,7 @@ import org.springframework.stereotype.Repository;
 public class FriendDaoImpl implements FriendDao {
 	static final Logger logger = LoggerFactory.getLogger(FriendDaoImpl.class);
 
-	String nameSpace = "mybabthis.mappers.FriendMapper";
+	String nameSpace = "mybabthis.mappers.FriendMapper.";
 
 	@Autowired
 	private SqlSessionTemplate sqlSession;
@@ -43,15 +43,16 @@ public class FriendDaoImpl implements FriendDao {
 
 	@Override
 	public List<Users> getUsersByFriend(Friend friend) {
-		String stmt = nameSpace + "selectFriendsByUserId";
+		String stmt = nameSpace + "selectUsersByFriend";
 		List<Users> result = sqlSession.selectList(stmt, friend);
 		return result;
 	}
 
 	@Override
 	public int validationCheck(Friend friend) {
-		// TODO Auto-generated method stub
-		return 0;
+		String stmt = nameSpace + "validationCheck";
+		int result = sqlSession.selectOne(stmt, friend);
+		return result;
 	}
 
 }

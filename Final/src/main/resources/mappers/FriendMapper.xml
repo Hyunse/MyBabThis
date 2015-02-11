@@ -30,10 +30,11 @@ from friend
 where user_id=#{userId}
 </select>
 
-<select id="selectUsersByFriendId" parameterType="Friend" resultType="Users">
+<select id="selectUsersByFriend" parameterType="Friend" resultType="Users">
 select *
-from users
-where users.user_id = friend.friend_id and friend.user_id = #{userId}      
+from users u
+join friend f on (u.user_id=f.friend_id)
+where f.user_id = #{userId}      
 </select>
 
 <select id="validationCheck" parameterType="Friend" resultType="Integer">
