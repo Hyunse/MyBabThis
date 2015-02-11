@@ -78,7 +78,7 @@
 							<li><c:out value="${rreply.userId}" />
 								<ul>
 									<li>친구추가</li>
-									<li>쪽지보내기</li>
+									<li><a href="/Final/msg/send?receiver=${rreply.userId}">쪽지보내기</li>
 								</ul>
 							</li>
 						</ul>
@@ -119,7 +119,7 @@
 							<li><c:out value="${review.userId}" />
 								<ul>
 									<li>친구추가</li>
-									<li>쪽지보내기</li>
+									<li><a href="/Final/msg/send?receiver=${review.userId}">쪽지보내기</li>
 								</ul>
 							</li>
 						</ul>
