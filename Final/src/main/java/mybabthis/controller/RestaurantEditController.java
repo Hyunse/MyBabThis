@@ -43,11 +43,11 @@ public class RestaurantEditController {
 		return "redirect:/restaurant/list";
 	}
 	
-	@RequestMapping(value="/restaurant/delete", params={"resNo"}, method=RequestMethod.GET)
-	public String deleteRestaurant(@RequestParam int resNo,Model model){
+	@RequestMapping(value="/restaurant/delete", params={"resNo", "locName"}, method=RequestMethod.GET)
+	public String deleteRestaurant(@RequestParam int resNo, String locName, Model model){
 		logger.trace("맛집게시물 삭제 : 번호 - "+resNo);
 		service.deleteRestaurant(resNo);
-		return "redirect:/restaurant/list";
+		return "redirect:/restaurant/list?locName="+locName;
 	}
 	
 	

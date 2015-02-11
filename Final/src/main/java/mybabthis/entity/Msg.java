@@ -34,6 +34,9 @@ public class Msg implements Serializable {
 
 	/** 신고글 번호. */
 	private Integer warnNo;
+	
+	/** 메세지 확인 여부. */
+	private Character check;
 
 	/**
 	 * 생성자.
@@ -172,6 +175,25 @@ public class Msg implements Serializable {
 	 */
 	public Integer getWarnNo() {
 		return this.warnNo;
+	}
+	
+	/**
+	 * 메세지 확인 여부을 설정합니다..
+	 * 
+	 * @param check
+	 *            메세지 확인 여부
+	 */
+	public void setCheck(Character check) {
+		this.check = check;
+	}
+	
+	/**
+	 * 메세지 확인 여부을 가져옵니다..
+	 * 
+	 * @return 메세지 확인 여부
+	 */
+	public Character getCheck() {
+		return this.check;
 	}
 
 	/**

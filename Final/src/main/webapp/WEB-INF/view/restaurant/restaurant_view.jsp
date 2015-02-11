@@ -35,7 +35,7 @@
 <td>
 <c:url value="/restaurant/edit?resNo=${restaurant.resNo}" var="url"/>
 <a href ="${url }"><button>편집</button></a>
-<c:url value="/restaurant/delete?resNo=${restaurant.resNo}" var="url"/>
+<c:url value="/restaurant/delete?resNo=${restaurant.resNo}&locName=${restaurant.locName }" var="url"/>
 <a href ="${url }"><button>삭제</button></a>
 <td><a href="<%=request.getContextPath()%>/favorite/create?resNo=${restaurant.resNo}&userId=${loginUser.userId}" ><button>즐겨찾기</button></a>
 </td></tr>
@@ -89,7 +89,6 @@
 			<th>작성자</th>
 			<th>등록일</th>
 		</tr>
-		
 		<c:forEach items="${reviews }" var="review">
 			<tr>
 				<td>등록된 사진이 없습니다.</td>
@@ -104,10 +103,7 @@
 	<c:url value="/review/write?userId=${loginUser.userId }&resNo=${resNo }" var="url"></c:url> 
 	<a href="${url }"><button>리뷰작성</button></a> 
   </div>
-
-
 </div>
-
  
 </body>
 </html>

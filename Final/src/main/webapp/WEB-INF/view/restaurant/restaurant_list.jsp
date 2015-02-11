@@ -38,9 +38,9 @@
 <jsp:include page="/WEB-INF/view/header.jsp"/>
 <hr>
 <h2>맛집 리스트</h2>
-<br>
-<c:url value="/restaurant/write?userId=${loginUser.userId }" var="url"/>
-<a href ="${url }"><button>글쓰기</button></a>
+<%-- <c:url value="/restaurant/write?userId=${loginUser.userId }" var="url"/>
+<a href ="${url }"><button>글쓰기</button></a> --%>
+<button id="opener">글쓰기</button>
 <br>
 
 <c:forEach items="${restaurants }" var="restaurant">
@@ -53,16 +53,15 @@
 <td><c:out value="${restaurant.resName}"/></td>
 <td><c:out value="${restaurant.resContent}"/></td>
 <td></td>
-
 </tr>
 </table>
-<br><br>
+<br>
 </c:forEach>
 
 
 
 
-<div id="dialog" title="Basic dialog">
+<div id="dialog" title="맛집페이지 작성">
   <c:url value="/restaurant/writed" var="action"></c:url>
 	<form:form modelAttribute="restaurant" method="post" action="${action}">
 		<!-- 나중에 세션으로처리 -->
@@ -100,13 +99,7 @@
 	</form:form>
 
 </div>
-<button id="opener">Open Dialog</button>
-
-
-
 
 </body>
-
-
 
 </html>

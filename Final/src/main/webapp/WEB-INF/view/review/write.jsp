@@ -11,7 +11,7 @@
 <body>
 
 
-<h1>리뷰작성</h1>
+	<h1>리뷰작성</h1>
 	<c:url value="/review/write" var="action"></c:url>
 	<form:form modelAttribute="review" method="post" action="${action }" >
 		<label>맛집번호</label> : <form:input path="resNo" readonly="true"/>

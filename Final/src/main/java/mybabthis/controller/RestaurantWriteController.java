@@ -21,36 +21,28 @@ public class RestaurantWriteController {
 
 	static final Logger logger = LoggerFactory
 			.getLogger(RestaurantWriteController.class);
-	
+
 	@Autowired
 	RestaurantService service;
-	
-	@RequestMapping(value="/restaurant/write", method=RequestMethod.GET)
-	public String enterWriteRestaurant(Model model){
+
+	@RequestMapping(value = "/restaurant/write", method = RequestMethod.GET)
+	public String enterWriteRestaurant(Model model) {
 		model.addAttribute("restaurant", new Restaurant());
 		return "/restaurant/restaurant_write";
 	}
-	
-	
-	@RequestMapping(value="/restaurant/writed",method=RequestMethod.POST)
-	public String afterWriteRestaurant(@ModelAttribute("restaurant") Restaurant restaurant, Model model, HttpServletResponse response){
+
+	@RequestMapping(value = "/restaurant/writed", method = RequestMethod.POST)
+	public String afterWriteRestaurant(@ModelAttribute("restaurant") Restaurant restaurant, Model model, HttpServletResponse response) {
 		service.createRestaurant(restaurant);
-		//model.addAttribute("restaurant", new Restaurant());
-		String url;
-		url=restaurant.getLocName();
-		logger.error("이거출력 : "+restaurant.getLocName());
-		logger.error("이거출력 : "+url);
-String uname="";
-try {
-	uname = java.net.URLEncoder.encode(url,"utf-8");
-} catch (UnsupportedEncodingException e) {
-	// TODO Auto-generated catch block
-	e.printStackTrace();
-}
+		String url = restaurant.getLocName();
+		String locName = "";
+		try {
+			locName = java.net.URLEncoder.encode(url, "utf-8");
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+		return "redirect:/restaurant/list?locName=" + locName;
 
-
-		return  "redirect:/restaurant/list?locName="+uname;
-		
 	}
 
 }
