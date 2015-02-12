@@ -28,7 +28,7 @@ $(function () {
     $('#grid').w2grid({ 
         name: 'grid', 
         header: 'List of Names',
-        url: 'resource/a.json',
+        url: '<%=request.getContextPath()%>/a',
         method: 'GET', // need this to avoid 412 error on Safari
         show: {
             header         : true,
