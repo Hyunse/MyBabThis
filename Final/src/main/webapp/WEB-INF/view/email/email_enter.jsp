@@ -10,25 +10,27 @@
 <script>
 $(document).ready(function() {
 	
-	$("#search").click(function(){
+	$("#go").click(function(){
 		alert("체크");
-	    var email = $('#email').val();
+	   
+		var email = $('#email').val();
 	   
 	    $.ajax({
 	    type: "POST",
 	    url: "<%=request.getContextPath()%>/email/search",
 	    data: "email="+ email ,
 	    contentType:"application/x-www-form-urlencoded; charset=utf-8",
-	   
 	    
-	    success: function(args){
-	    	alert(args + " 이메일을 보냈습니다.");
+	  
+	    success : function(responseText){
 	    	
+	    	alert("이메일을 보냈습니다. " +responseText);
 	    },
-	    error: function (args) {
-	    	alert(args + "   이메일 보내기 실패");
-			console.log(path, args);
-		}
+	    error:function(request,status,error){
+	        alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+	       }
+  		
+	    
 	    });
 	})
 })
@@ -36,8 +38,11 @@ $(document).ready(function() {
 <body>
 	<h1>이메일로 아이디랑 비번 찾기 페이지</h1>
 	<br>
-	<form>
-		<input type="text" id="email" name="email"> <input type="submit" value="보내기" id="search">
-	</form>
+
+	<input type="text" id="email" name="email">
+	<input type="button" id="go" value="submit">
+
+	<div id="drophere"></div>
+
 </body>
 </html>
