@@ -68,7 +68,7 @@
 						<ul class="menu">
 							<li><c:out value="${boardList.userId}" />
 								<ul>
-									<li>친구추가</li>
+									<li><a href="/Final/friend/create?userId=${loginUser.userId}&friendId=${boardList.userId}">친구추가</li>
 									<li><a href="/Final/msg/send?receiver=${boardList.userId}">쪽지보내기</li>
 								</ul>
 							</li>

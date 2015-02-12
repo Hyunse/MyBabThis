@@ -17,7 +17,7 @@
 	
 <table border="1">
 		<c:url value="/mypage/myinfo" var="myinfo" />
-		<c:url value="/mypage/myfriends" var="myfriends" />
+		<c:url value="/friend/list?userId=${loginUser.userId}" var="myfriends" />
 		<c:url value="/favorite/list?userId=${loginUser.userId}" var="list"/>
 		
 		<c:url value="/msg/main" var="message" />
