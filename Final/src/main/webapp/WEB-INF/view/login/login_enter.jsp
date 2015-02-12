@@ -20,6 +20,8 @@
 			</form:form>
 			<c:url value="/join" var="join"/>
 			<a href="${join}"><button>가입하기</button></a>
-	
+		
+		<c:url value="/email" var="email" />
+		<a href="${email}">이메일로 아이디와 비번 찾기</a>
 </body>
 </html>
