@@ -22,11 +22,11 @@ $(document).ready(function() {
 	   
 	    
 	    success: function(args){
-	    	alert("이메일을 보냈습니다.");
-	    	$("#dropId").html(args);
+	    	alert(args + " 이메일을 보냈습니다.");
+	    	
 	    },
 	    error: function (args) {
-	    	alert("이메일 보내기 실패");
+	    	alert(args + "   이메일 보내기 실패");
 			console.log(path, args);
 		}
 	    });

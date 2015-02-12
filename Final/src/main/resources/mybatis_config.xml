@@ -20,6 +20,7 @@
 	    <typeAlias type="mybabthis.entity.Restaurant" alias="Restaurant" />	    
 	    <typeAlias type="mybabthis.entity.Msg" alias="Msg" />	  
 	    <typeAlias type="mybabthis.entity.Friend" alias="Friend" />	
+	    <typeAlias type="mybabthis.entity.License" alias="License" />	
 	</typeAliases>
 	<mappers>
 		<mapper resource="mappers/UserMapper.xml" />
@@ -31,5 +32,6 @@
 	    <mapper resource="mappers/FavoriteMapper.xml"/>
 	    <mapper resource="mappers/MsgMapper.xml"/>
 	    <mapper resource="mappers/FriendMapper.xml"/>
+	    <mapper resource="mappers/LicenseMapper.xml"/>
 	</mappers>
 </configuration>
