@@ -28,7 +28,7 @@ $(function () {
     $('#grid').w2grid({ 
         name: 'grid', 
         header: 'List of Names',
-        url: '<%=request.getContextPath()%>/a',
+        url: 'resource/a.json',
         method: 'GET', // need this to avoid 412 error on Safari
         show: {
             header         : true,
@@ -36,18 +36,39 @@ $(function () {
             footer        : true,
             lineNumbers    : true,
             selectColumn: true,
-            expandColumn: true
+            expandColumn: true,
+            toolbarSave: true
         },        
         columns: [                
-            { field: 'userId', caption: '아이디', size: '200px' },
-            { field: 'userPass', caption: '비밀번호', size: '200px' },
-            { field: 'userName', caption: '이름', size: '120px' },
+            { field: 'resNo', caption: '맛집번호', size: '120px', sortable: true },
+            { field: 'resName', caption: '맛집이름', size: '120px', sortable: true },
+            { field: 'resNumber', caption: '맛집전화번호', size: '120px', sortable: true },
+            { field: 'resScore', caption: '맛집평점', size: '120px', sortable: true },
+            { field: 'resLoc', caption: '맛집주소', size: '120px', sortable: true },
+            { field: 'resContent', caption: '맛집내용', size: '120px', sortable: true },
+            { field: 'userId', caption: '작성자', size: '120px', sortable: true },
+            { field: 'locName', caption: '지역이름', size: '120px', sortable: true },
+            { field: 'resContent', caption: '맛집종류', size: '120px', sortable: true },
+            { field: 'resRegdate', caption: '등록일', size: '120px', sortable: true, render: 'date' },
+            { field: 'resRegdate', caption: '수정일', size: '120px', sortable: true, render: 'date' },
         ],
         searches: [
-            { type: 'text',  field: 'list.userId', caption: 'ID' },
-            { type: 'text', field: 'list.userId', caption: 'Name' },
-            { type: 'date', field: 'list.userId', caption: 'Start Date' }
+            { type: 'text',  field: 'userId', caption: '작성자' },
+            { type: 'text', field: 'resName', caption: '맛집이름' },
+            { type: 'text', field: 'resKind', caption: '맛집종류' },
+            { type: 'text', field: 'locName', caption: '지역이름' },
+            { type: 'date', field: 'resRegdate', caption: '등록일' }
         ],
+        toolbar: {
+            items: [
+                { id: 'add', type: 'button', caption: 'Add Record', icon: 'w2ui-icon-plus' }
+            ],
+            onClick: function (event) {
+                if (event.target == 'add') {
+                    w2ui.grid.add({ recid: w2ui.grid.records.length + 1 });
+                }
+            }
+        },
         onExpand: function (event) {
             $('#'+event.box_id).html('<div style="padding: 10px">Expanded content</div>').animate({ 'height': 100 }, 100);
         }
