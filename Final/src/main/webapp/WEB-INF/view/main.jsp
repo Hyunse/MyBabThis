@@ -32,6 +32,24 @@ $("#search").click(function(){
 	<a href="${loc }"><button type="submit">건대</button></a>
 	<c:url value="/restaurant/list?locName=강남" var="loc" />
 	<a href="${loc }"><button type="submit">강남</button></a>
+	<c:url value="/restaurant/list?locName=송파" var="loc" />
+	<a href="${loc }"><button type="submit">송파</button></a>
+	<c:url value="/restaurant/list?locName=대학로" var="loc" />
+	<a href="${loc }"><button type="submit">대학로</button></a>
+	<c:url value="/restaurant/list?locName=신림" var="loc" />
+	<a href="${loc }"><button type="submit">신림</button></a>
+	<c:url value="/restaurant/list?locName=홍대" var="loc" />
+	<a href="${loc }"><button type="submit">홍대</button></a>
+	<c:url value="/restaurant/list?locName=신촌" var="loc" />
+	<a href="${loc }"><button type="submit">신촌</button></a>
+	<c:url value="/restaurant/list?locName=종로" var="loc" />
+	<a href="${loc }"><button type="submit">종로</button></a>
+	<c:url value="/restaurant/list?locName=영등포" var="loc" />
+	<a href="${loc }"><button type="submit">영등포</button></a>
+		<c:url value="/restaurant/list" var="loc" />
+	<a href="${loc }"><button type="submit">전체보기</button></a>
+	
+	
 	
 	<hr>
 	<jsp:include page="/WEB-INF/view/ranking/new_restaurant.jsp" />

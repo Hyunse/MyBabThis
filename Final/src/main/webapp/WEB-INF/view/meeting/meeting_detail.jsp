@@ -53,12 +53,10 @@ pre { display: inline; }
 		}); */
 		
 		$(".updateBtn").click(function() {
-			alert(this.id); // or alert($(this).attr('id'));
+			//alert(this.id); // or alert($(this).attr('id'));
 			var bid = $(this).attr("id");
 			var hid = "#h" + bid;
-			alert("td 아이디" + hid);
 			var content = $(hid).html();
-			alert(hid + " : " + content)
 
 			var uid = "#u" + bid;
 		
@@ -68,7 +66,7 @@ pre { display: inline; }
 			
 			$(hid).hide();
 			$(uid).show();
-
+			
 		});
 
 	})
@@ -131,28 +129,26 @@ $('a[data-href]').each(function() {
 			<tr>
 				<td><c:out value="${breply.breplyNo }" /></td>
 				<td><c:out value="${breply.boardNo }" /></td>
-				<td id="bbtn${breply.breplyNo }">
+				<td>
+					
+					<div id="hbtn${breply.breplyNo}"><c:out value="${breply.breplyContent }" /></div> 
+					<c:url value="/meeting/update" var="action" /> 
 
-					<div id="hbtn${breply.breplyNo}">
-
-						<c:out value="${breply.breplyContent }" />
-
-					</div> <c:url value="/breply/update" var="action" /> 
 					<form:form modelAttribute="breply" method="post" action="${action }"
 						class="updateform" id="ubtn${breply.breplyNo }">
 						<form:hidden path="boardNo" value="${boardDetail.boardNo }" />
-						<form:hidden path="userId" value="${loginUser.userId }" />
-						<label>내용</label> :
-						<textarea id="tbtn${breply.breplyNo}" rows='15' cols='65'class="droptext"></textarea>
-						<button type="submit" name="breply_update">수정</button>
-
+						<form:hidden path="breplyNo" value="${breply.breplyNo }" />
+						<form:hidden path="userId" value="${loginUser.userId }" class="droptext"/>
+						<label>내용</label> : <form:textarea  id="tbtn${breply.breplyNo}" rows='1' cols='25' path="breplyContent"></form:textarea>
+						<button type="submit" name="breply_update">확인</button>
 					</form:form>
 
 				</td>
 				<td><c:out value="${breply.userId }" /></td>
-				<td><c:out value="${breply.breplyUpdatedate }" /></td>
+				<td> <c:out value="${breply.breplyUpdatedate }" /></td>
 
-				<td><button class="updateBtn" id="btn${breply.breplyNo}">수정</button></td>
+				<td><button class="updateBtn" id="btn${breply.breplyNo}">수정</button>
+		</td>
 
 				<td><c:url
 						value="/meeting/delete?breplyNo=${breply.breplyNo }&boardNo=${breply.boardNo }"

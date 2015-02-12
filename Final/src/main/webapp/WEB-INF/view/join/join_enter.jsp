@@ -11,8 +11,9 @@
 </head>
 <script>
 $(document).ready(function() {
+	
 $("#idCheck").click(function(){
-	 alert("체크");
+	
     var id = $('#userId').val();
    
     $.ajax({
@@ -23,17 +24,14 @@ $("#idCheck").click(function(){
    
     
     success: function(args){
-    	 alert("성공" + args);
     	$("#dropId").html(args);
     },
     error: function (args) {
-    	alert("오류" + args)
 		console.log(path, args);
 	}
     });
 })
 $("#nameCheck").click(function(){
-	 alert("체크");
     var name = $('#userName').val();
    
     $.ajax({
@@ -44,19 +42,16 @@ $("#nameCheck").click(function(){
     
     success: function(args){
     	
-    	 alert("성공" + args);
     	$("#dropName").html(args);
     },
     error: function (args) {
     	
-    	alert("오류" + args);
 		console.log(path, args);
 	}
 
     });
 })
 $("#emailCheck").click(function(){
-	 alert("체크");
     var email = $('#userEmail').val();
    
     $.ajax({
@@ -67,11 +62,9 @@ $("#emailCheck").click(function(){
   
     
     success: function(args){
-    	 alert("성공" + args);
     	$("#dropEmail").html(args);
     },
     error: function (args) {
-    	alert("오류" + args)
 		console.log(path, args);
 	}
     });
@@ -88,11 +81,9 @@ $("#pass2").blur(function(){
         var message3 = "비밀번호가 동일합니다.";
         //alert(pass + "," + pass2);
         if(pass2 != pass) {
-           $("#chk").val(message2);
-           alert("비밀번호다르다.");
+           $("#chk").html(message2);
         } else {
-           $("#chk").val(message3);
-           alert("비밀번호같습니다.")
+           $("#chk").html(message3);
         }
         return;
     })
@@ -112,10 +103,9 @@ $("#pass2").blur(function(){
 		<input type="button" value="중복체크" name="nameCheck"
 		id="nameCheck"><div id="dropName"></div> 
 		<br>
-		<label>비밀번호</label> : <form:input path="userPass" id="pass" />
+		<label>비밀번호</label> : <form:password path="userPass" id="pass" />
 		<br>
-		<label>비밀번호확인</label> : <input type="text" id="pass2" onblur = "passchk()"  /> 
-		<div id="chk"></div>
+		<label>비밀번호확인</label> : <input type="password" id="pass2"/> <div id="chk"></div>
 		<br>
 		<label>E-mail</label> : <form:input path="userEmail" />
 		<input type="button" value="중복체크" name="emailCheck"

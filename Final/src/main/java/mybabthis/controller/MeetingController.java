@@ -150,5 +150,11 @@ public class MeetingController {
 		breplyService.deleteBreply(breplyNo);
 		return "redirect:/meeting/detail?boardNo="+boardNo;
 	}
+	
+	@RequestMapping(value="/update", params="breply_update", method=RequestMethod.POST)
+	public String update(@ModelAttribute("breply") Breply breply){
+		breplyService.updateBreply(breply);
+		return "redirect:/meeting/detail?boardNo="+breply.getBoardNo();
+	}
 
 }
