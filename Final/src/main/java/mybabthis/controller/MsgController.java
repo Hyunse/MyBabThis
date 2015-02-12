@@ -58,7 +58,9 @@ public class MsgController {
 	@RequestMapping(value = "/sended", method = RequestMethod.POST)
 	public String afterSendedMsg(@ModelAttribute("msg") Msg msg) {
 		service.sendMsg(msg);
-		return "redirect:/msg/main";
+		//return "redirect:/msg/main";
+	return "msg/create";
+	
 	}
 
 	// 신고하기
