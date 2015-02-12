@@ -19,7 +19,11 @@
 			<td><c:out value="${restaurant.resKind }" /></td>
 			<td><c:out value="${restaurant.resImg }" /></td>
 			<td><c:out value="${restaurant.resUpdatedate }" /></td>
-		</tr>
+			<td>	<c:url value="/restaurant/view?resNo=${restaurant.resNo}" var="url"/>
+				<a href="${url }"><button>GO</button></a>
+			</td>	
+			</tr>
+		
 	</c:forEach>
 </table>
 </body>

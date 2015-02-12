@@ -29,15 +29,15 @@ public class SampleController {
 	@Autowired
 	UserService userService;
 
-	@RequestMapping(value = "/users", method = RequestMethod.GET)
+	/*@RequestMapping(value = "/users", method = RequestMethod.GET)
 	public String userListAll(Model model) {
 		List<Users> list = userService.selectAllUser();
 		model.addAttribute("userList", list);
 		model.addAttribute("count", list.size());
 		return "admin/admin_users";
-	}
+	}*/
 
-	// Controller
+/*	// Controller
 	@RequestMapping(value = "/c", method = RequestMethod.GET)
 	public ModelAndView AjaxView() {
 		ModelAndView mav = new ModelAndView();
@@ -47,23 +47,22 @@ public class SampleController {
 		String json = new Gson().toJson(list);
 		String jsonString = "{\"total\":" + list.size() + ", \"records\" :"
 				+ json + "}";
-		
-		
 		mav.addObject("jsonString", jsonString);
 		mav.setViewName("jsonView");
 		logger.error("mav: " + mav);
 		return mav;
-	}
+	}*/
 
 	@RequestMapping(value = "/a")
-	public ModelAndView list(HttpServletRequest request, HttpSession session)
-			throws Exception {
+	public ModelAndView list(HttpServletRequest request, HttpSession session) throws Exception {
 		ModelAndView mav = new ModelAndView();
 		List<Users> list = userService.selectAllUser();
+		
 		String abc = "{\"total\":1,\"records\":[{\"userId\":\"aaa\"}]}";
 		String json = new Gson().toJson(list);
 		String jsonString = "{\"total\":" + list.size() + ", \"records\" :"
 				+ json + "}";
+		
 		mav.addObject("jsonString", jsonString);
 		logger.trace(jsonString);
 		logger.trace(abc);
