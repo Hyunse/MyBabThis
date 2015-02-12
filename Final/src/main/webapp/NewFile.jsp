@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <title>jqGrid TEST</title>
-<link rel="stylesheet" type="text/css" media="screen href="css/smoothness/jquery-ui-1.10.4.custom.css" />
-<link rel="stylesheet" type="text/css" media="screen href="css/ui.jqgrid.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="css/smoothness/jquery-ui-1.10.4.custom.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="css/ui.jqgrid.css" />
 
 <script src="js/jquery-1.11.0.min.js" type="text/javascript"></script>
 <script src="js/jquery.jqGrid.min.js" type="text/javascript"></script>
