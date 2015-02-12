@@ -13,7 +13,7 @@
 		<form:form modelAttribute="loginCheck" method="post" action="${action}">
 			<label>아이디</label> : <form:input path="userId" />
 			<br>
-			<label>패스워드</label> : <form:input path="userPass" />
+			<label>패스워드</label> : <form:password  path="userPass" />
 			<br>
 
 			<button type="submit">로그인</button>

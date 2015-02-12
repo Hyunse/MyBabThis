@@ -24,6 +24,7 @@ public interface UserService {
 
 	Users searchUserEmail(String email); // 이메일 검색
 
+	Users searchUserByName(String name);
 	List<Users> searchUserName(String name); // 이름 검색
 
 	List<Users> searchUserGender(String gender); // 성별 검색

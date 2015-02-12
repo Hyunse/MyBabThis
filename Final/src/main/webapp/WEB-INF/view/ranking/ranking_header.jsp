@@ -15,5 +15,19 @@
 	<a href="${loc }"><button type="submit">건대</button></a>
 	<c:url value="/ranking/loc?locName=강남" var="loc" />
 	<a href="${loc }"><button type="submit">강남</button></a>
+	<c:url value="/ranking/loc?locName=송파" var="loc" />
+	<a href="${loc }"><button type="submit">송파</button></a>
+	<c:url value="/ranking/loc?locName=대학로" var="loc" />
+	<a href="${loc }"><button type="submit">대학로</button></a>
+	<c:url value="/ranking/loc?locName=신림" var="loc" />
+	<a href="${loc }"><button type="submit">신림</button></a>
+	<c:url value="/ranking/loc?locName=홍대" var="loc" />
+	<a href="${loc }"><button type="submit">홍대</button></a>
+	<c:url value="/ranking/loc?locName=신촌" var="loc" />
+	<a href="${loc }"><button type="submit">신촌</button></a>
+	<c:url value="/ranking/loc?locName=종로" var="loc" />
+	<a href="${loc }"><button type="submit">종로</button></a>
+	<c:url value="/ranking/loc?locName=영등포" var="loc" />
+	<a href="${loc }"><button type="submit">영등포</button></a>
 </body>
 </html>
