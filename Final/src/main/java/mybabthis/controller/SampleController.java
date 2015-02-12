@@ -37,7 +37,7 @@ public class SampleController {
 		return "admin/admin_users";
 	}
 
-	// Controller
+	// 일단 얘는 현재 안됨. 제이슨객체로 넘어가서, 제이슨 인벨리드라고 오류남
 	@RequestMapping(value = "/c", method = RequestMethod.GET)
 	public ModelAndView AjaxView() {
 		ModelAndView mav = new ModelAndView();
