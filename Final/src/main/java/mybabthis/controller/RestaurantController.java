@@ -1,15 +1,20 @@
 package mybabthis.controller;
 
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
+import java.util.Locale;
 
-import mybabthis.entity.Favorite;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import mybabthis.entity.Restaurant;
 import mybabthis.entity.Review;
 import mybabthis.entity.Rreply;
-import mybabthis.service.FavoriteService;
 import mybabthis.service.RestaurantService;
 import mybabthis.service.ReviewService;
 import mybabthis.service.RreplyService;
+import net.sf.json.JSONArray;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -78,6 +83,26 @@ public class RestaurantController {
 		return "restaurant/restaurant_view";
 		
 	}
+	
+	@RequestMapping(value = "/autocomplete", method = RequestMethod.POST)
+    public void AutoTest(Locale locale, Model model, HttpServletRequest request,
+            HttpServletResponse resp) throws IOException {
+         
+        String result = request.getParameter("term");
+     
+        List<Restaurant> list = service.getAllRestuarantsAtSearch(result); //result값이 포함되어 있는 emp테이블의 네임을 리턴
+ 
+        JSONArray ja = new JSONArray();
+        for (int i = 0; i < list.size(); i++) {
+            ja.add(list.get(i).getResName());
+        }
+ 
+        PrintWriter out = resp.getWriter();
+ 
+        out.print(ja.toString());
+ 
+    }
+	
 
 
 	

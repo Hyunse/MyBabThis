@@ -4,11 +4,13 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mybabthis.mappers.RestaurantMapper">
 
-	
+
 	<insert id="createRestaurant" parameterType="Restaurant">
 		insert into
-		restaurant (res_name, res_number, res_score, res_loc, res_content,user_id,res_img,loc_name,res_kind)
-		values(#{resName},#{resNumber}, 0, #{resLoc},#{resContent},#{userId},#{resImg},#{locName},#{resKind})
+		restaurant (res_name, res_number, res_score, res_loc,
+		res_content,user_id,res_img,loc_name,res_kind)
+		values(#{resName},#{resNumber}, 0,
+		#{resLoc},#{resContent},#{userId},#{resImg},#{locName},#{resKind})
 	</insert>
 
 	<update id="updateRestaurant" parameterType="Restaurant">
@@ -24,67 +26,77 @@
 		res_updatedate=sysdate
 		where res_no=#{resNo}
 	</update>
-	
+
 	<delete id="deleteRestaurant" parameterType="integer">
-	delete from restaurant
-	where res_no=#{resNo}
+		delete from restaurant
+		where res_no=#{resNo}
 	</delete>
-		
+
 	<select id="selectAllRestaurants" resultType="Restaurant">
 		select *
-		from restaurant
+		from
+		restaurant
 		order by res_no desc
 	</select>
-	
-	<select id="selectRestaurantsByLocation" parameterType="String" resultType="Restaurant">
-	select *
-	from restaurant
-	where loc_name=#{locName}	
-	order by res_no desc
+
+	<select id="selectRestaurantsByLocation" parameterType="String"
+		resultType="Restaurant">
+		select *
+		from restaurant
+		where loc_name=#{locName}
+		order by res_no desc
 	</select>
-	
-	<select id="selectRestaurantByNo" parameterType="Integer" resultType="Restaurant">
-	select *
-	from restaurant
-	where res_no=#{resNo}
+
+	<select id="selectRestaurantByNo" parameterType="Integer"
+		resultType="Restaurant">
+		select *
+		from restaurant
+		where res_no=#{resNo}
 	</select>
-	
-	<select id="selectRestaurantsByName" parameterType="String" resultType="Restaurant">
-	select *
-	from restaurant
-	where res_name=#{resName}
+
+	<select id="selectRestaurantsByName" parameterType="String"
+		resultType="Restaurant">
+		select *
+		from restaurant
+		where res_name=#{resName}
 	</select>
-	
+
 	<update id="updateResScore" parameterType="Restaurant">
 		update restaurant
-		set res_score=#{resScore}
+		set
+		res_score=#{resScore}
 		where res_no=#{resNo}
 	</update>
-	
+
 	<select id="selectRankingAll" resultType="Restaurant">
-	select *
-	from (select *
-		  from restaurant
-		  order by res_score desc)
-	where rownum &lt;= 10
+		select *
+		from (select *
+		from restaurant
+		order by res_score desc)
+		where rownum &lt;= 10
 	</select>
-	
-	<select id="selectRankingByLocName" parameterType="String" resultType="Restaurant">
-	select *
-	from (select *
-		  from restaurant
-		  order by res_score desc)
-	where rownum &lt;= 10 and loc_name=#{locName }
+
+	<select id="selectRankingByLocName" parameterType="String"
+		resultType="Restaurant">
+		select *
+		from (select *
+		from restaurant
+		order by res_score desc)
+		where rownum &lt;= 10 and loc_name=#{locName }
 	</select>
-	
+
 	<select id="selectNewRestaurant" resultType="Restaurant">
-	select *
-	from (select * 
-		  from restaurant
-		  order by res_no desc)
-	where rownum &lt;= 3
+		select *
+		from (select *
+		from restaurant
+		order by res_no desc)
+		where rownum &lt;= 3
 	</select>
-	
+	<select id="selectAllRestuarantsAtSearch" parameterType="String" resultType="Restaurant">
+		select res_name from restaurant where res_name like concat('%',concat(UPPER(#{resName}),'%'))
+		or
+		res_name like concat('%',concat(LOWER(#{resName}),'%'))
+	</select>
 </mapper>
 
 

@@ -108,6 +108,12 @@ public class RestaurantDaoImpl implements RestaurantDao {
 		List<Restaurant> result=sqlSession.selectList(stmt);
 		return result;
 	}
+
+	@Override
+	public List<Restaurant> selectAllRestuarantsAtSearch(String result2) {
+		String stmt = nameSpace + "selectAllRestaurantAtSearch";
+		return sqlSession.selectList(stmt,result2);
+	}
 	
 
 }

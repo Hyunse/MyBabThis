@@ -90,6 +90,12 @@ public class RestaurantServiceImpl implements RestaurantService {
 		List<Restaurant> result = dao.selectNewRestaurant();
 		return result;
 	}
+
+	@Override
+	public List<Restaurant> getAllRestuarantsAtSearch(String result) {
+		List<Restaurant> result2 =dao.selectAllRestuarantsAtSearch(result);
+		return result2;
+	}
 	
 	
 	

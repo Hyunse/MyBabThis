@@ -23,4 +23,6 @@ public interface RestaurantService {
 	List<Restaurant> getRankingAll();
 	List<Restaurant> getRankingByLoc(String locName);
 	List<Restaurant> selectNewRestaurant();
+	
+	List<Restaurant> getAllRestuarantsAtSearch(String result);
 }

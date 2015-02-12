@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,8 +9,39 @@
 <title>Insert title here</title>
 </head>
 <script src="http://code.jquery.com/jquery-latest.js"></script>
+<script  src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js" type="text/javascript"></script>
+<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
+
 <script>
 $(document).ready(function(){
+
+	<%-- $("#search").autocomplete({
+	     
+		source : function(request, response) {
+			alert("체크") 
+	            $.ajax({
+	 
+	                url : "<%=request.getContextPath()%>/autocomplete",
+	                type : "post",
+	                dataType : "json",
+	                data: request,
+	 
+	                success : function(data) {
+	 					alert("여기있나" + data)
+	                    var result = data;
+	                    response(result);
+	                },
+	 
+	                error : function(data) {
+	                    alert("에러가 발생하였습니다.")
+	                }
+	            });
+	        }
+	    }); --%>
+	
+/* 	$( "#search" ).autocomplete({
+	      source: availableTags
+	    }); */
 $("#search").click(function(){
 
 	var name = $('#resName').val();
@@ -28,7 +60,7 @@ $("#search").click(function(){
 	
 	
 	<input type="text" id="resName" name="resName">
-	<button type="submit" id="search" name="search">검색</button><br>
+	<input type="button" id="search" value="검색"><br>
 	<h1>환영합니다 메인입니다.</h1>
 	<c:url value="/restaurant/list?locName=건대" var="loc" />
 	<a href="${loc }"><button type="submit">건대</button></a>
