@@ -5,15 +5,15 @@
 <mapper namespace="mybabthis.mappers.LicenseMapper">
 
 	<!-- 친구 추가 -->
-	<select id="selectLicense" parameterType="hashMap" resultType="Friend">
+	<select id="selectLicense" parameterType="hashmap" resultType="License">
 		SELECT *
 		FROM license
 		WHERE write_cnt = (
 			select count(rev.review_no)
 			from review rev, license lic, restaurant res
-			where rev.userId=#{user.userId}
+			where rev.userId=#{userId}
 			and lic.loc_name = res.loc_name
-			and lic.loc_name = #{loc.locName}
+			and lic.loc_name = #{locName}
 			and	res.res_no = rev.res_no
 		)
 	</select>
