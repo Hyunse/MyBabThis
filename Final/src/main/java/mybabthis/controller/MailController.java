@@ -49,7 +49,7 @@ public class MailController {
 		}
     
     @RequestMapping(value = "/email/search", method = RequestMethod.POST, produces = "text/plain;charset=utf-8")
-	public @ResponseBody String ajaxReceive3(@RequestParam String email) {
+	public @ResponseBody String mailAjax(@RequestParam String email) {
 		logger.trace("-------------------------------------------------------------------------------");
 		
 		Users user = userservcie.searchUserEmail(email);
@@ -59,7 +59,8 @@ public class MailController {
 			mailservice.sendMail("anzmf00@gmail.com",
 		    		   email,
 		    		   	"확인 메일", 
-		    		   "아이디 : " + user.getUserId() + "비번 : "+ user.getUserEmail());
+		    		   "아이디 : " + user.getUserId() + "비번 : "+ user.getUserPass());
+			
 			return "등록된 이메일 입니다.";
 			  
 		}
