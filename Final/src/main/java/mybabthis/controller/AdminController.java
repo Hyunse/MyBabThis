@@ -98,19 +98,19 @@ public class AdminController {
 		return "/restaurant/list";
 	}
 	
-	/**
-	 * 회원관리 페이지에서 전체 회원을 목록으로 보여주기
-	 * @param user
-	 * @param model
-	 * @return
-	 */
-	@RequestMapping(value="/users",  method=RequestMethod.GET)
-	public String userListAll(Model model){		
-		List<Users> list = userService.selectAllUser();
-		model.addAttribute("userList", list);
-		model.addAttribute("count", list.size());
-		return "admin/admin_users";
-	}
+//	/**
+//	 * 회원관리 페이지에서 전체 회원을 목록으로 보여주기
+//	 * @param user
+//	 * @param model
+//	 * @return
+//	 */
+//	@RequestMapping(value="/users",  method=RequestMethod.GET)
+//	public String userListAll(Model model){		
+//		List<Users> list = userService.selectAllUser();
+//		model.addAttribute("userList", list);
+//		model.addAttribute("count", list.size());
+//		return "admin/admin_users";
+//	}
 	
 	/**
 	 * 회원관리 페이지에서 회원을 아이디로 검색하기

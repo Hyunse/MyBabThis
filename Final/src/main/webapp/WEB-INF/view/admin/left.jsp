@@ -15,7 +15,7 @@ body {
 <body>
 	<c:url value="/main" var="main" />
 	<c:url value="/admin/myinfo" var="myinfo" />
-	<c:url value="/admin/list" var="list" />
+	<c:url value="/admin/userlist" var="users" />
 	<c:url value="/admin/board" var="board" />
 	<c:url value="/admin/message" var="message" />
 	<c:url value="/admin/message" var="report" />
