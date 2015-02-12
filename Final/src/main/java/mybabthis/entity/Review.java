@@ -227,5 +227,14 @@ public class Review implements Serializable {
 		}
 		return true;
 	}
+	@Override
+	public String toString() {
+		return "Review [reviewNo=" + reviewNo + ", reviewScore=" + reviewScore
+				+ ", reviewContent=" + reviewContent + ", reviewRegdate="
+				+ reviewRegdate + ", reviewUpdatedate=" + reviewUpdatedate
+				+ ", restaurant=" + restaurant + ", users=" + users
+				+ ", userId=" + userId + ", resNo=" + resNo + "]";
+	}
 
+	
 }

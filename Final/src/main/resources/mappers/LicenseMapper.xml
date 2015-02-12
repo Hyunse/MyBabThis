@@ -4,18 +4,78 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mybabthis.mappers.LicenseMapper">
 
-	<!-- 친구 추가 -->
-	<select id="selectLicense" parameterType="hashmap" resultType="License">
+	<!-- 라이센스 검색 -->
+	<select id="selectLicenseBylocName" parameterType="hashmap" resultType="License">
 		SELECT *
 		FROM license
 		WHERE write_cnt = (
 			select count(rev.review_no)
 			from review rev, license lic, restaurant res
-			where rev.userId=#{userId}
+			where rev.user_id=#{userId}
 			and lic.loc_name = res.loc_name
 			and lic.loc_name = #{locName}
 			and	res.res_no = rev.res_no
 		)
 	</select>
+	
+	<!-- 라이센스 검색 -->
+	<select id="selectLicenseByResKind" parameterType="hashmap" resultType="License">
+		SELECT *
+		FROM license
+		WHERE write_cnt = (
+			select count(rev.review_no)
+			from review rev, license lic, restaurant res
+			where rev.user_id=#{userId}
+			and lic.res_kind = res.res_kind
+			and lic.res_kind = #{resKind}
+			and	res.res_no = rev.res_no
+		)
+	</select>
+	
+	<!-- 라이센스 회원 등록 검색  -->
+	<select id="selectLicensedUser" parameterType="LicensedUser" resultType="LicensedUser">
+		SELECT *
+		FROM licensed_user
+		WHERE user_id = #{userId}
+		and license_no=#{licenseNo};
+	</select>
+	
+	<!-- 라이센스 등록 -->
+	<insert id="insertLicense" parameterType="License">
+	insert into license
+	(write_cnt,loc_name,res_kind)
+	values(#{userId},#{licenseNo})
+	</insert>
+	
+	<!-- 라이센스 회원 등록 -->
+	<insert id="insertLicensedUser" parameterType="LicensedUser">
+	insert into licensed_user
+	(user_id,license_no)
+	values(#{userId},#{licenseNo})
+	</insert>
+	
+	<!-- 라이센스 취득회원 전체 셀렉 -->
+	<select id="selectAllLicensedUser" resultType="LicensedUser">
+	select * from licensedUser	
+	</select>
+	
+	<!-- 라이센스 전체 셀렉 -->
+	<select id="selectAllLicense" resultType="License">
+	select * from license
+	</select>
+	
+	<!-- 라이센스로 취득회원 검색 -->
+	<select id="selectLicensedUserByNo" parameterType="integer" resultType="LicensedUser">
+	select * from licensed_user
+	where license_no=#{licenseNo}	
+	</select>
+	
+	<!-- 회원으로 취득라이센스 검색 -->
+	<select id="selectLicensedUserById" parameterType="string" resultType="LicenseUser">>
+	select * from licensed_user
+	where user_id=#{userId}	
+	</select>
 
 </mapper>
+
+

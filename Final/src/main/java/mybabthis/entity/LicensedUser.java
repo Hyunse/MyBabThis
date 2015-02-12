@@ -15,9 +15,13 @@ public class LicensedUser implements Serializable {
 
 	/** 사용자. */
 	private Users users;
+	
+	private String userId;
 
 	/** 자격증. */
 	private License license;
+	
+	private int licenseNo;
 
 	/**
 	 * 생성자.
@@ -63,5 +67,28 @@ public class LicensedUser implements Serializable {
 		return this.license;
 	}
 
+	public String getUserId() {
+		return userId;
+	}
+
+	public void setUserId(String userId) {
+		this.userId = userId;
+	}
+
+	public int getLicenseNo() {
+		return licenseNo;
+	}
+
+	public void setLicenseNo(int licenseNo) {
+		this.licenseNo = licenseNo;
+	}
+
+	@Override
+	public String toString() {
+		return "LicensedUser [userId=" + userId + ", licenseNo=" + licenseNo
+				+ "]";
+	}
+
+	
 
 }

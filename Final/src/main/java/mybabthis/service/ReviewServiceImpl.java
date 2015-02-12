@@ -2,7 +2,11 @@ package mybabthis.service;
 
 import java.util.List;
 
+import mybabthis.dao.LicenseDao;
+import mybabthis.dao.RestaurantDao;
 import mybabthis.dao.ReviewDao;
+import mybabthis.entity.License;
+import mybabthis.entity.Restaurant;
 import mybabthis.entity.Review;
 
 import org.slf4j.Logger;
@@ -20,10 +24,42 @@ public class ReviewServiceImpl implements ReviewService {
 	
 	@Autowired
 	ReviewDao dao;
+
+	@Autowired
+	LicenseDao licenseDao;
+
+	@Autowired
+	RestaurantDao restaurantDao;
 	
 	@Override
 	public int createReview(Review review) {
+		
+
 		int result = dao.createReview(review);
+		String userId=review.getUserId();
+		int resNo = review.getResNo();
+
+		Restaurant res = restaurantDao.selectRestaurantByNo(resNo);
+		String locName = res.getLocName();
+		License license = licenseDao.getLicense(userId, locName);
+		
+		logger.trace("체크할 라이센스 : "+license);
+		
+		int licenseNo = license.getLicenseNo();
+		
+		//여기서 라이센스가 null 이 아니면 비교하자.
+		if (license!=null){
+			//자격증 취득 회원에서 아이디랑, 라이센스넘버로 셀렉해와서,
+			//라이센스가 이미 등록되지 않았으면 
+			
+				
+			
+			
+		}
+		
+		
+
+		
 		return result;
 	}
 
