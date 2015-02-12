@@ -25,6 +25,8 @@ $("#search").click(function(){
 	<jsp:include page="/WEB-INF/view/header.jsp" />
 	<hr>
 	
+	
+	
 	<input type="text" id="resName" name="resName">
 	<button type="submit" id="search" name="search">검색</button><br>
 	<h1>환영합니다 메인입니다.</h1>

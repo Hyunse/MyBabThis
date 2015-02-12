@@ -45,7 +45,7 @@ public class FriendController {
 		//새창에서 띄운 다음에,
 		//사실 성공하면 그냥 창 닫는게 나을듯;
 		//성공하면 성공화면 보내서, 하시겠습니까? 해서 체크해서 넘겨버리거나
-		return "admin/friend_list";
+		return "friend/friend_list";
 	}
 	
 	// 삭제하기
