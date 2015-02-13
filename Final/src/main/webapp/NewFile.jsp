@@ -43,7 +43,7 @@ $(document).ready(function(){
         caption: '회원정보',
         height: '100%',
         autowidth: true,
-        loadonce:true,
+        loadonce:false,
         ondblClickRow: function(rowid, iRow, iCol, e){
             //jsondata = $('#JQ_list').getRowData(rowid);
         	//selected_userId = jsonData.userId;
@@ -52,24 +52,28 @@ $(document).ready(function(){
         	
         },
         
-        gridComplete:function(){
+        gridComplete:function(response){
+       
         	
-        	
-        	
-        },
-        gridSuccess:function(){
-        	alert("Aaa");
-        	location.reload();
-        },
-        gridError:function(){
-        	alert("bbb");
         }
+        
 
    });
+    /* 
+    gridData.list.sort(function(a, b){
+		 if(a.score == b.score){ return 0} 
+		 else{
+			 return  a.score > b.score ? 1 : -1;
+		 }
+	});
+   */
+    
+    
     jQuery("#JQ_list").jqGrid('navGrid',"#prowed1",{edit:true,add:true,del:true,search:true,refresh:true},
     		{},
     		{}
     );
+   
     jQuery("#JQ_list").trigger("reloadGrid");
     
 
@@ -81,7 +85,10 @@ $(document).ready(function(){
         }
     });
     
+    
 });
+
+
 </script>
 <%-- 
 
