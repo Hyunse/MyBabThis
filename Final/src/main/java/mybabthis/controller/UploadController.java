@@ -25,12 +25,16 @@ public class UploadController {
 	static {
 		logger = LoggerFactory.getLogger(UploadController.class);
 	}
-	@RequestMapping(value = "/upload", method = RequestMethod.GET)
+	@RequestMapping(value = "/upload/gomyuser", method = RequestMethod.GET)
 	public String enterUpload() {
 		return "mypage/mypage_myimg";
 
 	}
+	@RequestMapping(value = "/upload/gomyres", method = RequestMethod.GET)
+	public String enterUpload2() {
+		return "restaurant/restaurant_img";
 
+	}
 	
 	@RequestMapping(value = "/upload/user", method = RequestMethod.POST)
 	public String uploadUserimg(@RequestParam("uploadFile") MultipartFile file, Model model) {
@@ -47,6 +51,25 @@ public class UploadController {
 		
 		
 		return "mypage/mypage_myimg";
+	}
+	@RequestMapping(value = "/upload/res", method = RequestMethod.POST)
+	public String uploadResimg(@RequestParam("uploadFile") MultipartFile file, Model model) {
+		
+		logger.trace("===========================================================================");
+		
+		File newfile = new File("c:\\DB\\uploaded\\"+file.getOriginalFilename());
+		
+		try{
+		file.transferTo(newfile);
+		}catch(IllegalStateException | IOException e) {
+			e.printStackTrace();
+		}
+		
+		
+		model.addAttribute("file", file.getOriginalFilename());
+		
+		
+		return "restaurant/restaurant_img";
 	}
 	
 }

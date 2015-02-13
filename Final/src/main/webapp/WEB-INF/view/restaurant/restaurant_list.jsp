@@ -47,12 +47,14 @@
 			style="cursor: pointer;">
 			<tr>
 				<th>맛집 번호</th>
+				<th>맛집 이미지</th>
 				<th>맛집지역</th>
 				<th>맛집 이름</th>
 				<th>맛집내용</th>
 				<th>왜안나와?</th>
 			<tr>
 				<td><c:out value="${restaurant.resNo}" /></td>
+				<td><img src="<%=request.getContextPath()%>/upload/${restaurant.resImg}" width="100" height="100"></td>
 				<td><c:out value="${restaurant.locName}" /></td>
 				<td><c:out value="${restaurant.resName}" /></td>
 				<td><c:out value="${restaurant.resContent}" /></td>

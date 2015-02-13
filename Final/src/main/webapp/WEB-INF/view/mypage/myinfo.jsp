@@ -140,7 +140,7 @@ $("#pass2").blur(function(){
     
     $("#upload").click(function(){
     
-    	window.open("<%=request.getContextPath()%>/upload","_blank", "width = 600 height = 300")
+    	window.open("<%=request.getContextPath()%>/upload/gomyuser","_blank", "width = 600 height = 300")
     
     })
     
