@@ -6,6 +6,7 @@ import mybabthis.dao.LicenseDao;
 import mybabthis.dao.RestaurantDao;
 import mybabthis.dao.ReviewDao;
 import mybabthis.entity.License;
+import mybabthis.entity.LicensedUser;
 import mybabthis.entity.Restaurant;
 import mybabthis.entity.Review;
 
@@ -21,7 +22,7 @@ public class ReviewServiceImpl implements ReviewService {
 	static {
 		logger = LoggerFactory.getLogger(ReviewServiceImpl.class);
 	}
-	
+
 	@Autowired
 	ReviewDao dao;
 
@@ -30,75 +31,107 @@ public class ReviewServiceImpl implements ReviewService {
 
 	@Autowired
 	RestaurantDao restaurantDao;
-	
+
 	@Override
 	public int createReview(Review review) {
-		
 
 		int result = dao.createReview(review);
-		
+
 		this.averageScore();
-		
+
 		this.checkGrade(review);
-		
-		
-		
+
 		return result;
 	}
-	
-	private int averageScore(){
-		
-		
-		return 0;
-		
-	}
-	
-	
-	private int checkGrade(Review review){
-		
-		
 
-		String userId=review.getUserId();
+	private int averageScore() {
+
+		return 0;
+
+	}
+
+	private int checkGrade(Review review) {
+
+		String userId = review.getUserId();
 		int resNo = review.getResNo();
 
 		Restaurant res = restaurantDao.selectRestaurantByNo(resNo);
 		String locName = res.getLocName();
 		License license = licenseDao.getLicenseByLocName(userId, locName);
-		
-		logger.trace("체크할 라이센스 : "+license);
-		
-		
-		//여기서 라이센스가 null 이 아니면 비교하자.
-		if (license!=null){
-			//자격증 취득 회원에서 아이디랑, 라이센스넘버로 셀렉해와서,
-			//라이센스가 이미 등록되지 않았으면 
-			//새로 추가.
+
+		logger.trace("체크할 라이센스 : " + license);
+
+		// 여기서 라이센스가 null 이 아니면 비교하자.
+		if (license != null) {
+			// 자격증 취득 회원에서 아이디랑, 라이센스넘버로 셀렉해와서,
+			// 라이센스가 이미 등록되지 않았으면
+			// 새로 추가.
 
 			int licenseNo = license.getLicenseNo();
-			
-			
+			LicensedUser licensedUser = licenseDao
+					.getLicensedUserByNo(licenseNo);
+			if (licensedUser == null) {
+				logger.trace("가지고있는 라이센스 없으니 새로 등록");
+				licensedUser.setLicenseNo(licenseNo);
+				;
+				licensedUser.setUserId(userId);
+				licenseDao.insertLicensedUser(licensedUser);
+
+			} else {
+				logger.trace("이미 가지고 있는 라이센스");
+			}
+
+		}
+
+		String resKind = res.getResKind();
+
+		License license2 = licenseDao.getLicenseByResKind(userId, resKind);
+
+		// 여기서 라이센스가 null 이 아니면 비교하자.
+		if (license2 != null) {
+			// 자격증 취득 회원에서 아이디랑, 라이센스넘버로 셀렉해와서,
+			// 라이센스가 이미 등록되지 않았으면
+			// 새로 추가.
+
+			int licenseNo = license2.getLicenseNo();
+			LicensedUser licensedUser = licenseDao
+					.getLicensedUserByNo(licenseNo);
+			if (licensedUser == null) {
+				logger.trace("가지고있는 라이센스 없으니 새로 등록");
+				licensedUser.setLicenseNo(licenseNo);
+				;
+				licensedUser.setUserId(userId);
+				licenseDao.insertLicensedUser(licensedUser);
+
+			} else {
+				logger.trace("이미 가지고 있는 라이센스");
+			}
+
+		}
+
+		// 추가 완료시킨후에,
+		// 회원별로 라이센스 갯수 검색후에
+		// 몇개 이상이면,
+		// 유저컬럼에,
+		// 유저 등급에,
+		// 유저등급만 수정한다.
+		
+		int cnt = licenseDao.getLicenseCntById(userId);
+		if (cnt>=9){
+			//유저 교수로 업데이트
+		}
+		else if(cnt>=6){
+			//유저 박사로 업데이트
+		}
+		else if(cnt>=3){
+			//석사로 업데이트
 		}
 		
-		//추가 완료시킨후에,
-		//회원별로 라이센스 갯수 검색후에
-		//몇개 이상이면,
-		//유저컬럼에,
-		//유저 등급에,
-		//유저등급만 수정한다.
 		
 		
 
-			
-				
-			
-		
-		
-		
 		return 0;
 	}
-	
-	
-	
 
 	@Override
 	public int updateReview(Review review) {
@@ -138,7 +171,7 @@ public class ReviewServiceImpl implements ReviewService {
 
 	@Override
 	public float getAverageScore(int resNo) {
-		float result=dao.getAverageScore(resNo);
+		float result = dao.getAverageScore(resNo);
 		return result;
 	}
 
