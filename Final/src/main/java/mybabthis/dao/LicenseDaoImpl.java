@@ -69,8 +69,8 @@ public class LicenseDaoImpl implements LicenseDao {
 
 	@Override
 	public LicensedUser getLicensedUser(LicensedUser licensedUser) {
-		String stmt=nameSpace+"selectAllLicense";
-		LicensedUser result = sqlSession.selectOne(stmt);
+		String stmt=nameSpace+"selectLicensedUser";
+		LicensedUser result = sqlSession.selectOne(stmt,licensedUser);
 		return result;
 	}
 
@@ -83,7 +83,7 @@ public class LicenseDaoImpl implements LicenseDao {
 
 
 	@Override
-	public LicensedUser getLicensedUserByNo(String licenseNo) {
+	public LicensedUser getLicensedUserByNo(int licenseNo) {
 		// TODO Auto-generated method stub
 		return null;
 	}

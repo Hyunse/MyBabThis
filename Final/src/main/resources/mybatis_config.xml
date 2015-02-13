@@ -22,6 +22,7 @@
 	    <typeAlias type="mybabthis.entity.Friend" alias="Friend" />	
 	    <typeAlias type="mybabthis.entity.License" alias="License" />	
 	    <typeAlias type="mybabthis.entity.LicensedUser" alias="LicensedUser" />	
+	    <typeAlias type="mybabthis.entity.LicensedUser" alias="LicenseUser" />	
 	</typeAliases>
 	<mappers>
 		<mapper resource="mappers/UserMapper.xml" />
