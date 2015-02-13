@@ -13,25 +13,41 @@
 
 $(document).ready(function() {
 	
+	
+	
+	$("#upload").click(function(){
+		
+		
+		$("#imghere").fadeIn();
+
+	})
+	
 	$("#ok").click(function(){
 		
-		opener.$("#userImg").val("${file}");
-		
+		opener.$("#userimg").val("${file}");
+		opener.$("#dropimg").attr("src","<%=request.getContextPath()%>/upload/${file}");
 		self.close();
 	})
 	$("#c").click(function(){
 		
 		self.close();
 	})
+	
 })
 </script>
 <body>
 <h2>프로필 사진</h2>
 <c:url value="/upload/user" var="userimg" />
 <form method="post" enctype="multipart/form-data" action="${userimg}">
-	이미지 선택 : <input type="file" name="uploadFile"><button type="submit">upload</button>
-		
-	<img src="<%=request.getContextPath()%>/upload/${file}">
+	이미지 선택 : <input type="file" name="uploadFile"><button type="submit" id="upload">upload</button>
+	<br>
+	미리보기 :
+	<c:if test="${empty file}">
+	사진을 업로드 해주세요
+	</c:if>
+	<c:if test="${!empty file }">
+	<img src="<%=request.getContextPath()%>/upload/${file}"  width="100" height="100">
+	</c:if>
 </form>
 
 <input type="button" value="확인" id="ok"><input type="button" value="취소" id="c">

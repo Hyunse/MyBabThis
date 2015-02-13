@@ -148,7 +148,11 @@ $("#pass2").blur(function(){
 							<form:radiobutton path="userGender" value="0" />여
 		<br>
 		
-		<label>이미지</label>	<form:input path="userImg" id="userImg"/>
+		<label>이미지</label>	
+		<br>
+		
+		<img id="dropimg" width="100" height="100" src="<%=request.getContextPath()%>/upload/${loginUser.userImg}">
+		<form:input path="userImg" id="userimg"/>
 		
 		
 		<input type="button" value="upload" id="upload">

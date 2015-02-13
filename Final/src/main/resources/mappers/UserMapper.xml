@@ -87,7 +87,8 @@
 		user_name=#{userName},
 		user_pass=#{userPass},
 		user_email=#{userEmail},
-		user_phone=#{userPhone}
+		user_phone=#{userPhone},
+		user_img = #{userImg}
 		where user_id=#{userId}
 	</update>
 	
