@@ -44,11 +44,11 @@ public class ReviewEditController {
 	@RequestMapping(value="/review/write", params="write", method=RequestMethod.POST)
 	public String write(@ModelAttribute("review") Review review){
 		service.createReview(review);
-		float avgScore=service.getAverageScore(review.getResNo());
+/*		float avgScore=service.getAverageScore(review.getResNo());
 		Restaurant restaurant = new Restaurant();
 		restaurant.setResNo(review.getResNo());
 		restaurant.setResScore(avgScore);
-		res_service.updateResScore(restaurant);
+		res_service.updateResScore(restaurant);*/
 
 		return "redirect:/restaurant/view?resNo="+review.getResNo();
 	}

@@ -67,11 +67,6 @@ public class RestaurantServiceImpl implements RestaurantService {
 		return result;
 	}
 
-	@Override
-	public int updateResScore(Restaurant restaurant) {
-		int result = dao.updateResScore(restaurant);
-		return result;
-	}
 
 	@Override
 	public List<Restaurant> getRankingAll() {
@@ -96,10 +91,7 @@ public class RestaurantServiceImpl implements RestaurantService {
 		List<Restaurant> result2 =dao.selectAllRestuarantsAtSearch(result);
 		return result2;
 	}
-	
-	
-	
-	
+
 	
 
 }
