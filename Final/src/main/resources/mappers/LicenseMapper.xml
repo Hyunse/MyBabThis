@@ -71,8 +71,15 @@
 	</select>
 	
 	<!-- 회원으로 취득라이센스 검색 -->
-	<select id="selectLicensedUserById" parameterType="string" resultType="LicensedUser">>
+	<select id="selectLicensedUserById" parameterType="string" resultType="LicensedUser">
 	select * from licensed_user
+	where user_id=#{userId}	
+	</select>
+	
+	<!-- 아이디로 취득 라이센스 갯수 검색 -->
+	<select id="selectLicenseCntById" parameterType="string" resultType="integer">
+	select count(*)
+	from licensed_user
 	where user_id=#{userId}	
 	</select>
 

@@ -19,7 +19,9 @@ public interface LicenseDao {
 	LicensedUser getLicensedUserById(String userId);
 	LicensedUser getLicensedUserByNo(int licenseNo);
 	
-	int InsertLicensedUser(LicensedUser licensedUser);
+	int insertLicensedUser(LicensedUser licensedUser);
+	
+	int getLicenseCntById(String userId);
 	
 
 }

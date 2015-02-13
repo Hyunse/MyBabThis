@@ -90,6 +90,13 @@
 		user_phone=#{userPhone}
 		where user_id=#{userId}
 	</update>
+	
+	<!-- 관심 지역 만들어야한다. -->
+	<update id="updateUserGrade" parameterType="HashMap">
+		update users set
+		user_grade=#{userGrade}
+		where user_id=#{userId}
+	</update>
 
 
 

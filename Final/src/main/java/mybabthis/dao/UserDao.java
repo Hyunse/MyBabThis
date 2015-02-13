@@ -33,5 +33,8 @@ public interface UserDao {
 	List<Users> selectUserByRegdate(String regDate);
 	List<Users> selectUserByUpdateDate(String updateDate);
 	List<Users> selectUserByGrade(String grade);
+	
+	
+	int updateUserGrade(String userId, String userGrade);
 }
 

@@ -77,22 +77,34 @@ public class LicenseDaoImpl implements LicenseDao {
 
 	@Override
 	public LicensedUser getLicensedUserById(String userId) {
-		// TODO Auto-generated method stub
-		return null;
+		String stmt=nameSpace+"selectLicensedUserByNo";
+		LicensedUser result = sqlSession.selectOne(stmt,userId);
+		return result;
 	}
 
 
 	@Override
 	public LicensedUser getLicensedUserByNo(int licenseNo) {
-		// TODO Auto-generated method stub
-		return null;
+		String stmt=nameSpace+"selectLicensedUserById";
+		LicensedUser result = sqlSession.selectOne(stmt,licenseNo);
+		return result;
 	}
 
 
 	@Override
-	public int InsertLicensedUser(LicensedUser licensedUser) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int getLicenseCntById(String userId) {
+		String stmt=nameSpace+"selectLicenseCntById";
+		int result = sqlSession.selectOne(stmt,userId);
+		return result;
+	}
+
+
+	@Override
+	public int insertLicensedUser(LicensedUser licensedUser) {
+		String stmt=nameSpace+"insertLicensedUser";
+		int result = sqlSession.update(stmt,licensedUser);
+		return result;
+		
 	}
 	
 	
