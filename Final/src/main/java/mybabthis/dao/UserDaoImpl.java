@@ -1,5 +1,6 @@
 package mybabthis.dao;
 
+import java.util.HashMap;
 import java.util.List;
 
 import mybabthis.entity.Users;
@@ -111,6 +112,20 @@ public class UserDaoImpl implements UserDao {
 		String stmt = nameSpace + "selectUsersByNameAtJoin";
 		return sqlSession.selectOne(stmt, name);
 	}
+
+	@Override
+	public int updateUserGrade(String userId, String userGrade) {
+
+		String stmt = nameSpace + "updateUserGrade";
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("userId", userId);
+		map.put("userGrade", userGrade);
+		return sqlSession.update(stmt,map);
+
+		
+	}
+	
+	
 	
 
 }

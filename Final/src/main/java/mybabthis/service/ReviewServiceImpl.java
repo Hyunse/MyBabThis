@@ -5,6 +5,7 @@ import java.util.List;
 import mybabthis.dao.LicenseDao;
 import mybabthis.dao.RestaurantDao;
 import mybabthis.dao.ReviewDao;
+import mybabthis.dao.UserDao;
 import mybabthis.entity.License;
 import mybabthis.entity.LicensedUser;
 import mybabthis.entity.Restaurant;
@@ -29,6 +30,8 @@ public class ReviewServiceImpl implements ReviewService {
 	LicenseDao licenseDao;
 	@Autowired
 	RestaurantDao restaurantDao;
+	@Autowired
+	UserDao userDao;
 	
 	@Override
 	public int createReview(Review review) {
@@ -76,7 +79,6 @@ public class ReviewServiceImpl implements ReviewService {
 			if (licensedUser == null) {
 				logger.trace("가지고있는 라이센스 없으니 새로 등록");
 				licensedUser.setLicenseNo(licenseNo);
-				;
 				licensedUser.setUserId(userId);
 				licenseDao.insertLicensedUser(licensedUser);
 
@@ -102,7 +104,6 @@ public class ReviewServiceImpl implements ReviewService {
 			if (licensedUser == null) {
 				logger.trace("가지고있는 라이센스 없으니 새로 등록");
 				licensedUser.setLicenseNo(licenseNo);
-				;
 				licensedUser.setUserId(userId);
 				licenseDao.insertLicensedUser(licensedUser);
 
@@ -119,19 +120,27 @@ public class ReviewServiceImpl implements ReviewService {
 		// 유저 등급에,
 		// 유저등급만 수정한다.
 		
+		String userGrade;
+		
 		int cnt = licenseDao.getLicenseCntById(userId);
+		
+		logger.trace("확인 : 유저아이디-"+userId+"  취득자격증수-"+cnt);
 		if (cnt>=9){
-			//유저 교수로 업데이트
+			userGrade="교수";
+			userDao.updateUserGrade(userId, userGrade);
+
+			
 		}
 		else if(cnt>=6){
-			//유저 박사로 업데이트
+			userGrade="박사";
+			userDao.updateUserGrade(userId, userGrade);
 		}
 		else if(cnt>=3){
-			//석사로 업데이트
+			userGrade="석사";
+			userDao.updateUserGrade(userId, userGrade);
 		}
 		
-		
-		
+			
 
 		return 0;
 	}
