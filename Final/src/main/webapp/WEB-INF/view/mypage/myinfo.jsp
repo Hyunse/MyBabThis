@@ -143,7 +143,13 @@ $("#pass2").blur(function(){
 		<button type="submit" name="_event_update">수정</button>
 		<button type="submit" name="_event_delete">삭제</button>
 	</form:form>
-
+<br>
+<h2>이미지 테스트</h2>
+<jsp:include page="/WEB-INF/view/mypage/mypage-myimg.jsp"></jsp:include>
+<div>
+프로필 사진 확인 용
+<img src="<%=request.getContextPath()%>/upload/${file}">
+</div>
 	
 </body>
 </html>

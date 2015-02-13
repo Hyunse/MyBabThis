@@ -25,30 +25,33 @@ public class ReviewServiceImpl implements ReviewService {
 
 	@Autowired
 	ReviewDao dao;
-
 	@Autowired
 	LicenseDao licenseDao;
-
 	@Autowired
 	RestaurantDao restaurantDao;
-
+	
 	@Override
 	public int createReview(Review review) {
 
 		int result = dao.createReview(review);
 
-		this.averageScore();
-
+		this.averageScore(review.getResNo());
 		this.checkGrade(review);
 
 		return result;
 	}
-
-	private int averageScore() {
-
-		return 0;
-
+	
+	private int averageScore(int resNo){
+		//Reviews의 평점 계산
+		float avgScore=dao.getAverageScore(resNo);
+		Restaurant restaurant = new Restaurant();
+		restaurant.setResNo(resNo);
+		restaurant.setResScore(avgScore);
+		//계산된 평점으로 restaurant 점수 업데이트
+		return restaurantDao.updateResScore(restaurant);
 	}
+	
+	
 
 	private int checkGrade(Review review) {
 
@@ -166,12 +169,6 @@ public class ReviewServiceImpl implements ReviewService {
 	@Override
 	public List<Review> getAllReview() {
 		List<Review> result = dao.getAllReview();
-		return result;
-	}
-
-	@Override
-	public float getAverageScore(int resNo) {
-		float result = dao.getAverageScore(resNo);
 		return result;
 	}
 
