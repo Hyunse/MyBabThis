@@ -18,10 +18,10 @@
 		<br>
 		<br>
 
-		<label>아이디</label> : <form:input path="userId" />
+		<label>아이디</label> : <form:input path="userId" value="${loginUser.userId }" readonly="true" />
 		<br>
 
-		<label>제목</label> : <form:input path="boardTitle" />
+		<label>제목</label> : <form:input path="boardTitle"  />
 		<br>
 		<label>내용</label> : <form:textarea path="boardContent" cols="150"
 			rows="20" />

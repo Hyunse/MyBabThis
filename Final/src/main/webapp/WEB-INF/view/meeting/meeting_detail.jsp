@@ -10,48 +10,19 @@
 <title>Insert title here</title>
 
 </head>
-<style> 
-pre { display: inline; } 
-</style> 
+<style>
+pre {
+	display: inline;
+}
+</style>
 
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 
 <script>
-
 	$(document).ready(function() {
 
 		$(".updateform").hide();
 
-		/* $(".updateBtn").each(function(index){
-			alert(index + this);
-			$("this").attr({
-				"id" : "b_"+index 
-			});
-			var bbi = $("this").attr("id");
-			alert("업데이트 버튼 아이디 확인 : " + bbi);
-			alert("업데이트 버튼 value : " + $("#b_1").val());
-		}); */
-
-		/* 	$(".updateBtn").click(function(index){
-		
-		
-		 $(".hide").hide();
-		 $(".updateform").show();
-		
-		 var bid= $(".updateBtn").attr("id");
-		 var tid= $(".content").attr("id")
-		 alert("버튼 아이디" +bid);
-		 /* alert("업데이트 버튼 번호 추출: "+bid.substring(3))
-		 alert("td  번호 추출: "+substring(3)) */
-
-		/* 	$(".breplyContentTxtUp").val($("#con").val())
-		})
-		 */
-
-		/* $("#btn3").click(function(){
-		    $("#test3").val("Dolly Duck");
-		}); */
-		
 		$(".updateBtn").click(function() {
 			//alert(this.id); // or alert($(this).attr('id'));
 			var bid = $(this).attr("id");
@@ -59,45 +30,19 @@ pre { display: inline; }
 			var content = $(hid).html();
 
 			var uid = "#u" + bid;
-		
+
 			var tid = "#t" + bid;
 
 			$(tid).val(content);
-			
+
 			$(hid).hide();
 			$(uid).show();
-			
+
 		});
 
 	})
-
-	/* function goupdate(){
-			alert("this : " +  this);
-		 	var bid = $("this").attr("id");
-			var hid = "#h" + bid;
-			alert("td 아이디"+ hid);
-		 	var content = $(hid).html();
-			alert(hid + " : " + content)
-		 	//alert(tid+ " : "+document.querySelector("#write"+"Button"));
-			//alert("버튼 아이디 : " + bid);
-			//alert("td 안의 내용 : " + content);
-		}
-	 */
-	/* 	$('#myTable tr').each(function() {
-		var $tds = $(this).find('td');
-		
-		if($tds.length != 0) {
-		var $currText = $tds.eq(0).text();
-		alert('Curr Source Language: ' + $currText);
-		}
-		
-		}); */
 </script>
-<!-- <script>
-$('a[data-href]').each(function() { 
-	 $(this).attr('href', $(this).attr('data-href'));
-	});
-</script> -->
+
 <jsp:include page="/WEB-INF/view/header.jsp" />
 <hr>
 <body>
@@ -130,25 +75,27 @@ $('a[data-href]').each(function() {
 				<td><c:out value="${breply.breplyNo }" /></td>
 				<td><c:out value="${breply.boardNo }" /></td>
 				<td>
-					
-					<div id="hbtn${breply.breplyNo}"><c:out value="${breply.breplyContent }" /></div> 
-					<c:url value="/meeting/update" var="action" /> 
 
-					<form:form modelAttribute="breply" method="post" action="${action }"
+					<div id="hbtn${breply.breplyNo}">
+						<c:out value="${breply.breplyContent }" />
+					</div> <c:url value="/meeting/update" var="action" /> <form:form
+						modelAttribute="breply" method="post" action="${action }"
 						class="updateform" id="ubtn${breply.breplyNo }">
 						<form:hidden path="boardNo" value="${boardDetail.boardNo }" />
 						<form:hidden path="breplyNo" value="${breply.breplyNo }" />
-						<form:hidden path="userId" value="${loginUser.userId }" class="droptext"/>
-						<label>내용</label> : <form:textarea  id="tbtn${breply.breplyNo}" rows='1' cols='25' path="breplyContent"></form:textarea>
+						<form:hidden path="userId" value="${loginUser.userId }"
+							class="droptext" />
+						<label>내용</label> : <form:textarea id="tbtn${breply.breplyNo}"
+							rows='1' cols='25' path="breplyContent"></form:textarea>
 						<button type="submit" name="breply_update">확인</button>
 					</form:form>
 
 				</td>
 				<td><c:out value="${breply.userId }" /></td>
-				<td> <c:out value="${breply.breplyUpdatedate }" /></td>
+				<td><c:out value="${breply.breplyUpdatedate }" /></td>
 
 				<td><button class="updateBtn" id="btn${breply.breplyNo}">수정</button>
-		</td>
+				</td>
 
 				<td><c:url
 						value="/meeting/delete?breplyNo=${breply.breplyNo }&boardNo=${breply.boardNo }"
@@ -159,16 +106,6 @@ $('a[data-href]').each(function() {
 
 	<hr>
 
-
-	<!-- c: if userid = loginid 
-<textarea > </ > 
-<button oncick= aaa(this)/> 
-
-aaa(obj) 
-$(inputTextAreaData).val( 
-$(obj).parent.find(:textarea).html() 
-)  -->
-
 	<c:url value="/meeting/write" var="action"></c:url>
 	<form:form modelAttribute="breply" method="post" action="${action }"
 		id="writeform">
@@ -178,28 +115,7 @@ $(obj).parent.find(:textarea).html()
 		<label>내용</label> : <form:textarea path="breplyContent" />
 		<button type="submit" name="breply_write">작성</button>
 	</form:form>
-	<%-- 
-	<c:url value="/breply/update" var="action" />
-	<form:form modelAttribute="breply" method="post" action="${action }" id="updateform" >
-	<form id="updateform">
-	<h2>댓글수정</h2>
-		<label>내용</label> : <textarea id="breplyContentTxt"></textarea>
-		<button type="submit" name="breply_update">수정</button>
-	</form> --%>
 
-	<!-- <script>
-		(function(d, s, id) {
-			var js, fjs = d.getElementsByTagName(s)[0];
-			if (d.getElementById(id))
-				return;
-			js = d.createElement(s);
-			js.id = id;
-			js.src = "//connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v2.0";
-			fjs.parentNode.insertBefore(js, fjs);
-		}(document, 'script', 'facebook-jssdk'));
-	</script>
-	<div class="fb-comments" data-href="http://developers.facebook.com/docs/plugins/comments/" data-numposts="5" data-colorscheme="light"></div>
-	<div id="fb-root"></div> -->
 
 </body>
 </html>
