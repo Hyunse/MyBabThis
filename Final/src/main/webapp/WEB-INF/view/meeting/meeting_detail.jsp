@@ -157,7 +157,6 @@ $('a[data-href]').each(function() {
 		</c:forEach>
 	</table>
 
-	<input type="button" id="writeButton" value="새 댓글 적기">
 	<hr>
 
 
