@@ -18,7 +18,6 @@ public interface UserService {
 
 	List<Users> selectAllUser();
 
-	
 	/* 회원 검색 */
 	
 	Users searchUserId(String id); // 아이디 검색
