@@ -8,12 +8,33 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script>
+
+$(document).ready(function() {
+	
+	$("#ok").click(function(){
+		
+		opener.$("#userImg").val("${file}");
+		
+		self.close();
+	})
+	$("#c").click(function(){
+		
+		self.close();
+	})
+})
+</script>
 <body>
 <h2>프로필 사진</h2>
 <c:url value="/upload/user" var="userimg" />
 <form method="post" enctype="multipart/form-data" action="${userimg}">
-	이미지 선택 : <input type="file" name="uploadFile">
-	<button type="submit">upload</button>	
+	이미지 선택 : <input type="file" name="uploadFile"><button type="submit">upload</button>
+		
+	<img src="<%=request.getContextPath()%>/upload/${file}">
 </form>
+
+<input type="button" value="확인" id="ok"><input type="button" value="취소" id="c">
+
 </body>
 </html>

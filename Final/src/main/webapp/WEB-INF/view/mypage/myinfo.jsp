@@ -88,6 +88,13 @@ $("#pass2").blur(function(){
         }
         return;
     })
+    
+    $("#upload").click(function(){
+    
+    	window.open("<%=request.getContextPath()%>/upload","_blank", "width = 600 height = 300")
+    
+    })
+    
 });
 
 </script>
@@ -110,7 +117,7 @@ $("#pass2").blur(function(){
 		</tr>
 	</table> --%>
 	<c:url value="/mypage/myinfo" var="action"></c:url>
-	<form:form modelAttribute="loginUser" method="post" action="${confirm}">
+	<form:form modelAttribute="loginUser" method="post" action="${confirm}"  enctype="multipart/form-data">
 
 			
 			
@@ -139,17 +146,25 @@ $("#pass2").blur(function(){
 		<label>성별</label>
 		<form:radiobutton path="userGender" value="1" />남
 							<form:radiobutton path="userGender" value="0" />여
+		<br>
+		
+		<label>이미지</label>	<form:input path="userImg" id="userImg"/>
+		
+		
+		<input type="button" value="upload" id="upload">
+		<br>
+		<br>
 							
 		<button type="submit" name="_event_update">수정</button>
 		<button type="submit" name="_event_delete">삭제</button>
 	</form:form>
 <br>
-<h2>이미지 테스트</h2>
+<%-- <h2>이미지 테스트</h2>
 <jsp:include page="/WEB-INF/view/mypage/mypage-myimg.jsp"></jsp:include>
 <div>
 프로필 사진 확인 용
 <img src="<%=request.getContextPath()%>/upload/${file}">
 </div>
-	
+	 --%>
 </body>
 </html>
