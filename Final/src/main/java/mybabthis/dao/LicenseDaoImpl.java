@@ -77,7 +77,7 @@ public class LicenseDaoImpl implements LicenseDao {
 
 	@Override
 	public LicensedUser getLicensedUserById(String userId) {
-		String stmt=nameSpace+"selectLicensedUserByNo";
+		String stmt=nameSpace+"selectLicensedUserById";
 		LicensedUser result = sqlSession.selectOne(stmt,userId);
 		return result;
 	}
@@ -85,7 +85,7 @@ public class LicenseDaoImpl implements LicenseDao {
 
 	@Override
 	public LicensedUser getLicensedUserByNo(int licenseNo) {
-		String stmt=nameSpace+"selectLicensedUserById";
+		String stmt=nameSpace+"selectLicensedUserByNo";
 		LicensedUser result = sqlSession.selectOne(stmt,licenseNo);
 		return result;
 	}

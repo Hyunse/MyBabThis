@@ -178,4 +178,14 @@ public class License implements Serializable {
 		return true;
 	}
 
+	@Override
+	public String toString() {
+		return "License [licenseNo=" + licenseNo + ", writeCnt=" + writeCnt
+				+ ", locName=" + locName + ", resKind=" + resKind
+				+ ", licensedUserSet=" + licensedUserSet + "]";
+	}
+
+	
+	
+	
 }

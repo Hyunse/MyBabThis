@@ -57,6 +57,8 @@ public class ReviewServiceImpl implements ReviewService {
 	
 
 	private int checkGrade(Review review) {
+		
+		logger.trace("확인 : 등급체크");
 
 		String userId = review.getUserId();
 		int resNo = review.getResNo();
@@ -74,20 +76,22 @@ public class ReviewServiceImpl implements ReviewService {
 			// 새로 추가.
 
 			int licenseNo = license.getLicenseNo();
-			LicensedUser licensedUser = licenseDao
-					.getLicensedUserByNo(licenseNo);
+			LicensedUser licensedUser = licenseDao.getLicensedUserByNo(licenseNo);
 			if (licensedUser == null) {
+				licensedUser = new LicensedUser();
 				logger.trace("가지고있는 라이센스 없으니 새로 등록");
 				licensedUser.setLicenseNo(licenseNo);
 				licensedUser.setUserId(userId);
 				licenseDao.insertLicensedUser(licensedUser);
 
 			} else {
-				logger.trace("이미 가지고 있는 라이센스");
+				logger.trace("이미 가지고 있는 라이센스 = "+licensedUser);
 			}
 
 		}
 
+
+		logger.trace("이거 출력 확인 2");
 		String resKind = res.getResKind();
 
 		License license2 = licenseDao.getLicenseByResKind(userId, resKind);
@@ -103,6 +107,7 @@ public class ReviewServiceImpl implements ReviewService {
 					.getLicensedUserByNo(licenseNo);
 			if (licensedUser == null) {
 				logger.trace("가지고있는 라이센스 없으니 새로 등록");
+				licensedUser = new LicensedUser();
 				licensedUser.setLicenseNo(licenseNo);
 				licensedUser.setUserId(userId);
 				licenseDao.insertLicensedUser(licensedUser);
@@ -112,14 +117,6 @@ public class ReviewServiceImpl implements ReviewService {
 			}
 
 		}
-
-		// 추가 완료시킨후에,
-		// 회원별로 라이센스 갯수 검색후에
-		// 몇개 이상이면,
-		// 유저컬럼에,
-		// 유저 등급에,
-		// 유저등급만 수정한다.
-		
 		String userGrade;
 		
 		int cnt = licenseDao.getLicenseCntById(userId);
@@ -137,6 +134,10 @@ public class ReviewServiceImpl implements ReviewService {
 		}
 		else if(cnt>=3){
 			userGrade="석사";
+			userDao.updateUserGrade(userId, userGrade);
+		}
+		else if(cnt>=1){
+			userGrade="초보자";
 			userDao.updateUserGrade(userId, userGrade);
 		}
 		
