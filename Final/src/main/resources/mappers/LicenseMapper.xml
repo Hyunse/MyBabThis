@@ -71,7 +71,7 @@
 	</select>
 	
 	<!-- 회원으로 취득라이센스 검색 -->
-	<select id="selectLicensedUserById" parameterType="string" resultType="LicenseUser">>
+	<select id="selectLicensedUserById" parameterType="string" resultType="LicensedUser">>
 	select * from licensed_user
 	where user_id=#{userId}	
 	</select>
