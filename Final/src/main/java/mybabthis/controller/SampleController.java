@@ -5,17 +5,16 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import mybabthis.entity.Restaurant;
+import mybabthis.entity.Users;
 import mybabthis.service.RestaurantService;
+import mybabthis.service.UserService;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
-
-import com.google.gson.Gson;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class SampleController {
@@ -25,7 +24,7 @@ public class SampleController {
 	}
 
 	@Autowired
-	RestaurantService restaurantService;
+	UserService userService;
 
 	/*@RequestMapping(value = "/users", method = RequestMethod.GET)
 	public String userListAll(Model model) {
@@ -53,7 +52,7 @@ public class SampleController {
 		return mav;
 	}*/
 
-	@RequestMapping(value = "/a")
+/*	@RequestMapping(value = "/a")
 	public ModelAndView list(HttpServletRequest request, HttpSession session) throws Exception {
 		ModelAndView mav = new ModelAndView();
 		List<Restaurant> restaurants = restaurantService.selectAllRestuarants();
@@ -63,6 +62,14 @@ public class SampleController {
 		logger.trace(jsonString);
 		mav.setViewName("../../listData");
 		return mav;
+	}*/
+	
+	
+	@RequestMapping(value = "/a")
+	@ResponseBody
+	public List<Users> list(HttpServletRequest request, HttpSession session) throws Exception {
+		return userService.selectAllUser();
 	}
+	
 
 }
