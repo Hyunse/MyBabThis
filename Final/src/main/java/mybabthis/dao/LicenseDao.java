@@ -5,12 +5,16 @@ import mybabthis.entity.LicensedUser;
 
 public interface LicenseDao {
 	
-	License getLicense(String userId, String locName);
+	License getLicenseByLocName(String userId, String locName);
+	License getLicenseByResKind(String userId, String resKind);
+
+	LicensedUser getLicensedUser(LicensedUser licensedUser);
+	
 	License getAllLicense();
+	
 	
 	LicensedUser getAllLicensedUser();
 
-	LicensedUser getLicensedUser(LicensedUser licensedUser);
 	
 	LicensedUser getLicensedUserById(String userId);
 	LicensedUser getLicensedUserByNo(String licenseNo);

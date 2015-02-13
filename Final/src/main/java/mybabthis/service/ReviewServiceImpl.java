@@ -36,32 +36,69 @@ public class ReviewServiceImpl implements ReviewService {
 		
 
 		int result = dao.createReview(review);
+		
+		this.averageScore();
+		
+		this.checkGrade(review);
+		
+		
+		
+		return result;
+	}
+	
+	private int averageScore(){
+		
+		
+		return 0;
+		
+	}
+	
+	
+	private int checkGrade(Review review){
+		
+		
+
 		String userId=review.getUserId();
 		int resNo = review.getResNo();
 
 		Restaurant res = restaurantDao.selectRestaurantByNo(resNo);
 		String locName = res.getLocName();
-		License license = licenseDao.getLicense(userId, locName);
+		License license = licenseDao.getLicenseByLocName(userId, locName);
 		
 		logger.trace("체크할 라이센스 : "+license);
 		
-		int licenseNo = license.getLicenseNo();
 		
 		//여기서 라이센스가 null 이 아니면 비교하자.
 		if (license!=null){
 			//자격증 취득 회원에서 아이디랑, 라이센스넘버로 셀렉해와서,
 			//라이센스가 이미 등록되지 않았으면 
-			
-				
+			//새로 추가.
+
+			int licenseNo = license.getLicenseNo();
 			
 			
 		}
 		
+		//추가 완료시킨후에,
+		//회원별로 라이센스 갯수 검색후에
+		//몇개 이상이면,
+		//유저컬럼에,
+		//유저 등급에,
+		//유저등급만 수정한다.
+		
 		
 
+			
+				
+			
 		
-		return result;
+		
+		
+		return 0;
 	}
+	
+	
+	
 
 	@Override
 	public int updateReview(Review review) {
