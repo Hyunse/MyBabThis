@@ -34,6 +34,7 @@
 <jsp:include page="/WEB-INF/view/header.jsp"/>
 <hr>
 <h1>맛집 페이지</h1>
+<img src = "<%=request.getContextPath()%>/upload/${restaurant.resImg}" width="150" heigth="150">
 <table border="1">
 <tr><th>맛집 번호</th><th>업체명</th><th>전화번호</th><th>내용</th><th>평점</th><th>비고</th><th>즐겨찾기</th>
 <tr>

@@ -15,16 +15,17 @@
 	<c:forEach items="${restaurants }" var="restaurant">
 		<tr>
 			<td><c:out value="${restaurant.resNo }" /></td>
-			<td><c:out value="${restaurant.resName }" /></td>
+		
 			<td><c:out value="${restaurant.resKind }" /></td>
-			<td><c:out value="${restaurant.resImg }" /></td>
+			<td><c:out value="${restaurant.resName }" /></td>
+			<td><img src="<%=request.getContextPath()%>/upload/${restaurant.resImg }" width="100" height="100"></td>
 			<td><c:out value="${restaurant.resUpdatedate }" /></td>
 			<td>	<c:url value="/restaurant/view?resNo=${restaurant.resNo}" var="url"/>
 				<a href="${url }"><button>GO</button></a>
 			</td>	
 			</tr>
-		
 	</c:forEach>
+	
 </table>
 </body>
 </html>
