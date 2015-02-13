@@ -118,6 +118,8 @@ $("#pass2").blur(function(){
 							<form:radiobutton path="userGender" value="0"/>여
 							
 
+		<form:hidden path="userImg" value="star.png"/>
+		
 		<button type="submit" name="join">가입</button>
 	</form:form>
 

@@ -14,6 +14,7 @@
 		<h1>헤더 부분</h1>
 		<div id="header_info">
 			<c:if test="${!empty loginUser }">
+		<img  width="20" height="20" src="<%=request.getContextPath()%>/upload/${loginUser.userImg}">
 		${loginUser.userId }님 반갑습니다. 
 		<c:url value="/logout" var="logout" />
 				<a href="${logout}"><button>로그아웃</button></a>
