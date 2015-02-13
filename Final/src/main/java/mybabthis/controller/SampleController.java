@@ -1,20 +1,25 @@
 package mybabthis.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import mybabthis.entity.Users;
-import mybabthis.service.RestaurantService;
 import mybabthis.service.UserService;
+import net.sf.json.JSONArray;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class SampleController {
@@ -51,8 +56,8 @@ public class SampleController {
 		logger.error("mav: " + mav);
 		return mav;
 	}*/
-
-/*	@RequestMapping(value = "/a")
+/*
+	@RequestMapping(value = "/a")
 	public ModelAndView list(HttpServletRequest request, HttpSession session) throws Exception {
 		ModelAndView mav = new ModelAndView();
 		List<Restaurant> restaurants = restaurantService.selectAllRestuarants();
@@ -62,8 +67,8 @@ public class SampleController {
 		logger.trace(jsonString);
 		mav.setViewName("../../listData");
 		return mav;
-	}*/
-	
+	}
+	*/
 	
 	@RequestMapping(value = "/a")
 	@ResponseBody
@@ -71,5 +76,38 @@ public class SampleController {
 		return userService.selectAllUser();
 	}
 	
+	
+	//리스트 페이지로 요청
+	@RequestMapping(value = "/sample/sampleGrid", method = RequestMethod.GET)
+	public String gachon() {
+		return "sample/sampleGrid";
+	}
+	
+	//리스트 SELECT
+	@RequestMapping(value = "/sample/getList", method = RequestMethod.POST)
+	@ResponseBody
+	public JSONArray selectList() {
+		return JSONArray.fromObject(userService.selectAllUser());
+	}
+	
+	
+	//ADD user
+	@RequestMapping(value = "/sample/addUser", method = RequestMethod.POST)
+	public String addUser(@RequestParam String oper, String userId, String userEmail, String userName) {
+		logger.error("넘어옴  "+oper+"    "+userId);
+		Users user = new Users();
+		user.setUserId(userId);
+		user.setUserEmail(userEmail);
+		user.setUserGender("1");
+		user.setUserPass("12");
+		user.setUserName(userName);
+		user.setUserPhone("010-000-0000");
+		
+		userService.join(user);
+
+		logger.error("넘기기직전");
+		
+		return "../../NewFile";
+	}
 
 }
