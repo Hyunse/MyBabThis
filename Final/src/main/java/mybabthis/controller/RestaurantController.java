@@ -48,7 +48,7 @@ public class RestaurantController {
 		List<Restaurant> restaurants = service.selectAllRestuarants();
 		model.addAttribute("restaurant", new Restaurant());
 		model.addAttribute("restaurants",restaurants);
-		return "/restaurant/restaurant_list";
+		return "/restaurant/test1";
 		
 	}
 	
