@@ -8,6 +8,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+	<script type="text/javascript" src="../jquery.maphilight.min.js"></script>
+<script type="text/javascript">$(function() {
+		$('.map').maphilight();
+	});</script>
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <script  src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js" type="text/javascript"></script>
 <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
@@ -61,6 +66,16 @@ $("#search").click(function(){
 	
 	<input type="text" id="resName" name="resName">
 	<input type="button" id="search" value="검색"><br>
+	
+	<!-- 지도 이미지 버튼 넣기 -->
+	<img src="<%=request.getContextPath()%>/upload/map.PNG" border="0" usemap="#map" 
+	 >
+	<map name="map">
+	    <area shape="rect" coords="150,90,220,220" href="#" title="신촌"  >
+	    <area shape="rect" coords="86,262,299,390" href="#" title="오른쪽 사진">
+	    <area shape="rect" coords="304,263,520,394" href="#" title="왼쪽 사진">
+	</map>
+	
 	<h1>환영합니다 메인입니다.</h1>
 	<c:url value="/restaurant/list?locName=건대" var="loc" />
 	<a href="${loc }"><button type="submit">건대</button></a>
