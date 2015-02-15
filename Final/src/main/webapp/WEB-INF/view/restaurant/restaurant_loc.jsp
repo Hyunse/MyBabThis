@@ -82,8 +82,11 @@ $(document).ready(function() {
 			<label>내용</label> : <form:textarea path="resContent" />
 			<br>
 			<label>이미지</label> :<img id="dropimg" width="100" height="100" >
-			<form:input path="resImg" id="resImg" />
+			
+			<form:input path="resImg" id="resImg" value="noimage.jpg"/>
+			
 			<input type="button" value="upload" id="upload">
+			
 			<br>
 			<br>
 			<button type="submit" name="proceed">입력</button>
