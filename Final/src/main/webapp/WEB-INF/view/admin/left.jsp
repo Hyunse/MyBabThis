@@ -15,8 +15,12 @@ body {
 <body>
 	<c:url value="/main" var="main" />
 	<c:url value="/admin/myinfo" var="myinfo" />
-	<c:url value="/admin/userlist" var="users" />
-	<c:url value="/admin/board" var="board" />
+	<c:url value="/admin/Users" var="users" />
+	<c:url value="/admin/Restaurant" var="restaurant" />
+	<c:url value="/admin/Review" var="review" />
+	<c:url value="/admin/Rreply" var="rreply" />
+	<c:url value="/admin/Board" var="board" />
+	<c:url value="/admin/Breply" var="breply" />
 	<c:url value="/admin/message" var="message" />
 	<c:url value="/admin/message" var="report" />
 
@@ -24,7 +28,11 @@ body {
 		<tr>
 			<td><a href="${myinfo}"><br>개인정보<br></a></td>
 			<td><a href="${users}"><br>회원관리<br></a></td>
-			<td><a href="${list}"><br>게시물관리<br></a></td>
+			<td><a href="${restaurant}"><br>맛집게시글관리<br></a></td>
+			<td><a href="${review}"><br>리뷰게시글관리<br></a></td>
+			<td><a href="${rreply}"><br>맛집게시판댓글관리<br></a></td>
+			<td><a href="${board}"><br>기타게시글관리<br></a></td>
+			<td><a href="${breply}"><br>기타게시판댓글관리<br></a></td>
 			<td><a href="${message}"><br>쪽지함<br></a></td>
 			<td><a href="${report}"><br>신고함<br></a></td>
 		</tr>
