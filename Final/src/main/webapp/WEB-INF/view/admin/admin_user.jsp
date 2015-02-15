@@ -8,8 +8,6 @@
 	href="css/jquery-ui.css" />
 <link rel="stylesheet" type="text/css" media="screen"
 	href="css/ui.jqgrid.css" />
-<script
-	src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
 <script src="js/jquery-1.11.0.min.js" type="text/javascript"></script>
 <script src="js/i18n/grid.locale-kr.js" type="text/javascript"></script>
 <script src="js/jquery.jqGrid.src.js" type="text/javascript"></script>

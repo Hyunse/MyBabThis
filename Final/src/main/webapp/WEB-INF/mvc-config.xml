@@ -15,6 +15,7 @@
 	<mvc:resources mapping="/js/**" location="/js/" />
 	<mvc:resources mapping="/img/**" location="/img/" />
 	<mvc:resources location="/WEB-INF/upload/" mapping="/upload/**" />
+	<mvc:resources location="/WEB-INF/map/" mapping="/map/**" />
 	<mvc:annotation-driven />
 
 	<context:component-scan base-package="mybabthis.controller" />
