@@ -17,4 +17,5 @@ public interface RreplyDao {
 	int deleteRreply(int rreplyNo); // 맛집 댓글 삭제
 	List<Rreply> getRreplyByResNo(int resNo);//맛집게시판 아이디로 댓글리스트 가져오기 
 	Rreply getRreplyByRreply(int rreplyNo);//댓글 아이디로 댓글리스트 가져오기 
+	List<Rreply> getAllRreply();
 }

@@ -14,4 +14,5 @@ public interface BreplyService {
 	int deleteBreply(int breplyNo);
 	List<Breply> getBreplyByBoardNo(int boardNo);
 	Breply getBreplyByBreplyNo(int breplyNo); 
+	List<Breply> getAllBreply();
 }

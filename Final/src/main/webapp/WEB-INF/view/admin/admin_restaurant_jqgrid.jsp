@@ -15,7 +15,7 @@
 $(document).ready(function(){
     jQuery("#JQ_list_forRestaurant").jqGrid({
         url:'<%=request.getContextPath()%>/admin/Restaurant/getList',
-        editurl:'<%=request.getContextPath()%>/admin/Restaurant/leave',
+        editurl:'<%=request.getContextPath()%>/admin/Restaurant/deleteOne',
         datatype: 'json',
         mtype: 'GET',
         colNames:['번호',"이름","전화번호", "펑점", "주소", "내용", "작성자", "지역", "종류", "등록일", "수정일"],
@@ -38,7 +38,7 @@ $(document).ready(function(){
         sortname: 'userId',
         sortorder: 'desc',
         viewrecords: true,
-        caption: '가게정보',
+        caption: '맛집페이지정보',
         height: '100%',
         autowidth: true,
         loadonce:false,
@@ -51,18 +51,11 @@ $(document).ready(function(){
         }
    });
     
-    jQuery("#JQ_list_forRestaurant").jqGrid('navGrid',"#navGridForRestaurant",{edit:true,add:true,del:true,search:true,refresh:true}
+    jQuery("#JQ_list_forRestaurant").jqGrid('navGrid',"#navGridForRestaurant",{edit:false,add:false,del:true,search:true,refresh:true}
     );
    
     jQuery("#JQ_list_forRestaurant").trigger("reloadGrid");
     
-    $.extend($.jgrid.add, {
-        beforeSubmit: function () {
-        	alert(aa);
-            $(this).jqGrid("setGridParam", {datatype: "json"});
-            return [true,"",""];
-        }
-    });
 });
 
 

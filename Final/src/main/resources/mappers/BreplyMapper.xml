@@ -4,43 +4,50 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="proj.Mapper">
 
-<!-- 댓글생성 -->
-  <insert id="createBreply" parameterType="Breply">
-    
-     insert into breply 
+	<!-- 댓글생성 -->
+	<insert id="createBreply" parameterType="Breply">
+
+		insert into breply
 		(
-		breply_content, 
-		breply_regdate, 
-		breply_updatedate, 
-		board_no, 
+		breply_content,
+		breply_regdate,
+		breply_updatedate,
+		board_no,
 		user_id)
 		values( #{breplyContent}, sysdate, sysdate, #{boardNo}, #{userId})
-    </insert>
-   
-   <!-- 댓글수정 -->
-   <update id="updateBreply" parameterType="Breply">
-      update breply set
-			breply_content=#{breplyContent}, 
-			breply_updatedate=sysdate
-		where breply_no=#{breplyNo} 
-   </update>
-   
-   
-   <!-- 댓글삭제 -->
-   <delete id="deleteBreply" parameterType="integer">
-   delete from breply
-   where breply_no=#{breplyNo}
-   </delete>
-  
-   <!-- 게시판번호로 댓글리스트 가져오기 -->
-   <select id="selectBreplyByBoardNo" parameterType="Integer" resultType="Breply">
+	</insert>
+
+	<!-- 댓글수정 -->
+	<update id="updateBreply" parameterType="Breply">
+		update breply set
+		breply_content=#{breplyContent},
+		breply_updatedate=sysdate
+		where breply_no=#{breplyNo}
+	</update>
+
+
+	<!-- 댓글삭제 -->
+	<delete id="deleteBreply" parameterType="integer">
+		delete from breply
+		where breply_no=#{breplyNo}
+	</delete>
+
+	<!-- 게시판번호로 댓글리스트 가져오기 -->
+	<select id="selectBreplyByBoardNo" parameterType="Integer"
+		resultType="Breply">
 		select * from breply
 		where board_no=#{boardNo}
-</select>
+	</select>
 
-<!-- 댓글번호로 댓글리스트 가져오기  -->
-<select id="selectBreplyByBreplyNo" parameterType="Integer" resultType="Breply">
+	<!-- 댓글번호로 댓글리스트 가져오기 -->
+	<select id="selectBreplyByBreplyNo" parameterType="Integer"
+		resultType="Breply">
 		select * from breply where breply_no=#{breplyNo}
-		</select>
+	</select>
+	
+	<!-- 게시판번호로 댓글리스트 가져오기 -->
+	<select id="selectAllBoard" resultType="Breply">
+		select * from breply
+	</select>
 
 </mapper>

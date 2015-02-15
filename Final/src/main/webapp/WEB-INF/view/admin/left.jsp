@@ -21,18 +21,18 @@ body {
 	<c:url value="/admin/Rreply" var="rreply" />
 	<c:url value="/admin/Board" var="board" />
 	<c:url value="/admin/Breply" var="breply" />
-	<c:url value="/admin/message" var="message" />
+	<c:url value="/msg/main" var="message" />
 	<c:url value="/admin/message" var="report" />
 
 	<table border="1">
 		<tr>
 			<td><a href="${myinfo}"><br>개인정보<br></a></td>
 			<td><a href="${users}"><br>회원관리<br></a></td>
-			<td><a href="${restaurant}"><br>맛집게시글관리<br></a></td>
-			<td><a href="${review}"><br>리뷰게시글관리<br></a></td>
-			<td><a href="${rreply}"><br>맛집게시판댓글관리<br></a></td>
-			<td><a href="${board}"><br>기타게시글관리<br></a></td>
-			<td><a href="${breply}"><br>기타게시판댓글관리<br></a></td>
+			<td><a href="${restaurant}"><br>맛집 게시글관리<br></a></td>
+			<td><a href="${review}"><br>맛집리뷰 게시글관리<br></a></td>
+			<td><a href="${rreply}"><br>맛집 댓글관리<br></a></td>
+			<td><a href="${board}"><br>기타 게시글관리<br></a></td>
+			<td><a href="${breply}"><br>기타게시판 댓글관리<br></a></td>
 			<td><a href="${message}"><br>쪽지함<br></a></td>
 			<td><a href="${report}"><br>신고함<br></a></td>
 		</tr>
