@@ -32,6 +32,13 @@ public class UserServiceImpl implements UserService{
 		int result = dao.deleteUser(id);
 		return result;
 	}
+	
+	@Override
+	public int out(String id){
+		int result = dao.deleteUser(id);
+		return result;
+	}
+	
 
 	@Override
 	public int updateUser(Users user) {

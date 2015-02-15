@@ -42,9 +42,8 @@ public class AdminUserController {
 	 */
 	@RequestMapping(value="/userlist",  method=RequestMethod.GET)
 	public String userListAll(Model model){		
-
 		logger.trace("회원관리 페이지로 이동");
-		return "/admin/admin_user";
+		return "/admin/admin_users_jqgrid";
 	}
 	
 	@RequestMapping(value = "/userData")

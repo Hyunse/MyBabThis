@@ -10,6 +10,8 @@ public interface UserService {
 
 	int leave(String id, String pass); // 탈퇴시 id & password 필요
 
+	int out(String id); //탈퇴시킬때
+
 	int updateUser(Users user);
 
 	Users login(Users user);
