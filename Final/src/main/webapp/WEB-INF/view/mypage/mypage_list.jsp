@@ -13,12 +13,11 @@
 <title>마이페이지</title>
 <link rel="shortcut icon" href="../favicon.ico">
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/normalize.css" />
-<link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/demo.css" />
-<link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/component.css" />
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/demo_href.css" />
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/component_href.css" />
 <script src="<%=request.getContextPath() %>/js/modernizr.custom.js"></script>
 </head>
 <body>
-<div class="container">
 		<c:url value="/mypage/myinfo" var="myinfo" />
 		<c:url value="/favorite/list?userId=${loginUser.userId}" var="list"/>
 		<c:url value="/friend/list?userId=${loginUser.userId}" var="myfriends" />
@@ -31,19 +30,5 @@
 					<a href="${message}">쪽지함</a>
 				</nav>
 			</section>
-</div>
-	
-<%-- <table border="1">
-		<c:url value="/mypage/myinfo" var="myinfo" />
-		<c:url value="/favorite/list?userId=${loginUser.userId}" var="list"/>
-		<c:url value="/friend/list?userId=${loginUser.userId}" var="myfriends" />
-		<c:url value="/msg/main" var="message" />
-		<tr>
-			<td><a href="${myinfo}"><br>개인정보<br></a></td>
-			<td><a href="${list}"><br>즐겨찾기<br></a></td>
-			<td><a href="${myfriends}"><br>친구리스트<br></a></td>
-			<td><a href="${message}"><br>쪽지함<br></a></td>
-		</tr>
-	</table> --%>
 </body>
 </html>

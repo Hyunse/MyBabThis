@@ -20,8 +20,6 @@
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
 <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
 <script src="<%=request.getContextPath() %>/js/modernizr.custom.js"></script> 
-
-
 </head>
 <body>
 <jsp:include page="/WEB-INF/view/header.jsp" />
@@ -32,7 +30,6 @@
 				<path id="tabshape" d="M80,60C34,53.5,64.417,0,0,0v60H80z"/>
 			</defs>
 	</svg>
-	<div class="container">
 			<section>
 				<div class="tabs tabs-style-shape">
 					<nav>
@@ -62,7 +59,7 @@
 					</div><!-- /content -->
 				</div><!-- /tabs -->
 			</section>
-	</div>
+
 
  <script src="<%=request.getContextPath() %>/js/cbpFWTabs.js"></script>
 		<script>
@@ -76,21 +73,6 @@
  </script>
 
 
-<%-- 
-	<div id="tabs">
-		<ul>
-			<li><a href="#tabs-1">보낸 쪽지함</a></li>
-			<li><a href="#tabs-2">받은 쪽지함</a></li>
-		</ul>
-		<div id="tabs-1">
-			<jsp:include page="/WEB-INF/view/msg/send_list.jsp" />
-		</div>
-		<div id="tabs-2">
-		<jsp:include page="/WEB-INF/view/msg/receive_list.jsp" />
-		</div>
-	</div>
-
- --%>
 
 
 </body>
