@@ -22,8 +22,37 @@
 		<script src="<%=request.getContextPath()%>/js/snap.svg-min.js"></script>
 </head>
 <body>
-	<h1>로고</h1>
-	<div id="wrapper">
+
+	<c:url value="/board/list" var="board" />
+	<c:url value="/meeting/list" var="meeting"/>
+	<c:url value="/ranking/list" var="ranking"/>
+	<c:url value="/main" var="main"/>
+
+<div class="container">
+			<div class="menu-wrap">
+				<nav class="menu">
+					<div class="icon-list">
+						<a href="${main}"><i class="fa fa-fw fa-star-o"></i><span>메인으로</span></a>
+						<a href="${ranking}"><i class="fa fa-fw fa-bell-o"></i><span>맛집 랭킹</span></a>
+						<a href="${meeting}"><i class="fa fa-fw fa-envelope-o"></i><span>번개모임 게시판</span></a>
+						<a href="${board}"><i class="fa fa-fw fa-comment-o"></i><span>자유게시판</span></a>
+						<a href="#"><i class="fa fa-fw fa-bar-chart-o"></i><span>이용규칙</span></a>
+					</div>
+				</nav>
+				<button class="close-button" id="close-button">Close Menu</button>
+				<div class="morph-shape" id="morph-shape" data-morph-open="M-7.312,0H15c0,0,66,113.339,66,399.5C81,664.006,15,800,15,800H-7.312V0z;M-7.312,0H100c0,0,0,113.839,0,400c0,264.506,0,400,0,400H-7.312V0z">
+					<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 100 800" preserveAspectRatio="none">
+						<path d="M-7.312,0H0c0,0,0,113.839,0,400c0,264.506,0,400,0,400h-7.312V0z"/>
+					</svg>
+				</div>
+			</div>
+			<button class="menu-button" id="open-button">Open Menu</button>
+			<div class="content-wrap">
+				<div class="content">
+					<header class="codrops-header">
+						
+						<h1><span>오늘,맛집,성공적</span></h1>
+				<div id="wrapper">
 		<h1>헤더 부분</h1>
 		<div id="header_info">
 			<c:if test="${!empty loginUser }">
@@ -43,51 +72,12 @@
 			</c:if>
 		</div>
 	</div>
-	<c:url value="/board/list" var="board" />
-	<c:url value="/meeting/list" var="meeting"/>
-	<c:url value="/ranking/list" var="ranking"/>
-	<c:url value="/main" var="main"/>
-	<table border="1">
-		<tr>
-			<td><a href="${main}">메인</a></td>
-			<td><a href="${ranking}">맛집랭킹</a></td>
-			<td><a href="${meeting}">번개모임</a></td>
-			<td><a href="${board}">자유게시판</a></td>
-			<td>이용규칙</td>
-		</tr>
-
-	</table>
-<div class="container">
-			<div class="menu-wrap">
-				<nav class="menu">
-					<div class="icon-list">
-						<a href="#"><i class="fa fa-fw fa-star-o"></i><span>Favorites</span></a>
-						<a href="#"><i class="fa fa-fw fa-bell-o"></i><span>Alerts</span></a>
-						<a href="#"><i class="fa fa-fw fa-envelope-o"></i><span>Messages</span></a>
-						<a href="#"><i class="fa fa-fw fa-comment-o"></i><span>Comments</span></a>
-						<a href="#"><i class="fa fa-fw fa-bar-chart-o"></i><span>Analytics</span></a>
-						<a href="#"><i class="fa fa-fw fa-newspaper-o"></i><span>Reading List</span></a>
-					</div>
-				</nav>
-				<button class="close-button" id="close-button">Close Menu</button>
-				<div class="morph-shape" id="morph-shape" data-morph-open="M-7.312,0H15c0,0,66,113.339,66,399.5C81,664.006,15,800,15,800H-7.312V0z;M-7.312,0H100c0,0,0,113.839,0,400c0,264.506,0,400,0,400H-7.312V0z">
-					<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 100 800" preserveAspectRatio="none">
-						<path d="M-7.312,0H0c0,0,0,113.839,0,400c0,264.506,0,400,0,400h-7.312V0z"/>
-					</svg>
-				</div>
-			</div>
-			<button class="menu-button" id="open-button">Open Menu</button>
-			<div class="content-wrap">
-				<div class="content">
-					<header class="codrops-header">
-					
-						<nav class="codrops-demos">
-							<a href="wave.html">Wave</a>
-						</nav>
 					</header>
 					
 				</div>
 			</div><!-- /content-wrap -->
 		</div>
+		<script src="js/classie.js"></script>
+		<script src="js/main4.js"></script>
 </body>
 </html>
