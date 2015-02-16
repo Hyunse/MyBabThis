@@ -39,6 +39,16 @@ public class UserJoinController {
 		return "join/join_enter";
 
 	}
+	
+	/**
+	 * 가입 페이지로
+	 */
+	@RequestMapping(value = "/joinform", method = RequestMethod.GET)
+	public String enterJoinForm(Model model) {
+		model.addAttribute("loginCheck", new Users());
+		return "join/joinform";
+
+	}
 
 
 	/**

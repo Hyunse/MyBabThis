@@ -28,6 +28,8 @@
 				<a href="${login}"><button>로그인 하기</button></a>
 				<c:url value="/join" var="join" />
 				<a href="${join}"><button>가입 하기</button></a>
+				<c:url value="/joinform" var="joinform" />
+				<a href="${joinform}"><button>가입폼</button></a>
 			</c:if>
 		</div>
 	</div>
