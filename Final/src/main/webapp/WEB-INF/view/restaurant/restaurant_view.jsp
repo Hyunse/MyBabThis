@@ -11,7 +11,22 @@
   <script src="//code.jquery.com/jquery-1.10.2.js"></script>
   <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
   <link rel="stylesheet" href="/resources/demos/style.css">
-  <script>
+  
+ <meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1"> 
+		<title>Tab Styles Inspiration</title>
+		<meta name="description" content="Tab Styles Inspiration: A small collection of styles for tabs" />
+		<meta name="keywords" content="tabs, inspiration, web design, css, modern, effects, svg" />
+		<meta name="author" content="Codrops" />
+		<link rel="shortcut icon" href="../favicon.ico">
+		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/normalize.css" />
+		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/demo.css" />
+		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/tabs.css" />
+		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/tabstyles.css" />
+  		<script src="<%=request.getContextPath() %>/js/modernizr.custom.js"></script> 
+  
+ <script>
   $(function() {
     $( "#tabs" ).tabs();
   }); 
@@ -25,7 +40,7 @@
 .ui-menu {
 	width: 150px;
 }
-</style>
+</style> 
 
 </head>
 <script type="text/javascript"
@@ -52,87 +67,102 @@
 <td><a href="<%=request.getContextPath()%>/favorite/create?resNo=${restaurant.resNo}&userId=${loginUser.userId}" ><button>즐겨찾기</button></a>
 </td></tr>
 </table>
-
 <hr>
-
-<div id="tabs">
-  <ul>
-    <li><a href="#tabs-1">댓글</a></li>
-    <li><a href="#tabs-2">리뷰</a></li>
-  </ul>
-  <div id="tabs-1">
-	<table border="1">
-		<tr>
-		    <th>번호</th>
-			<th>내용</th>
-			<th>작성자</th>
-			<th>등록일</th>
-			<th>수정</th>
-			<th>삭제</th>
-		</tr>
-		<c:forEach items="${rreplys }" var="rreply">
-			<tr>
-				<td><c:out value="${rreply.rreplyNo }" /></td>
-				<td><c:out value="${rreply.rreplyContent }" /></td>
-				<td>
-						<ul class="menu">
-							<li><c:out value="${rreply.userId}" />
-								<ul>
-									<li><a href="/Final/friend/create?userId=${loginUser.userId}&friendId=${review.userId}">친구추가</li>
-									<li><a href="/Final/msg/send?receiver=${rreply.userId}">쪽지보내기</li>
+	<div class="container">
+		<section>
+		<div class="tabs tabs-style-topline">
+			<nav>
+			<ul>
+				<li><a href="#section-topline-1" class="icon icon-home"><span>댓글</span></a></li>
+				<li><a href="#section-topline-2" class="icon icon-gift"><span>리뷰</span></a></li>
+			</ul>
+			</nav>
+			<div class="content-wrap">
+				<section id="section-topline-1">
+				<table border="1">
+					<tr>
+						<!-- <th>번호</th> -->
+						<th>내용</th>
+						<th>작성자</th>
+						<th>등록일</th>
+						<th>수정</th>
+						<th>삭제</th>
+					</tr>
+					<c:forEach items="${rreplys }" var="rreply">
+						<tr>
+							<%-- <td><c:out value="${rreply.rreplyNo }" /></td> --%>
+							<td><c:out value="${rreply.rreplyContent }" /></td>
+							<td>
+								<ul class="menu">
+									<li><c:out value="${rreply.userId}" />
+										<ul>
+											<li><a href="/Final/friend/create?userId=${loginUser.userId}&friendId=${review.userId}">친구추가</li>
+											<li><a href="/Final/msg/send?receiver=${rreply.userId}">쪽지보내기</li>
+										</ul></li>
 								</ul>
-							</li>
-						</ul>
-					</td>
-				<td><c:out value="${rreply.rreplyUpdatedate }" /></td>
-				<td>
-			<c:url value="/rreply/edit?rreplyNo=${rreply.rreplyNo }" var="url"></c:url>
-			<a href="${url}"><button>수정</button></a>
-			</td>
-				<td>
-			<c:url value="/rreply/delete?rreplyNo=${rreply.rreplyNo }&resNo=${rreply.resNo }" var="url"></c:url>
-			<a href="${url}"><button>삭제</button></a>
-			</td>
-			</tr>
-		</c:forEach>
-	</table>
-	<c:url value="/rreply/write?resNo=${resNo }" var="url"></c:url>
-	<a href="${url }"><button>댓글작성</button></a>
-  </div>
-
-  <div id="tabs-2">
-	<table border="1">
-		<tr>
-			<th>사진</th>
-			<th>평가</th>
-			<th>설명</th>
-			<th>작성자</th>
-			<th>등록일</th>
-		</tr>
-		<c:forEach items="${reviews }" var="review">
-			<tr>
-				<td>등록된 사진이 없습니다.</td>
-				<td><c:out value="${review.reviewScore }" /></td>
-				<c:url value="/review/detail?reviewNo=${review.reviewNo }" var="url"></c:url> 
-				<td><a href="${url }"><c:out value="${review.reviewContent }" /></a></td>
-				<td>
-						<ul class="menu">
-							<li><c:out value="${review.userId}" />
-								<ul>
-									<li><a href="/Final/friend/create?userId=${loginUser.userId}&friendId=${review.userId}">친구추가</li>
-									<li><a href="/Final/msg/send?receiver=${review.userId}">쪽지보내기</li>
+							</td>
+							<td><c:out value="${rreply.rreplyUpdatedate }" /></td>
+							<td><c:url value="/rreply/edit?rreplyNo=${rreply.rreplyNo }"
+									var="url"></c:url> <a href="${url}"><button>수정</button></a></td>
+							<td><c:url
+									value="/rreply/delete?rreplyNo=${rreply.rreplyNo }&resNo=${rreply.resNo }"
+									var="url"></c:url> <a href="${url}"><button>삭제</button></a></td>
+						</tr>
+					</c:forEach>
+				</table>
+				<c:url value="/rreply/write?resNo=${resNo }" var="url"></c:url> <a
+					href="${url }"><button>댓글작성</button></a> </section>
+				<section id="section-topline-2">
+				<table border="1">
+					<tr>
+						<th>사진</th>
+						<th>평가</th>
+						<th>설명</th>
+						<th>작성자</th>
+						<th>등록일</th>
+					</tr>
+					<c:forEach items="${reviews }" var="review">
+						<tr>
+							<td>등록된 사진이 없습니다.</td>
+							<td><c:out value="${review.reviewScore }" /></td>
+							<c:url value="/review/detail?reviewNo=${review.reviewNo }"
+								var="url"></c:url>
+							<td><a href="${url }"><c:out
+										value="${review.reviewContent }" /></a></td>
+							<td>
+								<ul class="menu">
+									<li><c:out value="${review.userId}" />
+										<ul>
+											<li><a href="/Final/friend/create?userId=${loginUser.userId}&friendId=${review.userId}">친구추가</li>
+											<li><a href="/Final/msg/send?receiver=${review.userId}">쪽지보내기</li>
+										</ul></li>
 								</ul>
-							</li>
-						</ul>
-					</td>
-				<td><c:out value="${review.reviewUpdatedate }" /></td>
-			</tr>
-		</c:forEach>
-	</table>
-	<c:url value="/review/write?userId=${loginUser.userId }&resNo=${resNo }" var="url"></c:url> 
-	<a href="${url }"><button>리뷰작성</button></a> 
-  </div>
-</div>
- 
+							</td>
+							<td><c:out value="${review.reviewUpdatedate }" /></td>
+						</tr>
+					</c:forEach>
+				</table>
+				<c:url
+					value="/review/write?userId=${loginUser.userId }&resNo=${resNo }"
+					var="url"></c:url> <a href="${url }"><button>리뷰작성</button></a> </section>
+			</div>
+			<!-- /content -->
+		</div>
+		<!-- /tabs --> </section>
+
+	</div>
+
+
+	<script src="<%=request.getContextPath() %>/js/cbpFWTabs.js"></script>
+		<script>
+			(function() {
+
+				[].slice.call( document.querySelectorAll( '.tabs' ) ).forEach( function( el ) {
+					new CBPFWTabs( el );
+				});
+
+			})();
+ </script>
+
 </body>
 </html>
