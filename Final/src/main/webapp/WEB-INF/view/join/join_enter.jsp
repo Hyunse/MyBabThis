@@ -177,8 +177,6 @@ $(document).ready(function() {
 		<form:form modelAttribute="loginCheck" method="post"
 			action="${confirm}" id="userform">
 
-			<br>
-			<br>
 			<span class="input input--hoshi"> <form:input
 					class="input__field input__field--hoshi" path="userId" id="userId" />
 				<label
@@ -190,7 +188,7 @@ $(document).ready(function() {
 			
 			
 			<div id="dropId"></div>
-			<br>
+			
 
 
 			<span class="input input--hoshi"> <label
@@ -206,7 +204,7 @@ $(document).ready(function() {
 			
 			<div id="dropName"></div>
 			
-			<br>
+			
 			
 			<span class="input input--hoshi"> 
 			<label
@@ -217,7 +215,7 @@ $(document).ready(function() {
 					id="userPass" />
 			</span>
 			<div id="passChk"></div>
-			<br>
+			
 			<span class="input input--hoshi"> 
 			<label
 				class="input__label input__label--hoshi input__label--hoshi-color-2"
@@ -229,7 +227,7 @@ $(document).ready(function() {
 			
 			
 			<div id="chk"></div>
-			<br>
+		
 			
 			<span class="input input--hoshi"> 
 			<label
@@ -243,7 +241,7 @@ $(document).ready(function() {
 			
 			<input type="button" value="중복체크" name="emailCheck" id="emailCheck">
 			<div id="dropEmail"></div>
-			<br>
+			
 			
 			<span class="input input--hoshi">
 			<label
@@ -253,7 +251,7 @@ $(document).ready(function() {
 				<form:input class="input__field input__field--hoshi"
 					path="userPhone" id="userPhone" />
 			</span>
-			<br>
+			
 			
 			<label>성별</label>
 			<form:radiobutton path="userGender" value="1" />남

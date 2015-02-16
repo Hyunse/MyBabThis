@@ -2,8 +2,8 @@
 	position: relative;
 	z-index: 1;
 	display: inline-block;
-	margin: 1em;
-	max-width: 400px;
+	margin: 0em;
+	max-width: 180px;
 	width: calc(100% - 2em);
 	vertical-align: top;
 }
@@ -34,7 +34,7 @@
 	width: 40%;
 	color: #6a7989;
 	font-weight: bold;
-	font-size: 70.25%;
+	font-size: 60.25%;
 	-webkit-touch-callout: none;
 	-webkit-user-select: none;
 	-khtml-user-select: none;
@@ -71,7 +71,7 @@
 }
 
 .input__field--haruki {
-	padding: 0.4em 0.25em;
+
 	width: 100%;
 	background: transparent;
 	color: #AFB5BB;

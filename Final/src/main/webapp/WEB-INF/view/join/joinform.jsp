@@ -1,105 +1,351 @@
+
 <!DOCTYPE html>
 <html lang="en" class="no-js">
 	<head>
 		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Dialog Effects | Don</title>
-		<meta name="description" content="A Collection of Dialog Effects" />
-		<meta name="keywords" content="dialog, effect, modal, overlay, animation, web design" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+		<title>Nifty Modal Window Effects</title>
+		<meta name="description" content="Nifty Modal Window Effects with CSS Transitions and Animations" />
+		<meta name="keywords" content="modal, window, overlay, modern, box, css transition, css animation, effect, 3d, perspective" />
 		<meta name="author" content="Codrops" />
-		<link rel="shortcut icon" href="../favicon.ico">
-		<link rel="stylesheet" type="text/css" href="css/normalize.css" />
-		<link rel="stylesheet" type="text/css" href="css/demo.css" />
-		<!-- common styles -->
-		<link rel="stylesheet" type="text/css" href="css/dialog.css" />
-		<!-- individual effect -->
-		<link rel="stylesheet" type="text/css" href="css/dialog-don.css" />
+		<link rel="shortcut icon" href="../favicon.ico"> 
+		<link rel="stylesheet" type="text/css" href="css/default.css" />
+		<link rel="stylesheet" type="text/css" href="css/component.css" />
 		<script src="js/modernizr.custom.js"></script>
 	</head>
 	<body>
-		<div class="container">
-			<div class="content">
-				<header class="codrops-header">
-					<h1><span>A collection of</span> Dialog Effects</h1>
-					<div class="codrops-links">
-						<a class="codrops-icon codrops-icon-prev" href="http://tympanus.net/Development/MockupSlideshow/" title="Previous Demo"><span>Previous Demo</span></a> /
-						<a class="codrops-icon codrops-icon-drop" href="http://tympanus.net/codrops/?p=21386" title="Back to the article"><span>Back to the Codrops Article</span></a>
-					</div>
-					<div class="button-wrap"><button data-dialog="somedialog" class="trigger">Open Dialog</button></div>
-				</header>
-				<nav id="menu" class="menu">
-					<div>
-						<h2>Simple</h2>
-						<ul>
-							<li><a href="index.html">Sandra</a></li>
-							<li><a href="sally.html">Sally</a></li>
-						</ul>
-						<h2>Body</h2>
-						<ul>
-							<li><a href="dean.html">Dean</a></li>
-							<li><a href="susan.html">Susan</a></li>
-						</ul>
-					</div>
-					<div>
-						<h2>Move/Slide</h2>
-						<ul>
-							<li><a href="cathy.html">Cathy</a></li>
-							<li><a href="annie.html">Annie</a></li>
-							<li><a href="val.html">Val</a></li>
-							<li><a href="ricky.html">Ricky</a></li>
-							<li><a href="donna.html">Donna</a></li>
-						</ul>
-					</div>
-					<div>
-						<h2>Sticky</h2>
-						<ul>
-							<li><a href="ken.html">Ken</a></li>
-							<li><a href="alex.html">Alex</a></li>
-						</ul>
-						<h2>Jelly</h2>
-						<ul>
-							<li><a class="current-demo" href="don.html">Don</a></li>
-						</ul>
-					</div>
-					<div>
-						<h2>SVG</h2>
-						<ul>
-							<li><a href="laura.html">Laura</a></li>
-							<li><a href="jamie.html">Jamie</a></li>
-							<li><a href="henry.html">Henry</a></li>
-							<li><a href="jim.html">Jim</a></li>
-							<li><a href="wilma.html">Wilma</a></li>
-						</ul>
-					</div>
-				</nav>
-				<div id="somedialog" class="dialog">
-					<div class="dialog__overlay"></div>
-					<div class="dialog__content">
-						<h2><strong>Howdy</strong>, I'm a dialog box</h2>
-						<jsp:include page="join_enter.jsp" />
-						
-						<div><button class="action" data-dialog-close>Close</button></div>
-					</div>
+		<!-- All modals added here for the demo. You would of course just have one, dynamically created -->
+		<div class="md-modal md-effect-1" id="modal-1">
+			<div class="md-content">
+				<h3>Modal Dialog</h3>
+				<div>
+					<p>This is a modal window. You can do the following things with it:</p>
+					<ul>
+						<li><strong>Read:</strong> modal windows will probably tell you something important so don't forget to read what they say.</li>
+						<li><strong>Look:</strong> a modal window enjoys a certain kind of attention; just look at it and appreciate its presence.</li>
+						<li><strong>Close:</strong> click on the button below to close the modal.</li>
+					</ul>
+					<button class="md-close">Close me!</button>
 				</div>
-				<!-- Related demos -->
-				<section class="related">
-					You might also like: <a href="http://tympanus.net/Development/FullscreenOverlayStyles/">Fullscreen Overlay Effects</a> and <a href="http://tympanus.net/Development/ModalWindowEffects/">Nifty Modal Window Effects</a>
-				</section>
-			</div><!-- /content -->
+			</div>
+		</div>
+		<div class="md-modal md-effect-2" id="modal-2">
+			<div class="md-content">
+				<h3>Modal Dialog</h3>
+				<div>
+					<p>This is a modal window. You can do the following things with it:</p>
+					<ul>
+						<li><strong>Read:</strong> modal windows will probably tell you something important so don't forget to read what they say.</li>
+						<li><strong>Look:</strong> a modal window enjoys a certain kind of attention; just look at it and appreciate its presence.</li>
+						<li><strong>Close:</strong> click on the button below to close the modal.</li>
+					</ul>
+					<button class="md-close">Close me!</button>
+				</div>
+			</div>
+		</div>
+		<div class="md-modal md-effect-3" id="modal-3">
+			<div class="md-content">
+				<h3>Modal Dialog</h3>
+				<div>
+					<p>This is a modal window. You can do the following things with it:</p>
+					<ul>
+						<li><strong>Read:</strong> modal windows will probably tell you something important so don't forget to read what they say.</li>
+						<li><strong>Look:</strong> a modal window enjoys a certain kind of attention; just look at it and appreciate its presence.</li>
+						<li><strong>Close:</strong> click on the button below to close the modal.</li>
+					</ul>
+					<button class="md-close">Close me!</button>
+				</div>
+			</div>
+		</div>
+		<div class="md-modal md-effect-4" id="modal-4">
+			<div class="md-content">
+				<h3>Modal Dialog</h3>
+				<div>
+					<p>This is a modal window. You can do the following things with it:</p>
+					<ul>
+						<li><strong>Read:</strong> modal windows will probably tell you something important so don't forget to read what they say.</li>
+						<li><strong>Look:</strong> a modal window enjoys a certain kind of attention; just look at it and appreciate its presence.</li>
+						<li><strong>Close:</strong> click on the button below to close the modal.</li>
+					</ul>
+					<button class="md-close">Close me!</button>
+				</div>
+			</div>
+		</div>
+		<div class="md-modal md-effect-5" id="modal-5">
+			<div class="md-content">
+				<h3>Modal Dialog</h3>
+				<div>
+					<p>This is a modal window. You can do the following things with it:</p>
+					<ul>
+						<li><strong>Read:</strong> modal windows will probably tell you something important so don't forget to read what they say.</li>
+						<li><strong>Look:</strong> a modal window enjoys a certain kind of attention; just look at it and appreciate its presence.</li>
+						<li><strong>Close:</strong> click on the button below to close the modal.</li>
+					</ul>
+					<button class="md-close">Close me!</button>
+				</div>
+			</div>
+		</div>
+		<div class="md-modal md-effect-6" id="modal-6">
+			<div class="md-content">
+				<h3>Modal Dialog</h3>
+				<div>
+					<p>This is a modal window. You can do the following things with it:</p>
+					<ul>
+						<li><strong>Read:</strong> modal windows will probably tell you something important so don't forget to read what they say.</li>
+						<li><strong>Look:</strong> a modal window enjoys a certain kind of attention; just look at it and appreciate its presence.</li>
+						<li><strong>Close:</strong> click on the button below to close the modal.</li>
+					</ul>
+					<button class="md-close">Close me!</button>
+				</div>
+			</div>
+		</div>
+		<div class="md-modal md-effect-7" id="modal-7">
+			<div class="md-content">
+				<h3>Modal Dialog</h3>
+				<div>
+					<p>This is a modal window. You can do the following things with it:</p>
+					<ul>
+						<li><strong>Read:</strong> modal windows will probably tell you something important so don't forget to read what they say.</li>
+						<li><strong>Look:</strong> a modal window enjoys a certain kind of attention; just look at it and appreciate its presence.</li>
+						<li><strong>Close:</strong> click on the button below to close the modal.</li>
+					</ul>
+					<button class="md-close">Close me!</button>
+				</div>
+			</div>
+		</div>
+		<div class="md-modal md-effect-8" id="modal-8">
+			<div class="md-content">
+				<h3>Modal Dialog</h3>
+				<div>
+					<p>This is a modal window. You can do the following things with it:</p>
+					<ul>
+						<li><strong>Read:</strong> modal windows will probably tell you something important so don't forget to read what they say.</li>
+						<li><strong>Look:</strong> a modal window enjoys a certain kind of attention; just look at it and appreciate its presence.</li>
+						<li><strong>Close:</strong> click on the button below to close the modal.</li>
+					</ul>
+					<button class="md-close">Close me!</button>
+				</div>
+			</div>
+		</div>
+		<div class="md-modal md-effect-9" id="modal-9">
+			<div class="md-content">
+				<h3>Modal Dialog</h3>
+				<div>
+					<p>This is a modal window. You can do the following things with it:</p>
+					<ul>
+						<li><strong>Read:</strong> modal windows will probably tell you something important so don't forget to read what they say.</li>
+						<li><strong>Look:</strong> a modal window enjoys a certain kind of attention; just look at it and appreciate its presence.</li>
+						<li><strong>Close:</strong> click on the button below to close the modal.</li>
+					</ul>
+					<button class="md-close">Close me!</button>
+				</div>
+			</div>
+		</div>
+		<div class="md-modal md-effect-10" id="modal-10">
+			<div class="md-content">
+				<h3>Modal Dialog</h3>
+				<div>
+					<p>This is a modal window. You can do the following things with it:</p>
+					<ul>
+						<li><strong>Read:</strong> modal windows will probably tell you something important so don't forget to read what they say.</li>
+						<li><strong>Look:</strong> a modal window enjoys a certain kind of attention; just look at it and appreciate its presence.</li>
+						<li><strong>Close:</strong> click on the button below to close the modal.</li>
+					</ul>
+					<button class="md-close">Close me!</button>
+				</div>
+			</div>
+		</div>
+		<div class="md-modal md-effect-11" id="modal-11">
+			<div class="md-content">
+				<h3>Modal Dialog</h3>
+				<div>
+					<p>This is a modal window. You can do the following things with it:</p>
+					<ul>
+						<li><strong>Read:</strong> modal windows will probably tell you something important so don't forget to read what they say.</li>
+						<li><strong>Look:</strong> a modal window enjoys a certain kind of attention; just look at it and appreciate its presence.</li>
+						<li><strong>Close:</strong> click on the button below to close the modal.</li>
+					</ul>
+					<button class="md-close">Close me!</button>
+				</div>
+			</div>
+		</div>
+		<div class="md-modal md-effect-12" id="modal-12">
+			<div class="md-content">
+				<h3>Modal Dialog</h3>
+				<div>
+					<p>This is a modal window. You can do the following things with it:</p>
+					<ul>
+						<li><strong>Read:</strong> modal windows will probably tell you something important so don't forget to read what they say.</li>
+						<li><strong>Look:</strong> a modal window enjoys a certain kind of attention; just look at it and appreciate its presence.</li>
+						<li><strong>Close:</strong> click on the button below to close the modal.</li>
+					</ul>
+					<button class="md-close">Close me!</button>
+				</div>
+			</div>
+		</div>
+		<div class="md-modal md-effect-13" id="modal-13">
+			<div class="md-content">
+				<h3>Modal Dialog</h3>
+				<div>
+					<p>This is a modal window. You can do the following things with it:</p>
+					<ul>
+						<li><strong>Read:</strong> modal windows will probably tell you something important so don't forget to read what they say.</li>
+						<li><strong>Look:</strong> a modal window enjoys a certain kind of attention; just look at it and appreciate its presence.</li>
+						<li><strong>Close:</strong> click on the button below to close the modal.</li>
+					</ul>
+					<button class="md-close">Close me!</button>
+				</div>
+			</div>
+		</div>
+		<div class="md-modal md-effect-14" id="modal-14">
+			<div class="md-content">
+				<h3>Modal Dialog</h3>
+				<div>
+					<p>This is a modal window. You can do the following things with it:</p>
+					<ul>
+						<li><strong>Read:</strong> modal windows will probably tell you something important so don't forget to read what they say.</li>
+						<li><strong>Look:</strong> a modal window enjoys a certain kind of attention; just look at it and appreciate its presence.</li>
+						<li><strong>Close:</strong> click on the button below to close the modal.</li>
+					</ul>
+					<button class="md-close">Close me!</button>
+				</div>
+			</div>
+		</div>
+		<div class="md-modal md-effect-15" id="modal-15">
+			<div class="md-content">
+				<h3>Modal Dialog</h3>
+				<div>
+					<p>This is a modal window. You can do the following things with it:</p>
+					<ul>
+						<li><strong>Read:</strong> modal windows will probably tell you something important so don't forget to read what they say.</li>
+						<li><strong>Look:</strong> a modal window enjoys a certain kind of attention; just look at it and appreciate its presence.</li>
+						<li><strong>Close:</strong> click on the button below to close the modal.</li>
+					</ul>
+					<button class="md-close">Close me!</button>
+				</div>
+			</div>
+		</div>
+		<div class="md-modal md-effect-16" id="modal-16">
+			<div class="md-content">
+				<h3>Modal Dialog</h3>
+				<div>
+					<p>This is a modal window. You can do the following things with it:</p>
+					<ul>
+						<li><strong>Read:</strong> modal windows will probably tell you something important so don't forget to read what they say.</li>
+						<li><strong>Look:</strong> a modal window enjoys a certain kind of attention; just look at it and appreciate its presence.</li>
+						<li><strong>Close:</strong> click on the button below to close the modal.</li>
+					</ul>
+					<button class="md-close">Close me!</button>
+				</div>
+			</div>
+		</div>
+		<div class="md-modal md-effect-17" id="modal-17">
+			<div class="md-content">
+				<h3>Modal Dialog</h3>
+				<div>
+					<p>This is a modal window. You can do the following things with it:</p>
+					<ul>
+						<li><strong>Read:</strong> modal windows will probably tell you something important so don't forget to read what they say.</li>
+						<li><strong>Look:</strong> a modal window enjoys a certain kind of attention; just look at it and appreciate its presence.</li>
+						<li><strong>Close:</strong> click on the button below to close the modal.</li>
+					</ul>
+					<button class="md-close">Close me!</button>
+				</div>
+			</div>
+		</div>
+		<div class="md-modal md-effect-18" id="modal-18">
+			<div class="md-content">
+				<h3>Modal Dialog</h3>
+				<div>
+					<p>This is a modal window. You can do the following things with it:</p>
+					<ul>
+						<li><strong>Read:</strong> modal windows will probably tell you something important so don't forget to read what they say.</li>
+						<li><strong>Look:</strong> a modal window enjoys a certain kind of attention; just look at it and appreciate its presence.</li>
+						<li><strong>Close:</strong> click on the button below to close the modal.</li>
+					</ul>
+					<button class="md-close">Close me!</button>
+				</div>
+			</div>
+		</div>
+		<div class="md-modal md-effect-19" id="modal-19">
+			<div class="md-content">
+				<h3>Modal Dialog</h3>
+				<div>
+					<p>This is a modal window. You can do the following things with it:</p>
+					<ul>
+						<li><strong>Read:</strong> modal windows will probably tell you something important so don't forget to read what they say.</li>
+						<li><strong>Look:</strong> a modal window enjoys a certain kind of attention; just look at it and appreciate its presence.</li>
+						<li><strong>Close:</strong> click on the button below to close the modal.</li>
+					</ul>
+					<button class="md-close">Close me!</button>
+				</div>
+			</div>
+		</div>
+		<div class="md-modal md-effect-20" id="modal-20">
+			<div class="md-content">
+				<h3>Modal Dialog</h3>
+				<div>
+					<p>This is a modal window. You can do the following things with it:</p>
+					<ul>
+						<li><strong>Read:</strong> modal windows will probably tell you something important so don't forget to read what they say.</li>
+						<li><strong>Look:</strong> a modal window enjoys a certain kind of attention; just look at it and appreciate its presence.</li>
+						<li><strong>Close:</strong> click on the button below to close the modal.</li>
+					</ul>
+					<button class="md-close">Close me!</button>
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<!-- Top Navigation -->
+			<div class="codrops-top clearfix">
+				<a class="codrops-icon codrops-icon-prev" href="http://tympanus.net/Development/DynamicGrid/"><span>Previous Demo</span></a>
+				<span class="right"><a class="codrops-icon codrops-icon-drop" href="http://tympanus.net/codrops/?p=15313"><span>Back to the Codrops Article</span></a></span>
+			</div>
+			<header>
+				<h1>Nifty Modal Window Effects <span>Some inspiration for different modal window appearances</span></h1>
+			</header>
+			<div class="main clearfix">
+				<div class="column">
+					<p>There are many possibilities for modal overlays to appear. Here are some modern ways of showing them using CSS transitions and animations.</p>
+				</div>
+				<div class="column">
+					<button class="md-trigger" data-modal="modal-1">Fade in &amp; Scale</button>
+					<button class="md-trigger" data-modal="modal-2">Slide in (right)</button>
+					<button class="md-trigger" data-modal="modal-3">Slide in (bottom)</button>
+					<button class="md-trigger" data-modal="modal-4">Newspaper</button>
+					<button class="md-trigger" data-modal="modal-5">Fall</button>
+					<button class="md-trigger" data-modal="modal-6">Side Fall</button>
+					<button class="md-trigger" data-modal="modal-7">Sticky Up</button>
+					<button class="md-trigger" data-modal="modal-8">3D Flip (horizontal)</button>
+					<button class="md-trigger" data-modal="modal-9">3D Flip (vertical)</button>
+					<button class="md-trigger" data-modal="modal-10">3D Sign</button>
+					<button class="md-trigger" data-modal="modal-11">Super Scaled</button>
+					<button class="md-trigger" data-modal="modal-12">Just Me</button>
+					<button class="md-trigger" data-modal="modal-13">3D Slit</button>
+					<button class="md-trigger" data-modal="modal-14">3D Rotate Bottom</button>
+					<button class="md-trigger" data-modal="modal-15">3D Rotate In Left</button>
+					<button class="md-trigger" data-modal="modal-16">Blur</button>
+					<!-- special modal that will add a perspective class to the html element -->
+					<button class="md-trigger md-setperspective" data-modal="modal-17">Let me in</button>
+					<button class="md-trigger md-setperspective" data-modal="modal-18">Make way!</button>
+					<button class="md-trigger md-setperspective" data-modal="modal-19">Slip from top</button>
+				</div>
+			</div>
 		</div><!-- /container -->
+		<div class="md-overlay"></div><!-- the overlay element -->
+
+		<!-- classie.js by @desandro: https://github.com/desandro/classie -->
 		<script src="js/classie.js"></script>
-		<script src="js/dialogFx.js"></script>
+		<script src="js/modalEffects.js"></script>
+
+		<!-- for the blur effect -->
+		<!-- by @derSchepp https://github.com/Schepp/CSS-Filters-Polyfill -->
 		<script>
-			(function() {
-
-				var dlgtrigger = document.querySelector( '[data-dialog]' ),
-					somedialog = document.getElementById( dlgtrigger.getAttribute( 'data-dialog' ) ),
-					dlg = new DialogFx( somedialog );
-
-				dlgtrigger.addEventListener( 'click', dlg.toggle.bind(dlg) );
-
-			})();
+			// this is important for IEs
+			var polyfilter_scriptpath = '/js/';
 		</script>
+		<script src="js/cssParser.js"></script>
+		<script src="js/css-filters-polyfill.js"></script>
 	</body>
 </html>
