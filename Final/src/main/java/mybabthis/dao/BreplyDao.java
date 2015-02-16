@@ -18,4 +18,5 @@ public interface BreplyDao {
 	int deleteBreply(int breplyNo); // 맛집 댓글 삭제
 	List<Breply> getBreplyByBoardNo(int boardNo);//자유게시판 아이디로 댓글리스트 가져오기 
 	Breply getBreplyByBreplyNo(int breplyNo);//댓글 아이디로 댓글리스트 가져오기 
+	List<Breply> getAllBreply();
 }

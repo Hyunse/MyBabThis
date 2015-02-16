@@ -13,4 +13,5 @@ public interface RreplyService {
 	int deleteRreply(int rreplyNo);
 	List<Rreply> getRreplyByResNo(int resNo);
 	Rreply getRreplyByRreplyNo(int rreplyNo); 
+	List<Rreply> getAllRreply();
 }

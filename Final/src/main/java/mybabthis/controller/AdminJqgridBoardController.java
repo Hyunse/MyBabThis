@@ -5,8 +5,8 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import mybabthis.entity.Users;
-import mybabthis.service.UserService;
+import mybabthis.entity.Board;
+import mybabthis.service.BoardService;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,32 +18,32 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
-public class AdminJqgridUsersController {
+public class AdminJqgridBoardController {
 	private static final Logger logger;
 	static {
-		logger = LoggerFactory.getLogger(AdminJqgridUsersController.class);
+		logger = LoggerFactory.getLogger(AdminJqgridBoardController.class);
 	}
 
 	@Autowired
-	UserService userService;
+	BoardService boardService;
 
 	//페이지 불러오기
-	@RequestMapping(value = "/admin/Users", method = RequestMethod.GET)
+	@RequestMapping(value = "/admin/Board", method = RequestMethod.GET)
 	public String goPage() {
-		return "admin/admin_users_jqgrid";
+		return "admin/admin_board_jqgrid";
 	}
 	
 	//리스트 SELECT
-	@RequestMapping(value = "/admin/Users/getList")
+	@RequestMapping(value = "/admin/Board/getList")
 	@ResponseBody
-	public List<Users> selectList(HttpServletRequest request, HttpSession session) throws Exception {
-		return userService.selectAllUser();
+	public List<Board> selectList(HttpServletRequest request, HttpSession session) throws Exception {
+		return boardService.viewAllBoard();
 	}
 	
-	//DELETE user
-	@RequestMapping(value = "/admin/Users/deleteOne", method = RequestMethod.POST)
-	public String deleteUser(@RequestParam String oper, String id) {
-		userService.out(id);
-		return "admin/admin_users_jqgrid";
+	//DELETE restaurant
+	@RequestMapping(value = "/admin/Board/deleteOne", method = RequestMethod.POST)
+	public String deleteBoard(@RequestParam String oper, int id) {
+		boardService.delete(id);
+		return "admin/admin_board_jqgrid";
 	}
 }

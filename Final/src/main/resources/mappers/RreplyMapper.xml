@@ -4,43 +4,49 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="proj.Mapper">
 
-<!-- 댓글생성 -->
-  <insert id="createRreply" parameterType="Rreply">
-    
-     insert into rreply 
+	<!-- 댓글생성 -->
+	<insert id="createRreply" parameterType="Rreply">
+
+		insert into rreply
 		(
-		rreply_content, 
-		rreply_regdate, 
-		rreply_updatedate, 
-		res_no, 
+		rreply_content,
+		rreply_regdate,
+		rreply_updatedate,
+		res_no,
 		user_id)
 		values( #{rreplyContent}, sysdate, sysdate, #{resNo}, #{userId})
-    </insert>
-   
-   <!-- 댓글수정 -->
-   <update id="updateRreply" parameterType="Rreply">
-      update rreply set
-			rreply_content=#{rreplyContent}, 
-			rreply_updatedate=sysdate
-		where rreply_no=#{rreplyNo} 
-   </update>
-   
-   
-   <!-- 댓글삭제 -->
-   <delete id="deleteRreply" parameterType="integer">
-   delete from rreply
-   where rreply_no=#{rreplyNo}
-   </delete>
-   
-   <!-- 맛집번호로 댓글리스트 가져오기 -->
-   <select id="selectRreplyByResNo" parameterType="Integer" resultType="Rreply">
+	</insert>
+
+	<!-- 댓글수정 -->
+	<update id="updateRreply" parameterType="Rreply">
+		update rreply set
+		rreply_content=#{rreplyContent},
+		rreply_updatedate=sysdate
+		where rreply_no=#{rreplyNo}
+	</update>
+
+
+	<!-- 댓글삭제 -->
+	<delete id="deleteRreply" parameterType="integer">
+		delete from rreply
+		where rreply_no=#{rreplyNo}
+	</delete>
+
+	<!-- 맛집번호로 댓글리스트 가져오기 -->
+	<select id="selectRreplyByResNo" parameterType="Integer"
+		resultType="Rreply">
 		select * from rreply
 		where res_no=#{resNo}
-</select>
+	</select>
 
-<!-- 댓글번호로 댓글리스트 가져오기  -->
-<select id="selectRreplyByRreplyNo" parameterType="Integer" resultType="Rreply">
+	<!-- 댓글번호로 댓글리스트 가져오기 -->
+	<select id="selectRreplyByRreplyNo" parameterType="Integer"
+		resultType="Rreply">
 		select * from rreply where rreply_no=#{rreplyNo}
-		</select>
+	</select>
+	
+	<select id="selectAllRreply" resultType="Rreply">
+		select * from rreply 
+	</select>
 
 </mapper>

@@ -43,12 +43,17 @@ public class BreplyServiceImpl implements BreplyService {
 	public List<Breply> getBreplyByBoardNo(int boardNo) {
 		List<Breply> result = dao.getBreplyByBoardNo(boardNo);
 		return result;
-	
 	}
 
 	@Override
 	public Breply getBreplyByBreplyNo(int breplyNo) {
 		Breply result = dao.getBreplyByBreplyNo(breplyNo);
+		return result;
+	}
+	
+	@Override
+	public List<Breply> getAllBreply() {
+		List<Breply> result = dao.getAllBreply();
 		return result;
 	}
 

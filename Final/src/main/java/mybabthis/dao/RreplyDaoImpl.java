@@ -58,4 +58,10 @@ public class RreplyDaoImpl implements RreplyDao {
 		return result;
 	}
 
+	@Override
+	public List<Rreply> getAllRreply() {
+		String stmt = nameSpace + "selectAllRreply";
+		return sqlSession.selectList(stmt);
+	}
+
 }

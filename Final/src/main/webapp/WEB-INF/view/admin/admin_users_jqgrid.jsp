@@ -15,7 +15,7 @@
 $(document).ready(function(){
     jQuery("#JQ_list_forUsers").jqGrid({
         url:'<%=request.getContextPath()%>/admin/Users/getList',
-        editurl:'<%=request.getContextPath()%>/admin/Users/leave',
+        editurl:'<%=request.getContextPath()%>/admin/Users/deleteOne',
         datatype: 'json',
         mtype: 'GET',
         colNames:['아이디',"이름","이메일", "성별", "연락처", "가입일", "수정일", "등급", "활성화여부"],
@@ -49,19 +49,13 @@ $(document).ready(function(){
         }
    });
     
-    jQuery("#JQ_list_forUsers").jqGrid('navGrid',"#navGridForUsers",{edit:true,add:true,del:true,search:true,refresh:true}
+    jQuery("#JQ_list_forUsers").jqGrid('navGrid',"#navGridForUsers",{edit:false,add:false,del:true,search:true,refresh:true}
     );
    
     jQuery("#JQ_list_forUsers").trigger("reloadGrid");
     
-    $.extend($.jgrid.add, {
-        beforeSubmit: function () {
-        	alert(aa);
-            $(this).jqGrid("setGridParam", {datatype: "json"});
-            return [true,"",""];
-        }
-    });
 });
+
 
 
 </script>

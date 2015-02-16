@@ -58,4 +58,10 @@ public class BreplyDaoImpl implements BreplyDao {
 		return result;
 	}
 
+	@Override
+	public List<Breply> getAllBreply() {
+		String stmt = nameSpace + "selectAllBoard";
+		return sqlSession.selectList(stmt);
+	}
+
 }

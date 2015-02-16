@@ -6,8 +6,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import mybabthis.entity.Restaurant;
+import mybabthis.entity.Rreply;
 import mybabthis.entity.Users;
 import mybabthis.service.RestaurantService;
+import mybabthis.service.RreplyService;
 import mybabthis.service.UserService;
 
 import org.slf4j.Logger;
@@ -20,32 +22,32 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
-public class AdminJqgridRestaurantController {
+public class AdminJqgridRreplyController {
 	private static final Logger logger;
 	static {
-		logger = LoggerFactory.getLogger(AdminJqgridRestaurantController.class);
+		logger = LoggerFactory.getLogger(AdminJqgridRreplyController.class);
 	}
 
 	@Autowired
-	RestaurantService restaurantService;
+	RreplyService rreplyService;
 
 	//페이지 불러오기
-	@RequestMapping(value = "/admin/Restaurant", method = RequestMethod.GET)
+	@RequestMapping(value = "/admin/Rreply", method = RequestMethod.GET)
 	public String goPage() {
-		return "admin/admin_restaurant_jqgrid";
+		return "admin/admin_rreply_jqgrid";
 	}
 	
 	//리스트 SELECT
-	@RequestMapping(value = "/admin/Restaurant/getList")
+	@RequestMapping(value = "/admin/Rreply/getList")
 	@ResponseBody
-	public List<Restaurant> selectList(HttpServletRequest request, HttpSession session) throws Exception {
-		return restaurantService.selectAllRestuarants();
+	public List<Rreply> selectList(HttpServletRequest request, HttpSession session) throws Exception {
+		return rreplyService.getAllRreply();
 	}
 	
 	//DELETE restaurant
-	@RequestMapping(value = "/admin/Restaurant/deleteOne", method = RequestMethod.POST)
-	public String deleteRestaurant(@RequestParam String oper, int id) {
-		restaurantService.deleteRestaurant(id);
-		return "admin/admin_restaurant_jqgrid";
+	@RequestMapping(value = "/admin/Rreply/deleteOne", method = RequestMethod.POST)
+	public String deleteRreply(@RequestParam String oper, int id) {
+		rreplyService.deleteRreply(id);
+		return "admin/admin_rreply_jqgrid";
 	}
 }

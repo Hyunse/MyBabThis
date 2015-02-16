@@ -52,5 +52,12 @@ public class RreplyServiceImpl implements RreplyService {
 		Rreply result = dao.getRreplyByRreply(rreplyNo);
 		return result;
 	}
+	
+	@Override
+	public List<Rreply> getAllRreply() {
+		List<Rreply> result = dao.getAllRreply();
+		return result;
+	
+	}
 
 }
