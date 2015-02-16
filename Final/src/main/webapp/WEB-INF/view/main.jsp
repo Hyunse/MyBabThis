@@ -7,6 +7,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<link rel="shortcut icon" href="../favicon.ico"> 
+		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/default.css" />
+		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/component.css" />
+		<script src="<%=request.getContextPath() %>/js/modernizr.custom.js"></script>
 </head>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
 	
@@ -59,8 +63,6 @@ $("#search").click(function(){
 	<jsp:include page="/WEB-INF/view/header.jsp" />
 	<hr>
 	
-	
-	
 	<input type="text" id="resName" name="resName">
 	<input type="button" id="search" value="검색"><br>
 	
@@ -101,7 +103,11 @@ $("#search").click(function(){
 	<jsp:include page="/WEB-INF/view/ranking/new_restaurant.jsp" />
 	<hr>
 	<jsp:include page="/WEB-INF/view/footer.jsp" />
-	
+	<script src="<%=request.getContextPath()%>/js/classie.js"></script>
+		<script src="<%=request.getContextPath()%>/js/uisearch.js"></script>
+		<script>
+			new UISearch( document.getElementById( 'sb-search' ) );
+		</script>
 	
 </body>
 </html>

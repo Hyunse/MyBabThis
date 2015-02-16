@@ -55,6 +55,7 @@ $(document).ready(function() {
 		<br>
 	<button type="submit" name="proceed">입력</button>
 	</form:form>
+	
 
 
 </body>
