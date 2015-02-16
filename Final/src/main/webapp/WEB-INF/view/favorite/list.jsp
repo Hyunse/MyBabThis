@@ -9,6 +9,8 @@
 <title>Insert title here</title>
 </head>
 <body>
+<jsp:include page="/WEB-INF/view/header.jsp" />
+<jsp:include page="/WEB-INF/view/mypage/mypage_list.jsp" />
 	<h2>즐겨찾기목록</h2>
 
 
