@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
-
+<script src="http://code.jquery.com/jquery-latest.js"></script>
 <body>
 	<c:url value="/ranking/all" var="all" />
 	<a href="${all }"><button type="submit">전체</button></a>

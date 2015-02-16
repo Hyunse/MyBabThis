@@ -14,7 +14,7 @@
 		<meta name="description" content="Modern effects and styles for off-canvas navigation with CSS transitions and SVG animations using Snap.svg" />
 		<meta name="keywords" content="sidebar, off-canvas, menu, navigation, effect, inspiration, css transition, SVG, morphing, animation" />
 		<meta name="author" content="Codrops" />
-		<link rel="shortcut icon" href="../favicon.ico">
+<!-- 		<link rel="shortcut icon" href="../favicon.ico"> -->
 		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/normalize.css" />
 		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/demo.css" />
 		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/fonts/css/font-awesome.min.css" />
@@ -77,7 +77,7 @@
 				</div>
 			</div><!-- /content-wrap -->
 		</div>
-		<script src="js/classie.js"></script>
-		<script src="js/main4.js"></script>
+		<script src="<%=request.getContextPath() %>/js/classie.js"></script>
+		<script src="<%=request.getContextPath() %>/js/main4.js"></script>
 </body>
 </html>
