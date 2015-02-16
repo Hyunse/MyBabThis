@@ -27,6 +27,25 @@
 	type="text/css" />
 
 </head>
+
+	<%-- 다이얼로그창 띄우기 --%>
+	<script src="js/classie.js"></script>
+	<script src="js/dialogFx.js"></script>
+	<script>
+
+		(function() {
+
+			var dlgtrigger = document.querySelector('['+ "data-dialog" +']'), 
+			somedialog = document.getElementById(dlgtrigger.getAttribute('data-dialog')), 
+			dlg = new DialogFx(somedialog);
+			
+			alert(dlgtrigger.getAttribute('data-dialog'));
+			
+			dlgtrigger.addEventListener('click', dlg.toggle.bind(dlg));
+
+		})();
+	</script>
+	
 <body>
 
 	<div class="container">
@@ -51,8 +70,8 @@
 				<div class="button-wrap">
 					<c:url value="/joinform" var="joinform" />
 					<%-- <a href="${joinform}"> --%>
-					<button data-dialog="somedialog" class="trigger">Join us</button>
-					</a>
+					<button id="somedialog" data-dialog="somedialog" class="trigger">Join us</button>
+
 				</div>
 
 				<c:url value="/email" var="email" />
@@ -60,13 +79,18 @@
 				<br>
 				<footer class="clearfix">
 					<p>
-						<span class="info">?</span><a href="${email}">Forgot Password</a>
+						<%-- <span class="info">?</span><a href="${email}" >Forgot Password</a> --%>
+						<div class="button-wrap">
+						
+						<button id="email_dialog" data-dialog="email_dialog" class="trigger" >Forgot Password</button>
+						</div>
 				</footer>
 			</fieldset>
 
 		</div>
 	</div>
 
+	<%-- 회원가입 다이얼로그 --%>
 	<div id="somedialog" class="dialog">
 		<div class="dialog__overlay"></div>
 		<div class="dialog__content">
@@ -78,20 +102,47 @@
 			</div>
 		</div>
 	</div>
-
+	
+	<%-- id/password 찾기 다이얼로그 --%>
+	<div id="email_dialog" class="dialog">
+		<div class="dialog__overlay"></div>
+		<div class="dialog__content">
+			<section class="content bgcolor-7">
+				<h3>아이디/비밀번호 찾기</h3>
+				<br> <span class="input input--jiro"> <input id="email"
+					name="email" class="input__field input__field--jiro" type="text"
+					id="input-10" id="email" name="email" /> <label
+					class="input__label input__label--jiro" for="input-10"> <span
+						class="input__label-content input__label-content--jiro">
+							Email</span>
+				</label></span>
+				<!-- <input type="text" id="email" name="email"> -->
+				<input type="button" id="go" value="submit"> <br>
+				<br>
+			</section>
+			<div>
+				<button class="action" data-dialog-close>Close</button>
+			</div>
+		</div>
+	</div>
+	
 	<%-- 다이얼로그창 띄우기 --%>
 	<script src="js/classie.js"></script>
 	<script src="js/dialogFx.js"></script>
 	<script>
+
 		(function() {
 
-			var dlgtrigger = document.querySelector('[data-dialog]'), somedialog = document
-					.getElementById(dlgtrigger.getAttribute('data-dialog')), dlg = new DialogFx(
-					somedialog);
-
+			var dlgtrigger = document.querySelector('#email_dialog'), 
+			somedialog = document.getElementById(dlgtrigger.getAttribute('data-dialog')), 
+			dlg = new DialogFx(somedialog);
+			
+			alert(dlgtrigger.getAttribute('data-dialog'));
+			
 			dlgtrigger.addEventListener('click', dlg.toggle.bind(dlg));
 
 		})();
 	</script>
+
 </body>
 </html>
