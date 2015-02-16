@@ -10,12 +10,12 @@
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
   <script src="//code.jquery.com/jquery-1.10.2.js"></script>
   <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+  <script src="<%=request.getContextPath() %>/js/modernizr.custom.js"></script> 
+  <script src="http://code.jquery.com/jquery-latest.js"></script>
   <link rel="stylesheet" href="/resources/demos/style.css">
   
- <meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
 		<meta name="viewport" content="width=device-width, initial-scale=1"> 
-		<title>Tab Styles Inspiration</title>
 		<meta name="description" content="Tab Styles Inspiration: A small collection of styles for tabs" />
 		<meta name="keywords" content="tabs, inspiration, web design, css, modern, effects, svg" />
 		<meta name="author" content="Codrops" />
@@ -24,13 +24,13 @@
 		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/demo.css" />
 		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/tabs.css" />
 		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/tabstyles.css" />
-  		<script src="<%=request.getContextPath() %>/js/modernizr.custom.js"></script> 
+		<title>Tab Styles Inspiration</title>
   
- <script>
+<!--  <script>
   $(function() {
     $( "#tabs" ).tabs();
   }); 
- </script>
+ </script> -->
 <script>
 	$(function() {
 		$(".menu").menu();
@@ -43,8 +43,8 @@
 </style> 
 
 </head>
-<script type="text/javascript"
-	src="<%=request.getContextPath()%>/js/jquery-2.1.3.js"></script>
+<%-- <script type="text/javascript"
+	src="<%=request.getContextPath()%>/js/jquery-2.1.3.js"></script> --%>
 <body>
 <jsp:include page="/WEB-INF/view/header.jsp"/>
 <hr>
@@ -98,7 +98,8 @@
 										<ul>
 											<li><a href="/Final/friend/create?userId=${loginUser.userId}&friendId=${review.userId}">친구추가</li>
 											<li><a href="/Final/msg/send?receiver=${rreply.userId}">쪽지보내기</li>
-										</ul></li>
+										</ul>
+									</li>
 								</ul>
 							</td>
 							<td><c:out value="${rreply.rreplyUpdatedate }" /></td>
@@ -135,7 +136,8 @@
 										<ul>
 											<li><a href="/Final/friend/create?userId=${loginUser.userId}&friendId=${review.userId}">친구추가</li>
 											<li><a href="/Final/msg/send?receiver=${review.userId}">쪽지보내기</li>
-										</ul></li>
+										</ul>
+									</li>
 								</ul>
 							</td>
 							<td><c:out value="${review.reviewUpdatedate }" /></td>
