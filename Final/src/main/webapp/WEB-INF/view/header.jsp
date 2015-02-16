@@ -30,7 +30,7 @@
 
 <div class="menudiv">
 			<div class="menu-wrap">
-				<nav class="menu">
+				<nav class="menunav">
 					<div class="icon-list">
 						<a href="${main}"><i class="fa fa-fw fa-star-o"></i><span>메인으로</span></a>
 						<a href="${ranking}"><i class="fa fa-fw fa-bell-o"></i><span>맛집 랭킹</span></a>

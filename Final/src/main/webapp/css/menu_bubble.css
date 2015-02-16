@@ -126,7 +126,7 @@ body,  */
 	transition: transform 0.4s;
 }
 
-.menu {
+.menunav {
 	position: relative;
 	z-index: 1000;
 	padding: 3em 1em 0;
@@ -179,7 +179,7 @@ body,  */
 }
 
 .show-menu .menu-wrap,
-.show-menu .menu,
+.show-menu .menunav,
 .show-menu .close-button,
 .show-menu .morph-shape,
 .show-menu .content::before {
@@ -187,7 +187,7 @@ body,  */
 	transform: translate3d(0,0,0);
 }
 
-.show-menu .menu,
+.show-menu .menunav,
 .show-menu .close-button {
 	opacity: 1;
 	-webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
