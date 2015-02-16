@@ -8,6 +8,8 @@
 <title>Insert title here</title>
 </head>
 <body>
+<jsp:include page="/WEB-INF/view/header.jsp" />
+<jsp:include page="/WEB-INF/view/mypage/mypage_list.jsp" />
 	<select id="select">
 		<option value="userName">이름</option>
 		<option value="userId">아이디</option>

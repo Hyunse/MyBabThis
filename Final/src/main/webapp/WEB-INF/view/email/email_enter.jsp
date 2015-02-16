@@ -85,7 +85,7 @@ $(document).ready(function() {
 		</script>
 <body>
 	<section class="content bgcolor-7">
-	<h2 >이메일로 아이디랑 비번 찾기 페이지</h2>
+	<h3 >아이디/비밀번호 찾기</h3>
 	<br>
 
 	

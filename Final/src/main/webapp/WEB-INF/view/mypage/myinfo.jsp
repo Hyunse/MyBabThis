@@ -149,7 +149,6 @@ $("#pass2").blur(function(){
 </script>
 <body>
 <jsp:include page="/WEB-INF/view/header.jsp" />
-<hr>
 <jsp:include page="/WEB-INF/view/mypage/mypage_list.jsp" />
 <%-- <c:url value="/main" var="main" />
 	<c:url value="/admin/myinfo" var="myinfo" />
