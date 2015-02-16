@@ -28,7 +28,7 @@
 	<c:url value="/ranking/list" var="ranking"/>
 	<c:url value="/main" var="main"/>
 
-<div class="container">
+<div class="menudiv">
 			<div class="menu-wrap">
 				<nav class="menu">
 					<div class="icon-list">
