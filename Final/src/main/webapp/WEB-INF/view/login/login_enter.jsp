@@ -80,6 +80,7 @@
 			<h2>
 				<strong>Howdy</strong>, I'm a dialog box
 			</h2>
+			<jsp:include page="../join/join_enter.jsp" />
 			<div>
 				<button class="action" data-dialog-close>Close</button>
 			</div>

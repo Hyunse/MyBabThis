@@ -76,7 +76,10 @@
 				<div id="somedialog" class="dialog">
 					<div class="dialog__overlay"></div>
 					<div class="dialog__content">
-						<h2><strong>Howdy</strong>, I'm a dialog box</h2><div><button class="action" data-dialog-close>Close</button></div>
+						<h2><strong>Howdy</strong>, I'm a dialog box</h2>
+						<jsp:include page="join_enter.jsp" />
+						
+						<div><button class="action" data-dialog-close>Close</button></div>
 					</div>
 				</div>
 				<!-- Related demos -->
