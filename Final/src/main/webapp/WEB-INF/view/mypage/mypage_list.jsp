@@ -12,10 +12,10 @@
 <meta name="author" content="Codrops" />
 <title>마이페이지</title>
 <link rel="shortcut icon" href="../favicon.ico">
-<link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/normalize.css" />
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/normalize_href.css" />
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/demo_href.css" />
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/component_href.css" />
-<script src="<%=request.getContextPath() %>/js/modernizr.custom.js"></script>
+<%-- <script src="<%=request.getContextPath() %>/js/modernizr.custom.js"></script> --%>
 </head>
 <body>
 		<c:url value="/mypage/myinfo" var="myinfo" />
@@ -24,10 +24,10 @@
 		<c:url value="/msg/main" var="message" />
 			<section class="color-7">
 				<nav class="cl-effect-21">
-					<a href="${myinfo}">개인정보</a>
-					<a href="${list}">즐겨찾기</a>
-					<a href="${myfriends}">친구리스트</a>
-					<a href="${message}">쪽지함</a>
+					<a href="${myinfo}" class="nav1">개인정보</a>
+					<a href="${list}" class="nav1">즐겨찾기</a>
+					<a href="${myfriends}" class="nav1">친구리스트</a>
+					<a href="${message}" class="nav1">쪽지함</a>
 				</nav>
 			</section>
 </body>

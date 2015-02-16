@@ -150,20 +150,7 @@ $("#pass2").blur(function(){
 <body>
 <jsp:include page="/WEB-INF/view/header.jsp" />
 <jsp:include page="/WEB-INF/view/mypage/mypage_list.jsp" />
-<%-- <c:url value="/main" var="main" />
-	<c:url value="/admin/myinfo" var="myinfo" />
-	<c:url value="/admin/users" var="users" />
-	<c:url value="/admin/board" var="board" />
-	<c:url value="/admin/message" var="message" />
 
-	<table border="1">
-		<tr>
-			<td><a href="${myinfo}"><br>개인정보<br></a></td>
-			<td><a href="${users}"><br>회원관리<br></a></td>
-			<td><a href="${board}"><br>게시물관리<br></a></td>
-			<td><a href="${message}"><br>쪽지함<br></a></td>
-		</tr>
-	</table> --%>
 	<c:url value="/mypage/myinfo" var="action"></c:url>
 	<form:form modelAttribute="loginUser" method="post" action="${confirm}"  enctype="multipart/form-data" id="userform">
 
