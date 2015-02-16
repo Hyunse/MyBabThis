@@ -17,7 +17,7 @@
 		<link rel="shortcut icon" href="../favicon.ico">
 		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/normalize.css" />
 		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/demo.css" />
-		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/fonts/font-awesome-4.2.0/css/font-awesome.min.css" />
+		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/fonts/css/font-awesome.min.css" />
 		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/menu_bubble.css" />
 		<script src="<%=request.getContextPath()%>/js/snap.svg-min.js"></script>
 </head>
