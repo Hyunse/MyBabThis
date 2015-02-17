@@ -24,11 +24,14 @@
 		<c:url value="/msg/main" var="message" />
 			<section class="color-5">
 				<nav class="cl-effect-12">
-					<a href="${myinfo}" class="nav1">개인정보</a>
-					<a href="${list}" class="nav1">즐겨찾기</a>
-					<a href="${myfriends}" class="nav1">친구리스트</a>
-					<a href="${message}" class="nav1">쪽지함</a>
+					<a href="${myinfo}" >개인정보</a>
+					<a href="${list}" >즐겨찾기</a>
+					<a href="${myfriends}" >친구리스트</a>
+					<a href="${message}" >쪽지함</a>
 				</nav>
 			</section>
+			
+			
+			
 </body>
 </html>

@@ -13,7 +13,7 @@ body {
 nav a {
 	position: relative;
 	display: inline-block;
-	margin: 15px 25px;
+	margin: 10px 25px;
 	outline: none;
 	color: #fff;
 	text-decoration: none;
@@ -186,6 +186,9 @@ nav a:focus {
 	overflow: hidden;
 	padding: 0px;
 	height: 1.2em;
+	margin: 0px 0px;
+	color: #fff;
+	
 	
 }
 
@@ -524,6 +527,7 @@ nav a:focus {
 	-webkit-transform: translateX(-50%) translateY(-50%) scale(0.2);
 	-moz-transform: translateX(-50%) translateY(-50%) scale(0.2);
 	transform: translateX(-50%) translateY(-50%) scale(0.2);
+	
 }
 
 .cl-effect-12 a::after {
@@ -533,6 +537,7 @@ nav a:focus {
 	-webkit-transform: translateX(-50%) translateY(-50%) scale(0.8);
 	-moz-transform: translateX(-50%) translateY(-50%) scale(0.8);
 	transform: translateX(-50%) translateY(-50%) scale(0.8);
+	
 }
 
 .cl-effect-12 a:hover::before,
@@ -543,6 +548,9 @@ nav a:focus {
 	-webkit-transform: translateX(-50%) translateY(-50%) scale(1);
 	-moz-transform: translateX(-50%) translateY(-50%) scale(1);
 	transform: translateX(-50%) translateY(-50%) scale(1);
+}
+.cl-effect-12 a:hover::after{
+	color:'#fff';
 }
 
 /* Effect 13: three circles */
