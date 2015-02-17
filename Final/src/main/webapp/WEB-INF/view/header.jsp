@@ -22,7 +22,7 @@
 	<%-- 	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/menu_elastic.css" /> --%>
 			<%-- <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/menu_topexpand.css" /> --%>
 		<script src="<%=request.getContextPath()%>/js/snap.svg-min.js"></script>
-		<script>var stickyOffset = $('.sticky').offset().top;
+		<!-- <script>var stickyOffset = $('.sticky').offset().top;
 
 		$(window).scroll(function(){
 		  var sticky = $('.sticky'),
@@ -30,7 +30,7 @@
 
 		  if (scroll >= stickyOffset) sticky.addClass('fixed');
 		  else sticky.removeClass('fixed');
-		});</script>
+		});</script> -->
 </head>
 <style>
 
