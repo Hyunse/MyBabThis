@@ -54,7 +54,7 @@
 내용 : ${boardDetail.boardContent } <br>
 
 <c:url value= "/board/update?boardNo=${boardDetail.boardNo}" var="goEdit"/> 
-<a href="${goEdit}"><button type="submit">수정</button></a>
+<a href="${goEdit}"><button type="submit" class="btn btn-primary">수정</button></a>
 <hr>
 	<h2>댓글목록</h2>
 	<table border="1" id="Table">
@@ -83,19 +83,21 @@
 						<form:hidden path="breplyNo" value="${breply.breplyNo }" />
 						<form:hidden path="userId" value="${loginUser.userId }" class="droptext"/>
 						<label>내용</label> : <form:textarea  id="tbtn${breply.breplyNo}" rows='1' cols='25' path="breplyContent"></form:textarea>
-						<button type="submit" name="breply_update">확인</button>
+						<button type="submit" name="breply_update" class="btn btn-primary">확인</button>
 					</form:form>
 
 				</td>
 				<td><c:out value="${breply.userId }" /></td>
 				<td> <c:out value="${breply.breplyUpdatedate }" /></td>
 
-				<td><button class="updateBtn" id="btn${breply.breplyNo}">수정</button>
+				<td><button class="btn updateB
+				
+				tn" id="btn${breply.breplyNo}">수정</button>
 		</td>
 
 				<td><c:url
 						value="/board/delete?breplyNo=${breply.breplyNo }&boardNo=${breply.boardNo }"
-						var="url"></c:url> <a href="${url}"><button>삭제</button></a></td>
+						var="url"></c:url> <a href="${url}" ><button class="btn btn-primary">삭제</button></a></td>
 			</tr>
 		</c:forEach>
 	</table>
@@ -106,7 +108,7 @@
 		<form:hidden path="boardNo" value="${boardDetail.boardNo }"/>
 		<form:hidden path="userId" value="${loginUser.userId }"/>
 		<label>내용</label> : <form:textarea path="breplyContent"/>
-		<button type="submit" name="breply_write">작성</button>
+		<button type="submit" name="breply_write" class="btn btn-primary">작성</button>
 	</form:form>
 	
 

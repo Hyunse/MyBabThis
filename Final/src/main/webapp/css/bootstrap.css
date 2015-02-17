@@ -2078,7 +2078,20 @@ fieldset[disabled] .btn-default.active {
   border-color: #cccccc;
 }
 
-.btn-primary {
+.btn-primary,
+.updateBtn {
+  color: #ffffff;
+  background-color: #DB0000;
+  border-color: #DB0000;
+}
+
+
+
+.updateBtn:hover,
+.updateBtn:focus,
+.updateBtn:active,
+.updateBtn.active,
+.open .dropdown-toggle.updateBtn {
   color: #ffffff;
   background-color: #DB0000;
   border-color: #DB0000;
@@ -2093,6 +2106,13 @@ fieldset[disabled] .btn-default.active {
   background-color: #DB0000;
   border-color: #DB0000;
 }
+
+.btn-primary:active,
+.btn-primary.active,
+.open .dropdown-toggle.btn-primary {
+  background-image: none;
+}
+
 
 .btn-primary:active,
 .btn-primary.active,

@@ -85,7 +85,7 @@
 
 	</table>
 	<c:url value="/board/write" var="write" />
-	<a href="${write}"><button type="submit">글쓰기</button></a>
+	<a href="${write}"><button type="submit" class="btn btn-primary">글쓰기</button></a>
 
 
 

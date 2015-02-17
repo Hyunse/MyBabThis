@@ -12,13 +12,13 @@
 <body>
 
 	<c:url value="/meeting/confirm" var="write"></c:url>
-	<form:form modelAttribute="boardInfo" method="post" action="${write}">
+	<form:form modelAttribute="boardInfo" method="post" action="${write}" style= "margin-left: 5em">
 
 		<label>번개모임</label> <form:hidden path="boardType" value="M" />
 		<br>
 		<br>
 
-		<label>아이디</label> : <form:input path="userId" value="${loginUser.userId }" readonly="true" />
+		<label>아이디</label> : <form:input path="userId" value="${loginUser.userId }" readonly="true"  />
 		<br>
 
 		<label>제목</label> : <form:input path="boardTitle"  />
@@ -28,7 +28,8 @@
 		<br>
 		<br>
 
-		<button type="submit" name="finish">완료</button>
+		
+		<button type="submit" name="finish" class="btn btn-primary" style="float: right; margin-right: 11em;">완료</button>
 	</form:form>
 </body>
 </html>
