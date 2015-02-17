@@ -74,6 +74,8 @@ $(document).ready(function(){
 <div class="sticky">
 	<jsp:include page="/WEB-INF/view/header.jsp" />
 </div>
+
+
 <br>
 <br>
 <br>
