@@ -258,7 +258,7 @@ $(document).ready(function() {
 		</form:form>
 	</section>
 
-	<script src="js/classie.js"></script>
+	<script src="js/classie_input.js"></script>
 	<script>
 		(function() {
 			// trim polyfill : https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/Trim
