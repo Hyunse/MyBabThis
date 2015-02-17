@@ -80,7 +80,8 @@
 
 	function UISearch( el, options ) {	
 		this.el = el;
-		this.inputEl = el.querySelector( 'form > input.sb-search-input' );
+		
+	this.inputEl = el.querySelector( 'form > input.sb-search-input' );
 		this._initEvents();
 	}
 
@@ -94,6 +95,7 @@
 					
 					if( !classie.has( self.el, 'sb-search-open' ) ) { // open it
 						ev.preventDefault();
+						
 						self.open();
 					}
 					else if( classie.has( self.el, 'sb-search-open' ) && /^\s*$/.test( self.inputEl.value ) ) { // close it
@@ -116,6 +118,7 @@
 			}
 			// close the search input if body is clicked
 			var bodyFn = function( ev ) {
+				
 				self.close();
 				this.removeEventListener( 'click', bodyFn );
 				this.removeEventListener( 'touchstart', bodyFn );
