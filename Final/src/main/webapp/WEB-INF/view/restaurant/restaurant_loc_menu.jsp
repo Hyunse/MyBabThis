@@ -36,12 +36,8 @@
 			<a href="/Final/restaurant/list?locName=영등포"><span data-hover="Yeongdeungpo">영등포</span></a>
 		</nav>
 	</section>
-	<section class="color-5">
-		<nav class="cl-effect-5">
+	<section >
 			<a href="/Final/restaurant/write"><button>글쓰기</button></a>
-		</nav>
 	</section>
-
-
 </body>
 </html>

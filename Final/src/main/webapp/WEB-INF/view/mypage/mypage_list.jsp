@@ -22,8 +22,8 @@
 		<c:url value="/favorite/list?userId=${loginUser.userId}" var="list"/>
 		<c:url value="/friend/list?userId=${loginUser.userId}" var="myfriends" />
 		<c:url value="/msg/main" var="message" />
-			<section class="color-7">
-				<nav class="cl-effect-21">
+			<section class="color-5">
+				<nav class="cl-effect-12">
 					<a href="${myinfo}" class="nav1">개인정보</a>
 					<a href="${list}" class="nav1">즐겨찾기</a>
 					<a href="${myfriends}" class="nav1">친구리스트</a>
