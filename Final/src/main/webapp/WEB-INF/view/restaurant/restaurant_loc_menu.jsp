@@ -37,7 +37,7 @@
 		</nav>
 	</section>
 	<section >
-			<a href="/Final/restaurant/write"><button>글쓰기</button></a>
+			<a href="/Final/restaurant/write"><button  class="btn btn-default"><span class="glyphicon glyphicon-pencil">  </span> 글쓰기</button></a>
 	</section>
 </body>
 </html>

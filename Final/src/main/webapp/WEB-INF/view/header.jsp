@@ -106,7 +106,7 @@
 						<h2>오늘, 맛집, 성공적 <span class="glyphicon glyphicon-heart"></span></h2>
 					</div>
 
-					<div id="wrapper">
+					<div id="wrapper" align="right">
 						<div id="header_info">
 							<c:if test="${!empty loginUser }">
 								<img width="40" height="40"
