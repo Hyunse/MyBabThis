@@ -6,7 +6,6 @@ body,  */
 	width: 100%;
 	height: 100%;
 }
-
 .menudiv {
 	background: #373a47;
 }
@@ -21,7 +20,7 @@ body,  */
 }
 
 .content-wrap {
-	overflow-y: scroll;
+	overflow-y: hidden;
 	-webkit-overflow-scrolling: touch;
 	-webkit-transition: -webkit-transform 0.4s;
 	transition: transform 0.4s;
@@ -29,7 +28,7 @@ body,  */
 
 .content {
 	position: relative;
-	background: #b4bad2;
+	background: #ffffff;
 }
 
 .content::before {

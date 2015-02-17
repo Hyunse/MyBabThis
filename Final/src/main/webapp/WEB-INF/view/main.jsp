@@ -72,11 +72,10 @@ $(document).ready(function(){
 
 <body>
 	<jsp:include page="/WEB-INF/view/header.jsp" />
-	<hr>
 
-	<input type="text" id="resName" name="resName">
+	<!-- <input type="text" id="resName" name="resName">
 	<input type="button" id="search" value="검색">
-	<br>
+	<br> -->
 	<div id="sb-search" class="sb-search">
 		<form>
 			<input class="sb-search-input" placeholder="맛집 이름으로 검색" type="text"
@@ -120,7 +119,7 @@ $(document).ready(function(){
 
 
 
-	<hr>
+
 	<jsp:include page="/WEB-INF/view/ranking/new_restaurant.jsp" />
 	<hr>
 	<jsp:include page="/WEB-INF/view/footer.jsp" />

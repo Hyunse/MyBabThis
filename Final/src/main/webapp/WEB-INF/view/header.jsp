@@ -53,7 +53,6 @@
 						
 						<h1><span>오늘,맛집,성공적</span></h1>
 				<div id="wrapper">
-		<h1>헤더 부분</h1>
 		<div id="header_info">
 			<c:if test="${!empty loginUser }">
 		<img  width="40" height="40" src="<%=request.getContextPath()%>/upload/${loginUser.userImg}">
