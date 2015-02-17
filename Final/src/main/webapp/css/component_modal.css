@@ -53,6 +53,7 @@ perspective effects (not including the modals and the overlay).
 	visibility: hidden;
 	top: 0;
 	left: 0;
+	margin: 0 auto;
 	z-index: 1000;
 	opacity: 0;
 	background: rgba(180,180,180,0.8);
@@ -73,6 +74,7 @@ perspective effects (not including the modals and the overlay).
 	position: relative;
 	border-radius: 3px;
 	margin: 0 auto;
+	
 }
 
 .md-content h3 {
@@ -85,10 +87,11 @@ perspective effects (not including the modals and the overlay).
 	background: rgba(0,0,0,0.1);
 	border-radius: 3px 3px 0 0;
 }
+ 
 
 .md-content > div {
 	padding: 15px 40px 30px;
-	margin: 0;
+	margin: 0 auto;
 	font-weight: 300;
 	font-size: 1.15em;
 }
@@ -108,10 +111,12 @@ perspective effects (not including the modals and the overlay).
 }
 
 .md-content button {
-	display: block;
+	display: inline;
 	margin: 0 auto;
 	font-size: 0.8em;
 }
+
+
 
 /* Individual modal styles with animations/transitions */
 

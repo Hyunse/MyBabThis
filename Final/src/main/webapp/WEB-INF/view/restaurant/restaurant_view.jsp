@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>맛집 댓글보기</title>
 <link rel="stylesheet"
 	href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
@@ -15,14 +15,24 @@
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <link rel="stylesheet" href="/resources/demos/style.css">
 
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<!-- <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Tab Styles Inspiration: A small collection of styles for tabs" />
+<meta name="keywords" content="tabs, inspiration, web design, css, modern, effects, svg" />
+<meta name="author" content="Codrops" />
+<link rel="shortcut icon" href="../favicon.ico"> -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description"
-	content="Tab Styles Inspiration: A small collection of styles for tabs" />
+	content="Nifty Modal Window Effects with CSS Transitions and Animations" />
 <meta name="keywords"
-	content="tabs, inspiration, web design, css, modern, effects, svg" />
+	content="modal, window, overlay, modern, box, css transition, css animation, effect, 3d, perspective" />
 <meta name="author" content="Codrops" />
 <link rel="shortcut icon" href="../favicon.ico">
+<link rel="stylesheet" type="text/css" href="css/default_modal.css" />
+<link rel="stylesheet" type="text/css" href="css/component_modal.css" />
+<script src="js/modernizr.custom.js"></script>
+
 <link rel="stylesheet" type="text/css"
 	href="<%=request.getContextPath()%>/css/normalize.css" />
 <link rel="stylesheet" type="text/css"
@@ -35,14 +45,17 @@
 	href="<%=request.getContextPath()%>/css/default.css" />
 <link rel="stylesheet" type="text/css"
 	href="<%=request.getContextPath()%>/css/component.css" />
-<link href='http://fonts.googleapis.com/css?family=Raleway:400,300,700' rel='stylesheet' type='text/css'>
-		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/normalize.css" />
-		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/demo.css" />
-		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/cs-select.css" />
-		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/cs-skin-elastic.css" />
-<script src="<%=request.getContextPath()%>/js/modernizr.custom.js"></script>
-		
-<title>Tab Styles Inspiration</title>
+<link href='http://fonts.googleapis.com/css?family=Raleway:400,300,700'
+	rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css"
+	href="<%=request.getContextPath()%>/css/normalize.css" />
+<link rel="stylesheet" type="text/css"
+	href="<%=request.getContextPath()%>/css/cs-select.css" />
+<link rel="stylesheet" type="text/css"
+	href="<%=request.getContextPath()%>/css/cs-skin-elastic.css" />
+
+
+
 
 <!--  <script>
   $(function() {
@@ -54,6 +67,7 @@
 		$(".menu").menu();
 	});
 </script>
+
 <style>
 .ui-menu {
 	width: 150px;
@@ -61,16 +75,19 @@
 </style>
 
 </head>
-<%-- <script type="text/javascript"
-	src="<%=request.getContextPath()%>/js/jquery-2.1.3.js"></script> --%>
 <body>
+<<<<<<< HEAD
+
+		
+=======
 	<div class="sticky">
+>>>>>>> branch 'master' of https://github.com/Hyunse/MyBabThis
 	<jsp:include page="/WEB-INF/view/header.jsp" />
 </div>
 	<hr>
 	<h1>맛집 페이지</h1>
 	<img src="<%=request.getContextPath()%>/upload/${restaurant.resImg}"
-		width="150" heigth="150">
+		width="150" height="150">
 	<table border="1">
 		<tr>
 			<th>맛집 번호</th>
@@ -123,8 +140,9 @@
 							<td><c:out value="${rreply.rreplyContent }" /></td>
 							<td>
 								<ul class="dl-menu">
-									<li><c:out value="${rreply.userId}" /> <a href="/Final/friend/create?userId=${loginUser.userId}&friendId=${review.userId}">친구추가</a></li>
-									<li><a href="/Final/msg/send?receiver=${rreply.userId}">쪽지보내기</li>
+									<li><c:out value="${rreply.userId}" /> <a
+										href="/Final/friend/create?userId=${loginUser.userId}&friendId=${review.userId}">친구추가</a></li>
+									<li><a href="/Final/msg/send?receiver=${rreply.userId}">쪽지보내기</a></li>
 								</ul>
 							</td>
 							<td><c:out value="${rreply.rreplyUpdatedate }" /></td>
@@ -133,6 +151,11 @@
 							<td><c:url
 									value="/rreply/delete?rreplyNo=${rreply.rreplyNo }&resNo=${rreply.resNo }"
 									var="url"></c:url> <a href="${url}"><button>삭제</button></a></td>
+									
+							<!-- <td><div class="container"><div class="main clearfix">
+								<div class="column">
+								<button class="md-trigger" data-modal="modal-1">삭제</button>
+									</div></div></div></td> -->
 						</tr>
 					</c:forEach>
 				</table>
@@ -160,8 +183,8 @@
 									<li><c:out value="${review.userId}" />
 										<ul>
 											<li><a
-												href="/Final/friend/create?userId=${loginUser.userId}&friendId=${review.userId}">친구추가</li>
-											<li><a href="/Final/msg/send?receiver=${review.userId}">쪽지보내기</li>
+												href="/Final/friend/create?userId=${loginUser.userId}&friendId=${review.userId}">친구추가</a></li>
+											<li><a href="/Final/msg/send?receiver=${review.userId}">쪽지보내기</a></li>
 										</ul></li>
 								</ul>
 							</td>
@@ -180,6 +203,24 @@
 	</div>
 
 
+<!-- modal overaly -->
+	<div class="md-overlay"></div><!-- the overlay element -->
+
+		<!-- classie.js by @desandro: https://github.com/desandro/classie -->
+		<script src="js/classie.js"></script>
+		<script src="js/modalEffects.js"></script>
+
+		<!-- for the blur effect -->
+		<!-- by @derSchepp https://github.com/Schepp/CSS-Filters-Polyfill -->
+		<script>
+			// this is important for IEs
+			var polyfilter_scriptpath = '/js/';
+		</script>
+		<script src="js/cssParser.js"></script>
+		<script src="js/css-filters-polyfill.js"></script>
+		
+		
+
 	<script src="<%=request.getContextPath()%>/js/cbpFWTabs.js"></script>
 	<script>
 		(function() {
@@ -191,7 +232,5 @@
 
 		})();
 	</script>
-
-
 </body>
 </html>

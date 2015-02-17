@@ -9,7 +9,6 @@
 <title>로그인하기</title>
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Dialog Effects | Don</title>
 <meta name="description" content="A Collection of Dialog Effects" />
 <meta name="keywords"
 	content="dialog, effect, modal, overlay, animation, web design" />
@@ -59,70 +58,36 @@ $(document).ready(function() {
   		
 	    
 	    });
-	})
+	});
 })
 </script>
-<script src="<%=request.getContextPath()%>js/classie.js"></script>
-<script>
-			(function() {
-				// trim polyfill : https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/Trim
-				if (!String.prototype.trim) {
-					(function() {
-						// Make sure we trim BOM and NBSP
-						var rtrim = /^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g;
-						String.prototype.trim = function() {
-							return this.replace(rtrim, '');
-						};
-					})();
-				}
-
-				[].slice.call( document.querySelectorAll( 'input.input__field' ) ).forEach( function( inputEl ) {
-					// in case the input is already filled..
-					if( inputEl.value.trim() !== '' ) {
-						classie.add( inputEl.parentNode, 'input--filled' );
-					}
-
-					// events:
-					inputEl.addEventListener( 'focus', onInputFocus );
-					inputEl.addEventListener( 'blur', onInputBlur );
-				} );
-
-				function onInputFocus( ev ) {
-					classie.add( ev.target.parentNode, 'input--filled' );
-				}
-
-				function onInputBlur( ev ) {
-					if( ev.target.value.trim() === '' ) {
-						classie.remove( ev.target.parentNode, 'input--filled' );
-					}
-				}
-			})();
-		</script>
-	
 <body>
 
-<div class="md-modal md-effect-1" id="modal-1">
-			<div class="md-content">
-				<h3>id/pw 찾기</h3>
-				<div>
-				<br> <span class="input input--jiro"> <input id="email"
-					name="email" class="input__field input__field--jiro" type="text"
-					id="input-10" id="email" name="email" /> <label
-					class="input__label input__label--jiro" for="input-10"> <span
-						class="input__label-content input__label-content--jiro">
-							Email</span>
-				</label></span>
-				<!-- <input type="text" id="email" name="email"> -->
-				<!-- <input type="button" id="go" value="submit"> <br> -->
-				<br>
-					<button id="go">확인</button>
-					<button class="md-close">닫기</button>
-					
-				</div>
-			</div>
+	<div class="md-modal md-effect-1" id="modal-1">
+		<div class="md-content">
+			<h3 align="center">id/pw 찾기</h3>
+			<span class="input input--jiro"> <input id="email"
+				name="email" class="input__field input__field--jiro" type="text"
+				id="input-10" id="email" name="email" />
+				<label class="input__label input__label--jiro" for="input-10">
+				<span class="input__label-content input__label-content--jiro"> Email</span>
+			</label></span> 
+			<!-- <input type="text" id="email" name="email"> -->
+			<!-- <input type="button" id="go" value="submit"> <br> -->
+			<br>
+			<br><br><br><br>
+			<table style="margin: 0 auto;">
+				<tr>
+					<td><button id="go">확인</button></td>
+					<td><button class="md-close">취소</button></td>
+				</tr>
+
+			</table>
+			<br>
 		</div>
-		
-		
+	</div>
+
+
 
 	<div class="container">
 
@@ -156,12 +121,12 @@ $(document).ready(function() {
 				<br>
 				<footer class="clearfix">
 					<p>
-						<span class="info">?</span><a href="${email}" >Forgot Password</a>
+						<span class="info">?</span><a href="${email}"  >Forgot Password</a>
 						
 				</footer>
-				<div class="main clearfix">
+				
 						<button class="md-trigger" data-modal="modal-1">id/pw 찾기</button>
-						</div>
+					
 			</fieldset>
 
 		</div>
@@ -180,42 +145,6 @@ $(document).ready(function() {
 			</div>
 		</div>
 	</div>
-	
-	<div id="somedialog2" class="dialog">
-		<div class="dialog__overlay"></div>
-		<div class="dialog__content">
-			<h2>
-				<strong>Howd2222y</strong>, I'm a dialog box
-			</h2>
-			<div>
-				<button class="action" data-dialog-close>Close</button>
-			</div>
-		</div>
-	</div>
-	
-	<%-- id/password 찾기 다이얼로그 --%>
-<!-- 	<div id="email_dialog" class="dialog">
-		<div class="dialog__overlay"></div>
-		<div class="dialog__content">
-			<section class="content bgcolor-7">
-				<h3>아이디/비밀번호 찾기</h3>
-				<br> <span class="input input--jiro"> <input id="email"
-					name="email" class="input__field input__field--jiro" type="text"
-					id="input-10" id="email" name="email" /> <label
-					class="input__label input__label--jiro" for="input-10"> <span
-						class="input__label-content input__label-content--jiro">
-							Email</span>
-				</label></span>
-				<input type="text" id="email" name="email">
-				<input type="button" id="go" value="submit"> <br>
-				<br>
-			</section>
-			<div>
-				<button class="action" data-dialog-close>Close</button>
-			</div>
-		</div>
-	</div> -->
-
 		
 		<div class="md-overlay"></div><!-- the overlay element -->
 
