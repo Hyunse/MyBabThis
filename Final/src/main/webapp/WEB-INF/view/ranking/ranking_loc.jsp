@@ -10,8 +10,6 @@
 </head>
 <jsp:include page="/WEB-INF/view/header.jsp" />
 <body>
-	
-	<h1>맛집 top5</h1>
 	<jsp:include page="/WEB-INF/view/ranking/ranking_header.jsp" />
 	<c:forEach items="${restaurants }" var="restaurant">
 	<table border="1">

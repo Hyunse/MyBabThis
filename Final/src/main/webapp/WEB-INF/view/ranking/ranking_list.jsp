@@ -8,12 +8,8 @@
 <title>Insert title here</title>
 </head>
 <script src="http://code.jquery.com/jquery-latest.js"></script>
-
 <body>
 <jsp:include page="/WEB-INF/view/header.jsp" />
-	<h1>맛집 랭킹</h1>
-	<br>
 <jsp:include page="/WEB-INF/view/ranking/ranking_header.jsp" />
-
 </body>
 </html>
