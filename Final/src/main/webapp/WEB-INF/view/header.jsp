@@ -20,7 +20,17 @@
 		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/fonts/css/font-awesome.min.css" />
 		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/menu_bubble.css" />
 		<script src="<%=request.getContextPath()%>/js/snap.svg-min.js"></script>
+		<script>var stickyOffset = $('.sticky').offset().top;
+
+		$(window).scroll(function(){
+		  var sticky = $('.sticky'),
+		      scroll = $(window).scrollTop();
+
+		  if (scroll >= stickyOffset) sticky.addClass('fixed');
+		  else sticky.removeClass('fixed');
+		});</script>
 </head>
+
 <body>
 
 	<c:url value="/board/list" var="board" />

@@ -64,7 +64,9 @@
 <%-- <script type="text/javascript"
 	src="<%=request.getContextPath()%>/js/jquery-2.1.3.js"></script> --%>
 <body>
+	<div class="sticky">
 	<jsp:include page="/WEB-INF/view/header.jsp" />
+</div>
 	<hr>
 	<h1>맛집 페이지</h1>
 	<img src="<%=request.getContextPath()%>/upload/${restaurant.resImg}"
