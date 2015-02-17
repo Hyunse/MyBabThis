@@ -1,16 +1,17 @@
-*,
+/* *,
 *:after,
 *::before {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-}
+} */
 
-body {
+
+/* body {
 	font-family: 'Raleway', sans-serif;
 }
 
-nav a {
+nav a{
 	position: relative;
 	display: inline-block;
 	margin: 10px 25px;
@@ -22,13 +23,15 @@ nav a {
 	font-weight: 400;
 	text-shadow: 0 0 1px rgba(255,255,255,0.3);
 	font-size: 1.35em;
-}
+}  */
+
+
 
 nav a:hover,
 nav a:focus {
 	outline: none;
 }
-
+ 
 /* Effect 1: Brackets */
 .cl-effect-1 a::before,
 .cl-effect-1 a::after {
@@ -218,6 +221,26 @@ nav a:focus {
 	-moz-transform: translateY(-100%);
 	transform: translateY(-100%); 
 }
+
+
+.color-5 body {
+	font-family: 'Raleway', sans-serif;
+}
+
+.color-5 nav a{
+	position: relative;
+	display: inline-block;
+	margin: 0px 0px;
+	outline: none;
+	color: #fff;
+	text-decoration: none;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	font-weight: 400;
+	text-shadow: 0 0 1px rgba(255,255,255,0.3);
+	font-size: 1.35em;
+} 
+
 
 /* Effect 5: same word slide in and border bottom */
 .cl-effect-6 a {

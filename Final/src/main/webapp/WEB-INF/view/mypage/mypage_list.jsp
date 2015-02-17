@@ -23,15 +23,13 @@
 		<c:url value="/friend/list?userId=${loginUser.userId}" var="myfriends" />
 		<c:url value="/msg/main" var="message" />
 			<section class="color-5">
-				<nav class="cl-effect-12">
-					<a href="${myinfo}" >개인정보</a>
-					<a href="${list}" >즐겨찾기</a>
-					<a href="${myfriends}" >친구리스트</a>
-					<a href="${message}" >쪽지함</a>
+				<nav class="cl-effect-5">
+					<a href="${myinfo}"><span class="linkspan" data-hover="Myinfo">개인정보</span></a> 
+					<a href="${list}"><span class="linkspan" data-hover="Favorite">즐겨찾기</span></a> 
+					<a href="${myfriends}"><span class="linkspan" data-hover="Friend">친구</span></a> 
+					<a href="${message}"><span class="linkspan" data-hover="Message">쪽지함</span></a> 
 				</nav>
 			</section>
-			
-			
 			
 </body>
 </html>

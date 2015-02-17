@@ -20,20 +20,20 @@
 <body>
 	<section class="color-5">
 		<nav class="cl-effect-5">
-			<a href="/Final/restaurant/list"><span data-hover="Total">전체</span></a> 
-			<a href="/Final/restaurant/list?locName=건대"><span data-hover="GunDae">건대</span></a>
-			<a href="/Final/restaurant/list?locName=강남"><span data-hover="Gangnam">강남</span></a>
-			<a href="/Final/restaurant/list?locName=송파"><span data-hover="Songpa">송파</span></a>
-			<a href="/Final/restaurant/list?locName=대학로"><span data-hover="Daehakro">대학로</span></a>
+			<a href="/Final/restaurant/list"><span class="linkspan" data-hover="Total">전체</span></a> 
+			<a href="/Final/restaurant/list?locName=건대"><span class="linkspan" data-hover="GunDae">건대</span></a>
+			<a href="/Final/restaurant/list?locName=강남"><span class="linkspan" data-hover="Gangnam">강남</span></a>
+			<a href="/Final/restaurant/list?locName=송파"><span class="linkspan" data-hover="Songpa">송파</span></a>
+			<a href="/Final/restaurant/list?locName=대학로"><span class="linkspan" data-hover="Daehakro">대학로</span></a>
 		</nav>
 	</section>
 	<section class="color-5">
 		<nav class="cl-effect-5">
-			<a href="/Final/restaurant/list?locName=신림"><span data-hover="Sillim">신림</span></a>
-			<a href="/Final/restaurant/list?locName=홍대"><span data-hover="Hongdae">홍대</span></a>
-			<a href="/Final/restaurant/list?locName=신촌"><span data-hover="Shinchon">신촌</span></a>
-			<a href="/Final/restaurant/list?locName=종로"><span data-hover="Jongro">종로</span></a>
-			<a href="/Final/restaurant/list?locName=영등포"><span data-hover="Yeongdeungpo">영등포</span></a>
+			<a href="/Final/restaurant/list?locName=신림"><span class="linkspan" data-hover="Sillim">신림</span></a>
+			<a href="/Final/restaurant/list?locName=홍대"><span class="linkspan" data-hover="Hongdae">홍대</span></a>
+			<a href="/Final/restaurant/list?locName=신촌"><span class="linkspan" data-hover="Shinchon">신촌</span></a>
+			<a href="/Final/restaurant/list?locName=종로"><span class="linkspan" data-hover="Jongro">종로</span></a>
+			<a href="/Final/restaurant/list?locName=영등포"><span class="linkspan" data-hover="Yeongdeungpo">영등포</span></a>
 		</nav>
 	</section>
 	<section >
