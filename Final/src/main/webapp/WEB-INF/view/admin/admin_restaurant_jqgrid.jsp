@@ -39,8 +39,9 @@ $(document).ready(function(){
         sortorder: 'desc',
         viewrecords: true,
         caption: '맛집페이지정보',
-        height: '100%',
-        autowidth: true,
+		height: 300,
+		width:$('.content-current').width(),
+        autowidth: false,
         loadonce:false,
         ondblClickRow: function(rowid, iRow, iCol, e){
             //jsondata = $('#JQ_list').getRowData(rowid);

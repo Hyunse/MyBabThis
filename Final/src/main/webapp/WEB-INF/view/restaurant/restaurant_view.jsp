@@ -76,9 +76,14 @@
 
 </head>
 <body>
+<<<<<<< HEAD
 
 		
+=======
+	<div class="sticky">
+>>>>>>> branch 'master' of https://github.com/Hyunse/MyBabThis
 	<jsp:include page="/WEB-INF/view/header.jsp" />
+</div>
 	<hr>
 	<h1>맛집 페이지</h1>
 	<img src="<%=request.getContextPath()%>/upload/${restaurant.resImg}"

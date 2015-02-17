@@ -1,15 +1,22 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
+
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" type="text/css" media="screen" href="../css/smoothness/jquery-ui-1.10.4.custom.css" />
-<link rel="stylesheet" type="text/css" media="screen" href="../css/ui.jqgrid.css" />
-<script src="../js/jquery-1.11.0.min.js" type="text/javascript"></script>
-<script src="../js/jquery.jqGrid.src.js" type="text/javascript"></script>
-<script src="../js/i18n/grid.locale-kr.js"></script>
+<link rel="stylesheet" type="text/css" media="screen" href="<%=request.getContextPath() %>/css/smoothness/jquery-ui-1.10.4.custom.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="<%=request.getContextPath() %>/css/ui.jqgrid.css" />
+<script src="<%=request.getContextPath() %>/js/jquery-1.11.0.min.js" type="text/javascript"></script>
+<script src="<%=request.getContextPath() %>/js/jquery.jqGrid.min.js" type="text/javascript"></script>
+<script src="<%=request.getContextPath() %>/js/jquery.jqGrid.src.js" type="text/javascript"></script>
+<script src="<%=request.getContextPath() %>/js/i18n/grid.locale-kr.js"></script>
+<!-- <script src="http://code.jquery.com/jquery-latest.js"></script> -->
+
+
+
+
 <script type="text/javascript">
 $(document).ready(function(){
     jQuery("#JQ_list_forBoard").jqGrid({
@@ -34,8 +41,8 @@ $(document).ready(function(){
         sortorder: 'desc',
         viewrecords: true,
         caption: '기타게시글정보',
-        height: '100%',
-        autowidth: true,
+		height: 300,
+		width:$('.content-current').width(),
         loadonce:false,
         ondblClickRow: function(rowid, iRow, iCol, e){
             //jsondata = $('#JQ_list').getRowData(rowid);

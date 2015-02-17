@@ -61,13 +61,13 @@ $(document).ready(function() {
 		var c = $(this).next('strong');
 		if(email.val().length == 0){
 			//c.text("이메일을 반드시 입력해주세요");
-			$("#passChk").html("이메일을 반드시 입력해주세요");
+			$("#emailChk").html("<font color='red'>이메일을 반드시 입력해주세요</font>");
 		}else if(re_email.test(email.val()) != true ){
 			//c.text("올바른 이메일 형식이 아닙니다.");
-			$("#passChk").html("올바른 이메일 형식이 아닙니다.");
+			$("#emailChk").html("<font color='red'>올바른 이메일 형식이 아닙니다.</font>");
 		}else{
 			//c.text('적당합니다.')
-			$("#passChk").html("적당합니다.");
+			$("#emailChk").html("<font color='blue'>적당합니다.</font>");
 		}
 	})
 	
@@ -79,17 +79,17 @@ $(document).ready(function() {
 	    	$("#passChk").html("");
 		}else if(pass.val().length < 6 ){
 			//c.text("너무 짧습니다.");
-	    	$("#passChk").html("너무 짧습니다.");
+	    	$("#passChk").html("<font color='red'>너무 짧습니다.</font>");
 		}else if(pass.val().length > 18 ){
 				//c.text("너무 깁니다.");
-		    	$("#passChk").html("너무 깁니다.");
+		    	$("#passChk").html("<font color='red'>너무 깁니다.</font>");
 		}else{
 			//c.text('적당합니다.')
-	    	$("#passChk").html("적당합니다.");
+	    	$("#passChk").html("<font color='blue'>적당합니다.</font>");
 		}
 	})
 	 
-	$("#idCheck").click(function(){
+	$("#userId").keyup(function(){
 	
     var id = $('#userId').val();
    
@@ -98,7 +98,8 @@ $(document).ready(function() {
     url: "<%=request.getContextPath()%>/join/id",
     data: "id="+ id ,
     contentType:"application/x-www-form-urlencoded; charset=utf-8",
-   
+    timeout:30000,
+    cache : false,
     
     success: function(args){
     	$("#dropId").html(args);
@@ -108,7 +109,7 @@ $(document).ready(function() {
 	}
     });
 })
-	$("#nameCheck").click(function(){
+	$("#userName").keyup(function(){
     var name = $('#userName').val();
    
     $.ajax({
@@ -128,7 +129,7 @@ $(document).ready(function() {
 
     });
 })
-	$("#emailCheck").click(function(){
+	$("#userEmail").keyup(function(){
     var email = $('#userEmail').val();
    
     $.ajax({
@@ -148,19 +149,22 @@ $(document).ready(function() {
 													});
 										})
 
-						$("#pass2").blur(function() {
+						$("#pass2").keyup(function() {
 							/* var pass = document.form.userPass.value; */
 							/* var pass2 = document.form.userPass2.value; */
 							var pass = $("#userPass").val();
 							var pass2 = $("#pass2").val();
 							//alert("aaa" + pass + ", " + pass2);
-							var message1 = "비밀번호를 입력하세요.";
-							var message2 = "비밀번호가 다릅니다.";
-							var message3 = "비밀번호가 동일합니다.";
+							var message1 = "<font color='red'>비밀번호를 입력하세요.</font>";
+							var message2 = "<font color='red'>비밀번호가 다릅니다.</font>";
+							var message3 = "<font color='blue'>비밀번호가 동일합니다.</font>";
 							//alert(pass + "," + pass2);
-							if (pass2 != pass) {
+							if (pass2 =="") {
+								$("#chk").html(message1);
+							} else if(pass2 != pass){
 								$("#chk").html(message2);
-							} else {
+							}
+							else {
 								$("#chk").html(message3);
 							}
 							return;
@@ -172,7 +176,7 @@ $(document).ready(function() {
 
 
 
-	<section class="content">
+	<section class="content" style="text-align: center;">
 		<c:url value="/join/confirm" var="confirm" />
 		<form:form modelAttribute="loginCheck" method="post"
 			action="${confirm}" id="userform">
@@ -183,12 +187,9 @@ $(document).ready(function() {
 				class="input__label input__label--hoshi input__label--hoshi-color-2"
 				for="userId"> <span
 					class="input__label-content input__label-content--hoshi">아이디</span></label>
+					
 			</span>
-			<input type="button" value="중복체크" name="idCheck" id="idCheck">
-			
-			
-			<div id="dropId"></div>
-			
+			<div id="dropId" style="font-size: 13px" ></div>
 
 
 			<span class="input input--hoshi"> <label
@@ -199,10 +200,7 @@ $(document).ready(function() {
 					id="userName" />
 			</span>
 			
-			<input type="button" value="중복체크" name="nameCheck" id="nameCheck">
-			
-			
-			<div id="dropName"></div>
+			<div id="dropName" style="font-size: 13px"></div>
 			
 			
 			
@@ -214,7 +212,7 @@ $(document).ready(function() {
 				<form:input type="password" class="input__field input__field--hoshi" path="userPass"
 					id="userPass" />
 			</span>
-			<div id="passChk"></div>
+			<div id="passChk" style="font-size: 13px"></div>
 			
 			<span class="input input--hoshi"> 
 			<label
@@ -226,7 +224,7 @@ $(document).ready(function() {
 			</span>
 			
 			
-			<div id="chk"></div>
+			<div id="chk" style="font-size: 13px"></div>
 		
 			
 			<span class="input input--hoshi"> 
@@ -234,13 +232,10 @@ $(document).ready(function() {
 				class="input__label input__label--hoshi input__label--hoshi-color-2"
 				for="userEmail"> <span
 					class="input__label-content input__label-content--hoshi">이메일</span></label>
-				<form:input type="email" class="input__field input__field--hoshi"
+				<form:input type="Email" class="input__field input__field--hoshi"
 					path="userEmail" id="userEmail" />
 			</span>
-			<div id="emailChk"></div>
-			
-			<input type="button" value="중복체크" name="emailCheck" id="emailCheck">
-			<div id="dropEmail"></div>
+			<div id="dropEmail" style="font-size: 13px"></div><div id="emailChk" style="font-size: 13px"></div>
 			
 			
 			<span class="input input--hoshi">
@@ -251,12 +246,12 @@ $(document).ready(function() {
 				<form:input class="input__field input__field--hoshi"
 					path="userPhone" id="userPhone" />
 			</span>
-			
+			<br>
 			
 			<label>성별</label>
 			<form:radiobutton path="userGender" value="1" />남
 							<form:radiobutton path="userGender" value="0" />여
-							
+						<br>	
 
 		<form:hidden path="userImg" value="star.png" />
 			<input type="submit" value="가입">

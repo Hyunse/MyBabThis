@@ -23,7 +23,7 @@
 			<td> <c:out value="${msg.writeDate}"/></td>
 		</tr>
 		
-		</c:forEach>
+</c:forEach>
 </table>
 
 

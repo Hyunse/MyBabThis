@@ -10,9 +10,8 @@
 </head>
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <jsp:include page="/WEB-INF/view/header.jsp" />
+<jsp:include page="/WEB-INF/view/admin/main.jsp" />
 <body>
-	<h1>관리자페이지 메인</h1>
-<jsp:include page="/WEB-INF/view/admin/left.jsp" />
 	<script type="text/javascript">
 	$(document).ready(function() {
 		$("#idCheck").click(function(){

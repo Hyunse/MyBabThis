@@ -60,6 +60,15 @@ public class RestaurantController {
 		return "/restaurant/restaurant_list";
 		
 	}
+	@RequestMapping(value="/main",params={"search"}, method=RequestMethod.GET)
+	public String search(@RequestParam String search,Model model){
+		List<Restaurant> restaurants = service.selectRestaurantsByResName(search);
+
+		model.addAttribute("restaurant", new Restaurant());
+		model.addAttribute("restaurants",restaurants);
+		return "/restaurant/restaurant_list";
+		
+	}
 	
 	@RequestMapping(value="/restaurant/list",params={"resName"}, method=RequestMethod.GET)
 	public String getRestaurantListbyName(@RequestParam String resName, Model model){

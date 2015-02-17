@@ -7,20 +7,27 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link rel="shortcut icon" href="../favicon.ico"> 
-		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/default.css" />
-		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/component.css" />
-		<script src="<%=request.getContextPath() %>/js/modernizr.custom.js"></script>
+<link rel="shortcut icon" href="../favicon.ico">
+<link rel="stylesheet" type="text/css"
+	href="<%=request.getContextPath()%>/css/default_searchbar.css" />
+<link rel="stylesheet" type="text/css"
+	href="<%=request.getContextPath()%>/css/component_searchbar.css" />
+<script src="<%=request.getContextPath()%>/js/modernizr.custom.js"></script>
 </head>
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
-	
+<script type="text/javascript"
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+
 <script src="http://code.jquery.com/jquery-latest.js"></script>
-<script  src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js" type="text/javascript"></script>
-<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
+<script
+	src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"
+	type="text/javascript"></script>
+<link
+	href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css"
+	rel="stylesheet" type="text/css" />
 
 <script>
 $(document).ready(function(){
-
+	
 	<%-- $("#search").autocomplete({
 	     
 		source : function(request, response) {
@@ -48,33 +55,77 @@ $(document).ready(function(){
 /* 	$( "#search" ).autocomplete({
 	      source: availableTags
 	    }); */
-$("#search").click(function(){
+<%-- $(".sb-search-submit").click(function(){
 
 	var name = $('#resName').val();
 	
-	<%-- $.get("<%=request.getContextPath()%>/restaurant/list?resName="+name); --%>
+	if(name != null){
+	alert("여기?")
+	$.get("<%=request.getContextPath()%>/restaurant/list?resName="+name);
 	$(location).attr('href',"<%=request.getContextPath()%>/restaurant/list?resName="+name);
-});
+	}
+	
+	}); --%>
 });
 
 </script>
 
 <body>
+<div class="sticky">
 	<jsp:include page="/WEB-INF/view/header.jsp" />
-	<hr>
-	
-	<input type="text" id="resName" name="resName">
-	<input type="button" id="search" value="검색"><br>
-	
+</div>
+
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br><br>
+<br>
+<br><br>
+<br>
+<br><br>
+<br>
+<br>
+<br>
+<br>
+<br><br>
+<br>
+<br><br>
+<br>
+<br><br>
+<br>
+<br>
+<br>
+<br>
+<br><br>
+<br>
+<br><br>
+<br>
+<br>
+	<!-- <input type="text" id="resName" name="resName">
+	<input type="button" id="search" value="검색">
+	<br> -->
+	<div id="sb-search" class="sb-search">
+		<form>
+			<input class="sb-search-input" placeholder="맛집 이름으로 검색" type="text"
+				value="" name="search" id="search"> <input
+				class="sb-search-submit" type="submit" value=""> <span
+				class="sb-icon-search"></span>
+		</form>
+	</div>
+
+
 	<!-- 지도 이미지 버튼 넣기 -->
-	<img src="<%=request.getContextPath()%>/upload/map.PNG" border="0" usemap="#map" 
-	 >
+	<img src="<%=request.getContextPath()%>/upload/map.PNG" border="0"
+		usemap="#map">
 	<map name="map">
-	    <area shape="rect" coords="150,90,220,220" href="#" title="신촌"  >
-	    <area shape="rect" coords="86,262,299,390" href="#" title="오른쪽 사진">
-	    <area shape="rect" coords="304,263,520,394" href="#" title="왼쪽 사진">
+		<area shape="rect" coords="150,90,220,220" href="#" title="신촌">
+		<area shape="rect" coords="86,262,299,390" href="#" title="오른쪽 사진">
+		<area shape="rect" coords="304,263,520,394" href="#" title="왼쪽 사진">
 	</map>
-	
+
 	<h1>환영합니다 메인입니다.</h1>
 	<c:url value="/restaurant/list?locName=건대" var="loc" />
 	<a href="${loc }"><button type="submit">건대</button></a>
@@ -94,20 +145,20 @@ $("#search").click(function(){
 	<a href="${loc }"><button type="submit">종로</button></a>
 	<c:url value="/restaurant/list?locName=영등포" var="loc" />
 	<a href="${loc }"><button type="submit">영등포</button></a>
-		<c:url value="/restaurant/list" var="loc" />
+	<c:url value="/restaurant/list" var="loc" />
 	<a href="${loc }"><button type="submit">전체보기</button></a>
-	
-	
-	
-	<hr>
+
+
+
+
 	<jsp:include page="/WEB-INF/view/ranking/new_restaurant.jsp" />
 	<hr>
 	<jsp:include page="/WEB-INF/view/footer.jsp" />
 	<script src="<%=request.getContextPath()%>/js/classie.js"></script>
-		<script src="<%=request.getContextPath()%>/js/uisearch.js"></script>
-		<script>
+	<script src="<%=request.getContextPath()%>/js/uisearch.js"></script>
+	<script>
 			new UISearch( document.getElementById( 'sb-search' ) );
-		</script>
-	
+	</script>
+
 </body>
 </html>
