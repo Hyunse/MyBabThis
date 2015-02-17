@@ -7,12 +7,19 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>자유게시판</title>
 <link rel="stylesheet"
 	href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
 <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
 <script src="http://code.jquery.com/jquery-latest.js"></script>
+<script src="js/modernizr.custom.js"></script>
+<link rel="stylesheet" type="text/css" href="css/default_modal.css" />
+<link rel="stylesheet" type="text/css" href="css/component_modal.css" />
+		
+<link rel="stylesheet"
+	href="<%=request.getContextPath()%>/css/style.css" media="screen"
+	type="text/css" />
 <link rel="stylesheet" href="/resources/demos/style.css">
 <script>
 	$(function() {
@@ -71,8 +78,8 @@
 						<ul class="menu">
 							<li><c:out value="${boardList.userId}" />
 								<ul>
-									<li><a href="/Final/friend/create?userId=${loginUser.userId}&friendId=${boardList.userId}">친구추가</li>
-									<li><a href="/Final/msg/send?receiver=${boardList.userId}">쪽지보내기</li>
+									<li><a href="/Final/friend/create?userId=${loginUser.userId}&friendId=${boardList.userId}">친구추가</a></li>
+									<li><a href="/Final/msg/send?receiver=${boardList.userId}">쪽지보내기</a></li>
 								</ul>
 							</li>
 						</ul>
@@ -83,8 +90,9 @@
 		</c:if>
 		
 	</table>
-	<c:url value= "/meeting/write" var="write"/> 
-	<a href="${write}"><button type="submit">글쓰기</button></a>
+	<br>
+	<c:url value= "/meeting/write" var="write" /> 
+	<a href="${write}" ><button type="submit" class="btn btn-primary" style="float: right; margin-right: 11em;" >글등록</button></a>
 	
 </body>
 </html>

@@ -18,6 +18,21 @@
 	content="sidebar, off-canvas, menu, navigation, effect, inspiration, css transition, SVG, morphing, animation" />
 <meta name="author" content="Codrops" />
 <!-- 		<link rel="shortcut icon" href="../favicon.ico"> -->
+		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/normalize.css" />
+		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/demo.css" />
+		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/fonts/css/font-awesome.min.css" />
+		
+		
+		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/menu_bubble.css" />
+		
+	<%-- 	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/menu_elastic.css" /> --%>
+			<%-- <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/menu_topexpand.css" /> --%>
+		<script src="<%=request.getContextPath()%>/js/snap.svg-min.js"></script>
+		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/bootstrap.css" />
+      <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/bootstrap-theme.css" />
+      <script src="<%=request.getContextPath()%>/js/bootstrap.js"></script>
+		<!-- <script>var stickyOffset = $('.sticky').offset().top;
+
 <link rel="stylesheet" type="text/css"
 	href="<%=request.getContextPath()%>/css/normalize.css" />
 <link rel="stylesheet" type="text/css"
@@ -39,6 +54,7 @@
 <script src="<%=request.getContextPath()%>/js/bootstrap.js"></script>
 <script src="<%=request.getContextPath()%>/js/bootstrap.min.js"></script>
 <!-- <script>var stickyOffset = $('.sticky').offset().top;
+>>>>>>> branch 'master' of https://github.com/Hyunse/MyBabThis
 
 		$(window).scroll(function(){
 		  var sticky = $('.sticky'),
@@ -106,7 +122,7 @@
 						<h2>오늘, 맛집, 성공적 <span class="glyphicon glyphicon-heart"></span></h2>
 					</div>
 
-					<div id="wrapper">
+					<div id="wrapper" align="right">
 						<div id="header_info">
 							<c:if test="${!empty loginUser }">
 								<img width="40" height="40"

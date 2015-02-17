@@ -25,7 +25,7 @@
 		<br>
 		<br>
 
-		<button type="submit" name="finish">완료</button>
+		<button type="submit" name="finish" class="btn btn-primary">완료</button>
 	</form:form>
 </body>
 </html>
