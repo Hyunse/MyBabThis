@@ -22,6 +22,9 @@
 	</head>
 </head>
 <body>
+<div class="sticky">
+	<jsp:include page="/WEB-INF/view/header.jsp" />
+</div>
 <div class="container">
 			<!-- Top Navigation -->
 			<div class="codrops-top clearfix">

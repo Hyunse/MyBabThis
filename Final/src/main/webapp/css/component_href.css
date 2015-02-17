@@ -10,7 +10,7 @@ body {
 	font-family: 'Raleway', sans-serif;
 }
 
-nav a[class="nav1"] {
+nav a {
 	position: relative;
 	display: inline-block;
 	margin: 15px 25px;
@@ -940,7 +940,7 @@ nav a:focus {
 }
 
 /* Effect 21: borders slight translate */
-.cl-effect-21 a[class="nav1"] {
+.cl-effect-21 a {
 	padding: 10px;
 	color: #237546;
 	font-weight: 700;
@@ -950,8 +950,8 @@ nav a:focus {
 	transition: color 0.3s;
 }
 
-.cl-effect-21 a[class="nav1"]::before,
-.cl-effect-21 a[class="nav1"]::after {
+.cl-effect-21 a::before,
+.cl-effect-21 a::after {
 	position: absolute;
 	left: 0;
 	width: 100%;
@@ -967,29 +967,29 @@ nav a:focus {
 	transform: translateY(-10px);
 }
 
-.cl-effect-21 a[class="nav1"]::before {
+.cl-effect-21 a::before {
 	top: 0;
 	-webkit-transform: translateY(-10px);
 	-moz-transform: translateY(-10px);
 	transform: translateY(-10px);
 }
 
-.cl-effect-21 a[class="nav1"]::after {
+.cl-effect-21 a::after {
 	bottom: 0;
 	-webkit-transform: translateY(10px);
 	-moz-transform: translateY(10px);
 	transform: translateY(10px);
 }
 
-.cl-effect-21 a[class="nav1"]:hover,
-.cl-effect-21 a[class="nav1"]:focus {
+.cl-effect-21 a:hover,
+.cl-effect-21 a:focus {
 	color: #fff;
 }
 
-.cl-effect-21 a[class="nav1"]:hover::before,
-.cl-effect-21 a[class="nav1"]:focus::before,
-.cl-effect-21 a[class="nav1"]:hover::after,
-.cl-effect-21 a[class="nav1"]:focus::after {
+.cl-effect-21 a:hover::before,
+.cl-effect-21 a:focus::before,
+.cl-effect-21 a:hover::after,
+.cl-effect-21 a:focus::after {
 	opacity: 1;
 	-webkit-transform: translateY(0px);
 	-moz-transform: translateY(0px);
