@@ -34,8 +34,8 @@ $(document).ready(function(){
         sortorder: 'desc',
         viewrecords: true,
         caption: '기타게시판 댓글정보',
-        height: '100%',
-        autowidth: true,
+		height: 300,
+		width:$('.content-current').width(),
         loadonce:false,
         ondblClickRow: function(rowid, iRow, iCol, e){
             //jsondata = $('#JQ_list').getRowData(rowid);
@@ -57,7 +57,9 @@ $(document).ready(function(){
 </script>
 </head>
 <body>
+<container id="jqcontainer">
 <table id="JQ_list_forBreply"></table>
 <div id="navGridForBreply"></div> 
+</container>
 </body>
 </html>

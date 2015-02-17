@@ -13,7 +13,6 @@ body {
 </style>
 </head>
 <body>
-	<c:url value="/main" var="main" />
 	<c:url value="/admin/myinfo" var="myinfo" />
 	<c:url value="/admin/Users" var="users" />
 	<c:url value="/admin/Restaurant" var="restaurant" />
