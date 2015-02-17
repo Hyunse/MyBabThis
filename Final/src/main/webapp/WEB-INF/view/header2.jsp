@@ -18,30 +18,9 @@
 		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/normalize.css" />
 		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/demo.css" />
 		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/fonts/css/font-awesome.min.css" />
-		
-		
 		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/menu_bubble.css" />
-		
-	<%-- 	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/menu_elastic.css" /> --%>
-			<%-- <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/menu_topexpand.css" /> --%>
 		<script src="<%=request.getContextPath()%>/js/snap.svg-min.js"></script>
-		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/bootstrap.css" />
-      <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/bootstrap-theme.css" />
-      <script src="<%=request.getContextPath()%>/js/bootstrap.js"></script>
-      <script src="<%=request.getContextPath()%>/js/bootstrap.min.js"></script>
-		<!-- <script>var stickyOffset = $('.sticky').offset().top;
-
-		$(window).scroll(function(){
-		  var sticky = $('.sticky'),
-		      scroll = $(window).scrollTop();
-
-		  if (scroll >= stickyOffset) sticky.addClass('fixed');
-		  else sticky.removeClass('fixed');
-		});</script> -->
 </head>
-<style>
-
-</style>
 <body>
 
 	<c:url value="/board/list" var="board" />
@@ -74,6 +53,7 @@
 						
 						<h1><span>오늘,맛집,성공적</span></h1>
 				<div id="wrapper">
+		<h1>헤더 부분</h1>
 		<div id="header_info">
 			<c:if test="${!empty loginUser }">
 		<img  width="40" height="40" src="<%=request.getContextPath()%>/upload/${loginUser.userImg}">
@@ -97,9 +77,7 @@
 				</div>
 			</div><!-- /content-wrap -->
 		</div>
-		<%-- <script src="<%=request.getContextPath() %>/js/main.js"></script> --%>
 		<script src="<%=request.getContextPath() %>/js/classie.js"></script>
-	<%-- 	<script src="<%=request.getContextPath() %>/js/main4.js"></script> --%>
-		<script src="<%=request.getContextPath() %>/js/main3.js"></script>
+		<script src="<%=request.getContextPath() %>/js/main4.js"></script>
 </body>
 </html>

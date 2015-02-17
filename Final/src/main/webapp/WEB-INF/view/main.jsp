@@ -71,39 +71,9 @@ $(document).ready(function(){
 </script>
 
 <body>
-<div class="sticky">
+
 	<jsp:include page="/WEB-INF/view/header.jsp" />
-</div>
 
-
-<br>
-<br>
-<br>
-<br>
-<br>
-<br><br>
-<br>
-<br><br>
-<br>
-<br><br>
-<br>
-<br>
-<br>
-<br>
-<br><br>
-<br>
-<br><br>
-<br>
-<br><br>
-<br>
-<br>
-<br>
-<br>
-<br><br>
-<br>
-<br><br>
-<br>
-<br>
 	<!-- <input type="text" id="resName" name="resName">
 	<input type="button" id="search" value="검색">
 	<br> -->

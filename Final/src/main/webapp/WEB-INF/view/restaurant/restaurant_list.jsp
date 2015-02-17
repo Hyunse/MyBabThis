@@ -16,10 +16,10 @@
 
 </head>
 <body>
-<div class="sticky">
+
 	<jsp:include page="/WEB-INF/view/header.jsp" />
-</div>
 	<jsp:include page="/WEB-INF/view/restaurant/restaurant_loc_menu.jsp" />
+
 	<c:forEach items="${restaurants }" var="restaurant">
 		<c:url value="/restaurant/view?resNo=${restaurant.resNo}" var="url" />
 		<table border="1" onclick="location.href='${url}'"
