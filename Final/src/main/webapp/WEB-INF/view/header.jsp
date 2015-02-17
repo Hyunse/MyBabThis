@@ -38,10 +38,26 @@
 		  if (scroll >= stickyOffset) sticky.addClass('fixed');
 		  else sticky.removeClass('fixed');
 		});</script> -->
-</head>
-<style>
+		
 
-</style>
+
+</head>
+<script src="//ajax.googleapis.com/ajax/libs/webfont/1.4.10/webfont.js"></script>
+<script type="text/javascript">
+  WebFont.load({
+ 
+    // For google fonts
+    google: {
+      families: ['Droid Sans', 'Droid Serif']
+    },
+    // For early access or custom font
+    custom: {
+        families: ['Nanum Gothic'],
+        urls: ['http://fonts.googleapis.com/earlyaccess/nanumgothic.css']
+    }
+ 
+  });
+</script>
 <body>
 
 	<c:url value="/board/list" var="board" />
@@ -72,23 +88,23 @@
 				<div class="content">
 					<header class="codrops-header">
 						
-						<h1><span>오늘,맛집,성공적</span></h1>
+						<div>오늘, 맛집, 성공적</div>
 				<div id="wrapper">
 		<div id="header_info">
 			<c:if test="${!empty loginUser }">
 		<img  width="40" height="40" src="<%=request.getContextPath()%>/upload/${loginUser.userImg}">
 		${loginUser.userId }님 반갑습니다. 
 		<c:url value="/logout" var="logout" />
-				<a href="${logout}"><button>로그아웃</button></a>
+				<a href="${logout}"><button class="btn btn-primary">로그아웃</button></a>
 				<c:url value="/mypage/myinfo" var="mypage" />
-				<a href="${mypage}"><button>개인정보</button></a>
+				<a href="${mypage}"><button class="btn btn-primary">개인정보</button></a>
 			</c:if>
 			<c:if test="${empty loginUser }">
 
 				<c:url value="/login" var="login" />
-				<a href="${login}"><button>로그인 하기</button></a>
+				<a href="${login}"><button class="btn btn-primary">로그인</button></a>
 				<c:url value="/join" var="join" />
-				<a href="${join}"><button>가입 하기</button></a>
+				<a href="${join}"><button class="btn btn-primary">가입</button></a>
 			</c:if>
 		</div>
 	</div>
