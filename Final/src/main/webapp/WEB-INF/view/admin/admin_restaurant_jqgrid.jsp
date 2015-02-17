@@ -40,7 +40,7 @@ $(document).ready(function(){
         viewrecords: true,
         caption: '맛집페이지정보',
 		height: 300,
-		width:$('.content-current').width(),
+		width:$('.container').width(),
         autowidth: false,
         loadonce:false,
         ondblClickRow: function(rowid, iRow, iCol, e){
@@ -63,7 +63,10 @@ $(document).ready(function(){
 </script>
 </head>
 <body>
+<br>
+<div class="container">
 <table id="JQ_list_forRestaurant"></table>
 <div id="navGridForRestaurant"></div> 
+</div>
 </body>
 </html>

@@ -44,7 +44,7 @@ public class AdminController {
 	@RequestMapping(value="/main",  method=RequestMethod.GET)
 	public String goAdminMain(Model model){
 		
-		return "admin/main";
+		return "admin/admin_menu";
 	}
 	
 	/**
@@ -64,7 +64,7 @@ public class AdminController {
 	public String myinfoUpdate(@ModelAttribute("loginUser") Users user, Model model){
 
 		userService.updateUser(user);
-		return "redirect:/admin/main";
+		return "redirect:/admin/admin_menu";
 	}
 	
 	

@@ -30,7 +30,7 @@ public class AdminJqgridBoardController {
 	//페이지 불러오기
 	@RequestMapping(value = "/admin/Board", method = RequestMethod.GET)
 	public String goPage() {
-		return "admin/admin_board_jqgrid";
+		return "admin/admin_breply_jqgrid";
 	}
 	
 	//리스트 SELECT

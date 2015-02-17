@@ -32,7 +32,7 @@ public class AdminJqgridRestaurantController {
 	//페이지 불러오기
 	@RequestMapping(value = "/admin/Restaurant", method = RequestMethod.GET)
 	public String goPage() {
-		return "admin/admin_restaurant_jqgrid";
+		return "admin/admin_rreply_jqgrid";
 	}
 	
 	//리스트 SELECT

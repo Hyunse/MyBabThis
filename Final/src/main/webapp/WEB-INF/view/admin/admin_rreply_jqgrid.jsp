@@ -35,7 +35,7 @@ $(document).ready(function(){
         viewrecords: true,
         caption: '맛집페이지 댓글정보',
 		height: 300,
-		width:$('.content-current').width(),
+		width:$('.container').width(),
         loadonce:false,
         ondblClickRow: function(rowid, iRow, iCol, e){
             //jsondata = $('#JQ_list').getRowData(rowid);
@@ -57,7 +57,14 @@ $(document).ready(function(){
 </script>
 </head>
 <body>
+<jsp:include page="/WEB-INF/view/header.jsp" />
+<jsp:include page="/WEB-INF/view/admin/admin_menu.jsp" />
+<jsp:include page="/WEB-INF/view/admin/admin_restaurant_jqgrid.jsp" />
+<jsp:include page="/WEB-INF/view/admin/admin_review_jqgrid.jsp" />
+<br>
+<div class="container">
 <table id="JQ_list_forRreply"></table>
 <div id="navGridForRreply"></div> 
+</div>
 </body>
 </html>

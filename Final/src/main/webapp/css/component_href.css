@@ -188,7 +188,7 @@ nav a:focus {
 .cl-effect-5 a {
 	overflow: hidden;
 	padding: 0px;
-	height: 1.2em;
+	height: 1.4em;
 	margin: 0px 0px;
 	color: #fff;
 	
@@ -201,8 +201,7 @@ nav a:focus {
 	-webkit-transition: -webkit-transform 0.3s;
 	-moz-transition: -moz-transform 0.3s;
 	transition: transform 0.3s;
-	width: 9em;
-	text-align: left;
+	text-align: center;
 }
 
 .cl-effect-5 a span::before {
@@ -230,15 +229,15 @@ nav a:focus {
 .color-5 nav a{
 	position: relative;
 	display: inline-block;
-	margin: 0px 0px;
+	margin: 0px 20px;
 	outline: none;
 	color: #fff;
 	text-decoration: none;
 	text-transform: uppercase;
 	letter-spacing: 1px;
-	font-weight: 400;
+	font-weight: 300;
 	text-shadow: 0 0 1px rgba(255,255,255,0.3);
-	font-size: 1.35em;
+	font-size: 1.4em;
 } 
 
 

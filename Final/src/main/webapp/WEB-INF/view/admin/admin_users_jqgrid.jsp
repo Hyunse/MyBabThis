@@ -37,8 +37,8 @@ $(document).ready(function(){
         sortorder: 'desc',
         viewrecords: true,
         caption: '회원정보',
-		height: 300,
-		width:$('.content-current').width(),
+		height: '300',
+		width:$('.container').width(),
         loadonce:false,
         ondblClickRow: function(rowid, iRow, iCol, e){
             //jsondata = $('#JQ_list').getRowData(rowid);
@@ -60,8 +60,13 @@ $(document).ready(function(){
 
 </script>
 </head>
+<jsp:include page="/WEB-INF/view/header.jsp" />
+<jsp:include page="/WEB-INF/view/admin/admin_menu.jsp" />
 <body>
+<br>
+<div class="container">
 <table id="JQ_list_forUsers"></table>
 <div id="navGridForUsers"></div> 
+</div>
 </body>
 </html>

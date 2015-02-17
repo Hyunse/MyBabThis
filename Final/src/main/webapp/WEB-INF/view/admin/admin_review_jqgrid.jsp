@@ -36,7 +36,7 @@ $(document).ready(function(){
         viewrecords: true,
         caption: '맛집페이지 리뷰정보',
 		height: 300,
-		width:$('.content-current').width(),
+		width:$('.container').width(),
         loadonce:false,
         ondblClickRow: function(rowid, iRow, iCol, e){
             //jsondata = $('#JQ_list').getRowData(rowid);
@@ -58,7 +58,10 @@ $(document).ready(function(){
 </script>
 </head>
 <body>
+<br>
+<div class="container">
 <table id="JQ_list_forReview"></table>
-<div id="navGridForReview"></div> 
+<div id="navGridForReview"></div>
+</div> 
 </body>
 </html>

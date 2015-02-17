@@ -42,7 +42,7 @@ $(document).ready(function(){
         viewrecords: true,
         caption: '기타게시글정보',
 		height: 300,
-		width:$('.content-current').width(),
+		width:$('.container').width(),
         loadonce:false,
         ondblClickRow: function(rowid, iRow, iCol, e){
             //jsondata = $('#JQ_list').getRowData(rowid);
@@ -64,7 +64,10 @@ $(document).ready(function(){
 </script>
 </head>
 <body>
+<br>
+<div class="container">
 <table id="JQ_list_forBoard"></table>
 <div id="navGridForBoard"></div> 
+</div>
 </body>
 </html>

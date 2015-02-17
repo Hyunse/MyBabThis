@@ -35,7 +35,7 @@ $(document).ready(function(){
         viewrecords: true,
         caption: '기타게시판 댓글정보',
 		height: 300,
-		width:$('.content-current').width(),
+		width:$('.container').width(),
         loadonce:false,
         ondblClickRow: function(rowid, iRow, iCol, e){
             //jsondata = $('#JQ_list').getRowData(rowid);
@@ -57,9 +57,14 @@ $(document).ready(function(){
 </script>
 </head>
 <body>
-<container id="jqcontainer">
+<br>
+<jsp:include page="/WEB-INF/view/header.jsp" />
+<jsp:include page="/WEB-INF/view/admin/admin_menu.jsp" />
+<jsp:include page="/WEB-INF/view/admin/admin_board_jqgrid.jsp" />
+<br>
+<div class="container">
 <table id="JQ_list_forBreply"></table>
 <div id="navGridForBreply"></div> 
-</container>
+</div>
 </body>
 </html>

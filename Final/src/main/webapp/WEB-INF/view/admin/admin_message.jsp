@@ -7,8 +7,8 @@
 <title>Insert title here</title>
 </head>
 <jsp:include page="/WEB-INF/view/header.jsp" />
+<jsp:include page="/WEB-INF/view/admin/admin_menu.jsp" />
 <body>
 <h1>쪽지함</h1>
-<jsp:include page="/WEB-INF/view/admin/left.jsp" />
 </body>
 </html>
