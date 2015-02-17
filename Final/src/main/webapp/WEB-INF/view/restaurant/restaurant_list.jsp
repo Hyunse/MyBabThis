@@ -13,36 +13,13 @@
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
 <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
 <link rel="stylesheet" href="/resources/demos/style.css">
-<script>
-	$(function() {
-		$("#dialog").dialog({
-			autoOpen : false,
-			show : {
-				effect : "blind",
-				duration : 1000
-			},
-			hide : {
-				effect : "explode",
-				duration : 1000
-			}
-		});
-
-		$("#opener").click(function() {
-			$("#dialog").dialog("open");
-		});
-	});
-</script>
 
 </head>
 <body>
 <div class="sticky">
 	<jsp:include page="/WEB-INF/view/header.jsp" />
 </div>
-	<hr>
-	<h2>맛집 리스트</h2>
-	<br>
-	<jsp:include page="/WEB-INF/view/restaurant/restaurant_loc.jsp" />
-	<hr>
+	<jsp:include page="/WEB-INF/view/restaurant/restaurant_loc_menu.jsp" />
 	<c:forEach items="${restaurants }" var="restaurant">
 		<c:url value="/restaurant/view?resNo=${restaurant.resNo}" var="url" />
 		<table border="1" onclick="location.href='${url}'"

@@ -13,7 +13,7 @@ body {
 nav a {
 	position: relative;
 	display: inline-block;
-	margin: 15px 25px;
+	margin: 0px 0px;
 	outline: none;
 	color: #fff;
 	text-decoration: none;
@@ -184,8 +184,9 @@ nav a:focus {
 /* Effect 5: same word slide in */
 .cl-effect-5 a {
 	overflow: hidden;
-	padding: 0 4px;
-	height: 1em;
+	padding: 0px;
+	height: 1.2em;
+	
 }
 
 .cl-effect-5 a span {
@@ -194,6 +195,8 @@ nav a:focus {
 	-webkit-transition: -webkit-transform 0.3s;
 	-moz-transition: -moz-transform 0.3s;
 	transition: transform 0.3s;
+	width: 9em;
+	text-align: left;
 }
 
 .cl-effect-5 a span::before {
@@ -210,7 +213,7 @@ nav a:focus {
 .cl-effect-5 a:focus span {
 	-webkit-transform: translateY(-100%);
 	-moz-transform: translateY(-100%);
-	transform: translateY(-100%);
+	transform: translateY(-100%); 
 }
 
 /* Effect 5: same word slide in and border bottom */

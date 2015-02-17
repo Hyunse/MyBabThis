@@ -21,7 +21,9 @@
 <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
 <script src="<%=request.getContextPath() %>/js/modernizr.custom.js"></script> 
 </head>
-<jsp:include page="/WEB-INF/view/header.jsp" />
+<div class="sticky">
+	<jsp:include page="/WEB-INF/view/header.jsp" />
+</div>
 <body>
 <c:url value="/admin/myinfo" var="myinfo" />
 <c:url value="/admin/Users" var="users" />
