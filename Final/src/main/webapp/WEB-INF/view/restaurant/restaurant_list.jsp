@@ -35,9 +35,9 @@
 
 </head>
 <body>
-<div class="sticky">
+
 	<jsp:include page="/WEB-INF/view/header.jsp" />
-</div>
+
 	<hr>
 	<h2>맛집 리스트</h2>
 	<br>

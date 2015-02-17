@@ -18,9 +18,9 @@
 		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/normalize.css" />
 		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/demo.css" />
 		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/fonts/css/font-awesome.min.css" />
-		<%-- <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/menu_bubble.css" /> --%>
-		<%-- <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/menu_elastic.css" /> --%>
-			<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/menu_topexpand.css" />
+		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/menu_bubble.css" />
+	<%-- 	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/menu_elastic.css" /> --%>
+			<%-- <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/menu_topexpand.css" /> --%>
 		<script src="<%=request.getContextPath()%>/js/snap.svg-min.js"></script>
 		<script>var stickyOffset = $('.sticky').offset().top;
 
@@ -32,7 +32,9 @@
 		  else sticky.removeClass('fixed');
 		});</script>
 </head>
+<style>
 
+</style>
 <body>
 
 	<c:url value="/board/list" var="board" />
@@ -88,9 +90,9 @@
 				</div>
 			</div><!-- /content-wrap -->
 		</div>
-		<script src="<%=request.getContextPath() %>/js/main.js"></script>
+		<%-- <script src="<%=request.getContextPath() %>/js/main.js"></script> --%>
 		<script src="<%=request.getContextPath() %>/js/classie.js"></script>
-<%-- 		<script src="<%=request.getContextPath() %>/js/main4.js"></script> --%>
-	<%-- 	<script src="<%=request.getContextPath() %>/js/main3.js"></script> --%>
+	<%-- 	<script src="<%=request.getContextPath() %>/js/main4.js"></script> --%>
+		<script src="<%=request.getContextPath() %>/js/main3.js"></script>
 </body>
 </html>
