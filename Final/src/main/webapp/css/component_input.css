@@ -346,17 +346,21 @@
 
 /* Jiro */
 .input--jiro {
-	margin-top: 2em;
+	position: fixed;
+	top: 50%;
+	left: 35%;
+	
 }
 
 .input__field--jiro {
 	padding: 0.85em 0.5em;
 	width: 100%;
 	background: transparent;
-	color: #DDE2E2;
+	color: #ffffff;
 	opacity: 0;
 	-webkit-transition: opacity 0.3s;
 	transition: opacity 0.3s;
+
 }
 
 .input__label--jiro {
@@ -405,6 +409,7 @@
 
 .input__field--jiro:focus,
 .input--filled .input__field--jiro {
+	margin:0 auto;
 	opacity: 1;
 	-webkit-transition-delay: 0.3s;
 	transition-delay: 0.3s;
