@@ -18,10 +18,16 @@
 		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/normalize.css" />
 		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/demo.css" />
 		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/fonts/css/font-awesome.min.css" />
+		
 		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/menu_bubble.css" />
+		
 	<%-- 	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/menu_elastic.css" /> --%>
 			<%-- <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/menu_topexpand.css" /> --%>
 		<script src="<%=request.getContextPath()%>/js/snap.svg-min.js"></script>
+		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/bootstrap.css" />
+      <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/bootstrap-theme.css" />
+      <script src="<%=request.getContextPath()%>/js/bootstrap.js"></script>
+      <script src="<%=request.getContextPath()%>/js/bootstrap.min.js"></script>
 		<!-- <script>var stickyOffset = $('.sticky').offset().top;
 
 		$(window).scroll(function(){
