@@ -13,19 +13,19 @@
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
 <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
 <script src="http://code.jquery.com/jquery-latest.js"></script>
-<script src="js/modernizr.custom.js"></script>
+<!-- <script src="js/modernizr.custom.js"></script>
 <link rel="stylesheet" type="text/css" href="css/default_modal.css" />
-<link rel="stylesheet" type="text/css" href="css/component_modal.css" />
+<link rel="stylesheet" type="text/css" href="css/component_modal.css" /> -->
 		
 <link rel="stylesheet"
 	href="<%=request.getContextPath()%>/css/style.css" media="screen"
 	type="text/css" />
 <link rel="stylesheet" href="/resources/demos/style.css">
-<script>
+<!-- <script>
 	$(function() {
 		$(".menu").menu();
 	});
-</script>
+</script> -->
 <style>
 .ui-menu {
 	width: 150px;
@@ -42,12 +42,15 @@
 	<jsp:include page="/WEB-INF/view/header.jsp" />
 </div>
 <body>
-	<table border="1px solid black" align="center">
+	<table class="table" align="center">
+		
 		<tr>
-			<th width="10%">글 번호</th>
-			<th width="40%">글 내용</th>
-			<th width="30%">작성자</th>
-			<th width="20%">날짜</th>
+	
+			<th >글 번호</th>
+			<th >글 내용</th>
+			<th >작성자</th>
+			<th >날짜</th>
+		
 		</tr>
 		
 		
@@ -55,7 +58,7 @@
 		<c:if test="${empty boardList}">
 		<tr>
 			<td colspan="4">작성 된 글이 없습니다...</td>
-			
+		</tr>
 		</c:if>
 		<c:if test="${!empty boardList}">
 		<c:forEach var= "boardList" items="${boardList}" varStatus="status">
@@ -64,7 +67,7 @@
 			<td> <c:out value="${boardList.boardNo}"/> </td>
 			<td> <c:url value= "/meeting/detail?boardNo=${boardList.boardNo}" var="go"/> 
 			     <a href="${go}"><c:out value="${boardList.boardTitle}"/> </a>
-			<!-- 
+		 
 			<c:if test="${fn:length(boardList.boardTitle) > 20 }">
 			<a href="${go}"><c:out value ="${fn:substring(boardList.boardTitle,0,15)}" />...</a>
 			</c:if>
@@ -72,10 +75,11 @@
 			<c:if test="${fn:length(boardList.boardTitle) <= 20 }">
 				<a href="${go}">${boardList.boardTitle}</a>
 			</c:if>
-			 -->
+	
 			</td>
 			<td>
-						<ul class="menu">
+				<c:out value="${boardList.userId}" />
+					<%-- 	<ul class="menu">
 							<li><c:out value="${boardList.userId}" />
 								<ul>
 									<li><a href="/Final/friend/create?userId=${loginUser.userId}&friendId=${boardList.userId}">친구추가</a></li>
@@ -83,7 +87,7 @@
 								</ul>
 							</li>
 						</ul>
-					</td>
+					</td> --%>
 			<td> <c:out value="${boardList.boardRegdate}"/></td>
 		</tr>
 		</c:forEach>

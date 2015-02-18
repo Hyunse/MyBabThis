@@ -69,16 +69,16 @@ $(document).ready(function(){
 	<!-- <input type="text" id="resName" name="resName">
 	<input type="button" id="search" value="검색">
 	<br> -->
-	<div id="sb-search" class="sb-search">
+	<!-- <div id="sb-search" class="sb-search">
 		<form>
 			<input class="sb-search-input" placeholder="맛집 이름으로 검색" type="text"
 				value="" name="search" id="search"> <input
 				class="sb-search-submit" type="submit" value=""> <span
 				class="sb-icon-search"></span>
 		</form>
-	</div>
+	</div> -->
 
-
+<div id="map" align="center">
 	<!-- 지도 이미지 버튼 넣기 -->
 	<img src="<%=request.getContextPath()%>/upload/map.PNG" border="0"
 		usemap="#map">
@@ -88,7 +88,6 @@ $(document).ready(function(){
 		<area shape="rect" coords="304,263,520,394" href="#" title="왼쪽 사진">
 	</map>
 
-	<h1>환영합니다 메인입니다.</h1>
 	<c:url value="/restaurant/list?locName=건대" var="loc" />
 	<a href="${loc }"><button type="submit">건대</button></a>
 	<c:url value="/restaurant/list?locName=강남" var="loc" />
@@ -118,9 +117,9 @@ $(document).ready(function(){
 	<jsp:include page="/WEB-INF/view/footer.jsp" />
 	<script src="<%=request.getContextPath()%>/js/classie.js"></script>
 	<script src="<%=request.getContextPath()%>/js/uisearch.js"></script>
-	<script>
+<!-- 	<script>
 			new UISearch( document.getElementById( 'sb-search' ) );
-	</script>
+	</script> -->
 
 
 </body>

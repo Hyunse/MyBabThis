@@ -99,11 +99,13 @@ $(document).ready(function(){
 		
 		if(name != null){
 		$.get("<%=request.getContextPath()%>/restaurant/list?resName="+name);
-		$(location).attr('href',"<%=request.getContextPath()%>/restaurant/list?resName="+name);
-		}
-		
-		}); 
-	});
+		$(location).attr('href',"<%=request.getContextPath()%>
+	/restaurant/list?resName="
+																+ name);
+											}
+
+										});
+					});
 </script>
 <body>
 
@@ -136,62 +138,73 @@ $(document).ready(function(){
 
 		<button class="menu-button" id="open-button">Open Menu</button>
 
-		<nav class="navbar navbar-default navbar-fixed-top" role="navigation" >
+		<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
 
-			<div class="navbar-right" >
+			<div class="navbar-right">
 				
+					
+
+
 				<ul class="nav navbar-nav">
 					
-					<li><a href="${main}"><span class="glyphicon glyphicon-align-justify"></span><span>&nbsp 메인으로</span></a></li>
-					<li><a href="${ranking}"><span class="glyphicon glyphicon-thumbs-up"></span><span>&nbsp 맛집랭킹</span></a></li>
-					<li><a href="${meeting}"><span class="glyphicon glyphicon-flash"></span><span>&nbsp 번개모임</span></a></li>
-					<li><a href="${board}"><span class="glyphicon glyphicon-user"></span><span>&nbsp 자유게시판</span></a></li>
-					<li><a href="#"><span class="glyphicon glyphicon-info-sign"></span><span>&nbsp 이용규칙</span></a></li>
+					
+					<li><a href="${main}"><span
+							class="glyphicon glyphicon-align-justify"></span><span>&nbsp
+								메인으로</span></a></li>
+					<li><a href="${ranking}"><span
+							class="glyphicon glyphicon-thumbs-up"></span><span>&nbsp
+								맛집랭킹</span></a></li>
+					<li><a href="${meeting}"><span
+							class="glyphicon glyphicon-flash"></span><span>&nbsp 번개모임</span></a></li>
+					<li><a href="${board}"><span
+							class="glyphicon glyphicon-user"></span><span>&nbsp 자유게시판</span></a></li>
+					<li><a href="#"><span
+							class="glyphicon glyphicon-info-sign"></span><span>&nbsp
+								이용규칙</span></a></li>
 
 				</ul>
-			
-			<div class="navbar-form navbar-right" role="search">
-				<div class="form-group">
-					<input type="text" class="form-control" placeholder="Search" id="resName">
+				<div class="navbar-form navbar-right" role="search">
+				&nbsp&nbsp
+				<c:if test="${!empty loginUser }">
+						<img width="40" height="40"
+							src="<%=request.getContextPath()%>/upload/${loginUser.userImg}">
+			<span>${loginUser.userId }</span>&nbsp&nbsp&nbsp&nbsp 
+		<c:url value="/logout" var="logout" />
+						<a href="${logout}"><button class="btn btn-default">로그아웃</button></a>
+						<c:url value="/mypage/myinfo" var="mypage" />
+						<a href="${mypage}"><button class="btn btn-default">개인정보</button></a>
+					</c:if>
+					<c:if test="${empty loginUser }">
+
+						<c:url value="/login" var="login" />
+						<a href="${login}"><button class="btn btn-default">로그인</button></a>
+						<c:url value="/join" var="join" />
+						<a href="${join}"><button class="btn btn-default">가입</button></a>
+					</c:if>
+					<div class="form-group">
+						<input type="text" class="form-control" placeholder="Search"
+							id="resName">
+					</div>
+
+					<button class="btn btn-default" id="search">Search</button>
 				</div>
-				
-				<button class="btn btn-default" id="search">Search</button>
+
 			</div>
-			
-		</div>
 		</nav>
+
 
 		<div class="content-wrap">
 			<div class="content">
 				<header class="codrops-header">
 
-					<div class="title">
+					
 
 						<h2>
 							오늘, 맛집, 성공적 <span class="glyphicon glyphicon-heart"></span>
 						</h2>
-					</div>
+					
 
-					<div id="wrapper" align="right">
-						<div id="header_info">
-							<c:if test="${!empty loginUser }">
-								<img width="40" height="40"
-									src="<%=request.getContextPath()%>/upload/${loginUser.userImg}">
-		${loginUser.userId }님 반갑습니다. 
-		<c:url value="/logout" var="logout" />
-								<a href="${logout}"><button class="btn btn-primary">로그아웃</button></a>
-								<c:url value="/mypage/myinfo" var="mypage" />
-								<a href="${mypage}"><button class="btn btn-primary">개인정보</button></a>
-							</c:if>
-							<c:if test="${empty loginUser }">
-
-								<c:url value="/login" var="login" />
-								<a href="${login}"><button class="btn btn-primary">로그인</button></a>
-								<c:url value="/join" var="join" />
-								<a href="${join}"><button class="btn btn-primary">가입</button></a>
-							</c:if>
-						</div>
-					</div>
+					
 				</header>
 
 			</div>
