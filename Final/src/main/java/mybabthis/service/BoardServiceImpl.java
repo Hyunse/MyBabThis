@@ -1,5 +1,6 @@
 package mybabthis.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import mybabthis.dao.BoardDao;
@@ -67,6 +68,29 @@ public class BoardServiceImpl implements BoardService{
 	public List<Board> viewBoardByMeeting(String boardType) {
 		List<Board> result = dao.getBoardByMeeting(boardType);
 		return result;
+	}
+
+	@Override
+	public int getAllPageNum() {
+		int page = 0;
+
+		page = dao.getAllPageNum();
+		return  ((page - 1) / 10) + 1;
+	}
+
+	@Override
+	public List<Board> getAllComment(int page) {
+		
+		ArrayList<Board> list = null;
+
+		list = (ArrayList<Board>)dao.selectAllCommentInMeeting(page);
+
+		ArrayList<Board> sublist = new ArrayList<Board>();
+
+		for (int pNum = (10 * (page - 1)); (pNum < 10 * page) && (pNum < list.size()); pNum++) {
+			sublist.add(list.get(pNum));
+		}
+		return sublist;
 	}
 
 	

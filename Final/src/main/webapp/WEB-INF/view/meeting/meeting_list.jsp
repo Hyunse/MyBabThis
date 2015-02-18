@@ -95,6 +95,19 @@
 		
 	</table>
 	<br>
+	------>>>>>${totalPage}
+	<%-- <article> 
+	
+	<%
+ 	out.print("<");
+ 	for (int i = 0; i <  ${totalPage}; i++) {
+ 		
+ %> 
+ <a href="/blogproject/board/main.jsp?pageNum=<%=i + 1%>"><%=i + 1%></a>
+	<%
+		}
+		out.print(">");
+	%> </article> --%>
 	<c:url value= "/meeting/write" var="write" /> 
 	<a href="${write}" ><button type="submit" class="btn btn-primary" style="float: right; margin-right: 11em;" >글등록</button></a>
 	

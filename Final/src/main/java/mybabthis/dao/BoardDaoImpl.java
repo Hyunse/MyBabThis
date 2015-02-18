@@ -109,6 +109,27 @@ public class BoardDaoImpl implements BoardDao {
 		return result;
 	}
 
+	@Override
+	public int getAllPageNum() {
+		
+		String stmt = nameSpace + "selectAllMeetingToCount";
+
+		int result = sqlSession.selectOne(stmt);
+
+		return result;
+	}
+
+	@Override
+	public List<Board> selectAllCommentInMeeting(int page) {
+		List<Board> list = null;
+
+		String stmt = nameSpace + "selectAllCommentInMeeting";
+
+		list = sqlSession.selectList(stmt, page);
+
+		return list;
+	}
+
 	
 
 

@@ -99,18 +99,14 @@ $(document).ready(function(){
 		
 		if(name != null){
 		$.get("<%=request.getContextPath()%>/restaurant/list?resName="+name);
-		$(location).attr('href',"<%=request.getContextPath()%>
-	/restaurant/list?resName="
-																+ name);
-											}
-
-										});
-					});
+		$(location).attr('href',"<%=request.getContextPath()%>/restaurant/list?resName="+ name);}
+});
+});
 </script>
 <body>
 
 	<c:url value="/board/list" var="board" />
-	<c:url value="/meeting/list" var="meeting" />
+	<c:url value="/meeting/list?page=1" var="meeting" />
 	<c:url value="/ranking/list" var="ranking" />
 	<c:url value="/main" var="main" />
 
@@ -141,13 +137,13 @@ $(document).ready(function(){
 		<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
 
 			<div class="navbar-right">
-				
-					
+
+
 
 
 				<ul class="nav navbar-nav">
-					
-					
+
+
 					<li><a href="${main}"><span
 							class="glyphicon glyphicon-align-justify"></span><span>&nbsp
 								메인으로</span></a></li>
@@ -164,11 +160,11 @@ $(document).ready(function(){
 
 				</ul>
 				<div class="navbar-form navbar-right" role="search">
-				&nbsp&nbsp
-				<c:if test="${!empty loginUser }">
+					&nbsp&nbsp
+					<c:if test="${!empty loginUser }">
 						<img width="40" height="40"
 							src="<%=request.getContextPath()%>/upload/${loginUser.userImg}">
-			<span>${loginUser.userId }</span>&nbsp&nbsp&nbsp&nbsp 
+						<span>${loginUser.userId }</span>&nbsp&nbsp&nbsp&nbsp 
 		<c:url value="/logout" var="logout" />
 						<a href="${logout}"><button class="btn btn-default">로그아웃</button></a>
 						<c:url value="/mypage/myinfo" var="mypage" />
@@ -197,14 +193,14 @@ $(document).ready(function(){
 			<div class="content">
 				<header class="codrops-header">
 
-					
 
-						<h2>
-							오늘, 맛집, 성공적 <span class="glyphicon glyphicon-heart"></span>
-						</h2>
-					
 
-					
+					<h2>
+						오늘, 맛집, 성공적 <span class="glyphicon glyphicon-heart"></span>
+					</h2>
+
+
+
 				</header>
 
 			</div>

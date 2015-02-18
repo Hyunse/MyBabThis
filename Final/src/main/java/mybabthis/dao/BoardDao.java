@@ -22,4 +22,7 @@ public interface BoardDao {
 
 	List<Board> getBoardByPage(int page);	// 페이지 단위로 게시글 조회
 
+	int getAllPageNum();
+	
+	List<Board> selectAllCommentInMeeting(int page); // 미팅게시판 페이지별 리스트
 }

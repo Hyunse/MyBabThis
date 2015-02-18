@@ -21,5 +21,7 @@ public interface BoardService {
 	
 	List<Board> viewBoardByMeeting(String boardType); 		// 번개모임의 게시글 모두 조회
 
-
+	int getAllPageNum(); //페이지넘버
+	
+	List<Board> getAllComment(int page); // 페이지별 리스트
 }

@@ -5,6 +5,19 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mybabthis.mappers.BoardMapper">
 
+	<select id="selectAllMeetingToCount" parameterType="INTEGER"
+		resultType="integer">
+		select count(*)
+		from  board
+		where board_type in('m', 'M')
+	</select>
+	
+	<select id="selectAllCommentInMeeting" parameterType="INTEGER"
+		resultType="Board">
+		select *
+		from board
+		where board_type in('m', 'M')
+	</select>
 	
 	<!-- 게시판 생성 boardType = 'F' -->
 	<insert id="createBoard" parameterType="Board">
