@@ -18,21 +18,27 @@
 	content="sidebar, off-canvas, menu, navigation, effect, inspiration, css transition, SVG, morphing, animation" />
 <meta name="author" content="Codrops" />
 <!-- 		<link rel="shortcut icon" href="../favicon.ico"> -->
-		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/normalize.css" />
-		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/demo.css" />
-		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/fonts/css/font-awesome.min.css" />
-		
-		
-		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/menu_bubble.css" />
-		
-	<%-- 	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/menu_elastic.css" /> --%>
-			<%-- <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/menu_topexpand.css" /> --%>
-		<script src="<%=request.getContextPath()%>/js/snap.svg-min.js"></script>
-		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/bootstrap.css" />
-      <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/bootstrap-theme.css" />
-      <script src="<%=request.getContextPath()%>/js/bootstrap.js"></script>
-      
-		<!-- <script>var stickyOffset = $('.sticky').offset().top;
+<link rel="stylesheet" type="text/css"
+	href="<%=request.getContextPath()%>/css/normalize.css" />
+<link rel="stylesheet" type="text/css"
+	href="<%=request.getContextPath()%>/css/demo.css" />
+<link rel="stylesheet" type="text/css"
+	href="<%=request.getContextPath()%>/fonts/css/font-awesome.min.css" />
+
+
+<link rel="stylesheet" type="text/css"
+	href="<%=request.getContextPath()%>/css/menu_bubble.css" />
+
+<%-- 	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/menu_elastic.css" /> --%>
+<%-- <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/menu_topexpand.css" /> --%>
+<script src="<%=request.getContextPath()%>/js/snap.svg-min.js"></script>
+<link rel="stylesheet" type="text/css"
+	href="<%=request.getContextPath()%>/css/bootstrap.css" />
+<link rel="stylesheet" type="text/css"
+	href="<%=request.getContextPath()%>/css/bootstrap-theme.css" />
+<script src="<%=request.getContextPath()%>/js/bootstrap.js"></script>
+
+<!-- <script>var stickyOffset = $('.sticky').offset().top;
 
 <link rel="stylesheet" type="text/css"
 	href="<%=request.getContextPath()%>/css/normalize.css" />
@@ -68,10 +74,11 @@
 
 
 </head>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/webfont/1.4.10/webfont.js"></script>
 <script type="text/javascript">
-	WebFont
-			.load({
+$(document).ready(function(){
+	WebFont.load({
 
 				// For google fonts
 				google : {
@@ -84,6 +91,19 @@
 				}
 
 			});
+
+	
+	$("#search").click(function(){
+		alert("작동")
+		var name = $('#resName').val();
+		
+		if(name != null){
+		$.get("<%=request.getContextPath()%>/restaurant/list?resName="+name);
+		$(location).attr('href',"<%=request.getContextPath()%>/restaurant/list?resName="+name);
+		}
+		
+		}); 
+	});
 </script>
 <body>
 
@@ -98,8 +118,8 @@
 				<div class="icon-list">
 					<a href="${main}"><i class="fa fa-fw fa-star-o"></i><span>메인으로</span></a>
 					<a href="${ranking}"><i class="fa fa-fw fa-bell-o"></i><span>맛집
-							랭킹</span></a> <a href="${meeting}"><i class="fa fa-fw fa-envelope-o"></i><span>번개모임
-							게시판</span></a> <a href="${board}"><i class="fa fa-fw fa-comment-o"></i><span>자유게시판</span></a>
+							랭킹</span></a> <a href="${meeting}"><i class="fa fa-fw fa-envelope-o"></i><span>번개모임</span></a>
+					<a href="${board}"><i class="fa fa-fw fa-comment-o"></i><span>자유게시판</span></a>
 					<a href="#"><i class="fa fa-fw fa-bar-chart-o"></i><span>이용규칙</span></a>
 				</div>
 			</nav>
@@ -113,14 +133,43 @@
 					</svg>
 			</div>
 		</div>
+
 		<button class="menu-button" id="open-button">Open Menu</button>
+
+		<nav class="navbar navbar-default navbar-fixed-top" role="navigation" >
+
+			<div class="navbar-right" >
+				
+				<ul class="nav navbar-nav">
+					
+					<li><a href="${main}"><span class="glyphicon glyphicon-align-justify"></span><span>&nbsp 메인으로</span></a></li>
+					<li><a href="${ranking}"><span class="glyphicon glyphicon-thumbs-up"></span><span>&nbsp 맛집랭킹</span></a></li>
+					<li><a href="${meeting}"><span class="glyphicon glyphicon-flash"></span><span>&nbsp 번개모임</span></a></li>
+					<li><a href="${board}"><span class="glyphicon glyphicon-user"></span><span>&nbsp 자유게시판</span></a></li>
+					<li><a href="#"><span class="glyphicon glyphicon-info-sign"></span><span>&nbsp 이용규칙</span></a></li>
+
+				</ul>
+			
+			<div class="navbar-form navbar-right" role="search">
+				<div class="form-group">
+					<input type="text" class="form-control" placeholder="Search" id="resName">
+				</div>
+				
+				<button class="btn btn-default" id="search">Search</button>
+			</div>
+			
+		</div>
+		</nav>
+
 		<div class="content-wrap">
 			<div class="content">
 				<header class="codrops-header">
 
 					<div class="title">
 
-						<h2>오늘, 맛집, 성공적 <span class="glyphicon glyphicon-heart"></span></h2>
+						<h2>
+							오늘, 맛집, 성공적 <span class="glyphicon glyphicon-heart"></span>
+						</h2>
 					</div>
 
 					<div id="wrapper" align="right">

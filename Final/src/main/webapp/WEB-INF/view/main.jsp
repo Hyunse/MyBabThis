@@ -58,18 +58,7 @@ $(document).ready(function(){
 /* 	$( "#search" ).autocomplete({
 	      source: availableTags
 	    }); */
-<%-- $(".sb-search-submit").click(function(){
 
-	var name = $('#resName').val();
-	
-	if(name != null){
-	alert("여기?")
-	$.get("<%=request.getContextPath()%>/restaurant/list?resName="+name);
-	$(location).attr('href',"<%=request.getContextPath()%>/restaurant/list?resName="+name);
-	}
-	
-	}); --%>
-});
 
 </script>
 

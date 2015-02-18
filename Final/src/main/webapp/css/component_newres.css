@@ -32,7 +32,7 @@
 	font-weight: 400;
 	text-transform: uppercase;
 	letter-spacing: 1px;
-	font-size: 15px;
+	font-size: 20px;
 	padding: 5px;
 }
 
@@ -56,7 +56,7 @@
 }
 
 .box svg line {
-	stroke-width: 3;
+	stroke-width: 0;
 	stroke: #db0000;
 	fill: none;
 	-webkit-transition: all .8s ease-in-out;
