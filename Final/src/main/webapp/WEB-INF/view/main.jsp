@@ -25,6 +25,9 @@
 	href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css"
 	rel="stylesheet" type="text/css" />
 
+
+
+
 <script>
 $(document).ready(function(){
 	
@@ -129,6 +132,7 @@ $(document).ready(function(){
 	<script>
 			new UISearch( document.getElementById( 'sb-search' ) );
 	</script>
+
 
 </body>
 </html>

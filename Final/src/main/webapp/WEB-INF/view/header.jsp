@@ -31,6 +31,7 @@
 		<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/bootstrap.css" />
       <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/bootstrap-theme.css" />
       <script src="<%=request.getContextPath()%>/js/bootstrap.js"></script>
+      
 		<!-- <script>var stickyOffset = $('.sticky').offset().top;
 
 <link rel="stylesheet" type="text/css"
