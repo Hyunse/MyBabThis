@@ -77,9 +77,12 @@ $(document).ready(function(){
 				class="sb-icon-search"></span>
 		</form>
 	</div> -->
-
+	
 <div id="map" align="center">
 	<!-- 지도 이미지 버튼 넣기 -->
+	
+	<jsp:include page="map.jsp"></jsp:include>
+	<%-- 
 	<img src="<%=request.getContextPath()%>/upload/map.PNG" border="0"
 		usemap="#map">
 	<map name="map">
@@ -87,7 +90,8 @@ $(document).ready(function(){
 		<area shape="rect" coords="86,262,299,390" href="#" title="오른쪽 사진">
 		<area shape="rect" coords="304,263,520,394" href="#" title="왼쪽 사진">
 	</map>
-
+ --%>
+<br>
 	<c:url value="/restaurant/list?locName=건대" var="loc" />
 	<a href="${loc }"><button type="submit">건대</button></a>
 	<c:url value="/restaurant/list?locName=강남" var="loc" />
@@ -110,6 +114,7 @@ $(document).ready(function(){
 	<a href="${loc }"><button type="submit">전체보기</button></a>
 
 
+	</div>
 
 
 	<jsp:include page="/WEB-INF/view/ranking/new_restaurant.jsp" />
