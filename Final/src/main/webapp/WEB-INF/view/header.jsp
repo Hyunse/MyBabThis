@@ -112,11 +112,11 @@ $(document).ready(function(){
 		<div class="menu-wrap">
 			<nav class="menunav">
 				<div class="icon-list">
-					<a href="${main}"><i class="fa fa-fw fa-star-o"></i><span>메인으로</span></a>
-					<a href="${ranking}"><i class="fa fa-fw fa-bell-o"></i><span>맛집
-							랭킹</span></a> <a href="${meeting}"><i class="fa fa-fw fa-envelope-o"></i><span>번개모임</span></a>
-					<a href="${board}"><i class="fa fa-fw fa-comment-o"></i><span>자유게시판</span></a>
-					<a href="#"><i class="fa fa-fw fa-bar-chart-o"></i><span>이용규칙</span></a>
+					<a href="${main}"><i class="fa fa-fw fa-star-o"></i><span style="text-decoration: none">메인으로</span></a>
+					<a href="${ranking}"><i class="fa fa-fw fa-bell-o"></i><span style="text-decoration: none">맛집
+							랭킹</span></a> <a href="${meeting}"><i class="fa fa-fw fa-envelope-o"></i><span style="text-decoration: none">번개모임</span></a>
+					<a href="${board}"><i class="fa fa-fw fa-comment-o"></i><span style="text-decoration: none">자유게시판</span></a>
+					<a href="#"><i class="fa fa-fw fa-bar-chart-o"></i><span style="text-decoration: none">이용규칙</span></a>
 				</div>
 			</nav>
 			<button class="close-button" id="close-button">Close Menu</button>
@@ -193,7 +193,7 @@ $(document).ready(function(){
 
 
 
-<h2><img src="<%=request.getContextPath()%>/upload/aaa.png"></h2>
+<h2><img src="<%=request.getContextPath()%>/images/logo.png"></h2>
 <!-- 
 					<h2>
 						오늘, 맛집, 성공적 <span class="glyphicon glyphicon-heart"></span>

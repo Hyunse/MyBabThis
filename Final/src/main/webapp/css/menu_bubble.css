@@ -28,7 +28,8 @@ body,  */
 	-webkit-transition: -webkit-transform 0.4s;
 	transition: transform 0.4s;
 }
-/* �뿤�뜑怨좎젙 */
+
+/* 헤더고정 */
 .fixed { 
     position: fixed;
     top:0; 
@@ -69,7 +70,7 @@ body,  */
 	text-indent: 2.5em;
 	font-size: 1.5em;
 	color: transparent;
-	background: white; /* 硫붾돱�쓽 �룷吏��뀡�씠 �젅���쟻�씪�븣 諛곌꼍�깋 */
+	background: white;  /* 메뉴의 포지션이 절대적일때 배경색 */
 }
 
 .menu-button::before {

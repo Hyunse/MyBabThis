@@ -1,6 +1,6 @@
 @import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
 /* 
-�굹�닎怨좊뵓 */
+나눔고딕 */
 body {
     font-family: "Nanum Gothic", sans-serif;
 }
@@ -54,7 +54,7 @@ body {
   background-color: #e6e6e6;
   border-color: #e0e0e0;
 }
-/* 洹몃씪�뵒�뿉�뀡
+/* 그라데이션
 .btn-primary {
   background-image: -webkit-gradient(linear, left 0%, left 100%, from(#428bca), to(#3071a9));
   background-image: -webkit-linear-gradient(top, #428bca, 0%, #3071a9, 100%);
