@@ -7,8 +7,6 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" type="text/css"
-	href="<%=request.getContextPath()%>/css/demo.css" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Off-Canvas Menu Effects - Bubble</title>
@@ -195,11 +193,13 @@ $(document).ready(function(){
 
 
 
+<h2><img src="<%=request.getContextPath()%>/upload/aaa.png"></h2>
+<!-- 
 					<h2>
 						오늘, 맛집, 성공적 <span class="glyphicon glyphicon-heart"></span>
 					</h2>
 
-
+ -->
 
 				</header>
 

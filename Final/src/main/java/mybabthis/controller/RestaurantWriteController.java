@@ -34,6 +34,7 @@ public class RestaurantWriteController {
 	@RequestMapping(value = "/restaurant/writed", method = RequestMethod.POST)
 	public String afterWriteRestaurant(@ModelAttribute("restaurant") Restaurant restaurant, Model model, HttpServletResponse response) {
 		service.createRestaurant(restaurant);
+		logger.trace("이거뜨나?");
 		String url = restaurant.getLocName();
 		String locName = "";
 		try {

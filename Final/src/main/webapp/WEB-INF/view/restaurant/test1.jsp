@@ -15,9 +15,9 @@
 		<meta name="keywords" content="grid loading, swipe, effect, slide, masonry, web design, tutorial" />
 		<meta name="author" content="Codrops" />
 		<link rel="shortcut icon" href="../favicon.ico">
-		<link rel="stylesheet" type="text/css" href="../css/normalize.css" />
-		<link rel="stylesheet" type="text/css" href="../css/demo.css" />
-		<link rel="stylesheet" type="text/css" href="../css/component.css" />
+		<!-- <link rel="stylesheet" type="text/css" href="../css/normalize_g.css" />
+		<link rel="stylesheet" type="text/css" href="../css/demo_g.css" /> -->
+		<link rel="stylesheet" type="text/css" href="../css/component_g.css" />
 		<script src="../js/modernizr.custom.js"></script>
 	</head>
 </head>
@@ -25,10 +25,14 @@
 	<jsp:include page="/WEB-INF/view/header.jsp" />
 <div class="container">
 			<!-- Top Navigation -->
+			
+			<!-- 
 			<div class="codrops-top clearfix">
 				<a class="codrops-icon codrops-icon-prev" href="#"><span>왼쪽에 뭔가 링크넣고</span></a>
 				<span class="right"><a class="codrops-icon codrops-icon-drop" href="#"><span>오른쪽도 뭔가 링크넣고</span></a></span>
 			</div>
+			 -->
+			
 			<header class="codrops-header">
 				<h1>맛집게시판</h1>	
 				
@@ -36,7 +40,13 @@
 			<section class="grid-wrap">
 				<ul class="grid swipe-right" id="grid">
 					<li class="title-box">
-						<h2>Illustrations by <a href="#">김남형</a></h2>
+						<h2>맛집 리스트<br>By<p>${boardLoc}</p></h2>
+					</li>
+					<li class="title-box"><p></p></li>
+					
+					<li class="title-box" style="text-align: right;">
+					
+						<h2><a href="write">글쓰기</a></h2>
 					</li>
 					
 					

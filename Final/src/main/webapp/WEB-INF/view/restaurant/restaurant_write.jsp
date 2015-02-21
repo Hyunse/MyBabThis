@@ -32,7 +32,7 @@
 $(document).ready(function() {
 	$("#upload").click(function(){
     
-	window.open("<%=request.getContextPath()%>/upload/res","_blank", "width = 600 height = 300")
+	window.open("<%=request.getContextPath()%>/upload/gomyres","_blank", "width = 600 height = 300")
 
 	})
 })

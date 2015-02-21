@@ -12,10 +12,14 @@ body,  */
 
 .menu-wrap a {
 	color: #b8b7ad;
+	
+	text-decoration: none;
 }
 
 .menu-wrap a:hover, .menu-wrap a:focus {
 	color: #c94e50;
+	
+	text-decoration: none;
 }
 
 .content-wrap {
@@ -24,7 +28,7 @@ body,  */
 	-webkit-transition: -webkit-transform 0.4s;
 	transition: transform 0.4s;
 }
-/* 헤더고정 */
+/* �뿤�뜑怨좎젙 */
 .fixed { 
     position: fixed;
     top:0; 
@@ -65,7 +69,7 @@ body,  */
 	text-indent: 2.5em;
 	font-size: 1.5em;
 	color: transparent;
-	background: white; /* 메뉴의 포지션이 절대적일때 배경색 */
+	background: white; /* 硫붾돱�쓽 �룷吏��뀡�씠 �젅���쟻�씪�븣 諛곌꼍�깋 */
 }
 
 .menu-button::before {

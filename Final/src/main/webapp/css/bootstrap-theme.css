@@ -1,6 +1,6 @@
 @import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
 /* 
-나눔고딕 */
+�굹�닎怨좊뵓 */
 body {
     font-family: "Nanum Gothic", sans-serif;
 }
@@ -54,7 +54,7 @@ body {
   background-color: #e6e6e6;
   border-color: #e0e0e0;
 }
-/* 그라디에션
+/* 洹몃씪�뵒�뿉�뀡
 .btn-primary {
   background-image: -webkit-gradient(linear, left 0%, left 100%, from(#428bca), to(#3071a9));
   background-image: -webkit-linear-gradient(top, #428bca, 0%, #3071a9, 100%);
@@ -64,6 +64,7 @@ body {
   border-color: #2d6ca2;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff428bca', endColorstr='#ff3071a9', GradientType=0);
 } */
+
 .btn-primary{
 	width: 90px;
 	height: 35px;
