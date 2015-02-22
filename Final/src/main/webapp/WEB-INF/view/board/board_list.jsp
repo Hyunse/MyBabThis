@@ -8,27 +8,21 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-
-<link rel="stylesheet"
-	href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
-<script src="//code.jquery.com/jquery-1.10.2.js"></script>
-<script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
 <script src="http://code.jquery.com/jquery-latest.js"></script>
-<link rel="stylesheet" href="/resources/demos/style.css">
+<!-- 
 <script>
 	$(function() {
 		$(".menu").menu();
 	});
-</script>
+</script> -->
+
+
 <style>
 .ui-menu {
 	width: 150px;
 }
 </style>
 </head>
-
-<script type="text/javascript"
-	src="<%=request.getContextPath()%>/js/jquery-2.1.3.js"></script>
 
 <jsp:include page="/WEB-INF/view/header.jsp" />
 <body>
@@ -38,11 +32,11 @@
 
 
 
-	<table border="1px solid black" align="center">
+	<table class="table"  align="center">
 		<tr>
-			<th width="10%">글 번호</th>
-			<th width="40%">글 내용</th>
-			<th width="30%">작성자</th>
+			<th width="15%">글 번호</th>
+			<th width="60%">글 내용</th>
+			<th width="15%">작성자</th>
 			<th width="20%">날짜</th>
 		</tr>
 
@@ -82,6 +76,11 @@
 				</tr>
 			</c:forEach>
 		</c:if>
+		<tr><td></td><td></td><td></td><td>
+	<c:url value="/board/write" var="write" />
+	<a href="${write}"><button type="submit" class="btn btn-primary">글쓰기</button></a>
+		
+		</td></tr>
 
 	</table>
 	<c:url value="/board/write" var="write" />

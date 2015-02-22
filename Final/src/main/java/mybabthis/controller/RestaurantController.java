@@ -49,7 +49,7 @@ public class RestaurantController {
 		model.addAttribute("restaurant", new Restaurant());
 		model.addAttribute("restaurants",restaurants);
 		model.addAttribute("boardLoc", "서울 전체");
-		return "/restaurant/test1";
+		return "/restaurant/restaurant_list";
 		
 	}
 	
@@ -58,6 +58,7 @@ public class RestaurantController {
 		List<Restaurant> restaurants = service.selectRestaurantsByLocation(locName);
 		model.addAttribute("restaurant", new Restaurant());
 		model.addAttribute("restaurants",restaurants);
+		model.addAttribute("boardLoc", locName);
 		return "/restaurant/restaurant_list";
 		
 	}
@@ -67,6 +68,7 @@ public class RestaurantController {
 
 		model.addAttribute("restaurant", new Restaurant());
 		model.addAttribute("restaurants",restaurants);
+		model.addAttribute("boardLoc", "검색결과");
 		return "/restaurant/restaurant_list";
 		
 	}
@@ -77,6 +79,7 @@ public class RestaurantController {
 
 		model.addAttribute("restaurant", new Restaurant());
 		model.addAttribute("restaurants",restaurants);
+		model.addAttribute("boardLoc", "검색결과");
 		return "/restaurant/restaurant_list";
 		
 	}

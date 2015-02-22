@@ -105,18 +105,18 @@ $(document).ready(function(){
 
 	<c:url value="/board/list" var="board" />
 	<c:url value="/meeting/list?page=1" var="meeting" />
-	<c:url value="/ranking/list" var="ranking" />
+	<c:url value="/ranking/all" var="ranking" />
 	<c:url value="/main" var="main" />
 
 	<div class="menudiv">
 		<div class="menu-wrap">
 			<nav class="menunav">
 				<div class="icon-list">
-					<a href="${main}"><i class="fa fa-fw fa-star-o"></i><span style="text-decoration: none">메인으로</span></a>
-					<a href="${ranking}"><i class="fa fa-fw fa-bell-o"></i><span style="text-decoration: none">맛집
-							랭킹</span></a> <a href="${meeting}"><i class="fa fa-fw fa-envelope-o"></i><span style="text-decoration: none">번개모임</span></a>
-					<a href="${board}"><i class="fa fa-fw fa-comment-o"></i><span style="text-decoration: none">자유게시판</span></a>
-					<a href="#"><i class="fa fa-fw fa-bar-chart-o"></i><span style="text-decoration: none">이용규칙</span></a>
+					<a href="${main}"><i class="fa fa-fw fa-navicon"></i><span style="text-decoration: none">메인으로</span></a>
+					<a href="${ranking}"><i class="fa fa-fw fa-trophy"></i><span style="text-decoration: none">맛집
+							랭킹</span></a> <a href="${meeting}"><i class="fa fa-fw fa-bolt"></i><span style="text-decoration: none">번개모임</span></a>
+					<a href="${board}"><i class="fa fa-fw fa-pencil-square-o"></i><span style="text-decoration: none">자유게시판</span></a>
+					<a href="#"><i class="fa fa-fw fa-info-circle"></i><span style="text-decoration: none">이용규칙</span></a>
 				</div>
 			</nav>
 			<button class="close-button" id="close-button">Close Menu</button>

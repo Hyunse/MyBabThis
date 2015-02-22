@@ -7,13 +7,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>맛집 댓글보기</title>
-<link rel="stylesheet"
-	href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
-<script src="//code.jquery.com/jquery-1.10.2.js"></script>
-<script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
 <script src="<%=request.getContextPath()%>/js/modernizr.custom.js"></script>
 <script src="http://code.jquery.com/jquery-latest.js"></script>
-<link rel="stylesheet" href="/resources/demos/style.css">
 
 <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -29,10 +24,11 @@
 	content="modal, window, overlay, modern, box, css transition, css animation, effect, 3d, perspective" />
 <meta name="author" content="Codrops" />
 <link rel="shortcut icon" href="../favicon.ico">
+<!-- 
 <link rel="stylesheet" type="text/css" href="css/default_modal.css" />
 <link rel="stylesheet" type="text/css" href="css/component_modal.css" />
 <script src="js/modernizr.custom.js"></script>
-
+ -->
 <link rel="stylesheet" type="text/css"
 	href="<%=request.getContextPath()%>/css/normalize.css" />
 <link rel="stylesheet" type="text/css"
@@ -51,9 +47,11 @@
 	href="<%=request.getContextPath()%>/css/normalize.css" />
 <link rel="stylesheet" type="text/css"
 	href="<%=request.getContextPath()%>/css/cs-select.css" />
+	
+<%-- 
 <link rel="stylesheet" type="text/css"
 	href="<%=request.getContextPath()%>/css/cs-skin-elastic.css" />
-
+ --%>
 
 
 
@@ -68,6 +66,36 @@
 	});
 </script>
 
+
+
+<script>
+	//이미지가 필요 사이즈보다 클때만 줄여줌.
+	function reSizes(imgObj) {
+		var W, H;
+
+		W = imgObj.width;
+		H = imgObj.height;
+		tmpW = W;
+		tmpH = H;
+		size=300;
+
+		if (tmpW > size) {
+			tmpW = W * (size / W);
+			tmpH = H * (size / W);
+		}
+		if (tmpH > size) {
+			tmpW = W * (size / H);
+			tmpH = H * (size / H);
+
+		}
+		
+		imgObj.width = tmpW;
+		imgObj.height = tmpH;
+	};
+</script>
+
+
+
 <style>
 .ui-menu {
 	width: 150px;
@@ -77,12 +105,33 @@
 </head>
 <body>
 	<jsp:include page="/WEB-INF/view/header.jsp" />
-</div>
 	<hr>
 	<h1>맛집 페이지</h1>
+	
+	<table class="table">
+	<tr><td rowspan="6" width="310px">
+	<img src="<%=request.getContextPath()%>/upload/${restaurant.resImg}" onLoad="reSizes(this);"/>
+	</td>
+	<td>지역 : ${restaurant.locName}</td><td>
+	<c:url value="/restaurant/edit?resNo=${restaurant.resNo}"
+					var="url" /> <a href="${url }"><button>편집</button></a> <c:url
+					value="/restaurant/delete?resNo=${restaurant.resNo}&locName=${restaurant.locName }"
+					var="url" /> <a href="${url }"><button>삭제</button></a>
+	<a href="<%=request.getContextPath()%>/favorite/create?resNo=${restaurant.resNo}&userId=${loginUser.userId}"><button>즐겨찾기</button></a></td>
+	</tr>
+	<tr><td>가게이름 : ${restaurant.resName}</td><td>분류 : ${restaurant.resKind}</td></tr>
+	<tr><td>전화번호 : ${restaurant.resNumber}</td><td>평점 : ${restaurant.resScore}</td></tr>
+	<tr><td colspan="2">주소 : ${restaurant.resLoc}</td></tr>
+	<tr><td colspan="2">내용 : ${restaurant.resContent}</td></tr>
+		
+	
+	</table>
+	
+	
+<%-- 	
 	<img src="<%=request.getContextPath()%>/upload/${restaurant.resImg}"
-		width="150" height="150">
-	<table border="1">
+		onLoad="reSizes(this);">
+	<table class="table">
 		<tr>
 			<th>맛집 번호</th>
 			<th>업체명</th>
@@ -107,6 +156,9 @@
 			</td>
 		</tr>
 	</table>
+	 --%>
+	
+	
 	<hr>
 	<div class="container">
 		<section>
@@ -198,6 +250,7 @@
 
 
 <!-- modal overaly -->
+<%-- 
 	<div class="md-overlay"></div><!-- the overlay element -->
 
 		<!-- classie.js by @desandro: https://github.com/desandro/classie -->
@@ -226,5 +279,7 @@
 
 		})();
 	</script>
+	
+	 --%>
 </body>
 </html>

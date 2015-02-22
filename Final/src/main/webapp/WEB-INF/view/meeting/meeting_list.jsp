@@ -8,19 +8,20 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>자유게시판</title>
+<!-- 
 <link rel="stylesheet"
-	href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+	href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css"> -->
+	
+	<!-- 
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-<script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+<script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script> -->
+
 <script src="http://code.jquery.com/jquery-latest.js"></script>
+
 <!-- <script src="js/modernizr.custom.js"></script>
 <link rel="stylesheet" type="text/css" href="css/default_modal.css" />
 <link rel="stylesheet" type="text/css" href="css/component_modal.css" /> -->
 		
-<link rel="stylesheet"
-	href="<%=request.getContextPath()%>/css/style.css" media="screen"
-	type="text/css" />
-<link rel="stylesheet" href="/resources/demos/style.css">
 <!-- <script>
 	$(function() {
 		$(".menu").menu();
@@ -35,21 +36,19 @@
 
 
 
-<script type="text/javascript"
-	src="<%=request.getContextPath()%>/js/jquery-2.1.3.js"></script>
 
 <div class="sticky">
 	<jsp:include page="/WEB-INF/view/header.jsp" />
 </div>
 <body>
-	<table class="table" align="center">
+	<table class="table" align="center" width="100%">
 		
 		<tr>
 	
-			<th >글 번호</th>
-			<th >글 내용</th>
-			<th >작성자</th>
-			<th >날짜</th>
+			<th width="15%">글 번호</th>
+			<th width="60%">글 내용</th>
+			<th width="15%">작성자</th>
+			<th width="20%">날짜</th>
 		
 		</tr>
 		
@@ -92,10 +91,14 @@
 		</tr>
 		</c:forEach>
 		</c:if>
+		<tr><td></td><td></td><td><c:url value= "/meeting/write" var="write" /> 
+	<a href="${write}" ><button type="submit" class="btn btn-primary">글쓰기</button></a>
+	</td>
+		</tr>
 		
 	</table>
 	<br>
-	------>>>>>${totalPage}
+	
 	<%-- <article> 
 	
 	<%

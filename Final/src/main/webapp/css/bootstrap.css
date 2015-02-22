@@ -34,6 +34,7 @@ html {
 	font-family: sans-serif;
 	-webkit-text-size-adjust: 100%;
 	-ms-text-size-adjust: 100%;
+	 overflow: scroll;
 }
 
 body {
@@ -1220,18 +1221,22 @@ pre code {
 	}
 }
 
+/* 
+여기가 테이블 크기 등등 설정 */
 table {
-	max-width: 50%;
+	max-width: 100%;
 	background-color: transparent;
 }
 
 th {
-	text-align: left;
+	text-align: center;
+	background-color: #dbdbdb;
 }
 
 .table {
-	width: 100%;
+	width: 90%;
 	margin-bottom: 20px;
+	margin: 0 auto;
 }
 
 .table thead>tr>th, .table tbody>tr>th, .table tfoot>tr>th, .table thead>tr>td,
