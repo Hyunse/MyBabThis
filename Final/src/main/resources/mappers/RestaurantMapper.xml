@@ -82,7 +82,7 @@
 		from (select *
 		from restaurant
 		order by res_score desc)
-		where rownum &lt;= 10 and loc_name=#{locName }
+		where rownum &lt;= 5 and loc_name=#{locName }
 	</select>
 
 	<select id="selectNewRestaurant" resultType="Restaurant">

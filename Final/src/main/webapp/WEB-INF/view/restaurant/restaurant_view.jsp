@@ -16,6 +16,7 @@
 <meta name="keywords" content="tabs, inspiration, web design, css, modern, effects, svg" />
 <meta name="author" content="Codrops" />
 <link rel="shortcut icon" href="../favicon.ico"> -->
+
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description"
@@ -60,12 +61,13 @@
     $( "#tabs" ).tabs();
   }); 
  </script> -->
+ <!-- 
 <script>
 	$(function() {
 		$(".menu").menu();
 	});
 </script>
-
+ -->
 
 
 <script>
@@ -171,7 +173,7 @@
 			</nav>
 			<div class="content-wrap">
 				<section id="section-topline-1">
-				<table border="1">
+				<table  class="table">
 					<tr>
 						<!-- <th>번호</th> -->
 						<th>내용</th>
@@ -208,7 +210,7 @@
 				<c:url value="/rreply/write?resNo=${resNo }" var="url"></c:url> <a
 					href="${url }"><button>댓글작성</button></a> </section>
 				<section id="section-topline-2">
-				<table border="1">
+				<table class="table">
 					<tr>
 						<th>사진</th>
 						<th>평가</th>
@@ -268,6 +270,7 @@
 		
 		
 
+	 --%>
 	<script src="<%=request.getContextPath()%>/js/cbpFWTabs.js"></script>
 	<script>
 		(function() {
@@ -280,6 +283,5 @@
 		})();
 	</script>
 	
-	 --%>
 </body>
 </html>

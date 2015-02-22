@@ -1224,7 +1224,7 @@ pre code {
 /* 
 여기가 테이블 크기 등등 설정 */
 table {
-	max-width: 100%;
+	max-width: 90%;
 	background-color: transparent;
 }
 
@@ -1234,9 +1234,22 @@ th {
 }
 
 .table {
-	width: 90%;
-	margin-bottom: 20px;
+	width: 80%;
 	margin: 0 auto;
+	margin-bottom: 20px;
+}
+
+.tableRank {
+
+	min-width: 800px;
+	margin: 0 auto;
+	margin-bottom: 20px;
+	border:20px
+	/* 
+	background-color: #f7f7f7;
+	border:20px solid #f7f7f7; */
+
+	
 }
 
 .table thead>tr>th, .table tbody>tr>th, .table tfoot>tr>th, .table thead>tr>td,
