@@ -10,8 +10,7 @@
 <title>보낸 쪽지함</title>
 </head>
 <body>
-<h2>보낸 쪽지함</h2>
-<table class="table">
+<table class="table table-hover" style="width: 100%;">
 <c:forEach var= "msg" items="${sendMsgs}" varStatus="status">
 		<tr>
 		<th>보낸사람</th><th>받은사람</th><th>내용</th><th>날짜</th>

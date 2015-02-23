@@ -23,37 +23,22 @@
 <body>
 <jsp:include page="/WEB-INF/view/header.jsp" />
 <jsp:include page="/WEB-INF/view/mypage/mypage_list.jsp" />
-	<!-- 여기에 탭으로 보낸쪽지함, 받은쪽지함, 신고함 들어옴  -->
-	<svg class="hidden">
-			<defs>
-				<path id="tabshape" d="M80,60C34,53.5,64.417,0,0,0v60H80z"/>
-			</defs>
-	</svg>
+			<br>
+			<br>
 			<section>
-				<div class="tabs tabs-style-shape">
+				<div class="tabs tabs-style-topline">
 					<nav>
 						<ul>
-							<li>
-								<a href="#section-shape-1">
-									<svg viewBox="0 0 80 60" preserveAspectRatio="none"><use xlink:href="#tabshape"></use></svg>
-									<span>보낸 쪽지함</span>
-								</a>
-							</li>
-							<li>
-								<a href="#section-shape-2">
-									<svg viewBox="0 0 80 60" preserveAspectRatio="none"><use xlink:href="#tabshape"></use></svg>
-									<svg viewBox="0 0 80 60" preserveAspectRatio="none"><use xlink:href="#tabshape"></use></svg>
-									<span>받은 쪽지함</span>
-								</a>
-							</li>
+							<li><a href="#section-topline-1"><span>보낸 쪽지함</span></a></li>
+							<li><a href="#section-topline-2"><span>받은 쪽지함</span></a></li>
 						</ul>
 					</nav>
 					<div class="content-wrap">
-						<section id="section-shape-1">
-						<p><jsp:include page="/WEB-INF/view/msg/send_list.jsp" /></p>
+						<section id="section-topline-1">
+						<jsp:include page="/WEB-INF/view/msg/send_list.jsp" />
 						</section>
-						<section id="section-shape-2">
-						<p><jsp:include page="/WEB-INF/view/msg/receive_list.jsp" /></p>
+						<section id="section-topline-2">
+						<jsp:include page="/WEB-INF/view/msg/receive_list.jsp" />
 						</section>
 					</div><!-- /content -->
 				</div><!-- /tabs -->

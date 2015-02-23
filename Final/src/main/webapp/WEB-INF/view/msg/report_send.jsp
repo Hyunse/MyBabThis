@@ -13,7 +13,6 @@
 <title>쪽지보내기</title>
 </head>
 <body>
-<h2>쪽지보내기</h2>
 <c:url value="/msg/sendedReport" var="action"></c:url>
 	<form:form modelAttribute="msg" method="post" action="${action}">
 	<label>보낸사람</label> : <form:input path="sender" value="${loginUser.userId}"/>

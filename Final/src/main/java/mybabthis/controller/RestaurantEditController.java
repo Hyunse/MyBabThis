@@ -1,5 +1,7 @@
 package mybabthis.controller;
 
+import java.io.UnsupportedEncodingException;
+
 import mybabthis.entity.Restaurant;
 import mybabthis.service.RestaurantService;
 
@@ -47,6 +49,11 @@ public class RestaurantEditController {
 	public String deleteRestaurant(@RequestParam int resNo, String locName, Model model){
 		logger.trace("맛집게시물 삭제 : 번호 - "+resNo);
 		service.deleteRestaurant(resNo);
+		try {
+			locName = java.net.URLEncoder.encode(locName, "utf-8");
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
 		return "redirect:/restaurant/list?locName="+locName;
 	}
 	

@@ -56,18 +56,7 @@
 					</c:forEach>
 				</ul>
 			</section>
-			<section class="related">
-				<p>여기에 푸터?</p>
-				<a href="#">
-					<img src="http://tympanus.net/codrops/wp-content/uploads/2013/10/ThumbnailGridAnimations1-300x162.jpg" />
-					<h3>Animations for Thumbnail Grids</h3>
-				</a>
-				<a href="#">
-					<img src="http://tympanus.net/codrops/wp-content/uploads/2013/07/GridLoadingEffects-300x162.png" />
-					<h3>Grid Loading Effects</h3>
-				</a>
-				<a>이거되나?</a>
-			</section>
+			
 		</div><!-- /container -->
 		<script src="../js/masonry.pkgd.min.js"></script>
 		<script src="../js/imagesloaded.pkgd.min.js"></script>
