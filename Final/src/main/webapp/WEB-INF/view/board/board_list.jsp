@@ -76,14 +76,21 @@
 		</c:if>
 		<tr>
 		<td></td>
-		<td><div id="pageNumber" align="center">
-	
+		<td>
+			<div id="pageNumber" align="center">
+			<ul class="pager">
 				<c:forEach var="i" begin="1" end="${totalPage}" >
-					<c:url value="/board/list?page=${i}" var="goPage"/>
-						
-							 <a href="${goPage}">${i}</a>
+					<c:url value="/meeting/list?page=${i}" var="goPage"/>
+						<ul class="pagination">
+							<c:if test="${currentPage == i}">
+							 <li class="active"><a href="#">${i}<span class="sr-only">(current)</span></a></li>
+							 </c:if>
+							 <c:if test="${currentPage != i}">
+							 <li><a href="${goPage}">${i}</a></li>
+							 </c:if>
+						</ul>
 				</c:forEach>
-		
+			</ul>
 			</div></td>
 		<td></td>
 		<td style="text-align:center">
