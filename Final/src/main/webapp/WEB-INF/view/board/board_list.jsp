@@ -12,15 +12,17 @@
   <script src="//code.jquery.com/jquery-1.10.2.js"></script>
   <script src="//code.jquery.com/ui/1.11.3/jquery-ui.js"></script>
   <link rel="stylesheet" href="/resources/demos/style.css">
+  <link rel="stylesheet" type="text/css"
+	href="<%=request.getContextPath()%>/css/bootstrap.css" />
 <script src="<%=request.getContextPath()%>/js/bootstrap.js"></script>
-
+<!-- 
 <script>
 	$(function() {
 		$("#dropmenu").menu();
 	});
 </script>
 
-
+ -->
 <style>
 .ui-menu {
 	width: 150px;
@@ -66,8 +68,9 @@
 				<a href="${go}">${boardList.boardTitle}</a>
 			</c:if>
 			 --></td>
-					<td style="text-align:center"  class="dropdown" onclick="location.href='#'"><c:out value="${boardList.userId}" />
-
+					<td style="text-align:center"><c:out value="${boardList.userId}" />
+					<div class="dropdown" onclick="location.href='#'">
+assa
 							<!-- Link or button to toggle dropdown -->
 							<ul class="dropdown-menu" role="menu"
 								aria-labelledby="dropdownMenu1">
@@ -76,7 +79,7 @@
 								<li role="presentation"><a role="menuitem" tabindex="-1"
 									href="#">Another action</a></li>
 							</ul>
-
+</div>
 						<%-- <ul id="dropmenu">
 							
 									<li><a href="/Final/friend/create?userId=${loginUser.userId}&friendId=${boardList.userId}">친구추가</a></li>
