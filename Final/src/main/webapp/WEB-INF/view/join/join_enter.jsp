@@ -139,8 +139,7 @@ $(document).ready(function() {
    
     $.ajax({
     type: "POST",
-    url: "<%=request.getContextPath()%>
-	/join/email",
+    url: "<%=request.getContextPath()%>/join/email",
 														data : "email=" + email,
 														contentType : "application/x-www-form-urlencoded; charset=utf-8",
 
@@ -253,7 +252,7 @@ $(document).ready(function() {
 			<br>
 			<form:radiobutton path="userGender" value="1" />남  
 			<form:radiobutton path="userGender" value="0" />여
-			<br> 
+			<br>
 			<br>
 
 			<form:hidden path="userImg" value="star.png" />

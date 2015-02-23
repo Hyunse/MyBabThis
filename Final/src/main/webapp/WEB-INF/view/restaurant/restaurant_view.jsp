@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ page import="mybabthis.entity.Restaurant"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html >
 <html>
 <head>
@@ -193,7 +194,15 @@
 									<li><a href="/Final/msg/send?receiver=${rreply.userId}">쪽지보내기</a></li>
 								</ul>
 							</td>
-							<td><c:out value="${rreply.rreplyUpdatedate }" /></td>
+							<td>
+							<c:set value="${rreply.rreplyUpdatedate }" var="rreplyUpdatedate"/>
+							<fmt:formatDate value="${rreplyUpdatedate }" type="date" dateStyle="long" /><br>
+							<fmt:formatDate value="${rreplyUpdatedate }" type="date" dateStyle="default" /><br>
+							<fmt:formatDate value="${rreplyUpdatedate }" type="date" dateStyle="medium" /><br>
+							<fmt:formatDate value="${rreplyUpdatedate }" type="date" dateStyle="full" /><br>
+							<fmt:formatDate value="${rreplyUpdatedate }" type="date" dateStyle="short" />
+							<fmt:formatDate value="${rreplyUpdatedate }" type="time" pattern="hh:MM:ss" />
+							</td>
 							<td><c:url value="/rreply/edit?rreplyNo=${rreply.rreplyNo }"
 									var="url"></c:url> <a href="${url}"><button>수정</button></a></td>
 							<td><c:url
