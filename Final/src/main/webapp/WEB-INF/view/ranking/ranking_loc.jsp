@@ -43,6 +43,7 @@
 	
 	
 	
+	<h1>맛집 top5</h1>
 <%int i=1; %>
 	<c:forEach items="${restaurants }" var="restaurant">
 	

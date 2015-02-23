@@ -31,8 +31,7 @@
 			<a href="/Final/ranking/loc?locName=종로"><span data-hover="종로">종로</span></a>
 			<a href="/Final/ranking/loc?locName=영등포"><span data-hover="영등포">영등포</span></a>
 		</nav>
-	</section>
-	<h1>맛집 top5</h1><!-- 
+	</section><!-- 
 	<section >
 			<a href="/Final/restaurant/write"><button  class="btn btn-default"><span class="glyphicon glyphicon-pencil">  </span> 글쓰기</button></a>
 	</section> -->
