@@ -11,7 +11,7 @@
 </head>
 <body>
 <h2>받은 쪽지함</h2>
-<table border="1">
+<table class="table">
 <c:forEach var= "msg" items="${receiveMsgs}" varStatus="status">
 		<tr>
 		<th>보낸사람</th><th>받은사람</th><th>내용</th><th>전송시각</th>

@@ -34,7 +34,7 @@
 							<line class="bottom" x1="300" y1=300 x2="-600" y2="300" />
 							<line class="right" x1="300" y1="0" x2="300" y2="900" />
 						</svg>
-						<span><b style="color: red ; display: float;" >NEW</b><c:out value="${restaurant.resName }" /></span>
+						<span style="margin: 0;"><span style="text-align: left; color: red; width: 50%; display: inline-block;">NEW</span><span style=" width: 50%;  display: inline-block;"><c:out value="${restaurant.resName }" /></span></span>
 						<img
 							src="<%=request.getContextPath()%>/upload/${restaurant.resImg }"
 						 	width ="300px" height ="230px">
