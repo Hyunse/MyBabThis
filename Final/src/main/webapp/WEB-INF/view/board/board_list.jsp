@@ -74,9 +74,9 @@
 				</tr>
 			</c:forEach>
 		</c:if>
-		<tr><td></td><td></td><td></td><td>
-		
-			<div id="pageNumber" align="center">
+		<tr>
+		<td></td>
+		<td><div id="pageNumber" align="center">
 	
 				<c:forEach var="i" begin="1" end="${totalPage}" >
 					<c:url value="/board/list?page=${i}" var="goPage"/>
@@ -84,13 +84,15 @@
 							 <a href="${goPage}">${i}</a>
 				</c:forEach>
 		
-			</div>
-
-		<tr><td></td><td></td><td></td><td style="text-align:center">
+			</div></td>
+		<td></td>
+		<td style="text-align:center">
 	<c:url value="/board/write" var="write" />
 	<a href="${write}"><button type="submit" class="btn btn-default"><p class="text-primary"><span class="glyphicon glyphicon-pencil"></span> 글쓰기</p></button></a>
 		
-		</td></tr>
+		</td>
+		</tr>
+			
 
 	</table>
 	
