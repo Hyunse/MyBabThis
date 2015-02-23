@@ -200,12 +200,8 @@
 							</td>
 							<td>
 							<c:set value="${rreply.rreplyUpdatedate }" var="rreplyUpdatedate"/>
-							<fmt:formatDate value="${rreplyUpdatedate }" type="date" dateStyle="long" /><br>
-							<fmt:formatDate value="${rreplyUpdatedate }" type="date" dateStyle="default" /><br>
-							<fmt:formatDate value="${rreplyUpdatedate }" type="date" dateStyle="medium" /><br>
-							<fmt:formatDate value="${rreplyUpdatedate }" type="date" dateStyle="full" /><br>
-							<fmt:formatDate value="${rreplyUpdatedate }" type="date" dateStyle="short" />
-							<fmt:formatDate value="${rreplyUpdatedate }" type="time" pattern="hh:MM:ss" />
+							<fmt:formatDate value="${rreplyUpdatedate }" type="date" dateStyle="short"/>&nbsp;&nbsp;
+							<fmt:formatDate value="${rreplyUpdatedate }" type="time" pattern="hh:MM"/>
 							</td>
 							<td><c:url value="/rreply/edit?rreplyNo=${rreply.rreplyNo }"
 									var="url"></c:url> <a href="${url}"><button>수정</button></a></td>
@@ -249,7 +245,12 @@
 										</ul></li>
 								</ul>
 							</td>
-							<td><c:out value="${review.reviewUpdatedate }" /></td>
+							<td>
+							<c:set value="${review.reviewUpdatedate }" var="reviewUpdatedate"/>
+							<fmt:formatDate value="${reviewUpdatedate }" type="date" dateStyle="short"/>&nbsp;&nbsp;
+							<fmt:formatDate value="${reviewUpdatedate }" type="time" pattern="hh:MM"/>
+							</td>
+							
 						</tr>
 					</c:forEach>
 				</table>
