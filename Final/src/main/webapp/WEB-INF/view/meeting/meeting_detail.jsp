@@ -24,7 +24,7 @@ pre {
 		
 		$(".updateform").hide();
 
-		$(".updateBtn").click(function() {
+		$(".btn-default").click(function() {
 			//alert(this.id); // or alert($(this).attr('id'));
 			var bid = $(this).attr("id");
 			var hid = "#h" + bid;
@@ -118,7 +118,8 @@ pre {
 				<td><c:out value="${breply.userId }" /></td>
 				<td><c:out value="${breply.breplyUpdatedate }" /></td>
 
-				<td style="border: solid 1px #FFF; word-break: break-all;" ><button class="btn btn-default" id="btn${breply.breplyNo}" ><p class="text-success"><span class="glyphicon glyphicon-pencil"></span> 수정</button>
+				<td style="border: solid 1px #FFF; word-break: break-all;" ><button class="btn btn-default" id="btn${breply.breplyNo}" >
+				<p class="text-success"><span class="glyphicon glyphicon-pencil"></span> 수정</button>
 				<c:url value="/meeting/delete?breplyNo=${breply.breplyNo }&boardNo=${breply.boardNo }" var="url"></c:url> 
 				<a href="${url}"><button class="btn btn-default">
 				<p class="text-danger"><span class="glyphicon glyphicon-trash"></span> 삭제</button></a></td>
@@ -137,10 +138,18 @@ pre {
 		</div>
 		<form:hidden path="boardNo" value="${boardDetail.boardNo }" />
 		<form:hidden path="userId" value="${loginUser.userId }" />
-		<label>내용</label> : <form:textarea path="breplyContent" />
-		<button type="submit" name="breply_write" class="btn btn-primary">작성</button>
+		<div class="col-lg-6" >
+			<div class="input-group">
+				<form:input path="breplyContent" type="text" class="form-control" />
+				<span class="input-group-btn">
+					<button class="btn btn-default" name="breply_write" type="submit"><span class="glyphicon glyphicon-ok"></span> 작성</button>
+				</span>
+			</div>
+			<!-- /input-group -->
+		</div>
+		<!-- /.col-lg-6 -->
 	</form:form>
-	</div>
+	
 
 </body>
 </html>

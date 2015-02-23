@@ -21,9 +21,9 @@
 		<br>
 
 		<form:hidden path="userId" value="${loginUser.userId }" />
-		<p class="text-muted">제목&nbsp;&nbsp;&nbsp;&nbsp;<form:input path="boardTitle" size="152dp"/></p>
+		<p class="text-muted">제목&nbsp;&nbsp;&nbsp;&nbsp;<form:input path="boardTitle" size="155%"/></p>
 
-		<p class="text-muted">내용&nbsp; <form:textarea path="boardContent" cols="150" rows="20"/></p>  
+		<p class="text-muted">내용&nbsp; <form:textarea path="boardContent" cols="152%" rows="25%" /></p>  
 		<br>
 		<br>
 
