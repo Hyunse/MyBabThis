@@ -27,6 +27,11 @@
 	href="<%=request.getContextPath()%>/css/demo_input.css" />
 <link rel="stylesheet" type="text/css"
 	href="<%=request.getContextPath()%>/css/component_input.css" />
+<link rel="stylesheet" type="text/css"
+	href="<%=request.getContextPath()%>/css/bootstrap.css" />
+<link rel="stylesheet" type="text/css"
+	href="<%=request.getContextPath()%>/css/bootstrap-theme.css" />
+<script src="<%=request.getContextPath()%>/js/bootstrap.js"></script>
 </head>
 <script>
 $(document).ready(function() {
@@ -134,7 +139,8 @@ $(document).ready(function() {
    
     $.ajax({
     type: "POST",
-    url: "<%=request.getContextPath()%>/join/email",
+    url: "<%=request.getContextPath()%>
+	/join/email",
 														data : "email=" + email,
 														contentType : "application/x-www-form-urlencoded; charset=utf-8",
 
@@ -149,26 +155,27 @@ $(document).ready(function() {
 													});
 										})
 
-						$("#pass2").keyup(function() {
-							/* var pass = document.form.userPass.value; */
-							/* var pass2 = document.form.userPass2.value; */
-							var pass = $("#userPass").val();
-							var pass2 = $("#pass2").val();
-							//alert("aaa" + pass + ", " + pass2);
-							var message1 = "<font color='red'>비밀번호를 입력하세요.</font>";
-							var message2 = "<font color='red'>비밀번호가 다릅니다.</font>";
-							var message3 = "<font color='blue'>비밀번호가 동일합니다.</font>";
-							//alert(pass + "," + pass2);
-							if (pass2 =="") {
-								$("#chk").html(message1);
-							} else if(pass2 != pass){
-								$("#chk").html(message2);
-							}
-							else {
-								$("#chk").html(message3);
-							}
-							return;
-						})
+						$("#pass2")
+								.keyup(
+										function() {
+											/* var pass = document.form.userPass.value; */
+											/* var pass2 = document.form.userPass2.value; */
+											var pass = $("#userPass").val();
+											var pass2 = $("#pass2").val();
+											//alert("aaa" + pass + ", " + pass2);
+											var message1 = "<font color='red'>비밀번호를 입력하세요.</font>";
+											var message2 = "<font color='red'>비밀번호가 다릅니다.</font>";
+											var message3 = "<font color='blue'>비밀번호가 동일합니다.</font>";
+											//alert(pass + "," + pass2);
+											if (pass2 == "") {
+												$("#chk").html(message1);
+											} else if (pass2 != pass) {
+												$("#chk").html(message2);
+											} else {
+												$("#chk").html(message3);
+											}
+											return;
+										})
 					});
 </script>
 <body>
@@ -187,9 +194,9 @@ $(document).ready(function() {
 				class="input__label input__label--hoshi input__label--hoshi-color-2"
 				for="userId"> <span
 					class="input__label-content input__label-content--hoshi">아이디</span></label>
-					
+
 			</span>
-			<div id="dropId" style="font-size: 13px" ></div>
+			<div id="dropId" style="font-size: 13px"></div>
 
 
 			<span class="input input--hoshi"> <label
@@ -199,47 +206,44 @@ $(document).ready(function() {
 				<form:input class="input__field input__field--hoshi" path="userName"
 					id="userName" />
 			</span>
-			
+
 			<div id="dropName" style="font-size: 13px"></div>
-			
-			
-			
-			<span class="input input--hoshi"> 
-			<label
+
+
+
+			<span class="input input--hoshi"> <label
 				class="input__label input__label--hoshi input__label--hoshi-color-2"
 				for="userPass"> <span
 					class="input__label-content input__label-content--hoshi">비밀번호</span></label>
-				<form:input type="password" class="input__field input__field--hoshi" path="userPass"
-					id="userPass" />
+				<form:input type="password" class="input__field input__field--hoshi"
+					path="userPass" id="userPass" />
 			</span>
 			<div id="passChk" style="font-size: 13px"></div>
-			
-			<span class="input input--hoshi"> 
-			<label
+
+			<span class="input input--hoshi"> <label
 				class="input__label input__label--hoshi input__label--hoshi-color-2"
 				for="pass2"> <span
 					class="input__label-content input__label-content--hoshi">비밀번호확인</span></label>
 				<input type="password" class="input__field input__field--hoshi"
-					id="pass2" />
+				id="pass2" />
 			</span>
-			
-			
+
+
 			<div id="chk" style="font-size: 13px"></div>
-		
-			
-			<span class="input input--hoshi"> 
-			<label
+
+
+			<span class="input input--hoshi"> <label
 				class="input__label input__label--hoshi input__label--hoshi-color-2"
 				for="userEmail"> <span
 					class="input__label-content input__label-content--hoshi">이메일</span></label>
 				<form:input type="Email" class="input__field input__field--hoshi"
 					path="userEmail" id="userEmail" />
 			</span>
-			<div id="dropEmail" style="font-size: 13px"></div><div id="emailChk" style="font-size: 13px"></div>
-			
-			
-			<span class="input input--hoshi">
-			<label
+			<div id="dropEmail" style="font-size: 13px"></div>
+			<div id="emailChk" style="font-size: 13px"></div>
+
+
+			<span class="input input--hoshi"> <label
 				class="input__label input__label--hoshi input__label--hoshi-color-2"
 				for="userPhone"> <span
 					class="input__label-content input__label-content--hoshi">전화번호</span></label>
@@ -247,14 +251,13 @@ $(document).ready(function() {
 					path="userPhone" id="userPhone" />
 			</span>
 			<br>
-			
-			<label>성별</label>
-			<form:radiobutton path="userGender" value="1" />남
-							<form:radiobutton path="userGender" value="0" />여
-						<br>	
+			<form:radiobutton path="userGender" value="1" />남  
+			<form:radiobutton path="userGender" value="0" />여
+			<br> 
+			<br>
 
-		<form:hidden path="userImg" value="star.png" />
-			<input type="submit" value="가입">
+			<form:hidden path="userImg" value="star.png" />
+			<button class="btn btn-default" type="submit">가입</button>
 		</form:form>
 	</section>
 

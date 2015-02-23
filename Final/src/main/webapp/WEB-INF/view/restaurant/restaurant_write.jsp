@@ -27,6 +27,11 @@
 	href="<%=request.getContextPath()%>/css/demo_input.css" />
 <link rel="stylesheet" type="text/css"
 	href="<%=request.getContextPath()%>/css/component_input.css" />
+<link rel="stylesheet" type="text/css"
+	href="<%=request.getContextPath()%>/css/bootstrap.css" />
+<link rel="stylesheet" type="text/css"
+	href="<%=request.getContextPath()%>/css/bootstrap-theme.css" />
+<script src="<%=request.getContextPath()%>/js/bootstrap.js"></script>	
 </head>
 <script>
 $(document).ready(function() {
@@ -46,26 +51,31 @@ $(document).ready(function() {
 			<form:input class="input__field input__field--hoshi" path="userId" id="userId" value="${loginUser.userId }" readonly="true"/>
 				<label class="input__label input__label--hoshi input__label--hoshi-color-2" for="userId">
 				<span class="input__label-content input__label-content--hoshi">아이디</span></label></span>
+				<br>
 				
 			<span class="input input--hoshi"> 
 			<form:input class="input__field input__field--hoshi" path="resName" id="resName"/>
 				<label class="input__label input__label--hoshi input__label--hoshi-color-2" for="resName">
 				<span class="input__label-content input__label-content--hoshi">가게이름</span></label></span>
+				<br>
 				
 				<span class="input input--hoshi"> 
 			<form:input class="input__field input__field--hoshi" path="resNumber" id="resNumber"/>
 				<label class="input__label input__label--hoshi input__label--hoshi-color-2" for="resNumber">
 				<span class="input__label-content input__label-content--hoshi">전화번호</span></label></span>
+				<br>
 				
 				<span class="input input--hoshi"> 
 			<form:input class="input__field input__field--hoshi" path="resLoc" id="resLoc"/>
 				<label class="input__label input__label--hoshi input__label--hoshi-color-2" for="resLoc">
 				<span class="input__label-content input__label-content--hoshi">주소</span></label></span>
+				<br>
 				
 				<span class="input input--hoshi"> 
 			<form:input class="input__field input__field--hoshi" path="resContent" id="resContent"/>
 				<label class="input__label input__label--hoshi input__label--hoshi-color-2" for="resContent">
 				<span class="input__label-content input__label-content--hoshi">내용</span></label></span>
+				<br>
 
 
 		<br>
@@ -75,7 +85,6 @@ $(document).ready(function() {
 		<form:option value="대학로">대학로</form:option>
 		<form:option value="신림">신림</form:option>
 		<form:option value="홍대">홍대</form:option>
-		<form:option value="신촌">신촌</form:option>
 		<form:option value="종로">종로</form:option>
 		<form:option value="영등포">영등포</form:option>
 		</form:select>

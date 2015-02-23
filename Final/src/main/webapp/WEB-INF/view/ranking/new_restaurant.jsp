@@ -17,9 +17,8 @@
 <link rel="stylesheet" type="text/css"
 	href="<%=request.getContextPath()%>/css/component_newres.css" />
 
-<body >
-	<h2>NEW 맛집!</h2>
-	
+<body>
+	<!-- <h2>NEW 맛집!</h2> -->
 		<table align ="center">
 		<tr>
 		<c:forEach items="${restaurants }" var="restaurant">
@@ -29,21 +28,17 @@
 			<section class="demo-3">
 				<div class="grid">
 					<div class="box">
-					
 						<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
 							<line class="top" x1="0" y1="0" x2="900" y2="0" />
 							<line class="left" x1="0" y1="300" x2="0" y2="-600" />
 							<line class="bottom" x1="300" y1=300 x2="-600" y2="300" />
 							<line class="right" x1="300" y1="0" x2="300" y2="900" />
 						</svg>
-				<span ><c:out value="${restaurant.resName }" /></span>
+						<span><b style="color: red ; display: float;" >NEW</b><c:out value="${restaurant.resName }" /></span>
 						<img
 							src="<%=request.getContextPath()%>/upload/${restaurant.resImg }"
 						 	width ="300px" height ="230px">
-								
-								<span ><c:out value="${restaurant.locName }" /></span>
-								
-						
+						<span ><c:out value="${restaurant.locName }" /></span>
 					</div>
 				</div>
 			</section>
