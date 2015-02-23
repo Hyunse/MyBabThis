@@ -10,6 +10,7 @@
 		select count(*)
 		from  board
 		where board_type in('m', 'M')
+		
 	</select>
 	
 	<select id="selectAllCommentInMeeting" parameterType="INTEGER"
@@ -17,6 +18,7 @@
 		select *
 		from board
 		where board_type in('m', 'M')
+		order by board_no desc
 	</select>
 	
 	<!-- 게시판 생성 boardType = 'F' -->
