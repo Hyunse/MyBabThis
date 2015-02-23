@@ -76,7 +76,7 @@
 		</c:if>
 		<tr><td></td><td></td><td></td><td>
 	<c:url value="/board/write" var="write" />
-	<a href="${write}"><button type="submit" class="btn btn-primary">글쓰기</button></a>
+	<a href="${write}"><button type="submit" class="btn btn-default"><p class="text-primary"><span class="glyphicon glyphicon-pencil"></span> 글쓰기</p></button></a>
 		
 		</td></tr>
 
