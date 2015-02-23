@@ -127,7 +127,11 @@
 	<tr><td colspan="2">주소 : ${restaurant.resLoc}</td></tr>
 	<tr><td colspan="2">내용 : ${restaurant.resContent}</td></tr>
 		
-	
+	<tr><td colspan="3"><div class="progress">
+  <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 30%">
+    <span class="sr-only">60% Complete (warning)</span>
+  </div>
+</div></td></tr>
 	</table>
 	
 	
