@@ -64,7 +64,8 @@ public class MeetingController {
 		list = boardService.viewBoardByMeeting(board.getBoardType());
 		model.addAttribute("boardList", pagelist);
 		model.addAttribute("totalPage", totalpage);
-		logger.trace("GoBoard : " + list);
+		model.addAttribute("currentPage", page);
+		logger.trace("currentPage : " + page);
 		
 		return "meeting/meeting_list";
 

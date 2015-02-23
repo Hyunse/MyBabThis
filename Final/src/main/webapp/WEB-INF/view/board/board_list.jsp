@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>자유게시판</title>
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <!-- 
 <script>
@@ -34,10 +34,10 @@
 
 	<table class="table"  align="center">
 		<tr>
-			<th width="15%">글 번호</th>
-			<th width="60%">글 내용</th>
-			<th width="15%">작성자</th>
-			<th width="20%">날짜</th>
+			<th width="5%">글 번호</th>
+			<th width="75%">글 내용</th>
+			<th width="10%">작성자</th>
+			<th width="10%">날짜</th>
 		</tr>
 
 
@@ -50,7 +50,7 @@
 			<c:forEach var="boardList" items="${boardList}" varStatus="status">
 
 				<tr>
-					<td><c:out value="${boardList.boardNo}" /></td>
+					<td style="text-align:center"><c:out value="${boardList.boardNo}" /></td>
 					<td><c:url value="/board/detail?boardNo=${boardList.boardNo}"
 							var="go" /> <a href="${go}"><c:out
 								value="${boardList.boardTitle}" /> </a> <!-- 
@@ -62,7 +62,7 @@
 				<a href="${go}">${boardList.boardTitle}</a>
 			</c:if>
 			 --></td>
-					<td><c:out value="${boardList.userId}" />
+					<td style="text-align:center"><c:out value="${boardList.userId}" />
 						<%-- <ul class="menu">
 							
 									<li><a href="/Final/friend/create?userId=${loginUser.userId}&friendId=${boardList.userId}">친구추가</a></li>
@@ -70,7 +70,7 @@
 								
 						</ul> --%>
 					</td>
-					<td><c:out value="${boardList.boardRegdate}" /></td>
+					<td style="text-align:center"><c:out value="${boardList.boardRegdate}" /></td>
 				</tr>
 			</c:forEach>
 		</c:if>
@@ -86,6 +86,7 @@
 		
 			</div>
 
+		<tr><td></td><td></td><td></td><td style="text-align:center">
 	<c:url value="/board/write" var="write" />
 	<a href="${write}"><button type="submit" class="btn btn-default"><p class="text-primary"><span class="glyphicon glyphicon-pencil"></span> 글쓰기</p></button></a>
 		
