@@ -122,20 +122,33 @@ List<Board> list = null;
 		
 		boardService.updateBoard(board);
 		
-		return "redirect:/board/list";
+		return "redirect:/board/list?page=1";
 	}
 
+	/**
+	 * 게시판 댓글 삭제하기
+	 * @param board
+	 * @return
+	 */
+	@RequestMapping(value="/delete", params={"breplyNo", "boardNo"}, method=RequestMethod.GET)
+	public String deleteBoardReply(@RequestParam int breplyNo, int boardNo, Model model){
+		
+		breplyService.deleteBreply(breplyNo);
+		logger.trace("번호: " +breplyNo);
+		return "redirect:/board/detail?boardNo="+boardNo;
+	}
+	
 	/**
 	 * 게시판 삭제하기
 	 * @param board
 	 * @return
 	 */
-	@RequestMapping(value="/delete", params={"breplyNo", "boardNo"}, method=RequestMethod.GET)
-	public String deleteBoard(@RequestParam int breplyNo, int boardNo, Model model){
+	@RequestMapping(value="/edit",  params="_event_delete", method=RequestMethod.GET)
+	public String deleteBoard(@ModelAttribute("editBoard") Board board){
 		
-		breplyService.deleteBreply(breplyNo);
-		logger.trace("번호: " +breplyNo);
-		return "redirect:/board/detail?boardNo="+boardNo;
+		boardService.delete(board.getBoardNo());
+		logger.trace("번호: " +board.getBoardNo());
+		return "redirect:/meeting/list?page=1";
 	}
 	
 //	@RequestMapping(value="/delete",  method=RequestMethod.GET,  params={"breplyNo", "boardNo"})

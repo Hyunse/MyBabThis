@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>번개모임 글보기</title>
 
 </head>
 <style>
@@ -44,42 +44,47 @@ pre {
 </script>
 
 <jsp:include page="/WEB-INF/view/header.jsp" />
-<hr>
+	
 <body>
 	
-	
-
-	<div style=" margin-left: 5em;">
-	<h2>번개모임 글 내용</h2>
-	번호 : ${boardDetail.boardNo}
-	<br> 제목 : ${boardDetail.boardTitle}
-	<br> 작성자 : ${boardDetail.userId }
-	<br> 내용 : ${boardDetail.boardContent }
-	<br>
+	<div style="margin-left: 3em;">
+		<h2 style="font-family: Nanum Gothic">자유게시판</h2>
+	</div>
+	<center>
+	<div class="table-responsive">
+			<table class="table">
+				<tr width=100% ><th width=10% style="text-align:center">번호</th><td width=90%>${boardDetail.boardNo}</td></tr>
+				<tr><th style="text-align:center">제목</th><td>${boardDetail.boardTitle}</td></tr>
+				<tr><th style="text-align:center">작성자</th><td>${boardDetail.userId }</td></tr>
+				<tr><th style="text-align:center">내용</th><td>${boardDetail.boardContent }</td></tr>
+				
+			</table>
 	
 	<c:url value="/meeting/update?boardNo=${boardDetail.boardNo}"
 		var="goEdit" />
-	<a href="${goEdit}"><button type="submit" class="btn btn-primary">수정</button></a>
+	<a href="${goEdit}"><button type="submit" class="btn btn-default" ><p class="text-success"><span class="glyphicon glyphicon-pencil"></span> 수정</button></a>
 	</div>
-
+	</center>
 	<hr>
-	<div style=" margin-left: 5em;">
-	<h2>댓글목록</h2>
-	<table border="1" id="Table">
-		<tr>
-			<th>댓글번호</th>
-			<th>게시글번호</th>
-			<th>설명</th>
-			<th>작성자</th>
-			<th>등록일</th>
-			<th>수정</th>
-			<th>삭제</th>
+	<div style="margin-left: 3em;">
+		<h2 style="font-family: Nanum Gothic">댓글목록</h2>
+	</div>
+	
+	<center>
+	<table class="table" style="table-layout: fixed">
+		<tr width="100%">
+			<th width="15%" >번호</th>
+			<!-- <th>게시글번호</th> -->
+			<th width="65%">내용</th>
+			<th width="10%">작성자</th>
+			<th width="10%">등록일</th>
+
 		</tr>
 
 		<c:forEach items="${breplys }" var="breply">
 			<tr>
 				<td><c:out value="${breply.breplyNo }" /></td>
-				<td><c:out value="${breply.boardNo }" /></td>
+				<%-- <td><c:out value="${breply.boardNo }" /></td> --%>
 				<td>
 
 					<div id="hbtn${breply.breplyNo}">
@@ -106,15 +111,51 @@ pre {
 				<p class="text-danger"><span class="glyphicon glyphicon-trash"></span> 삭제</button></a></td>
 			</tr>
 		</c:forEach>
+
+		<tr><td align="center"><br><img width="40" height="40"
+							src="<%=request.getContextPath()%>/upload/${loginUser.userImg}">
+						<span>${loginUser.userId }</span></td>
+	<td colspan="3">
+	<!-- <div style="margin-left: 3em;">
+		<h2 style="font-family: Nanum Gothic">댓글작성</h2>
+	</div> -->
+
+	<c:url value="/breply/write" var="action"></c:url>
+	<form:form modelAttribute="breply" method="post" action="${action }">
+		<form:hidden path="boardNo" value="${boardDetail.boardNo }" />
+		<form:hidden path="userId" value="${loginUser.userId }" />
+		<%--<label>내용</label> :  <form:textarea path="breplyContent" />
+			<button type="submit" name="breply_write" class="btn btn-primary">작성</button> --%>
+
+		<div class="col-lg-10">
+			<div class="input-group">
+				<form:input path="breplyContent" type="text" class="form-control"/>
+				<span class="input-group-btn">
+					&nbsp&nbsp<button class="btn btn-default" name="breply_write" type="submit"><span class="glyphicon glyphicon-ok"></span> 작성</button>
+				</span>
+			</div>
+			<!-- /input-group -->
+		</div>
+		<!-- /.col-lg-6 -->
+
+	</form:form>
+
+</td>
+</tr>
 	</table>
-</div>
+
+</center>
 	<hr>
 
 	<div style=" margin-left: 5em;">
 	<c:url value="/meeting/write" var="action"></c:url>
+	</div>
 	<form:form modelAttribute="breply" method="post" action="${action }"
 		id="writeform">
-		<h2>댓글작성</h2>
+		<div style="margin-left: 3em;">
+		<h2 style="font-family: Nanum Gothic">댓글작성</h2>
+	</div>
+	
 		<form:hidden path="boardNo" value="${boardDetail.boardNo }" />
 		<form:hidden path="userId" value="${loginUser.userId }" />
 		<div class="col-lg-6" >

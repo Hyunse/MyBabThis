@@ -14,7 +14,10 @@
 	<c:url value="/meeting/confirm" var="write"></c:url>
 	<form:form modelAttribute="boardInfo" method="post" action="${write}" style= "margin-left: 5em">
 
-		<label>번개모임</label> <form:hidden path="boardType" value="M" />
+		<div style="margin-left: 3em;">
+		<h2 style="font-family: Nanum Gothic">자유게시판</h2>
+		</div>
+		<form:hidden path="boardType" value="M" />
 		<br>
 		<form:hidden path="userId" value="${loginUser.userId }" />
 		<p class="text-muted">제목&nbsp;&nbsp;&nbsp;&nbsp;<form:input path="boardTitle" size="155%"/></p>

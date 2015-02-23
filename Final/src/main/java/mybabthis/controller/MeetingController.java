@@ -132,10 +132,9 @@ public class MeetingController {
 	 */
 	@RequestMapping(value="/edit", params="_event_edit", method=RequestMethod.POST)
 	public String editBoard(@ModelAttribute("editBoard") Board board){
-		
+
 		boardService.updateBoard(board);
-		
-		return "redirect:/meeting/list";
+		return "redirect:/meeting/list?page=1";
 	}
 
 	/**
@@ -148,7 +147,7 @@ public class MeetingController {
 		
 		boardService.delete(board.getBoardNo());
 		logger.trace("번호: " +board.getBoardNo());
-		return "redirect:/meeting/list";
+		return "redirect:/meeting/list?page=1";
 	}
 	
 	@RequestMapping(value="/delete",  method=RequestMethod.GET,  params={"breplyNo", "boardNo"})
