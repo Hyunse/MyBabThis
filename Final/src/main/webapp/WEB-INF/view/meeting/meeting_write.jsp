@@ -6,30 +6,30 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>번개모임</title>
+<title>Insert title here</title>
 </head>
 <jsp:include page="/WEB-INF/view/header.jsp" />
 <body>
 
 	<c:url value="/meeting/confirm" var="write"></c:url>
-	<center>
 	<form:form modelAttribute="boardInfo" method="post" action="${write}" style= "margin-left: 5em">
 
-		<h2 style="font-family: Nanum Gothic">번개모임</h2> 
-		<form:hidden path="boardType" value="M" />
+		<label>번개모임</label> <form:hidden path="boardType" value="M" />
 		<br>
 		<br>
 
-		<form:hidden path="userId" value="${loginUser.userId }" />
-		<p class="text-muted">제목&nbsp;&nbsp;&nbsp;&nbsp;<form:input path="boardTitle" size="152dp"/></p>
+		<label>아이디</label> : <form:input path="userId" value="${loginUser.userId }" readonly="true"  />
+		<br>
 
-		<p class="text-muted">내용&nbsp; <form:textarea path="boardContent" cols="150" rows="20"/></p>  
+		<label>제목</label> : <form:input path="boardTitle"  />
+		<br>
+		<label>내용</label> : <form:textarea path="boardContent" cols="150"
+			rows="20" />
 		<br>
 		<br>
 
 		
-		<button type="submit" name="finish" class="btn btn-default"><span class="glyphicon glyphicon-ok"></span> 완료</button>
+		<button type="submit" name="finish" class="btn btn-primary" style="float: right; margin-right: 11em;">완료</button>
 	</form:form>
-	</center>
 </body>
 </html>
