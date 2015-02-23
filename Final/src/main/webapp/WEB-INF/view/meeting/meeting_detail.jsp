@@ -48,7 +48,7 @@ pre {
 <body>
 	
 	<div style="margin-left: 3em;">
-		<h2 style="font-family: Nanum Gothic">자유게시판</h2>
+		<h2 style="font-family: Nanum Gothic">번개모임</h2>
 	</div>
 	<center>
 	<div class="table-responsive">
@@ -71,11 +71,11 @@ pre {
 	</div>
 	
 	<center>
-	<table class="table" style="table-layout: fixed">
-		<tr width="100%">
-			<th width="15%" >번호</th>
+	<table class="table" style="width:100%">
+		<tr >
+			<th width="5%" >번호</th>
 			<!-- <th>게시글번호</th> -->
-			<th width="65%">내용</th>
+			<th width="75%">내용</th>
 			<th width="10%">작성자</th>
 			<th width="10%">등록일</th>
 
@@ -83,7 +83,7 @@ pre {
 
 		<c:forEach items="${breplys }" var="breply">
 			<tr>
-				<td><c:out value="${breply.breplyNo }" /></td>
+				<td style="text-align:center"><c:out value="${breply.breplyNo }" /></td>
 				<%-- <td><c:out value="${breply.boardNo }" /></td> --%>
 				<td>
 
@@ -96,19 +96,29 @@ pre {
 						<form:hidden path="breplyNo" value="${breply.breplyNo }" />
 						<form:hidden path="userId" value="${loginUser.userId }"
 							class="droptext" />
-						<label>내용</label> : <form:textarea id="tbtn${breply.breplyNo}"
-							rows='1' cols='25' path="breplyContent"></form:textarea>
-						<button type="submit" name="breply_update" class="btn btn-default">확인</button>
+							<div class="col-lg-6">
+							<div class="input-group">
+								<form:input id="tbtn${breply.breplyNo}" type="text"
+									class="form-control" path="breplyContent"></form:input>
+								<span class="input-group-btn">
+									<button class="btn btn-default" type="submit"
+										name="breply_update">확인</button>
+								</span>
+							</div>
+							<!-- /input-group -->
+						</div>
 					</form:form>
 
 				</td>
-				<td><c:out value="${breply.userId }" /></td>
-				<td><c:out value="${breply.breplyUpdatedate }" /></td>
+				<td style="text-align:center"><c:out value="${breply.userId }" /></td>
+				<td style="text-align:center"><c:out value="${breply.breplyUpdatedate }" /></td>
+				<c:if test="${breply.userId == loginUser.userId}">
 				<td style="border: solid 1px #FFF; word-break: break-all;" ><button class="btn btn-default" id="btn${breply.breplyNo}" >
 				<p class="text-success"><span class="glyphicon glyphicon-pencil"></span> 수정</button>
 				<c:url value="/meeting/delete?breplyNo=${breply.breplyNo }&boardNo=${breply.boardNo }" var="url"></c:url> 
 				<a href="${url}"><button class="btn btn-default">
 				<p class="text-danger"><span class="glyphicon glyphicon-trash"></span> 삭제</button></a></td>
+				</c:if>
 			</tr>
 		</c:forEach>
 

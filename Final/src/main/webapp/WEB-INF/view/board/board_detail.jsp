@@ -70,11 +70,11 @@
 	<div style="margin-left: 3em;">
 		<h2 style="font-family: Nanum Gothic">댓글목록</h2>
 	</div>
-	<table class="table" style="table-layout: fixed">
-		<tr width="100%">
-			<th width="15%" >번호</th>
+	<table class="table" style="width:100%">
+		<tr >
+			<th width="5%" >번호</th>
 			<!-- <th>게시글번호</th> -->
-			<th width="65%">내용</th>
+			<th width="75%">내용</th>
 			<th width="10%">작성자</th>
 			<th width="10%">등록일</th>
 
@@ -82,7 +82,7 @@
 
 		<c:forEach items="${breplys }" var="breply">
 			<tr>
-				<td style="word-break: break-all;" style="text-align:center"><c:out
+				<td style="text-align:center"><c:out
 						value="${breply.breplyNo }" /></td>
 				<%-- <td><c:out value="${breply.boardNo }" /></td> --%>
 				<td style="word-break: break-all;">
@@ -112,19 +112,17 @@
 							<!-- /input-group -->
 						</div>
 						<!-- /.col-lg-6 -->
-						</div>
-						<!-- /.row -->
 					</form:form>
 
 				</td>
-				<td style="word-break: break-all;" style="text-align:center"><c:out
+				<td style="text-align:center"><c:out
 						value="${breply.userId }" /></td>
-				<td style="word-break: break-all;" style="text-align:center"><c:out
+				<td style="text-align:center"><c:out
 						value="${breply.breplyUpdatedate }" /></td>
 						
 				<c:if test="${breply.userId == loginUser.userId}">
 				
-					<td style="border: solid 1px #FFF; word-break: break-all;" ><button
+					<td style="border: solid 1px #FFF; "><button
 							class="btn btn-default" id="btn${breply.breplyNo}">
 							<p class="text-success"><span class="glyphicon glyphicon-pencil"></span> 수정</p>
 						</button> <c:url
