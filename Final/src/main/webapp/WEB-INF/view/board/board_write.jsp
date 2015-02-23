@@ -17,7 +17,7 @@
 		<label>자유게시판</label> <form:hidden path="boardType" value="F"/>
 		<br>
 		<br>
-		<label>아이디</label> : <form:input path="userId" />
+		<label>아이디</label> : <form:hidden path="userId" value="${loginUser.userId }" />
 		<br>
 		<label>제목</label> : <form:input path="boardTitle" />
 		<br>

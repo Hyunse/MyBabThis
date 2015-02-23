@@ -50,7 +50,7 @@ pre {
 	
 
 	<div style=" margin-left: 5em;">
-	<h2>게시글 내용</h2>
+	<h2>번개모임 글 내용</h2>
 	번호 : ${boardDetail.boardNo}
 	<br> 제목 : ${boardDetail.boardTitle}
 	<br> 작성자 : ${boardDetail.userId }
@@ -93,19 +93,19 @@ pre {
 							class="droptext" />
 						<label>내용</label> : <form:textarea id="tbtn${breply.breplyNo}"
 							rows='1' cols='25' path="breplyContent"></form:textarea>
-						<button type="submit" name="breply_update" class="btn btn-primary">확인</button>
+						<button type="submit" name="breply_update" class="btn btn-default">확인</button>
 					</form:form>
 
 				</td>
 				<td><c:out value="${breply.userId }" /></td>
 				<td><c:out value="${breply.breplyUpdatedate }" /></td>
 
-				<td><button class="updateBtn" id="btn${breply.breplyNo}" class="btn btn-primary">수정</button>
+				<td><button class="updateBtn" id="btn${breply.breplyNo}" >수정</button>
 				</td>
 
 				<td><c:url
 						value="/meeting/delete?breplyNo=${breply.breplyNo }&boardNo=${breply.boardNo }"
-						var="url"></c:url> <a href="${url}"><button class="btn btn-primary">삭제</button></a></td>
+						var="url"></c:url> <a href="${url}"><button class="btn btn-default">삭제</button></a></td>
 			</tr>
 		</c:forEach>
 	</table>

@@ -179,8 +179,10 @@ button::-moz-focus-inner, input::-moz-focus-inner {
 }
 
 textarea {
-	overflow: auto;
+/* 	overflow: auto; */
 	vertical-align: top;
+	margin-left:10px; 
+	text-align: left;
 }
 
 table {
@@ -1225,18 +1227,23 @@ pre code {
 여기가 테이블 크기 등등 설정 */
 table {
 	max-width: 90%;
+	text-align: center;
 	background-color: transparent;
+	word-break: break-all;
+	margin 0:auto;
 }
 
 th {
 	text-align: center;
 	background-color: #dbdbdb;
+	
 }
 
 .table {
 	width: 80%;
-	margin: 0 auto;
-	margin-bottom: 20px;
+	margin: 0;
+	text-align: center;
+	margin-top: 10px;
 }
 
 .tableRank {
@@ -1256,7 +1263,7 @@ th {
 	.table tbody>tr>td, .table tfoot>tr>td {
 	padding: 8px;
 	line-height: 1.428571429;
-	vertical-align: top;
+	vertical-align: center;
 	border-top: 1px solid #dddddd;
 }
 
@@ -1783,6 +1790,7 @@ textarea.input-lg {
 	-o-user-select: none;
 	user-select: none;
 }
+
 
 .btn:focus {
 	outline: thin dotted #333;

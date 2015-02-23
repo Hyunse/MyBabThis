@@ -123,11 +123,17 @@ public class BoardController {
 	 * @param board
 	 * @return
 	 */
-	@RequestMapping(value="/edit", params="_event_delete", method=RequestMethod.POST)
-	public String deleteBoard(@ModelAttribute("editBoard") Board board){
+	@RequestMapping(value="/delete", params={"breplyNo", "boardNo"}, method=RequestMethod.GET)
+	public String deleteBoard(@RequestParam int breplyNo, int boardNo, Model model){
 		
-		boardService.delete(board.getBoardNo());
-		logger.trace("번호: " +board.getBoardNo());
-		return "redirect:/board/list";
+		breplyService.deleteBreply(breplyNo);
+		logger.trace("번호: " +breplyNo);
+		return "redirect:/board/detail?boardNo="+boardNo;
 	}
+	
+//	@RequestMapping(value="/delete",  method=RequestMethod.GET,  params={"breplyNo", "boardNo"})
+//	public String delete(@RequestParam int breplyNo, int boardNo, Model model){
+//		breplyService.deleteBreply(breplyNo);
+//		return "redirect:/meeting/detail?boardNo="+boardNo;
+//	}
 }

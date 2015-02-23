@@ -62,15 +62,13 @@
 				<a href="${go}">${boardList.boardTitle}</a>
 			</c:if>
 			 --></td>
-					<td>
-						<ul class="menu">
-							<li><c:out value="${boardList.userId}" />
-								<ul>
-									<li><a href="/Final/friend/create?userId=${loginUser.userId}&friendId=${boardList.userId}">친구추가</li>
-									<li><a href="/Final/msg/send?receiver=${boardList.userId}">쪽지보내기</li>
-								</ul>
-							</li>
-						</ul>
+					<td><c:out value="${boardList.userId}" />
+						<%-- <ul class="menu">
+							
+									<li><a href="/Final/friend/create?userId=${loginUser.userId}&friendId=${boardList.userId}">친구추가</a></li>
+									<li><a href="/Final/msg/send?receiver=${boardList.userId}">쪽지보내기</a></li>
+								
+						</ul> --%>
 					</td>
 					<td><c:out value="${boardList.boardRegdate}" /></td>
 				</tr>
@@ -83,8 +81,7 @@
 		</td></tr>
 
 	</table>
-	<c:url value="/board/write" var="write" />
-	<a href="${write}"><button type="submit" class="btn btn-primary">글쓰기</button></a>
+	
 
 
 
