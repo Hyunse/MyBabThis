@@ -21,7 +21,7 @@
 
 <br>
 <br>
-<table onclick="location.href='${url}'" style="cursor:pointer;" class="table table-hover">
+<table class="table table-hover">
 				<tr>
 					<th>맛집 번호</th>
 					<th>맛집지역</th>
@@ -31,7 +31,7 @@
 				</tr>
 				<c:forEach items="${restaurants }" var="restaurant">
 				<c:url value="/restaurant/view?resNo=${restaurant.resNo}" var="url"/>
-				<tr  onclick="location.href='${url}'" style="cursor: pointer;">
+				<tr onclick="location.href='${url}'" style="cursor: pointer;">
 					<td><c:out value="${restaurant.resNo}" /></td>
 					<td><c:out value="${restaurant.locName}" /></td>
 					<td><c:out value="${restaurant.resName}" /></td>

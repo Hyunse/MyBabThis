@@ -203,20 +203,19 @@ for( int i = start ; i < end ; i ++ ) {
 		<div class="tabs tabs-style-topline">
 			<nav>
 			<ul>
-				<li><a href="#section-topline-1" class="icon icon-home"><span>댓글</span></a></li>
-				<li><a href="#section-topline-2" class="icon icon-gift"><span>리뷰</span></a></li>
+				<li><a href="#section-topline-1" ><span>댓글</span></a></li>
+				<li><a href="#section-topline-2" ><span>리뷰</span></a></li>
 			</ul>
 			</nav>
 			<div class="content-wrap">
 				<section id="section-topline-1">
-				<table  class="table">
+				<table  class="table" style="width: 100%">
 					<tr>
 						<!-- <th>번호</th> -->
 						<th>내용</th>
 						<th>작성자</th>
 						<th>등록일</th>
-						<th>수정</th>
-						<th>삭제</th>
+						<th></th>
 					</tr>
 					<c:forEach items="${rreplys }" var="rreply">
 						<tr>
@@ -235,10 +234,10 @@ for( int i = start ; i < end ; i ++ ) {
 							<fmt:formatDate value="${rreplyUpdatedate }" type="time" pattern="hh:MM"/>
 							</td>
 							<td><c:url value="/rreply/edit?rreplyNo=${rreply.rreplyNo }"
-									var="url"></c:url> <a href="${url}"><button>수정</button></a></td>
-							<td><c:url
+									var="url"></c:url> <a href="${url}"><button class="btn btn-default">수정</button></a>
+							<c:url
 									value="/rreply/delete?rreplyNo=${rreply.rreplyNo }&resNo=${rreply.resNo }"
-									var="url"></c:url> <a href="${url}"><button>삭제</button></a></td>
+									var="url"></c:url> <a href="${url}"><button class="btn btn-default">삭제</button></a></td>
 									
 							<!-- <td><div class="container"><div class="main clearfix">
 								<div class="column">
@@ -248,9 +247,9 @@ for( int i = start ; i < end ; i ++ ) {
 					</c:forEach>
 				</table>
 				<c:url value="/rreply/write?resNo=${resNo }" var="url"></c:url> <a
-					href="${url }"><button>댓글작성</button></a> </section>
+					href="${url }"><button class="btn btn-default">댓글작성</button></a> </section>
 				<section id="section-topline-2">
-				<table class="table">
+				<table class="table" style="width: 100%">
 					<tr>
 						<th>사진</th>
 						<th>평가</th>
@@ -287,7 +286,7 @@ for( int i = start ; i < end ; i ++ ) {
 				</table>
 				<c:url
 					value="/review/write?userId=${loginUser.userId }&resNo=${resNo }"
-					var="url"></c:url> <a href="${url }"><button>리뷰작성</button></a> </section>
+					var="url"></c:url> <a href="${url }"><button class="btn btn-default">리뷰작성</button></a> </section>
 			</div>
 			<!-- /content -->
 		</div>

@@ -7,26 +7,38 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" type="text/css"
+	href="<%=request.getContextPath()%>/css/bootstrap.css" />
+<link rel="stylesheet" type="text/css"
+	href="<%=request.getContextPath()%>/css/bootstrap-theme.css" />
+<script src="<%=request.getContextPath()%>/js/bootstrap.js"></script>
 </head>
 <body>
 <jsp:include page="/WEB-INF/view/header.jsp" />
 <jsp:include page="/WEB-INF/view/mypage/mypage_list.jsp" />
-	<select id="select">
-		<option value="userName">이름</option>
-		<option value="userId">아이디</option>
-		<option value="userRegdate">등록일</option>
-		<option value="userGrade">등급</option>
-	</select>
-	<input type="text" id="searchWord" name="searchWord">
-	<input type="button" id="search" name="search" value="검색">
 	<br>
 	<br>
+	<table style="width: 80%;" align="center">
+		<tr>
+			<td style="width:10%;"><select id="select" class="form-control" >
+					<option value="userName">이름</option>
+					<option value="userId">아이디</option>
+					<option value="userRegdate">등록일</option>
+					<option value="userGrade">등급</option>
+			</select></td>
+			<td style="width:30%;"><input type="text" id="searchWord" name="searchWord"
+				class="form-control"></td>
+			<td><input type="button" id="search" name="search" value="검색"
+				class="btn btn-default"></td>
+		</tr>
+	</table>
+
 	<%
 		int i = 1;
 	%>
 
 
-	<table border="1" onclick="location.href='${url}'"
+	<table class="table table-hover" onclick="location.href='${url}'"
 		style="cursor: pointer;">
 		<tr>
 			<th>번호</th>
@@ -38,7 +50,6 @@
 		<c:forEach items="${users}" var="user">
 			<c:url value="/admin/users_list?userId=${user.userId}" var="url" />
 			<tr>
-
 				<td><c:out value="<%=i%>" /></td>
 				<td><c:out value="${user.userId}" /></td>
 				<td><c:out value="${user.userName}" /></td>
