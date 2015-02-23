@@ -175,6 +175,12 @@ $(document).ready(function() {
 											}
 											return;
 										})
+										
+		$("#upload").click(function(){
+    
+    	window.open("<%=request.getContextPath()%>/upload/gomyuser","_blank", "width = 600 height = 300")
+    
+    })
 					});
 </script>
 <body>
@@ -254,8 +260,9 @@ $(document).ready(function() {
 			<form:radiobutton path="userGender" value="0" />여
 			<br>
 			<br>
-
-			<form:hidden path="userImg" value="star.png" />
+			<img id="dropimg" width="100" height="100" src="<%=request.getContextPath()%>/upload/${loginUser.userImg}">
+			<form:input path="userImg" id="userimg" value="star.png"/>
+			<input type="button" value="upload" id="upload"><br>
 			<button class="btn btn-default" type="submit">가입</button>
 		</form:form>
 	</section>
