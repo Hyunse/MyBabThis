@@ -38,7 +38,7 @@ public class BoardController {
 		boardService.write(board);
 
 		
-		return "redirect:list";
+		return "redirect:list?page=1";
 
 	}
 
@@ -47,15 +47,22 @@ public class BoardController {
 	 * @param model
 	 * @return
 	 */
-	@RequestMapping(value = "/list", method = RequestMethod.GET)
-	public String enterBoard(@ModelAttribute("boardInfo") Board board, Model model) {
-		List<Board> list = null;
-
-		list = boardService.viewBoardByFree(board.getBoardType());
-		model.addAttribute("boardList", list);
+	@RequestMapping(value = "/list", params={"page"}, method = RequestMethod.GET)
+	public String enterBoard(@ModelAttribute("boardInfo") Board board, Model model,int page) {
+List<Board> list = null;
+		
+		List<Board> pagelist = null;
+		// 타입이 F인거 불러오기
+		int totalpage= boardService.getAllPageNumInBoard();
+		pagelist = boardService.getAllCommentInBoard(page);
+		
+		list = boardService.viewBoardByMeeting(board.getBoardType());
+		model.addAttribute("boardList", pagelist);
+		model.addAttribute("totalPage", totalpage);
 		logger.trace("GoBoard : " + list);
 		
 		return "board/board_list";
+		
 
 	}
 	

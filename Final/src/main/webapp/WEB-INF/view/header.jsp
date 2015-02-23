@@ -103,7 +103,7 @@ $(document).ready(function(){
 </script>
 <body>
 
-	<c:url value="/board/list" var="board" />
+	<c:url value="/board/list?page=1" var="board" />
 	<c:url value="/meeting/list?page=1" var="meeting" />
 	<c:url value="/ranking/all" var="ranking" />
 	<c:url value="/main" var="main" />

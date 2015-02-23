@@ -110,7 +110,7 @@ public class BoardDaoImpl implements BoardDao {
 	}
 
 	@Override
-	public int getAllPageNum() {
+	public int getAllPageNumInMeeting() {
 		
 		String stmt = nameSpace + "selectAllMeetingToCount";
 
@@ -124,6 +124,26 @@ public class BoardDaoImpl implements BoardDao {
 		List<Board> list = null;
 
 		String stmt = nameSpace + "selectAllCommentInMeeting";
+
+		list = sqlSession.selectList(stmt, page);
+
+		return list;
+	}
+
+	@Override
+	public int getAllPageNumInBoard() {
+		String stmt = nameSpace + "selectAllBoardToCount";
+
+		int result = sqlSession.selectOne(stmt);
+
+		return result;
+	}
+
+	@Override
+	public List<Board> selectAllCommentInBoard(int page) {
+		List<Board> list = null;
+
+		String stmt = nameSpace + "selectAllCommentInBoard";
 
 		list = sqlSession.selectList(stmt, page);
 

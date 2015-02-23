@@ -13,6 +13,23 @@
 		
 	</select>
 	
+	<select id="selectAllBoardToCount" parameterType="INTEGER"
+		resultType="integer">
+		select count(*)
+		from  board
+		where board_type in('f', 'F')
+		
+	</select>
+	
+	<select id="selectAllCommentInBoard" parameterType="INTEGER"
+		resultType="Board">
+		select *
+		from board
+		where board_type in('f', 'F')
+		order by board_no desc
+	</select>
+	
+	
 	<select id="selectAllCommentInMeeting" parameterType="INTEGER"
 		resultType="Board">
 		select *

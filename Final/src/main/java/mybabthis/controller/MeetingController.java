@@ -58,8 +58,8 @@ public class MeetingController {
 		
 		List<Board> pagelist = null;
 		// 타입이 M인거 불러오기
-		int totalpage= boardService.getAllPageNum();
-		pagelist = boardService.getAllComment(page);
+		int totalpage= boardService.getAllPageNumInMeeting();
+		pagelist = boardService.getAllCommentInMeeting(page);
 		
 		list = boardService.viewBoardByMeeting(board.getBoardType());
 		model.addAttribute("boardList", pagelist);
