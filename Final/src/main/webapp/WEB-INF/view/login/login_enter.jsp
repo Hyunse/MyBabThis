@@ -109,10 +109,10 @@ $(document).ready(function() {
 					<button type="submit">Login</button>
 				</form:form>
 				<div class="button-wrap">
-					<c:url value="/joinform" var="joinform" />
-					<%-- <a href="${joinform}"> --%>
+					<c:url value="/join" var="join" />
+					 <a href="${join}"> 
 					<button data-dialog="somedialog" class="trigger">Join us</button>
-					
+					</a>
 
 				</div>
 
