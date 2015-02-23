@@ -29,8 +29,8 @@
 
 .box span {
 	display: block;
-	font-weight: 400;
-	text-transform: uppercase;
+	font-weight: 400;/* 
+	text-transform: uppercase; */
 	letter-spacing: 1px;
 	font-size: 20px;
 	padding: 5px;

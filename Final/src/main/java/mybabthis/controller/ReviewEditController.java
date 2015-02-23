@@ -1,6 +1,5 @@
 package mybabthis.controller;
 
-import mybabthis.entity.Restaurant;
 import mybabthis.entity.Review;
 import mybabthis.service.RestaurantService;
 import mybabthis.service.ReviewService;

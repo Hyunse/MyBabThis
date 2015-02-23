@@ -30,17 +30,17 @@
 <link rel="stylesheet" type="text/css" href="css/default_modal.css" />
 <link rel="stylesheet" type="text/css" href="css/component_modal.css" />
 <script src="js/modernizr.custom.js"></script>
- -->
+ --><%-- 
 <link rel="stylesheet" type="text/css"
 	href="<%=request.getContextPath()%>/css/normalize.css" />
 <link rel="stylesheet" type="text/css"
-	href="<%=request.getContextPath()%>/css/demo.css" />
+	href="<%=request.getContextPath()%>/css/demo.css" /> --%>
 <link rel="stylesheet" type="text/css"
 	href="<%=request.getContextPath()%>/css/tabs.css" />
 <link rel="stylesheet" type="text/css"
-	href="<%=request.getContextPath()%>/css/tabstyles.css" />
+	href="<%=request.getContextPath()%>/css/tabstyles.css" /><%-- 
 <link rel="stylesheet" type="text/css"
-	href="<%=request.getContextPath()%>/css/default.css" />
+	href="<%=request.getContextPath()%>/css/default.css" /> --%>
 <link rel="stylesheet" type="text/css"
 	href="<%=request.getContextPath()%>/css/component.css" />
 <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,700'
