@@ -11,10 +11,9 @@
 <meta name="author" content="Codrops" />
 <title>쪽지함</title>
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
-<link rel="stylesheet" href="/resources/demos/style.css">
 <link rel="shortcut icon" href="../favicon.ico">
-<link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/normalize.css" />
-<link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/demo.css" />
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/normalize_tabs.css" />
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/demo_tabs.css" />
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/tabs.css" />
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/tabstyles.css" />
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
