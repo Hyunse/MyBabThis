@@ -14,6 +14,7 @@
 	<jsp:include page="/WEB-INF/view/ranking/ranking_header.jsp" />
 
 
+	<h1>맛집 전국 top10</h1>
 <%int i=1; %>
 	<table class="table">
 		<tr>

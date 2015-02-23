@@ -43,8 +43,8 @@
 	margin: 7px;
 	padding: 20px;
 	background: #2E3444;
-	color: white/* #D3EEE2 */;
-	text-transform: uppercase;
+	color: white/* #D3EEE2 */;/* 
+	text-transform: uppercase; */
 	letter-spacing: 1px;
 	font-weight: 300;
 }
@@ -145,8 +145,8 @@
 	width: 100%;
 	background: #2E3444;
 	color: #D3EEE2;
-	text-align: right;
-	text-transform: uppercase;
+	text-align: right;/* 
+	text-transform: uppercase; */
 	letter-spacing: 1px;
 	font-weight: 800;
 	font-size: 1em;
