@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>번개모임 글쓰기</title>
+<title>Insert title here</title>
 
 </head>
 <style>
@@ -21,7 +21,6 @@ pre {
 <script>
 	$(document).ready(function() {
 
-		
 		$(".updateform").hide();
 
 		$(".updateBtn").click(function() {
@@ -51,43 +50,36 @@ pre {
 	
 
 	<div style=" margin-left: 5em;">
-	<h2 style="font-family: Nanum Gothic">번개모임 글 내용</h2>
-	</div>
-	<center>
-	<div class="table-responsive">
-				<table class="table">
-				<tr width=100% ><th width=10% style="text-align:center">번호</th><td width=90%>${boardDetail.boardNo}</td></tr>
-				<tr><th style="text-align:center">제목</th><td>${boardDetail.boardTitle}</td></tr>
-				<tr><th style="text-align:center">작성자</th><td>${boardDetail.userId }</td></tr>
-				<tr><th style="text-align:center">내용</th><td>${boardDetail.boardContent }</td></tr>
-				
-			</table>
-	<c:if test="${boardDetail.userId == loginUser.userId }">
+	<h2>번개모임 글 내용</h2>
+	번호 : ${boardDetail.boardNo}
+	<br> 제목 : ${boardDetail.boardTitle}
+	<br> 작성자 : ${boardDetail.userId }
+	<br> 내용 : ${boardDetail.boardContent }
+	<br>
+	
 	<c:url value="/meeting/update?boardNo=${boardDetail.boardNo}"
 		var="goEdit" />
-	
-	<a href="${goEdit}"><button type="submit" class="btn btn-default" ><p class="text-success"><span class="glyphicon glyphicon-pencil"></span> 수정</button></a>
-	</c:if>
-	</div>		
-	</center>
+	<a href="${goEdit}"><button type="submit" class="btn btn-primary">수정</button></a>
+	</div>
+
 	<hr>
 	<div style=" margin-left: 5em;">
-	<h2 style="font-family: Nanum Gothic">댓글목록</h2>
-	</div>
-	<table class="table" style="table-layout: fixed">
-		<tr width="100%">
-			<th width="5%" >번호</th>
-			<!-- <th>게시글번호</th> -->
-			<th width="75%">내용</th>
-			<th width="10%">작성자</th>
-			<th width="10%">등록일</th>
-
+	<h2>댓글목록</h2>
+	<table border="1" id="Table">
+		<tr>
+			<th>댓글번호</th>
+			<th>게시글번호</th>
+			<th>설명</th>
+			<th>작성자</th>
+			<th>등록일</th>
+			<th>수정</th>
+			<th>삭제</th>
 		</tr>
 
 		<c:forEach items="${breplys }" var="breply">
 			<tr>
 				<td><c:out value="${breply.breplyNo }" /></td>
-				<%-- <td><c:out value="${breply.boardNo }" /></td> --%>
+				<td><c:out value="${breply.boardNo }" /></td>
 				<td>
 
 					<div id="hbtn${breply.breplyNo}">
@@ -99,42 +91,32 @@ pre {
 						<form:hidden path="breplyNo" value="${breply.breplyNo }" />
 						<form:hidden path="userId" value="${loginUser.userId }"
 							class="droptext" />
-						
-						<div class="col-lg-6">
-							<div class="input-group">
-								<form:input id="tbtn${breply.breplyNo}" type="text"
-									class="form-control" path="breplyContent"></form:input>
-								<span class="input-group-btn">
-									<button class="btn btn-default" type="submit"
-										name="breply_update">확인</button>
-								</span>
-							</div>
-							<!-- /input-group -->
-						</div>
-						<!-- /.col-lg-6 -->
+						<label>내용</label> : <form:textarea id="tbtn${breply.breplyNo}"
+							rows='1' cols='25' path="breplyContent"></form:textarea>
+						<button type="submit" name="breply_update" class="btn btn-default">확인</button>
 					</form:form>
 
 				</td>
 				<td><c:out value="${breply.userId }" /></td>
 				<td><c:out value="${breply.breplyUpdatedate }" /></td>
 
-				<td style="border: solid 1px #FFF; word-break: break-all;" ><button class="btn btn-default" id="btn${breply.breplyNo}" ><p class="text-success"><span class="glyphicon glyphicon-pencil"></span> 수정</button>
-				<c:url value="/meeting/delete?breplyNo=${breply.breplyNo }&boardNo=${breply.boardNo }" var="url"></c:url> 
-				<a href="${url}"><button class="btn btn-default">
-				<p class="text-danger"><span class="glyphicon glyphicon-trash"></span> 삭제</button></a></td>
+				<td><button class="updateBtn" id="btn${breply.breplyNo}" >수정</button>
+				</td>
+
+				<td><c:url
+						value="/meeting/delete?breplyNo=${breply.breplyNo }&boardNo=${breply.boardNo }"
+						var="url"></c:url> <a href="${url}"><button class="btn btn-default">삭제</button></a></td>
 			</tr>
 		</c:forEach>
 	</table>
-	
-
+</div>
 	<hr>
 
+	<div style=" margin-left: 5em;">
 	<c:url value="/meeting/write" var="action"></c:url>
 	<form:form modelAttribute="breply" method="post" action="${action }"
 		id="writeform">
-		<div style=" margin-left: 5em;">
-		<h2 style="font-family: Nanum Gothic">댓글작성</h2>
-		</div>
+		<h2>댓글작성</h2>
 		<form:hidden path="boardNo" value="${boardDetail.boardNo }" />
 		<form:hidden path="userId" value="${loginUser.userId }" />
 		<label>내용</label> : <form:textarea path="breplyContent" />
