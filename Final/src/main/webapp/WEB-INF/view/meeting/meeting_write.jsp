@@ -6,12 +6,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>자유게시판 글쓰기</title>
 </head>
 <jsp:include page="/WEB-INF/view/header.jsp" />
 <body>
 
 	<c:url value="/meeting/confirm" var="write"></c:url>
+	<center>
 	<form:form modelAttribute="boardInfo" method="post" action="${write}" style= "margin-left: 5em">
 
 		<div style="margin-left: 3em;">
@@ -28,7 +29,8 @@
 		<br>
 
 		
-		<button type="submit" name="finish" class="btn btn-primary" style="float: right; margin-right: 11em;">완료</button>
+		<button type="submit" name="finish" class="btn btn-default"><span class="glyphicon glyphicon-ok"></span> 완료</button>
 	</form:form>
+	</center>
 </body>
 </html>
