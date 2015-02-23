@@ -30,11 +30,11 @@
 <link rel="stylesheet" type="text/css" href="css/default_modal.css" />
 <link rel="stylesheet" type="text/css" href="css/component_modal.css" />
 <script src="js/modernizr.custom.js"></script>
- --><%-- 
+ -->
 <link rel="stylesheet" type="text/css"
 	href="<%=request.getContextPath()%>/css/normalize.css" />
 <link rel="stylesheet" type="text/css"
-	href="<%=request.getContextPath()%>/css/demo.css" /> --%>
+	href="<%=request.getContextPath()%>/css/demo.css" />
 <link rel="stylesheet" type="text/css"
 	href="<%=request.getContextPath()%>/css/tabs.css" />
 <link rel="stylesheet" type="text/css"
@@ -49,6 +49,11 @@
 	href="<%=request.getContextPath()%>/css/normalize.css" />
 <link rel="stylesheet" type="text/css"
 	href="<%=request.getContextPath()%>/css/cs-select.css" />
+<link rel="stylesheet" type="text/css"
+	href="<%=request.getContextPath()%>/css/bootstrap.css" />
+<link rel="stylesheet" type="text/css"
+	href="<%=request.getContextPath()%>/css/bootstrap-theme.css" />
+<script src="<%=request.getContextPath()%>/js/bootstrap.js"></script>	
 	
 <%-- 
 <link rel="stylesheet" type="text/css"
@@ -130,12 +135,16 @@ function go(ing,end){
 	<tr><td rowspan="6" width="310px">
 	<img src="<%=request.getContextPath()%>/upload/${restaurant.resImg}" onLoad="reSizes(this);"/>
 	</td>
-	<td width="25%">지역 : ${restaurant.locName}</td><td>
-	<c:url value="/restaurant/edit?resNo=${restaurant.resNo}"
-					var="url" /> <a href="${url }"><button>편집</button></a> <c:url
-					value="/restaurant/delete?resNo=${restaurant.resNo}&locName=${restaurant.locName }"
-					var="url" /> <a href="${url }"><button>삭제</button></a>
-	<a href="<%=request.getContextPath()%>/favorite/create?resNo=${restaurant.resNo}&userId=${loginUser.userId}"><button>즐겨찾기</button></a></td>
+	<td width="25%">지역 : ${restaurant.locName}
+	</td>
+	<td>
+	<c:url value="/restaurant/edit?resNo=${restaurant.resNo}"var="url" /> 
+		<a href="${url }"><button class="btn btn-default">편집</button></a> 
+	<c:url value="/restaurant/delete?resNo=${restaurant.resNo}&locName=${restaurant.locName }" var="url" /> 
+		<a href="${url }"><button class="btn btn-default">삭제</button></a>
+		<a href="<%=request.getContextPath()%>/favorite/create?resNo=${restaurant.resNo}&userId=${loginUser.userId}">
+	<button class="btn btn-default">즐겨찾기</button></a>
+	</td>
 	</tr>
 	<tr><td>가게이름 : ${restaurant.resName}</td><td>분류 : ${restaurant.resKind}</td></tr>
 	<tr><td>전화번호 : ${restaurant.resNumber}</td><td><div class="progress" style="height: 28px; width: 140px; background-color: blue"><img src="../images/star.png" style="position: absolute; height: 30px">
@@ -215,7 +224,6 @@ for( int i = start ; i < end ; i ++ ) {
 						<th>내용</th>
 						<th>작성자</th>
 						<th>등록일</th>
-						<th></th>
 					</tr>
 					<c:forEach items="${rreplys }" var="rreply">
 						<tr>
@@ -233,11 +241,34 @@ for( int i = start ; i < end ; i ++ ) {
 							<fmt:formatDate value="${rreplyUpdatedate }" type="date" dateStyle="short"/>&nbsp;&nbsp;
 							<fmt:formatDate value="${rreplyUpdatedate }" type="time" pattern="hh:MM"/>
 							</td>
-							<td><c:url value="/rreply/edit?rreplyNo=${rreply.rreplyNo }"
+							
+							<c:if test="${rreply.userId == loginUser.userId}">
+								<td style="border: solid 1px #FFF; word-break: break-all;" >
+								<%-- <button class="btn btn-default" id="btn${breply.breplyNo}">
+								<p class="text-success"><span class="glyphicon glyphicon-pencil"></span> 수정</p></button>  --%>
+								 
+								 <c:url value="/rreply/delete?rreplyNo=${rreply.rreplyNo }&resNo=${rreply.resNo }" var="url"></c:url> 
+								 <a href="${url}">
+									 <button class="btn btn-default">
+										<p class="text-danger"><span class="glyphicon glyphicon-trash"></span> 삭제</p>
+									</button>
+								</a>
+								 <c:url value="/rreply/edit?rreplyNo=${rreply.rreplyNo }" var="url"></c:url> 
+								 <a href="${url}">
+									 <button class="btn btn-default">
+										<p class="text-success"><span class="glyphicon glyphicon-pencil"></span> 수정</p>
+									</button>
+								</a>
+								</td>
+							</c:if>
+							
+							
+							
+					<%-- 		<td><c:url value="/rreply/edit?rreplyNo=${rreply.rreplyNo }"
 									var="url"></c:url> <a href="${url}"><button class="btn btn-default">수정</button></a>
 							<c:url
 									value="/rreply/delete?rreplyNo=${rreply.rreplyNo }&resNo=${rreply.resNo }"
-									var="url"></c:url> <a href="${url}"><button class="btn btn-default">삭제</button></a></td>
+									var="url"></c:url> <a href="${url}"><button class="btn btn-default">삭제</button></a></td> --%>
 									
 							<!-- <td><div class="container"><div class="main clearfix">
 								<div class="column">
@@ -249,7 +280,7 @@ for( int i = start ; i < end ; i ++ ) {
 				<c:url value="/rreply/write?resNo=${resNo }" var="url"></c:url> <a
 					href="${url }"><button class="btn btn-default">댓글작성</button></a> </section>
 				<section id="section-topline-2">
-				<table class="table" style="width: 100%">
+				<table class="table table-hover" style="width: 100%">
 					<tr>
 						<th>사진</th>
 						<th>평가</th>
@@ -258,11 +289,11 @@ for( int i = start ; i < end ; i ++ ) {
 						<th>등록일</th>
 					</tr>
 					<c:forEach items="${reviews }" var="review">
-						<tr>
+					<c:url value="/review/detail?reviewNo=${review.reviewNo }" var="url"></c:url>
+						<tr onclick="location.href='${url}'" style="cursor: pointer;">
 							<td>등록된 사진이 없습니다.</td>
 							<td><c:out value="${review.reviewScore }" /></td>
-							<c:url value="/review/detail?reviewNo=${review.reviewNo }"
-								var="url"></c:url>
+							
 							<td><a href="${url }"><c:out
 										value="${review.reviewContent }" /></a></td>
 							<td>
@@ -272,7 +303,8 @@ for( int i = start ; i < end ; i ++ ) {
 											<li><a
 												href="/Final/friend/create?userId=${loginUser.userId}&friendId=${review.userId}">친구추가</a></li>
 											<li><a href="/Final/msg/send?receiver=${review.userId}">쪽지보내기</a></li>
-										</ul></li>
+										</ul>
+									</li>
 								</ul>
 							</td>
 							<td>
@@ -280,7 +312,6 @@ for( int i = start ; i < end ; i ++ ) {
 							<fmt:formatDate value="${reviewUpdatedate }" type="date" dateStyle="short"/>&nbsp;&nbsp;
 							<fmt:formatDate value="${reviewUpdatedate }" type="time" pattern="hh:MM"/>
 							</td>
-							
 						</tr>
 					</c:forEach>
 				</table>
@@ -294,27 +325,6 @@ for( int i = start ; i < end ; i ++ ) {
 
 	</div>
 
-
-<!-- modal overaly -->
-<%-- 
-	<div class="md-overlay"></div><!-- the overlay element -->
-
-		<!-- classie.js by @desandro: https://github.com/desandro/classie -->
-		<script src="js/classie.js"></script>
-		<script src="js/modalEffects.js"></script>
-
-		<!-- for the blur effect -->
-		<!-- by @derSchepp https://github.com/Schepp/CSS-Filters-Polyfill -->
-		<script>
-			// this is important for IEs
-			var polyfilter_scriptpath = '/js/';
-		</script>
-		<script src="js/cssParser.js"></script>
-		<script src="js/css-filters-polyfill.js"></script>
-		
-		
-
-	 --%>
 	<script src="<%=request.getContextPath()%>/js/cbpFWTabs.js"></script>
 	<script>
 		(function() {
