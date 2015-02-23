@@ -3545,6 +3545,12 @@ textarea.input-group-sm>.form-control, textarea.input-group-sm>.input-group-addo
 	border-bottom-color: transparent;
 }
 
+li.active
+{
+	color: #ffffff;
+	background-color: #428bca;
+}
+
 .nav-tabs.nav-justified {
 	width: 100%;
 	border-bottom: 0;

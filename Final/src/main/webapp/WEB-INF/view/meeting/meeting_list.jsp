@@ -31,9 +31,9 @@
 .ui-menu {
 	width: 150px;
 }
-#pageNumber{
+/* #pageNumber{
 	font-size: 30px;
-}
+} */
 
 </style>
 </head>
@@ -102,8 +102,14 @@
 			<ul class="pager">
 				<c:forEach var="i" begin="1" end="${totalPage}" >
 					<c:url value="/meeting/list?page=${i}" var="goPage"/>
-						
-							 <li><a href="${goPage}">${i}</li></a>
+						<ul class="pagination">
+							<c:if test="${currentPage == i}">
+							 <li class="active"><a href="#">${i}<span class="sr-only">(current)</span></a></li>
+							 </c:if>
+							 <c:if test="${currentPage != i}">
+							 <li><a href="${goPage}">${i}</a></li>
+							 </c:if>
+						</ul>
 				</c:forEach>
 			</ul>
 			</div>

@@ -21,6 +21,7 @@ pre {
 <script>
 	$(document).ready(function() {
 
+		
 		$(".updateform").hide();
 
 		$(".updateBtn").click(function() {
@@ -111,6 +112,7 @@ pre {
 			</tr>
 		</c:forEach>
 	</table>
+	
 </div>
 	<hr>
 
