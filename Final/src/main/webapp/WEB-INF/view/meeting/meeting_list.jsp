@@ -69,7 +69,7 @@
 		<tr>
 			<td> <c:out value="${boardList.boardNo}"/> </td>
 			<td> <c:url value= "/meeting/detail?boardNo=${boardList.boardNo}" var="go"/> 
-			     <a href="${go}"><c:out value="${boardList.boardTitle}"/> </a>
+			    
 		 
 			<c:if test="${fn:length(boardList.boardTitle) > 20 }">
 			<a href="${go}"><c:out value ="${fn:substring(boardList.boardTitle,0,15)}" />...</a>

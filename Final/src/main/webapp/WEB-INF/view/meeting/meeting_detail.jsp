@@ -56,10 +56,12 @@ pre {
 	<br> 작성자 : ${boardDetail.userId }
 	<br> 내용 : ${boardDetail.boardContent }
 	<br>
-	
+	<c:if test="${boardDetail.userId == loginUser.userId }">
 	<c:url value="/meeting/update?boardNo=${boardDetail.boardNo}"
 		var="goEdit" />
+	
 	<a href="${goEdit}"><button type="submit" class="btn btn-primary">수정</button></a>
+	</c:if>
 	</div>
 
 	<hr>
