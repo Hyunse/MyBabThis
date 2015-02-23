@@ -32,9 +32,9 @@
 			<a href="/Final/ranking/loc?locName=영등포"><span data-hover="영등포">영등포</span></a>
 		</nav>
 	</section>
-	<h1>맛집 top5</h1>
+	<h1>맛집 top5</h1><!-- 
 	<section >
 			<a href="/Final/restaurant/write"><button  class="btn btn-default"><span class="glyphicon glyphicon-pencil">  </span> 글쓰기</button></a>
-	</section>
+	</section> -->
 </body>
 </html>
