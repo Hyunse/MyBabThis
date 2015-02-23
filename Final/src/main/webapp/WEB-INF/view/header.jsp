@@ -69,6 +69,7 @@
 		  else sticky.removeClass('fixed');
 		});</script> -->
 
+<script src="<%=request.getContextPath()%>/js/bootstrap.js"></script>
 
 
 </head>

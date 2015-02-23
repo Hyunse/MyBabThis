@@ -8,13 +8,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>자유게시판</title>
-<script src="http://code.jquery.com/jquery-latest.js"></script>
-<!-- 
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.3/themes/smoothness/jquery-ui.css">
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.3/jquery-ui.js"></script>
+  <link rel="stylesheet" href="/resources/demos/style.css">
+<script src="<%=request.getContextPath()%>/js/bootstrap.js"></script>
+
 <script>
 	$(function() {
-		$(".menu").menu();
+		$("#dropmenu").menu();
 	});
-</script> -->
+</script>
 
 
 <style>
@@ -62,8 +66,18 @@
 				<a href="${go}">${boardList.boardTitle}</a>
 			</c:if>
 			 --></td>
-					<td style="text-align:center"><c:out value="${boardList.userId}" />
-						<%-- <ul class="menu">
+					<td style="text-align:center"  class="dropdown" onclick="location.href='#'"><c:out value="${boardList.userId}" />
+
+							<!-- Link or button to toggle dropdown -->
+							<ul class="dropdown-menu" role="menu"
+								aria-labelledby="dropdownMenu1">
+								<li role="presentation"><a role="menuitem" tabindex="-1"
+									href="#">Action</a></li>
+								<li role="presentation"><a role="menuitem" tabindex="-1"
+									href="#">Another action</a></li>
+							</ul>
+
+						<%-- <ul id="dropmenu">
 							
 									<li><a href="/Final/friend/create?userId=${loginUser.userId}&friendId=${boardList.userId}">친구추가</a></li>
 									<li><a href="/Final/msg/send?receiver=${boardList.userId}">쪽지보내기</a></li>
