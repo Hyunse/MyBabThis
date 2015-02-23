@@ -198,7 +198,9 @@
 /*****************************/
 
 .tabs-style-topline {
+	margin-top: 20px;
 	max-width: 1200px;
+	max-height: 80%;
 }
 
 .tabs-style-topline nav li {
@@ -243,7 +245,7 @@
 	text-transform: uppercase;
 	letter-spacing: 1px;
 	font-weight: 700;
-	font-size: 0.5em;
+	font-size: 1.4em;
 }
 
 /*****************************/
