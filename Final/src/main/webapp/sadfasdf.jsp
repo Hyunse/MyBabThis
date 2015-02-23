@@ -11,7 +11,8 @@
 var a=3.2;
 function go(ing,end){
  document.all.div1.style.width = (ing+1)/end*a*20+"%";
- document.all.div2.innerHTML = a+"점";
+ document.all.div2.innerHTML = ((ing+1)/end*a).toFixed(2)+"점";
+
   //ing+1 하는이유는 (ing+1)/end*100  =0 이되면 에러가 나기 때문
   //여기 뒤에 *숫자부분에 값들어감
 }

@@ -97,6 +97,21 @@
 	};
 </script>
 
+<script>
+var a=3.2;
+var pwidth;
+var score;
+function go(ing,end){
+/*  document.all.div1.style.width = (ing+1)/end*a*20+"%";
+ document.all.div2.innerHTML = ((ing+1)/end*a).toFixed(2)+"점"; */
+ pwidth=(ing+1)/end*a*20+"%";
+ score = ((ing+1)/end*a).toFixed(2)+"점";
+
+  //ing+1 하는이유는 (ing+1)/end*100  =0 이되면 에러가 나기 때문
+  //여기 뒤에 *숫자부분에 값들어감
+}
+</script>
+
 
 
 <style>
@@ -115,7 +130,7 @@
 	<tr><td rowspan="6" width="310px">
 	<img src="<%=request.getContextPath()%>/upload/${restaurant.resImg}" onLoad="reSizes(this);"/>
 	</td>
-	<td>지역 : ${restaurant.locName}</td><td>
+	<td width="25%">지역 : ${restaurant.locName}</td><td>
 	<c:url value="/restaurant/edit?resNo=${restaurant.resNo}"
 					var="url" /> <a href="${url }"><button>편집</button></a> <c:url
 					value="/restaurant/delete?resNo=${restaurant.resNo}&locName=${restaurant.locName }"
@@ -123,16 +138,32 @@
 	<a href="<%=request.getContextPath()%>/favorite/create?resNo=${restaurant.resNo}&userId=${loginUser.userId}"><button>즐겨찾기</button></a></td>
 	</tr>
 	<tr><td>가게이름 : ${restaurant.resName}</td><td>분류 : ${restaurant.resKind}</td></tr>
-	<tr><td>전화번호 : ${restaurant.resNumber}</td><td>평점 : ${restaurant.resScore}</td></tr>
+	<tr><td>전화번호 : ${restaurant.resNumber}</td><td><div class="progress" style="height: 28px; width: 140px; background-color: blue"><img src="../images/star.png" style="position: absolute; height: 30px">
+  <div class="progress-bar progress-bar-warning" role="progressbar" id="star" style="width: ${restaurant.resScore * 20}%; height: 100%">
+  </div>
+</div> 
+평점 : ${restaurant.resScore}</td></tr>
 	<tr><td colspan="2">주소 : ${restaurant.resLoc}</td></tr>
 	<tr><td colspan="2">내용 : ${restaurant.resContent}</td></tr>
 		
-	<tr><td colspan="3"><div class="progress">
-  <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 30%">
-    <span class="sr-only">60% Complete (warning)</span>
-  </div>
-</div></td></tr>
 	</table>
+	<%
+
+int start = 0;
+int end   = 100;
+for( int i = start ; i < end ; i ++ ) {
+ out.println("<script>go("+i+","+end+")</script>");
+
+
+ //상태진행바의 진행 로직을 실행하는부분
+ //출력속도
+ Thread.sleep(7);
+ //로직 끝
+
+ out.flush() ;
+}
+
+%>
 	
 	
 <%-- 	
