@@ -16,6 +16,7 @@
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/demo_href.css" />
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/css/component_href.css" />
 <script src="<%=request.getContextPath() %>/js/modernizr.custom.js"></script>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
 </head>
 <body>
 		<c:url value="/mypage/myinfo" var="myinfo" />

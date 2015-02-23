@@ -71,19 +71,43 @@ public class BoardServiceImpl implements BoardService{
 	}
 
 	@Override
-	public int getAllPageNum() {
+	public int getAllPageNumInMeeting() {
 		int page = 0;
 
-		page = dao.getAllPageNum();
+		page = dao.getAllPageNumInMeeting();
 		return  ((page - 1) / 10) + 1;
 	}
 
 	@Override
-	public List<Board> getAllComment(int page) {
+	public List<Board> getAllCommentInMeeting(int page) {
 		
 		ArrayList<Board> list = null;
 
 		list = (ArrayList<Board>)dao.selectAllCommentInMeeting(page);
+
+		ArrayList<Board> sublist = new ArrayList<Board>();
+
+		for (int pNum = (10 * (page - 1)); (pNum < 10 * page) && (pNum < list.size()); pNum++) {
+			sublist.add(list.get(pNum));
+		}
+		return sublist;
+	}
+
+	@Override
+	public int getAllPageNumInBoard() {
+		int page = 0;
+
+		page = dao.getAllPageNumInBoard();
+		
+		return  ((page - 1) / 10) + 1;
+	}
+
+	@Override
+	public List<Board> getAllCommentInBoard(int page) {
+		ArrayList<Board> list = null;
+		
+		
+		list = (ArrayList<Board>)dao.selectAllCommentInBoard(page);
 
 		ArrayList<Board> sublist = new ArrayList<Board>();
 
