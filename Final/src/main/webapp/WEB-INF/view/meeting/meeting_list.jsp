@@ -49,10 +49,10 @@
 		
 		<tr>
 	
-			<th width="15%">글 번호</th>
-			<th width="60%">글 내용</th>
-			<th width="15%">작성자</th>
-			<th width="20%">날짜</th>
+			<th width="5%">번호</th>
+			<th width="75%">제목</th>
+			<th width="10%">작성자</th>
+			<th width="10%">등록일</th>
 		
 		</tr>
 		
@@ -67,7 +67,7 @@
 		<c:forEach var= "boardList" items="${boardList}" varStatus="status">
 		
 		<tr>
-			<td> <c:out value="${boardList.boardNo}"/> </td>
+			<td style="text-align:center"> <c:out value="${boardList.boardNo}"/> </td>
 			<td> <c:url value= "/meeting/detail?boardNo=${boardList.boardNo}" var="go"/> 
 			    
 		 
@@ -80,7 +80,7 @@
 			</c:if>
 	
 			</td>
-			<td>
+			<td style="text-align:center">
 				<c:out value="${boardList.userId}" />
 					<%-- 	<ul class="menu">
 							<li><c:out value="${boardList.userId}" />
@@ -95,19 +95,45 @@
 		</tr>
 		</c:forEach>
 		</c:if>
-		<tr><td></td><td></td><td><c:url value= "/meeting/write" var="write" /> 
-	<a href="${write}" ><button type="submit" class="btn btn-primary">글쓰기</button></a>
-	</td>
+		<tr>
+		<td></td>
+		<td>
+			<div id="pageNumber" align="center">
+			<ul class="pager">
+				<c:forEach var="i" begin="1" end="${totalPage}" >
+					<c:url value="/meeting/list?page=${i}" var="goPage"/>
+						
+							 <li><a href="${goPage}">${i}</li></a>
+				</c:forEach>
+			</ul>
+			</div>
+			
+	<!-- 		
+	<ul class="pager">
+  <li><a href="#">Previous</a></li>
+	
+	<ul class="pagination">
+  <li class="disabled"><a href="#">«</a></li>
+  <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+  ...
+</ul> -->
+			
+		</td>
+		<td>
+		</td>
+		<td style="text-align:center">
+			<c:url value= "/meeting/write" var="write" />
+			<a href="${write}" >
+				<button type="submit" class="btn btn-default">
+					<p class="text-primary">
+						<span class="glyphicon glyphicon-pencil"></span> 글쓰기
+					</p></button></a>
+		</td>
 		</tr>
 		
 	</table>
 	<br>
-	<div id="pageNumber" align="center">
-	<c:forEach var="i" begin="1" end="${totalPage}" >
-	<c:url value="/meeting/list?page=${i}" var="goPage"/>
-		<a href="${goPage}">${i}</a> 
-	</c:forEach>
-	</div>
+	
 	<%-- <article> 
 	
 	<%
@@ -120,8 +146,8 @@
 		}
 		out.print(">");
 	%> </article> --%>
-	<c:url value= "/meeting/write" var="write" /> 
-	<a href="${write}" ><button type="submit" class="btn btn-primary" style="float: right; margin-right: 11em;" >글등록</button></a>
+	<%-- <c:url value= "/meeting/write" var="write" /> 
+	<a href="${write}" ><button type="submit" class="btn btn-primary" style="float: right; margin-right: 11em;" >글등록</button></a> --%>
 	
 </body>
 </html>
