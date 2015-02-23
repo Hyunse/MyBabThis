@@ -163,10 +163,21 @@ $(document).ready(function(){
 						<img width="40" height="40"
 							src="<%=request.getContextPath()%>/upload/${loginUser.userImg}">
 						<span>${loginUser.userId }</span>&nbsp&nbsp&nbsp&nbsp 
-		<c:url value="/logout" var="logout" />
+						
+						<c:url value="/logout" var="logout" />
+						
 						<a href="${logout}"><button class="btn btn-default">로그아웃</button></a>
+						<c:if test="${loginUser.userId != 'admin' }">
 						<c:url value="/mypage/myinfo" var="mypage" />
-						<a href="${mypage}"><button class="btn btn-default">개인정보</button></a>
+						<a href="${mypage}"><button class="btn btn-default" id="userInfo">개인정보</button></a>
+						</c:if>
+						
+						<c:if test="${loginUser.userId == 'admin' }">
+					
+						<c:url value="/admin/myinfo" var="adminpage" />
+						<a href="${adminpage}"><button class="btn btn-default">관리</button></a>
+						
+						</c:if>
 					</c:if>
 					<c:if test="${empty loginUser }">
 
