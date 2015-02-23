@@ -72,9 +72,9 @@
 	</div>
 	<table class="table" style="table-layout: fixed">
 		<tr width="100%">
-			<th width="5%" >번호</th>
+			<th width="15%" >번호</th>
 			<!-- <th>게시글번호</th> -->
-			<th width="75%">내용</th>
+			<th width="65%">내용</th>
 			<th width="10%">작성자</th>
 			<th width="10%">등록일</th>
 
@@ -121,7 +121,9 @@
 						value="${breply.userId }" /></td>
 				<td style="word-break: break-all;" style="text-align:center"><c:out
 						value="${breply.breplyUpdatedate }" /></td>
-				<c:if test="${boardDetail.userId == loginUser.userId}">
+						
+				<c:if test="${breply.userId == loginUser.userId}">
+				
 					<td style="border: solid 1px #FFF; word-break: break-all;" ><button
 							class="btn btn-default" id="btn${breply.breplyNo}">
 							<p class="text-success"><span class="glyphicon glyphicon-pencil"></span> 수정</p>
@@ -134,12 +136,14 @@
 				</c:if>
 			</tr>
 		</c:forEach>
-	</table>
 
-	<hr>
-	<div style="margin-left: 3em;">
+	<tr><td align="center"><img width="40" height="40"
+							src="<%=request.getContextPath()%>/upload/${loginUser.userImg}">
+						<span>${loginUser.userId }</span></td>
+	<td colspan="3">
+	<!-- <div style="margin-left: 3em;">
 		<h2 style="font-family: Nanum Gothic">댓글작성</h2>
-	</div>
+	</div> -->
 
 	<c:url value="/breply/write" var="action"></c:url>
 	<form:form modelAttribute="breply" method="post" action="${action }">
@@ -148,11 +152,11 @@
 		<%--<label>내용</label> :  <form:textarea path="breplyContent" />
 			<button type="submit" name="breply_write" class="btn btn-primary">작성</button> --%>
 
-		<div class="col-lg-6">
+		<div class="col-lg-10">
 			<div class="input-group">
-				<form:input path="breplyContent" type="text" class="form-control" />
+				<form:input path="breplyContent" type="text" class="form-control"/>
 				<span class="input-group-btn">
-					<button class="btn btn-default" name="breply_write" type="submit"><span class="glyphicon glyphicon-ok"></span> 작성</button>
+					&nbsp&nbsp<button class="btn btn-default" name="breply_write" type="submit"><span class="glyphicon glyphicon-ok"></span> 작성</button>
 				</span>
 			</div>
 			<!-- /input-group -->
@@ -161,9 +165,11 @@
 
 	</form:form>
 
-
-
-
+</td>
+</tr>
+	</table>
+	<hr>
+	<jsp:include page="/WEB-INF/view/footer.jsp" />
 
 </body>
 </html>

@@ -108,7 +108,7 @@ $(document).ready(function(){
 	<c:url value="/ranking/all" var="ranking" />
 	<c:url value="/main" var="main" />
 
-	<div class="menudiv">
+	<%-- <div class="menudiv">
 		<div class="menu-wrap">
 			<nav class="menunav">
 				<div class="icon-list">
@@ -130,7 +130,7 @@ $(document).ready(function(){
 			</div>
 		</div>
 
-		<button class="menu-button" id="open-button">Open Menu</button>
+		<button class="menu-button" id="open-button">Open Menu</button> --%>
 
 		<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
 
