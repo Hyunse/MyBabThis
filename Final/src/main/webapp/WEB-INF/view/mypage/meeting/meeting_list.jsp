@@ -31,10 +31,6 @@
 .ui-menu {
 	width: 150px;
 }
-#pageNumber{
-	font-size: 30px;
-}
-
 </style>
 </head>
 
@@ -102,12 +98,7 @@
 		
 	</table>
 	<br>
-	<div id="pageNumber" align="center">
-	<c:forEach var="i" begin="1" end="${totalPage}" >
-	<c:url value="/meeting/list?page=${i}" var="goPage"/>
-		<a href="${goPage}">${i}</a> 
-	</c:forEach>
-	</div>
+	
 	<%-- <article> 
 	
 	<%
