@@ -21,13 +21,13 @@
 
 <br>
 <br>
-<table class="table table-hover">
+<table class="table table-hover" style="text-align: center;">
 				<tr>
-					<th>맛집 번호</th>
-					<th>맛집지역</th>
-					<th>맛집 이름</th>
-					<th>맛집내용</th>
-					<th></th>
+					<th style="width: 10%">맛집 번호</th>
+					<th style="width: 10%">맛집지역</th>
+					<th style="width: 20%">맛집 이름</th>
+					<th style="width: 50%">맛집내용</th>
+					<th style="width: 10%"></th>
 				</tr>
 				<c:forEach items="${restaurants }" var="restaurant">
 				<c:url value="/restaurant/view?resNo=${restaurant.resNo}" var="url"/>
@@ -35,19 +35,16 @@
 					<td><c:out value="${restaurant.resNo}" /></td>
 					<td><c:out value="${restaurant.locName}" /></td>
 					<td><c:out value="${restaurant.resName}" /></td>
-					<td><c:out value="${restaurant.resContent}" /></td>
+					<td style="text-align: left;"><c:out value="${restaurant.resContent}" /></td>
 					<td>
+					
 					<c:url value="/favorite/delete?userId=${loginUser.userId}&resNo=${restaurant.resNo}" var="delurl"/>
-				<a href="${delurl}"><button class="btn btn-default ">삭제</button></a></td>
-				</tr>
-
+					<a href="${delurl}">
+						<button type="button" class="btn btn-default" >
+							<p class="text-danger"><span class="glyphicon glyphicon-trash"></span>삭제</p>
+						</button>
+					</a>
 				</c:forEach>
 				</table>
-				
-			
-
-					
-				
-
 </body>
 </html>

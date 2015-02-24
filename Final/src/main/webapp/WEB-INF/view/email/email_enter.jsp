@@ -15,6 +15,12 @@
 		<link rel="stylesheet" type="text/css" href="fonts/css/font-awesome.min.css" />
 		<link rel="stylesheet" type="text/css" href="css/textinput-demo.css" />
 		<link rel="stylesheet" type="text/css" href="css/textinput-component.css" />
+		
+		<link rel="stylesheet" type="text/css"
+	href="<%=request.getContextPath()%>/css/bootstrap.css" />
+<link rel="stylesheet" type="text/css"
+	href="<%=request.getContextPath()%>/css/bootstrap-theme.css" />
+<script src="<%=request.getContextPath()%>/js/bootstrap.js"></script>
 <title>아이디와 비밀번호 찾기</title>
 
 </head>
@@ -84,21 +90,16 @@ $(document).ready(function() {
 			})();
 		</script>
 <body>
-	<section class="content bgcolor-7">
-	<h3 >아이디/비밀번호 찾기</h3>
+
+	<h2>이메일로 아이디/비밀번호 찾기</h2>
+<center>
 	<br>
 
+	<input id="email" name="email" placeholder="Enter email" size="50"/>
+	<br>
+	<br>
+	<input class="btn btn-default" type="button" id="go" value="submit">
 	
-	<span class="input input--jiro"> 
-	<input id="email" name="email"
-		class="input__field input__field--jiro" type="text" id="input-10" id="email" name="email"/>
-		<label class="input__label input__label--jiro" for="input-10" >
-			<span class="input__label-content input__label-content--jiro"> Email</span>
-				</label></span>
-		 <!-- <input type="text" id="email" name="email"> -->
-		<input type="button" id="go" value="submit">
-		<br><br>
-		</section>
-		<div id="drophere"></div>
+</center>
 </body>
 </html>

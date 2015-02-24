@@ -36,6 +36,16 @@
 <script>
 $(document).ready(function() {
 	
+	$("#email").click(function(){
+		   
+			    
+		  window.open("<%=request.getContextPath()%>/email","_blank"," width = 500 height = 300 left=650 top=300");
+		    
+		
+		
+	})
+	
+	
 	$("#go").click(function(){
 		alert("체크");
 	   
@@ -63,7 +73,7 @@ $(document).ready(function() {
 </script>
 <body>
 
-	<div class="md-modal md-effect-1" id="modal-1">
+	<!-- <div class="md-modal md-effect-1" id="modal-1">
 		<div class="md-content">
 			<h3 align="center">id/pw 찾기</h3>
 			<span class="input input--jiro"> <input id="email"
@@ -72,8 +82,8 @@ $(document).ready(function() {
 				<label class="input__label input__label--jiro" for="input-10">
 				<span class="input__label-content input__label-content--jiro"> Email</span>
 			</label></span> 
-			<!-- <input type="text" id="email" name="email"> -->
-			<!-- <input type="button" id="go" value="submit"> <br> -->
+			<input type="text" id="email" name="email">
+			<input type="button" id="go" value="submit"> <br>
 			<br>
 			<br><br><br><br>
 			<table style="margin: 0 auto;">
@@ -86,7 +96,7 @@ $(document).ready(function() {
 			<br>
 		</div>
 	</div>
-
+ -->
 
 
 	<div class="container">
@@ -120,12 +130,12 @@ $(document).ready(function() {
 				<br>
 				<br>
 				<footer class="clearfix">
-					<p>
-						<span class="info">?</span><a href="${email}"  >Forgot Password</a>
+					<br>
+						<span class="info">?</span><a id="email">Forgot Password</a>
 						
 				</footer>
 				
-						<button class="md-trigger" data-modal="modal-1">id/pw 찾기</button>
+					<!-- 	<button class="md-trigger" data-modal="modal-1">id/pw 찾기</button> -->
 					
 			</fieldset>
 

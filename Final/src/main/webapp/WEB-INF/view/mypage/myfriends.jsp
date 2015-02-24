@@ -38,17 +38,18 @@
 	%>
 
 
-	<table class="table table-hover" onclick="location.href='${url}'"
-		style="cursor: pointer;">
+	<table class="table table-hover" style="text-align: center;">
 		<tr>
 			<th>번호</th>
 			<th>아이디</th>
 			<th>이름</th>
 			<th>등급</th>
 			<th>등록일</th>
+			<th></th>
 		</tr>
 		<c:forEach items="${users}" var="user">
-			<c:url value="/admin/users_list?userId=${user.userId}" var="url" />
+<%-- 			<c:url value="/admin/users_list?userId=${user.userId}" var="url" />
+			<tr onclick="location.href='${url}'" style="cursor: pointer;"> --%>
 			<tr>
 				<td><c:out value="<%=i%>" /></td>
 				<td><c:out value="${user.userId}" /></td>
@@ -59,7 +60,16 @@
 				<fmt:formatDate value="${userRegdate }" type="date" dateStyle="short"/>&nbsp;&nbsp;
 				<fmt:formatDate value="${userRegdate }" type="time" pattern="hh:MM"/>
 				</td>
-			</tr>
+				<td>
+				<c:url value="/friend/delete?userId=${loginUser.userId}&friendId=${user.userId}" var="goDelete" />
+					<a href="${goDelete}">
+						<button type="button" class="btn btn-default" >
+							<p class="text-danger"><span class="glyphicon glyphicon-trash"></span>친구삭제</p>
+						</button>
+					</a>
+				</td>
+			</tr>	
+		
 			<%
 				i++;
 			%>
