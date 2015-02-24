@@ -13,12 +13,9 @@
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <script>
 $(document).ready(function() {
-	$("#upload").click(function(){
+	$("#upload1").click(function(){
     
-	window.open("<%=request.getContextPath()%>
-	/upload/gomyres",
-															"_blank",
-															"width = 600 height = 300")
+	window.open("<%=request.getContextPath()%>/upload/gomyres", "_blank", "width = 600 height = 300");
 
 										});
 					});
@@ -89,24 +86,29 @@ $(document).ready(function() {
 					<th style="text-align: center">이미지</th>
 					<td>&nbsp; <img id="dropimg" width="100" height="100"
 						src="<%=request.getContextPath()%>/upload/${restaurant.resImg}"><br>
-					<%-- <form:input path="resImg" id="resImg"
+					<%-- form:input path="resImg" id="resImg"
+					
 							value="${restaurant.resImg}" /><input type="button"
-						value="upload" id="upload"> --%>
-						<div class="col-lg-6" >
-			<div class="input-group" style="width:50%">
-				<form:input path="resImg" id="resImg" type="text" class="form-control" value="${restaurant.resImg}" />
-				<span class="input-group-btn">
-					<button class="btn btn-default" value="upload" id="upload"><span class="glyphicon glyphicon-cloud-upload"></span> 업로드</button>
-				</span>
-			</div>
-		</div>
-						</td>
+						value="upload" id="upload1"> --%>
+						<div class="col-lg-6">
+							<div class="input-group" style="width: 50%">
+								<form:input path="resImg" id="resImg"
+									value="${restaurant.resImg}" type="text" class="form-control" />
+								<span class="input-group-btn">
+									
+									<button type="button" class="btn btn-default" id="upload1" >
+										<span class="glyphicon glyphicon-cloud-upload"></span> 업로드
+									
+								</button></span>
+							</div>
+						</div> 
+					</td>
 				</tr>
 				
 				<tr>
 					<td colspan="2" align="center"><br>
-						<button type="submit" name="proceed" class="btn btn-default">
-							<span class="glyphicon glyphicon-ok"></span> 입력
+						<button type="submit" class="btn btn-default">
+							<span class="glyphicon glyphicon-ok"></span> 완료
 						</button></td>
 				</tr>
 			</table>

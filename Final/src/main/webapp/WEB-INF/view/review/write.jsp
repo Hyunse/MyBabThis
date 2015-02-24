@@ -46,7 +46,7 @@ $(document).ready(function() {
 		 --%>
 		 
 		<br>
-		<label>이미지</label> :<img id="dropimg" ></img>
+		<label>이미지</label> :<img id="dropimg" ></img><form:input path="reviewImg" id="reviewImg"/>
 		<input type="button" value="upload" id="upload">
 		<br>
 		<label>내용</label> : <textarea name="reviewContent"></textarea><%-- <form:input path="reviewContent" /> --%>
