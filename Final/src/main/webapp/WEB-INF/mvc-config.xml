@@ -38,4 +38,6 @@
 	
 	</bean>
 	
+	<bean id="SessionCheck" class="mybabthis.filter.SessionCheckFilter"/>
+	
 </beans>
