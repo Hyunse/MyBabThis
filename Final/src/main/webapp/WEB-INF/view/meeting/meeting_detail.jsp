@@ -54,7 +54,7 @@ pre {
 	<center>
 	<div class="table-responsive">
 			<table class="table">
-				<tr width=100% ><th width=10% style="text-align:center">번호</th><td width=90%>${boardDetail.boardNo}</td></tr>
+				<tr style="width:100%" ><th width=10% style="text-align:center">번호</th><td width=90%>${boardDetail.boardNo}</td></tr>
 				<tr><th style="text-align:center">제목</th><td>${boardDetail.boardTitle}</td></tr>
 				<tr><th style="text-align:center">작성자</th><td>${boardDetail.userId }</td></tr>
 				<tr><th style="text-align:center">내용</th><td>${boardDetail.boardContent }</td></tr>
@@ -76,9 +76,9 @@ pre {
 		<tr >
 			<th width="5%" >번호</th>
 			<!-- <th>게시글번호</th> -->
-			<th width="75%">내용</th>
-			<th width="10%">작성자</th>
-			<th width="10%">등록일</th>
+			<th width="65%">내용</th>
+			<th width="15%">작성자</th>
+			<th width="15%">등록일</th>
 
 		</tr>
 
@@ -127,31 +127,26 @@ pre {
 			</tr>
 		</c:forEach>
 
-		<tr><td align="center"><br><img width="40" height="40"
+	<tr><td align="center"><img width="40" height="40"
 							src="<%=request.getContextPath()%>/upload/${loginUser.userImg}">
 						<span>${loginUser.userId }</span></td>
 	<td colspan="3">
-	<!-- <div style="margin-left: 3em;">
-		<h2 style="font-family: Nanum Gothic">댓글작성</h2>
-	</div> -->
-
-	<c:url value="/breply/write" var="action"></c:url>
-	<form:form modelAttribute="breply" method="post" action="${action }">
+	<c:url value="/meeting/write" var="action"></c:url>
+	<form:form modelAttribute="breply" method="post" action="${action }" id="writeform">
+	
 		<form:hidden path="boardNo" value="${boardDetail.boardNo }" />
 		<form:hidden path="userId" value="${loginUser.userId }" />
-		<%--<label>내용</label> :  <form:textarea path="breplyContent" />
-			<button type="submit" name="breply_write" class="btn btn-primary">작성</button> --%>
-
-		<div class="col-lg-10">
+		
+		<%-- <img width="40" height="40" src="<%=request.getContextPath()%>/upload/${loginUser.userImg}"><span>${loginUser.userId }</span>--%>						
+						
+		<div class="col-lg-6" >
 			<div class="input-group">
-				<form:input path="breplyContent" type="text" class="form-control"/>
+				<form:input path="breplyContent" type="text" class="form-control" />
 				<span class="input-group-btn">
-					&nbsp&nbsp<button class="btn btn-default" name="breply_write" type="submit"><span class="glyphicon glyphicon-ok"></span> 작성</button>
+					<button class="btn btn-default" name="breply_write" type="submit"><span class="glyphicon glyphicon-ok"></span> 작성</button>
 				</span>
 			</div>
-			<!-- /input-group -->
 		</div>
-		<!-- /.col-lg-6 -->
 
 	</form:form>
 
@@ -160,30 +155,7 @@ pre {
 	</table>
 
 </center>
-	<hr>
-
-	<div style=" margin-left: 5em;">
-	<c:url value="/meeting/write" var="action"></c:url>
-	</div>
-	<form:form modelAttribute="breply" method="post" action="${action }"
-		id="writeform">
-		<div style="margin-left: 3em;">
-		<h2 style="font-family: Nanum Gothic">댓글작성</h2>
-	</div>
-	
-		<form:hidden path="boardNo" value="${boardDetail.boardNo }" />
-		<form:hidden path="userId" value="${loginUser.userId }" />
-		<div class="col-lg-6" >
-			<div class="input-group">
-				<form:input path="breplyContent" type="text" class="form-control" />
-				<span class="input-group-btn">
-					<button class="btn btn-default" name="breply_write" type="submit"><span class="glyphicon glyphicon-ok"></span> 작성</button>
-				</span>
-			</div>
-			<!-- /input-group -->
-		</div>
-		<!-- /.col-lg-6 -->
-	</form:form>
+<br><br>
 	
 
 </body>

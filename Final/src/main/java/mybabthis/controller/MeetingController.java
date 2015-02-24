@@ -120,7 +120,10 @@ public class MeetingController {
 	
 	@RequestMapping(value="/write", params="breply_write", method=RequestMethod.POST)
 	public String write(@ModelAttribute("breply") Breply breply){
+//		Board board = new Board();
+//		board.setBoardType("M");
 		breplyService.createBreply(breply);
+		logger.trace("일단여기");
 		return "redirect:/meeting/detail?boardNo="+breply.getBoardNo();
 	}
 	

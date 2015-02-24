@@ -97,7 +97,7 @@ assa
 			<div id="pageNumber" align="center">
 			<ul class="pager">
 				<c:forEach var="i" begin="1" end="${totalPage}" >
-					<c:url value="/meeting/list?page=${i}" var="goPage"/>
+					<c:url value="/board/list?page=${i}" var="goPage"/>
 						<ul class="pagination">
 							<c:if test="${currentPage == i}">
 							 <li class="active"><a href="#">${i}<span class="sr-only">(current)</span></a></li>

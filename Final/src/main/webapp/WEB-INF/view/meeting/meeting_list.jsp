@@ -49,9 +49,9 @@
 	<table class="table" align="center" width="100%">
 		<tr>
 			<th width="5%">번호</th>
-			<th width="75%">제목</th>
-			<th width="10%">작성자</th>
-			<th width="10%">등록일</th>
+			<th width="65%">제목</th>
+			<th width="15%">작성자</th>
+			<th width="15%">등록일</th>
 		</tr>
 		<c:if test="${empty boardList}">
 		<tr>
@@ -82,7 +82,7 @@
 							</li>
 						</ul>
 					</td> --%>
-			<td> 
+			<td style="text-align:center"> 
 				<c:set value="${boardList.boardRegdate }" var="boardRegdate"/>
 				<fmt:formatDate value="${boardRegdate }" type="date" dateStyle="short"/>&nbsp;&nbsp;
 				<fmt:formatDate value="${boardRegdate }" type="time" pattern="hh:MM"/>
