@@ -46,6 +46,9 @@
 	<jsp:include page="/WEB-INF/view/header.jsp" />
 </div>
 <body>
+<div style="margin-left: 10em;">
+		<h3 align="left">번개모임</h3>
+	</div>
 	<table class="table" align="center" width="100%">
 		<tr>
 			<th width="5%">번호</th>
