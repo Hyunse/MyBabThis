@@ -55,10 +55,10 @@
 	</td>
 	<td>지역 : ${restaurant.locName}</td><td>
 	<c:url value="/restaurant/edit?resNo=${restaurant.resNo}"
-					var="url" /> <a href="${url }"><button>편집</button></a> <c:url
+					var="url" /> <a href="${url }"><button class="btn btn-default">편집</button></a> <c:url
 					value="/restaurant/delete?resNo=${restaurant.resNo}&locName=${restaurant.locName }"
-					var="url" /> <a href="${url }"><button>삭제</button></a>
-	<a href="<%=request.getContextPath()%>/favorite/create?resNo=${restaurant.resNo}&userId=${loginUser.userId}"><button>즐겨찾기</button></a></td>
+					var="url" /> <a href="${url }"><button class="btn btn-default">삭제</button></a>
+	<a href="<%=request.getContextPath()%>/favorite/create?resNo=${restaurant.resNo}&userId=${loginUser.userId}"><button class="btn btn-default">즐겨찾기</button></a></td>
 	</tr>
 	<tr><td>가게이름 : ${restaurant.resName}</td><td>분류 : ${restaurant.resKind}</td></tr>
 	<tr><td>전화번호 : ${restaurant.resNumber}</td><td>평점 : ${restaurant.resScore}</td></tr>
@@ -67,7 +67,7 @@
 		
 	
 	</table>
-	<br><br>
+
 	<%i++; %>
 	
 	<%-- 
