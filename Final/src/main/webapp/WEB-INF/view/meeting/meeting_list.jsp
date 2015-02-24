@@ -3,6 +3,7 @@
 <%@	page import="java.util.*, mybabthis.entity.Board"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -46,18 +47,12 @@
 </div>
 <body>
 	<table class="table" align="center" width="100%">
-		
 		<tr>
-	
 			<th width="5%">번호</th>
 			<th width="75%">제목</th>
 			<th width="10%">작성자</th>
 			<th width="10%">등록일</th>
-		
 		</tr>
-		
-		
-		
 		<c:if test="${empty boardList}">
 		<tr>
 			<td colspan="4">작성 된 글이 없습니다...</td>
@@ -69,16 +64,12 @@
 		<tr>
 			<td style="text-align:center"> <c:out value="${boardList.boardNo}"/> </td>
 			<td> <c:url value= "/meeting/detail?boardNo=${boardList.boardNo}" var="go"/> 
-			    
-		 
 			<c:if test="${fn:length(boardList.boardTitle) > 20 }">
 			<a href="${go}"><c:out value ="${fn:substring(boardList.boardTitle,0,15)}" />...</a>
 			</c:if>
-			
 			<c:if test="${fn:length(boardList.boardTitle) <= 20 }">
 				<a href="${go}">${boardList.boardTitle}</a>
 			</c:if>
-	
 			</td>
 			<td style="text-align:center">
 				<c:out value="${boardList.userId}" />
@@ -91,7 +82,11 @@
 							</li>
 						</ul>
 					</td> --%>
-			<td> <c:out value="${boardList.boardRegdate}"/></td>
+			<td> 
+				<c:set value="${boardList.boardRegdate }" var="boardRegdate"/>
+				<fmt:formatDate value="${boardRegdate }" type="date" dateStyle="short"/>&nbsp;&nbsp;
+				<fmt:formatDate value="${boardRegdate }" type="time" pattern="hh:MM"/>
+			</td>
 		</tr>
 		</c:forEach>
 		</c:if>

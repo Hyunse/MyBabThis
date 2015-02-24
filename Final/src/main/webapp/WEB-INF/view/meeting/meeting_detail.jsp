@@ -3,6 +3,7 @@
 <%@	page import="java.util.*, mybabthis.entity.Board"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -111,7 +112,11 @@ pre {
 
 				</td>
 				<td style="text-align:center"><c:out value="${breply.userId }" /></td>
-				<td style="text-align:center"><c:out value="${breply.breplyUpdatedate }" /></td>
+				<td style="text-align:center">
+					<c:set value="${breply.breplyUpdatedate }" var="breplyUpdatedate"/>
+					<fmt:formatDate value="${breplyUpdatedate }" type="date" dateStyle="short"/>&nbsp;&nbsp;
+					<fmt:formatDate value="${breplyUpdatedate }" type="time" pattern="hh:MM"/>
+				</td>
 				<c:if test="${breply.userId == loginUser.userId}">
 				<td style="border: solid 1px #FFF; word-break: break-all;" ><button class="btn btn-default" id="btn${breply.breplyNo}" >
 				<p class="text-success"><span class="glyphicon glyphicon-pencil"></span> 수정</button>
