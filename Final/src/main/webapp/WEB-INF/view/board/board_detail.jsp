@@ -3,6 +3,7 @@
 <%@	page import="java.util.*, mybabthis.entity.Board"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -53,11 +54,31 @@
 		<p id="demo"></p>
 		<div class="table-responsive">
 			<table class="table">
-				<tr width=100% ><th width=10% style="text-align:center">번호</th><td width=90%>${boardDetail.boardNo}</td></tr>
-				<tr><th style="text-align:center">제목</th><td>${boardDetail.boardTitle}</td></tr>
-				<tr><th style="text-align:center">작성자</th><td>${boardDetail.userId }</td></tr>
-				<tr><th style="text-align:center">내용</th><td>${boardDetail.boardContent }</td></tr>
-				
+				<tr width=100%>
+					<th width=10% style="text-align: center">번호</th>
+					<td width=90%>${boardDetail.boardNo}</td>
+				</tr>
+				<tr>
+					<th style="text-align: center">제목</th>
+					<td>${boardDetail.boardTitle}</td>
+				</tr>
+				<tr>
+					<th style="text-align: center">작성자</th>
+					<td>${boardDetail.userId }</td>
+				</tr>
+				<tr>
+					<th style="text-align: center">작성일</th>
+					<td>
+						<c:set value="${boardDetail.boardRegdate}" var="boardRegdate"/>
+						<fmt:formatDate value="${boardRegdate }" type="date" dateStyle="full"/>&nbsp;&nbsp;
+						<fmt:formatDate value="${boardRegdate }" type="time" pattern="hh:MM"/>
+					</td>
+				</tr>
+				<tr>
+					<th style="text-align: center">내용</th>
+					<td>${boardDetail.boardContent }</td>
+				</tr>
+
 			</table>
 			<c:if test="${boardDetail.userId == loginUser.userId}">
 			<c:url value="/board/update?boardNo=${boardDetail.boardNo}" var="goEdit" />
@@ -77,7 +98,6 @@
 			<th width="75%">내용</th>
 			<th width="10%">작성자</th>
 			<th width="10%">등록일</th>
-
 		</tr>
 
 		<c:forEach items="${breplys }" var="breply">
@@ -117,8 +137,11 @@
 				</td>
 				<td style="text-align:center"><c:out
 						value="${breply.userId }" /></td>
-				<td style="text-align:center"><c:out
-						value="${breply.breplyUpdatedate }" /></td>
+				<td style="text-align:center">
+					<c:set value="${breply.breplyUpdatedate }" var="breplyUpdatedate"/>
+					<fmt:formatDate value="${breplyUpdatedate }" type="date" dateStyle="short"/>&nbsp;&nbsp;
+					<fmt:formatDate value="${breplyUpdatedate }" type="time" pattern="hh:MM"/>
+				</td>
 						
 				<c:if test="${breply.userId == loginUser.userId}">
 				
