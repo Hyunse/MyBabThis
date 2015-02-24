@@ -91,8 +91,9 @@ $(document).ready(function() {
 		</script>
 <body>
 
-	<h2>이메일로 아이디/비밀번호 찾기</h2>
+	
 <center>
+	<div style="font-size: 20px" ><span class="glyphicon glyphicon-question-sign" ></span>&nbsp 아이디/비밀번호가 기억나지 않으세요?</div>
 	<br>
 
 	<input id="email" name="email" placeholder="Enter email" size="50"/>

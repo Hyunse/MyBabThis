@@ -37,8 +37,9 @@ public class BoardController {
 
 		boardService.write(board);
 
+		logger.trace("이거확인");
 		
-		return "redirect:list?page=1";
+		return "redirect:/list?page=1";
 
 	}
 

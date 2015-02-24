@@ -4,30 +4,17 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html >
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>자유게시판</title>
-<!-- 
-<link rel="stylesheet"
-	href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css"> -->
-	
-	<!-- 
-<script src="//code.jquery.com/jquery-1.10.2.js"></script>
-<script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script> -->
-
+<title>번개게시판</title>
 <script src="http://code.jquery.com/jquery-latest.js"></script>
-
-<!-- <script src="js/modernizr.custom.js"></script>
-<link rel="stylesheet" type="text/css" href="css/default_modal.css" />
-<link rel="stylesheet" type="text/css" href="css/component_modal.css" /> -->
-		
-<!-- <script>
-	$(function() {
-		$(".menu").menu();
-	});
-</script> -->
+<link rel="stylesheet" type="text/css"
+	href="<%=request.getContextPath()%>/css/bootstrap.css" />
+<link rel="stylesheet" type="text/css"
+	href="<%=request.getContextPath()%>/css/bootstrap-theme.css" />
+<script src="<%=request.getContextPath()%>/js/bootstrap.js"></script>
 <style>
 .ui-menu {
 	width: 150px;
@@ -49,10 +36,10 @@
 <div style="margin-left: 10em;">
 		<h3 align="left">번개모임</h3>
 	</div>
-	<table class="table table-hover" align="center" width="100%">
+	<table class="table table-hover" style="text-align:center; width: 100% ">
 		<tr>
-			<th width="5%">번호</th>
-			<th width="65%">제목</th>
+			<th width="10%">번호</th>
+			<th width="60%">제목</th>
 			<th width="15%">작성자</th>
 			<th width="15%">등록일</th>
 		</tr>
@@ -64,9 +51,9 @@
 		<c:if test="${!empty boardList}">
 		<c:forEach var= "boardList" items="${boardList}" varStatus="status">
 		<c:url value= "/meeting/detail?boardNo=${boardList.boardNo}" var="url" />
-		<tr onclick="location.href='${url}'" style="cursor: pointer;">
-			<td style="text-align:center"> <c:out value="${boardList.boardNo}"/> </td>
-			<td>
+		<tr>
+			<td onclick="location.href='${url}'" style="cursor: pointer;"> <c:out value="${boardList.boardNo}"/> </td>
+			<td onclick="location.href='${url}'" style="cursor: pointer; text-align: left;"">
 			<c:if test="${fn:length(boardList.boardTitle) > 20 }">
 			<c:out value ="${fn:substring(boardList.boardTitle,0,15)}" />...
 			</c:if>
@@ -74,18 +61,19 @@
 				${boardList.boardTitle}
 			</c:if>
 			</td>
-			<td style="text-align:center">
-				<c:out value="${boardList.userId}" />
-					<%-- 	<ul class="menu">
-							<li><c:out value="${boardList.userId}" />
-								<ul>
-									<li><a href="/Final/friend/create?userId=${loginUser.userId}&friendId=${boardList.userId}">친구추가</a></li>
-									<li><a href="/Final/msg/send?receiver=${boardList.userId}">쪽지보내기</a></li>
-								</ul>
-							</li>
-						</ul>
-					</td> --%>
-			<td style="text-align:center"> 
+			<td>
+							<div class="btn-group">
+                                    <button type="button" class="btn btn-default dropup-toggle" data-toggle="dropdown">
+                                       <c:out value="${boardList.userId}" />&nbsp;&nbsp;<span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu" role="menu">
+                                       <li><a href="/Final/friend/create?userId=${loginUser.userId}&friendId=${boardList.userId}">친구추가</a></li>
+                                       <li><a href="/Final/msg/send?receiver=${boardList.userId}">쪽지보내기</a></li>
+                                    </ul>
+                              </div> 
+                              
+            </td>
+			<td onclick="location.href='${url}'" style="cursor: pointer;">
 				<c:set value="${boardList.boardRegdate }" var="boardRegdate"/>
 				<fmt:formatDate value="${boardRegdate }" type="date" dateStyle="short"/>&nbsp;&nbsp;
 				<fmt:formatDate value="${boardRegdate }" type="time" pattern="hh:MM"/>
