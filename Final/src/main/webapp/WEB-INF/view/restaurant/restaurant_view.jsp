@@ -386,23 +386,32 @@ for( int i = start ; i < end ; i ++ ) {
 					</tr>
 					<c:forEach items="${reviews }" var="review">
 					<c:url value="/review/detail?reviewNo=${review.reviewNo }" var="url"></c:url>
-						<tr onclick="location.href='${url}'" style="cursor: pointer;">
-							<td>등록된 사진이 없습니다.</td>
-							<td><c:out value="${review.reviewScore }" /></td>
-							
-							<td><a href="${url }">${review.reviewContent }</a></td>
+						<tr>
+							<td onclick="location.href='${url}'" style="cursor: pointer;">등록된 사진이 없습니다.</td>
+							<td onclick="location.href='${url}'" style="cursor: pointer;"><c:out value="${review.reviewScore }" /></td>
+							<td onclick="location.href='${url}'" style="cursor: pointer;">${review.reviewContent }</td>
 							<td>
-								<ul class="dl-menu">
+<%-- 								<ul class="dl-menu">
 									<li><c:out value="${review.userId}" />
 										<ul>
-											<li><a
-												href="/Final/friend/create?userId=${loginUser.userId}&friendId=${review.userId}">친구추가</a></li>
+											<li><a href="/Final/friend/create?userId=${loginUser.userId}&friendId=${review.userId}">친구추가</a></li>
 											<li><a href="/Final/msg/send?receiver=${review.userId}">쪽지보내기</a></li>
 										</ul>
 									</li>
-								</ul>
-							</td>
-							<td>
+								</ul> --%>
+										<div class="btn-group">
+											<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+												<c:out value="${review.userId}" />&nbsp;&nbsp; 
+												<span class="caret"></span>
+											</button>
+											<ul class="dropdown-menu" role="menu">
+												<li><a href="/Final/friend/create?userId=${loginUser.userId}&friendId=${review.userId}">친구추가</a></li>
+												<li><a href="/Final/msg/send?receiver=${review.userId}">쪽지보내기</a></li>
+											</ul>
+										</div>
+
+									</td>
+							<td onclick="location.href='${url}'" style="cursor: pointer;">
 							<c:set value="${review.reviewUpdatedate }" var="reviewUpdatedate"/>
 							<fmt:formatDate value="${reviewUpdatedate }" type="date" dateStyle="short"/>&nbsp;&nbsp;
 							<fmt:formatDate value="${reviewUpdatedate }" type="time" pattern="hh:MM"/>
