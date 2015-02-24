@@ -35,6 +35,11 @@ public class UploadController {
 		return "restaurant/restaurant_img";
 
 	}
+	@RequestMapping(value = "/upload/gomyreview", method = RequestMethod.GET)
+	public String enterUpload3() {
+		return "review/review_img";
+
+	}
 	
 	@RequestMapping(value = "/upload/user", method = RequestMethod.POST)
 	public String uploadUserimg(@RequestParam("uploadFile") MultipartFile file, Model model) {
@@ -69,6 +74,24 @@ public class UploadController {
 		
 		
 		return "restaurant/restaurant_img";
+	}
+	@RequestMapping(value = "/upload/review", method = RequestMethod.POST)
+	public String uploadReviewimg(@RequestParam("uploadFile") MultipartFile file, Model model) {
+		
+		
+		logger.trace("여기");
+		File newfile = new File("c:\\DB\\uploaded\\"+file.getOriginalFilename());
+		
+		try{
+		file.transferTo(newfile);
+		}catch(IllegalStateException | IOException e) {
+			e.printStackTrace();
+		}
+		
+		model.addAttribute("file", file.getOriginalFilename());
+		
+		
+		return "review/review_img";
 	}
 	
 }
