@@ -56,7 +56,6 @@ public class SessionCheckFilter implements Filter {
 			
 		}
 	
-		chain.doFilter(request, response);
 	}
 
 	/**
