@@ -19,10 +19,10 @@ font-size: 30px;
 }
 </style>
 <body>
+<jsp:include page="/WEB-INF/view/header.jsp" />
 <center>
 <div id="title">
 
-<br>
 <br>
 *이용 규칙*
 </div>
@@ -74,6 +74,6 @@ font-size: 30px;
 * 단지 나의 의견과 다르다고 규칙을 확대해석하여 신고하는 일이 없도록 주의바랍니다.<br>
 <br>
 </center>
-
+<jsp:include page="/WEB-INF/view/footer.jsp" />
 </body>
 </html>
