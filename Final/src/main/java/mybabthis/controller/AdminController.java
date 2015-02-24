@@ -44,7 +44,7 @@ public class AdminController {
 	@RequestMapping(value="/main",  method=RequestMethod.GET)
 	public String goAdminMain(Model model){
 		
-		return "admin/admin_menu";
+		return "admin/admin_myinfo";
 	}
 	
 	/**
