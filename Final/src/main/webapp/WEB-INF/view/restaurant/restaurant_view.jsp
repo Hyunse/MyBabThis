@@ -358,8 +358,8 @@
 						<c:url value="/rreply/write" var="rreplyw" />
 						<form:form modelAttribute="rreply" method="post" action="${rreplyw }">
 							<img width="40" height="40"	src="<%=request.getContextPath()%>/upload/${loginUser.userImg}">
-							<form:input path="rreplyContent" />
-							<button type="submit" name="rwrite">작성</button>
+							<form:input path="rreplyContent" size="50" />
+							<button type="submit" name="rwrite" class="btn btn-default">작성</button>
 							<form:hidden path="resNo" value="${restaurant.resNo}" />
 							<form:hidden path="userId" value="${loginUser.userId}" />
 						</form:form>
