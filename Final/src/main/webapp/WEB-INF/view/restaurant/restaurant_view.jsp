@@ -157,28 +157,62 @@ function go(ing,end){
 <body>
 	<jsp:include page="/WEB-INF/view/header.jsp" />
 	<hr>
-	<h1>맛집 페이지</h1>
-	
+	<div style="margin-left: 10em;">
+		<h2>맛집정보</h2>
+	</div>
 	<table class="table">
-	<tr><td rowspan="6" width="310px">
-	<img src="<%=request.getContextPath()%>/upload/${restaurant.resImg}" onLoad="reSizes(this);"/>
-	</td>
-	<td width="25%">지역 : ${restaurant.locName}</td><td>
-	<c:url value="/restaurant/edit?resNo=${restaurant.resNo}"
-					var="url" /> <a href="${url }"><button>편집</button></a> <c:url
+		<tr>
+			<td rowspan="6" width="310px"><img
+				src="<%=request.getContextPath()%>/upload/${restaurant.resImg}"
+				onLoad="reSizes(this);" /></td>
+			<td width="25%">지역 : ${restaurant.locName}</td>
+			<td colspan="2">주소 : ${restaurant.resLoc}</td>
+		</tr>
+		<tr>
+			<td>가게이름 : ${restaurant.resName}</td>
+			<td>분류 : ${restaurant.resKind}</td>
+		</tr>
+		<tr>
+			<td>전화번호 : ${restaurant.resNumber}</td>
+			<td><div class="progress"
+					style="height: 28px; width: 140px; background-color: blue">
+					<img src="../images/star.png"
+						style="position: absolute; height: 30px">
+					<div class="progress-bar progress-bar-warning" role="progressbar"
+						id="star"
+						style="width: ${restaurant.resScore * 20}%; height: 100%"></div>
+				</div> 평점 : ${restaurant.resScore}</td>
+		</tr>
+		<tr>
+			<td colspan="2">주소 : ${restaurant.resLoc}</td>
+		</tr>
+		<tr>
+			<td colspan="2">내용 : ${restaurant.resContent}</td>
+		</tr>
+		<tr>
+			<td colspan="3" align="center"><c:url
+					value="/restaurant/edit?resNo=${restaurant.resNo}" var="url" /> <a
+				href="${url }">
+					<button class="btn btn-default">
+						<p class="text-success">
+							<span class="glyphicon glyphicon-pencil"></span> 편집
+						</p>
+					</button>
+			</a> <c:url
 					value="/restaurant/delete?resNo=${restaurant.resNo}&locName=${restaurant.locName }"
-					var="url" /> <a href="${url }"><button>삭제</button></a>
-	<a href="<%=request.getContextPath()%>/favorite/create?resNo=${restaurant.resNo}&userId=${loginUser.userId}"><button id="favorite">즐겨찾기</button></a></td>
-	</tr>
-	<tr><td>가게이름 : ${restaurant.resName}</td><td>분류 : ${restaurant.resKind}</td></tr>
-	<tr><td>전화번호 : ${restaurant.resNumber}</td><td><div class="progress" style="height: 28px; width: 140px; background-color: blue"><img src="../images/star.png" style="position: absolute; height: 30px">
-  <div class="progress-bar progress-bar-warning" role="progressbar" id="star" style="width: ${restaurant.resScore * 20}%; height: 100%">
-  </div>
-</div> 
-평점 : ${restaurant.resScore}</td></tr>
-	<tr><td colspan="2">주소 : ${restaurant.resLoc}</td></tr>
-	<tr><td colspan="2">내용 : ${restaurant.resContent}</td></tr>
-		
+					var="url" /> <a href="${url }">
+					<button class="btn btn-default">
+						<p class="text-danger">
+							<span class="glyphicon glyphicon-trash"></span> 삭제
+					</button>
+			</a> <a
+				href="<%=request.getContextPath()%>/favorite/create?resNo=${restaurant.resNo}&userId=${loginUser.userId}">
+					<button id="favorite" class="btn btn-default">
+							<span class="glyphicon glyphicon-star"></span> 즐겨찾기
+					</button>
+			</a>
+			</td>
+		</tr>
 	</table>
 	<%
 
