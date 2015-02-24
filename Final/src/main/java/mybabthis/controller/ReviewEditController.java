@@ -42,6 +42,9 @@ public class ReviewEditController {
 	//작성하기
 	@RequestMapping(value="/review/write", params="write", method=RequestMethod.POST)
 	public String write(@ModelAttribute("review") Review review){
+		//review.setReviewContent("<img src=\"/Final/upload/"+review.getReviewImg()+"\" width=\"300px\"/><br> "+review.getReviewContent());
+		review.setReviewContent("<br><br><br>");
+		logger.trace("이거 : "+review.getReviewContent());
 		service.createReview(review);
 /*		float avgScore=service.getAverageScore(review.getResNo());
 		Restaurant restaurant = new Restaurant();
