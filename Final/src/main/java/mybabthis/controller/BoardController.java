@@ -49,7 +49,7 @@ public class BoardController {
 	 */
 	@RequestMapping(value = "/list", params={"page"}, method = RequestMethod.GET)
 	public String enterBoard(@ModelAttribute("boardInfo") Board board, Model model,int page) {
-List<Board> list = null;
+		List<Board> list = null;
 		
 		List<Board> pagelist = null;
 		// 타입이 F인거 불러오기
@@ -59,7 +59,8 @@ List<Board> list = null;
 		list = boardService.viewBoardByMeeting(board.getBoardType());
 		model.addAttribute("boardList", pagelist);
 		model.addAttribute("totalPage", totalpage);
-		logger.trace("GoBoard : " + list);
+		model.addAttribute("currentPage", page);
+		logger.trace("currentPage : " + page);
 		
 		return "board/board_list";
 		
@@ -124,6 +125,22 @@ List<Board> list = null;
 		
 		return "redirect:/board/list?page=1";
 	}
+	
+	
+	/**
+	 * 게시판 삭제하기
+	 * @param board
+	 * @return
+	 */
+	@RequestMapping(value="/edit",  params="_event_delete", method=RequestMethod.POST)
+	public String deleteBoard(@ModelAttribute("editBoard") Board board){
+		
+		boardService.delete(board.getBoardNo());
+		logger.trace("번호: " +board.getBoardNo());
+		return "redirect:/meeting/list?page=1";
+	}
+	
+	
 
 	/**
 	 * 게시판 댓글 삭제하기
@@ -138,18 +155,7 @@ List<Board> list = null;
 		return "redirect:/board/detail?boardNo="+boardNo;
 	}
 	
-	/**
-	 * 게시판 삭제하기
-	 * @param board
-	 * @return
-	 */
-	@RequestMapping(value="/edit",  params="_event_delete", method=RequestMethod.GET)
-	public String deleteBoard(@ModelAttribute("editBoard") Board board){
-		
-		boardService.delete(board.getBoardNo());
-		logger.trace("번호: " +board.getBoardNo());
-		return "redirect:/meeting/list?page=1";
-	}
+	
 	
 //	@RequestMapping(value="/delete",  method=RequestMethod.GET,  params={"breplyNo", "boardNo"})
 //	public String delete(@RequestParam int breplyNo, int boardNo, Model model){

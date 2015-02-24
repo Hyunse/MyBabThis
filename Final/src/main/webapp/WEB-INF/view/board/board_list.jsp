@@ -36,10 +36,10 @@
 
 	<table class="table"  align="center">
 		<tr>
-			<th width="5%">글 번호</th>
-			<th width="75%">글 내용</th>
-			<th width="10%">작성자</th>
-			<th width="10%">작성일</th>
+			<th width="5%">번호</th>
+			<th width="65%">제목</th>
+			<th width="15%">작성자</th>
+			<th width="15%">등록일</th>
 		</tr>
 
 		<c:if test="${empty boardList}">
@@ -110,7 +110,8 @@
 		<td></td>
 		<td style="text-align:center">
 	<c:url value="/board/write" var="write" />
-	<a href="${write}"><button type="submit" class="btn btn-default"><p class="text-primary"><span class="glyphicon glyphicon-pencil"></span> 글쓰기</p></button></a>
+	<a href="${write}"><button type="submit" class="btn btn-default"><p class="text-primary">
+	<span class="glyphicon glyphicon-pencil"></span> 글쓰기</p></button></a>
 		
 		</td>
 		</tr>

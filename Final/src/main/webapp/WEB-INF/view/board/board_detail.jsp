@@ -67,7 +67,7 @@
 					<td>${boardDetail.userId }</td>
 				</tr>
 				<tr>
-					<th style="text-align: center">작성일</th>
+					<th style="text-align: center">등록일</th>
 					<td>
 						<c:set value="${boardDetail.boardRegdate}" var="boardRegdate"/>
 						<fmt:formatDate value="${boardRegdate }" type="date" dateStyle="full"/>&nbsp;&nbsp;
@@ -95,9 +95,9 @@
 		<tr >
 			<th width="5%" >번호</th>
 			<!-- <th>게시글번호</th> -->
-			<th width="75%">내용</th>
-			<th width="10%">작성자</th>
-			<th width="10%">등록일</th>
+			<th width="65%">내용</th>
+			<th width="15%">작성자</th>
+			<th width="15%">등록일</th>
 		</tr>
 
 		<c:forEach items="${breplys }" var="breply">

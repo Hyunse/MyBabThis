@@ -57,8 +57,14 @@ pre {
 				<tr style="width:100%" ><th width=10% style="text-align:center">번호</th><td width=90%>${boardDetail.boardNo}</td></tr>
 				<tr><th style="text-align:center">제목</th><td>${boardDetail.boardTitle}</td></tr>
 				<tr><th style="text-align:center">작성자</th><td>${boardDetail.userId }</td></tr>
+				<tr><th style="text-align: center">등록일</th>
+					<td>
+						<c:set value="${boardDetail.boardRegdate}" var="boardRegdate"/>
+						<fmt:formatDate value="${boardRegdate }" type="date" dateStyle="full"/>&nbsp;&nbsp;
+						<fmt:formatDate value="${boardRegdate }" type="time" pattern="hh:MM"/>
+					</td>
+				</tr>
 				<tr><th style="text-align:center">내용</th><td>${boardDetail.boardContent }</td></tr>
-				
 			</table>
 	
 	<c:url value="/meeting/update?boardNo=${boardDetail.boardNo}"
