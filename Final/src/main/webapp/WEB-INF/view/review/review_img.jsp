@@ -26,9 +26,9 @@ $(document).ready(function() {
 	
 	$("#ok").click(function(){
 		
-		/* opener.$("#reviewImg").val("${file}"); */
-		
-		$(opener.document).find($("reviewContent").append("${file}"));
+		opener.$("#reviewImg").val("${file}");
+		/* 
+		$(opener.document).find($("reviewContent").append("${file}")); */
 		opener.$("#dropimg").attr("src","<%=request.getContextPath()%>/upload/${file}");
 		opener.$("#dropimg").attr("width","100");
 		self.close();

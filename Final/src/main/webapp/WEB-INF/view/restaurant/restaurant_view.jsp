@@ -390,8 +390,7 @@ for( int i = start ; i < end ; i ++ ) {
 							<td>등록된 사진이 없습니다.</td>
 							<td><c:out value="${review.reviewScore }" /></td>
 							
-							<td><a href="${url }"><c:out
-										value="${review.reviewContent }" /></a></td>
+							<td><a href="${url }">${review.reviewContent }</a></td>
 							<td>
 								<ul class="dl-menu">
 									<li><c:out value="${review.userId}" />

@@ -40,12 +40,18 @@ $(document).ready(function() {
 	 var re_email = /^([\w\.-]+)@([a-z\d\.-]+)\.([a-z\.]{2,6})$/; // 이메일 검사식
 	
 	 var form = $("#userform"), 
-	 pass = $('#userPass'), 
-	     email = $('#userEmail');
+	 	 pass = $('#userPass'), 
+	     email = $('#userEmail'),
+	     id = $('#userId'),
+	     name =$('#userName');
 	
+	 var ic = $("#icheck"), ec =$("#echeck"), nc = $("#ncheck");
+	 
+	 
 	
 		form.submit(function(){
-		alert("체크");
+			
+		
 		if(re_pass.test(pass.val()) != true){
 			alert("유효한 비밀번호를 입력하세요");
 			pass.focus();
@@ -54,8 +60,19 @@ $(document).ready(function() {
 			alert("유효한 이메일을 입력하세요");
 			email.focus();
 			event.preventDefault();
+		}else if( ic.val() != 1 ){
+			alert("중복된 아이디 입니다. ");
+			id.focus();
+			event.preventDefault();
+		}else if( nc.val() != 1 ){
+			alert("중복된 이름 입니다. ");
+			name.focus();
+			event.preventDefault();
+		}else if( ec.val() != 1 ){
+			alert("중복된 이메일 입니다. ");
+			email.focus();
+			event.preventDefault();
 		}
-		
 	});
 	
 	
@@ -70,9 +87,11 @@ $(document).ready(function() {
 		}else if(re_email.test(email.val()) != true ){
 			//c.text("올바른 이메일 형식이 아닙니다.");
 			$("#emailChk").html("<font color='red'>올바른 이메일 형식이 아닙니다.</font>");
+			
 		}else{
 			//c.text('적당합니다.')
 			$("#emailChk").html("<font color='blue'>적당합니다.</font>");
+			
 		}
 	})
 	
@@ -108,6 +127,14 @@ $(document).ready(function() {
     
     success: function(args){
     	$("#dropId").html(args);
+    	
+    	if(args == "<font color='blue'>사용 가능한 아이디 입니다.</font>"){
+
+    		$("#icheck").val('1');
+    		
+    	}else{
+    		$("#icheck").val('0');
+    	}
     },
     error: function (args) {
 		console.log(path, args);
@@ -126,6 +153,14 @@ $(document).ready(function() {
     success: function(args){
     	
     	$("#dropName").html(args);
+    	
+    	if(args == "<font color='blue'>사용 가능한 이름 입니다.</font>"){
+
+    		$("#ncheck").val('1');
+    		
+    	}else{
+    		$("#ncheck").val('0');
+    	}
     },
     error: function (args) {
     	
@@ -140,19 +175,26 @@ $(document).ready(function() {
     $.ajax({
     type: "POST",
     url: "<%=request.getContextPath()%>/join/email",
-														data : "email=" + email,
-														contentType : "application/x-www-form-urlencoded; charset=utf-8",
+	data : "email=" + email,
+	contentType : "application/x-www-form-urlencoded; charset=utf-8",
 
-														success : function(args) {
-															$("#dropEmail")
-																	.html(args);
-														},
-														error : function(args) {
-															console.log(path,
-																	args);
-														}
-													});
-										})
+	success : function(args) {
+	
+	$("#dropEmail").html(args); 
+	
+	if(args == "<font color='blue'>사용 가능한 이메일 입니다.</font>"){
+
+		$("#echeck").val('1');
+		
+	}else{
+		$("#echeck").val('0');
+	}
+	},
+	error : function(args) {
+	console.log(path,args);
+				}
+			});
+			})
 
 						$("#pass2")
 								.keyup(
@@ -195,6 +237,7 @@ $(document).ready(function() {
 
 			<span class="input input--hoshi"> <form:input
 					class="input__field input__field--hoshi" path="userId" id="userId" />
+					
 				<label
 				class="input__label input__label--hoshi input__label--hoshi-color-2"
 				for="userId"> <span
@@ -263,7 +306,14 @@ $(document).ready(function() {
 			<img id="dropimg" width="100" height="100" src="<%=request.getContextPath()%>/upload/${loginUser.userImg}">
 			<form:input path="userImg" id="userimg" value="star.png"/>
 			<input type="button" value="upload" id="upload"><br>
-			<button class="btn btn-default" type="submit">가입</button>
+			
+			<input type="submit"  class="btn btn-default" value="가입">
+			
+			<!-- 마지막 유효성검사 -->
+			<input type="hidden" id="icheck" value="0">
+			<input type="hidden" id="ncheck" value="0">
+			<input type="hidden" id="echeck" value="0">
+			
 		</form:form>
 	</section>
 

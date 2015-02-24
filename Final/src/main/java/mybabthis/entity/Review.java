@@ -35,6 +35,8 @@ public class Review implements Serializable {
 	/** 사용자. */
 	private Users users;
 	
+	private String reviewImg;
+	
 	/** 외래키 ******************/
 	private String userId;
 	private Integer resNo;
@@ -234,6 +236,12 @@ public class Review implements Serializable {
 				+ reviewRegdate + ", reviewUpdatedate=" + reviewUpdatedate
 				+ ", restaurant=" + restaurant + ", users=" + users
 				+ ", userId=" + userId + ", resNo=" + resNo + "]";
+	}
+	public String getReviewImg() {
+		return reviewImg;
+	}
+	public void setReviewImg(String reviewImg) {
+		this.reviewImg = reviewImg;
 	}
 
 	
