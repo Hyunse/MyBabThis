@@ -31,9 +31,9 @@
 					<a href="${url }">
 						<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
 							<line class="top" x1="0" y1="0" x2="900" y2="0" />
-							<line class="left" x1="0" y1="300" x2="0" y2="-600" />
-							<line class="bottom" x1="300" y1=300 x2="-600" y2="300" />
-							<line class="right" x1="300" y1="0" x2="300" y2="900" />
+							<line class="left" x1="0" y1="310" x2="0" y2="-620" />
+							<line class="bottom" x1="300" y1=310 x2="-600" y2="310" />
+							<line class="right" x1="300" y1="0" x2="300" y2="930" />
 						</svg>
 						<span style="margin: 0;"><span style="text-align: left; color: red; width: 50%; display: inline-block;">NEW</span><span style=" width: 50%;  display: inline-block;"><c:out value="${restaurant.resName }" /></span></span>
 						<img
