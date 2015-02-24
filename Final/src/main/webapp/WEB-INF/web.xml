@@ -41,5 +41,8 @@
   <filter-mapping>
     <filter-name>SessionCheckFilter</filter-name>
     <url-pattern>/restaurant/*</url-pattern>
+    <url-pattern>/ranking/*</url-pattern>
+    <url-pattern>/meeting/*</url-pattern>
+    <url-pattern>/board/*</url-pattern>
   </filter-mapping>
 </web-app>

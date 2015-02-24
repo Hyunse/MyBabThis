@@ -274,41 +274,42 @@
 					<section id="section-topline-1">
 						<table class="table" style="width: 100%">
 							<tr>
-								<!-- <th>번호</th> -->
-								<th width="65%">내용</th>
-								<th width="15%">작성자</th>
+								<th width="60%">내용</th>
+								<th width="20%">작성자</th>
 								<th width="20%">등록일</th>
 							</tr>
 							<c:forEach items="${rreplys }" var="rreply">
 								<tr>
-									<%-- <td><c:out value="${rreply.rreplyNo }" /></td> --%>
-
-									<td>
-										<div id="hbtn${rreply.rreplyNo}">
-											<small><c:out value="${rreply.rreplyContent }" /></small>
-										</div> <c:url value="/rreply/update" var="action" /> <form:form
-											modelAttribute="rreply" method="post" action="${action }"
-											class="updateform" id="ubtn${rreply.rreplyNo }" width="50">
-											<form:hidden path="resNo" value="${rreply.resNo }" />
-											<form:hidden path="rreplyNo" value="${rreply.rreplyNo }" />
-											<form:hidden path="userId" value="${loginUser.userId }" />
-
-											<form:input id="tbtn${rreply.rreplyNo}" type="text"
-												class="form-control" path="rreplyContent"></form:input>
+									<td style="text-align: left;">
+										<div id="hbtn${rreply.rreplyNo}"><c:out value="${rreply.rreplyContent }" /></div> 
+										<c:url value="/rreply/update" var="action" /> 
+										<form:form modelAttribute="rreply" method="post" action="${action }" class="updateform" id="ubtn${rreply.rreplyNo }" width="50">
+										<form:hidden path="resNo" value="${rreply.resNo }" />
+										<form:hidden path="rreplyNo" value="${rreply.rreplyNo }" />
+										<form:hidden path="userId" value="${loginUser.userId }" />
+										<form:input id="tbtn${rreply.rreplyNo}" type="text"	class="form-control" path="rreplyContent"></form:input>
 											<span class="input-group-btn">
-												<button class="btn btn-default" type="submit"
-													name="rreply_update">확인</button>
+												<button class="btn btn-default" type="submit" name="rreply_update">확인</button>
 											</span>
 
 											<!-- /input-group -->
 
 										</form:form>
 									</td>
-									<td><small><c:out value="${rreply.userId}" /></small> <%-- <ul class="dl-menu">
-									<li><c:out value="${rreply.userId}" /> <a
-										href="/Final/friend/create?userId=${loginUser.userId}&friendId=${review.userId}">친구추가</a></li>
-									<li><a href="/Final/msg/send?receiver=${rreply.userId}">쪽지보내기</a></li>
-								</ul> --%></td>
+									<td>
+										<div class="btn-group">
+												<button type="button" class="btn btn-default dropup-toggle" data-toggle="dropdown">
+													<c:out value="${rreply.userId}" /> &nbsp;&nbsp; <span class="caret"></span>
+												</button>
+												<ul class="dropdown-menu" role="menu">
+													<li><a
+														href="/Final/friend/create?userId=${loginUser.userId}&friendId=${review.userId}">친구추가</a></li>
+													<li><a
+														href="/Final/msg/send?receiver=${review.userId}">쪽지보내기</a></li>
+												</ul>
+										</div> 
+									
+									</td>
 									<td><small><c:set
 												value="${rreply.rreplyUpdatedate }" var="rreplyUpdatedate" />
 											<fmt:formatDate value="${rreplyUpdatedate }" type="date"
@@ -337,10 +338,6 @@
 										</td>
 
 
-
-
-
-
 									</c:if>
 
 
@@ -359,17 +356,12 @@
 							</c:forEach>
 						</table>
 						<c:url value="/rreply/write" var="rreplyw" />
-						<form:form modelAttribute="rreply" method="post"
-							action="${rreplyw }">
-
-							<img width="40" height="40"
-								src="<%=request.getContextPath()%>/upload/${loginUser.userImg}">
-
+						<form:form modelAttribute="rreply" method="post" action="${rreplyw }">
+							<img width="40" height="40"	src="<%=request.getContextPath()%>/upload/${loginUser.userImg}">
 							<form:input path="rreplyContent" />
 							<button type="submit" name="rwrite">작성</button>
 							<form:hidden path="resNo" value="${restaurant.resNo}" />
 							<form:hidden path="userId" value="${loginUser.userId}" />
-
 						</form:form>
 
 						<%-- 
@@ -398,12 +390,12 @@
 					href="${url }"><button class="btn btn-default">댓글작성</button></a>  --%>
 					</section>
 					<section id="section-topline-2">
-						<c:url
-							value="/review/write?userId=${loginUser.userId }&resNo=${resNo }"
-							var="url"></c:url>
-						<a href="${url }"><button class="btn btn-default">
+						<c:url value="/review/write?userId=${loginUser.userId }&resNo=${resNo }" var="url"></c:url>
+						<a href="${url }">
+							<button class="btn btn-default">
 								<span class="glyphicon glyphicon-pencil"></span> 작성
-							</button></a>
+							</button>
+						</a>
 						<table class="table table-hover" style="width: 100%">
 							<tr>
 								<th>사진</th>
@@ -415,27 +407,30 @@
 							<c:forEach items="${reviews }" var="review">
 								<c:url value="/review/detail?reviewNo=${review.reviewNo }"
 									var="url"></c:url>
-								<tr onclick="location.href='${url}'" style="cursor: pointer;">
-									<td><small>등록된 사진이 없습니다.</small></td>
-									<td><c:out value="${review.reviewScore }" /></td>
-
-									<td><small><a href="${url }">${review.reviewContent }</a></small></td>
-									<td><small>
-											<ul class="dl-menu">
-												<li><c:out value="${review.userId}" />
-													<ul>
-														<li><a
-															href="/Final/friend/create?userId=${loginUser.userId}&friendId=${review.userId}">친구추가</a></li>
-														<li><a
-															href="/Final/msg/send?receiver=${review.userId}">쪽지보내기</a></li>
-													</ul></li>
-											</ul>
-									</small></td>
-									<td><small><c:set
-												value="${review.reviewUpdatedate }" var="reviewUpdatedate" />
-											<fmt:formatDate value="${reviewUpdatedate }" type="date"
-												dateStyle="short" />&nbsp;&nbsp; <fmt:formatDate
-												value="${reviewUpdatedate }" type="time" pattern="hh:MM" /></small></td>
+								<tr>
+									<td onclick="location.href='${url}'" style="cursor: pointer;"><small>등록된 사진이 없습니다.</small></td>
+									<td onclick="location.href='${url}'" style="cursor: pointer;"><c:out value="${review.reviewScore }" /></td>
+									<td onclick="location.href='${url}'" style="cursor: pointer;"><small>${review.reviewContent }</small></td>
+									<td>
+											<div class="btn-group">
+												<button type="button" class="btn btn-default dropup-toggle" data-toggle="dropdown">
+													<c:out value="${review.userId}" /> &nbsp;&nbsp; <span class="caret"></span>
+												</button>
+												<ul class="dropdown-menu" role="menu">
+													<li><a
+														href="/Final/friend/create?userId=${loginUser.userId}&friendId=${review.userId}">친구추가</a></li>
+													<li><a
+														href="/Final/msg/send?receiver=${review.userId}">쪽지보내기</a></li>
+												</ul>
+											</div>
+									</td>
+									<td onclick="location.href='${url}'" style="cursor: pointer;">
+										<small>
+											<c:set value="${review.reviewUpdatedate }" var="reviewUpdatedate" />
+											<fmt:formatDate value="${reviewUpdatedate }" type="date" dateStyle="short" />&nbsp;&nbsp; 
+											<fmt:formatDate value="${reviewUpdatedate }" type="time" pattern="hh:MM" />
+										</small>
+									</td>
 								</tr>
 							</c:forEach>
 						</table>
