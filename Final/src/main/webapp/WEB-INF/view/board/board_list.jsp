@@ -37,7 +37,7 @@
 		<h3 align="left">자유게시판</h3>
 	</div>
 
-	<table class="table "  align="center">
+	<table class="table table-hover"  align="center">
 		<tr>
 			<th width="5%">번호</th>
 			<th width="65%">제목</th>
@@ -92,9 +92,10 @@
 				</tr>
 			</c:forEach>
 		</c:if>
+		</table>
+		<table class="table"  align="center">
 		<tr>
-		<td></td>
-		<td>
+		<td style="width: 90%;">
 			<div id="pageNumber" align="center">
 			<ul class="pager">
 				<c:forEach var="i" begin="1" end="${totalPage}" >
@@ -109,13 +110,12 @@
 						</ul>
 				</c:forEach>
 			</ul>
-			</div></td>
-		<td></td>
-		<td style="text-align:center">
+			</div>
+		</td>
+		<td style="width: 10%;">
 	<c:url value="/board/write" var="write" />
 	<a href="${write}"><button type="submit" class="btn btn-default"><p class="text-primary">
 	<span class="glyphicon glyphicon-pencil"></span> 글쓰기</p></button></a>
-		
 		</td>
 		</tr>
 			

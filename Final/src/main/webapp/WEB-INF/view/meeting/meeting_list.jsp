@@ -93,9 +93,10 @@
 		</tr>
 		</c:forEach>
 		</c:if>
+		</table>
+		<table class="table"  align="center">
 		<tr>
-		<td></td>
-		<td>
+		<td style="width: 90%;">
 			<div id="pageNumber" align="center">
 			<ul class="pager">
 				<c:forEach var="i" begin="1" end="${totalPage}" >
@@ -123,9 +124,7 @@
 </ul> -->
 			
 		</td>
-		<td>
-		</td>
-		<td style="text-align:center">
+		<td style="width: 10%;">
 			<c:url value= "/meeting/write" var="write" />
 			<a href="${write}" >
 				<button type="submit" class="btn btn-default">
@@ -134,9 +133,7 @@
 					</p></button></a>
 		</td>
 		</tr>
-		
 	</table>
-	<br>
 	
 	<%-- <article> 
 	
