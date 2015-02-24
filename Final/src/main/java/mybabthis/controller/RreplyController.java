@@ -12,8 +12,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.SessionAttributes;
+
 
 @Controller
 public class RreplyController {
@@ -37,7 +36,6 @@ public class RreplyController {
 		//작성하기
 		@RequestMapping(value="/rreply/write",  method=RequestMethod.POST)
 		public String write(@ModelAttribute("rreply") Rreply rreply){
-			logger.trace("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
 			service.createRreply(rreply);
 			return "redirect:/restaurant/view?resNo="+rreply.getResNo();
 		}
