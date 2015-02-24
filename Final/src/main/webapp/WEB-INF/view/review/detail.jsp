@@ -22,6 +22,6 @@
 <label>작성자 : </label><c:out value="${review.userId }"/><br>
 <label>작성일 : </label><c:out value="${review.reviewUpdatedate }"/><br>
 <label>맛평가 : </label><c:out value="${review.reviewScore }"/><br>
-<label>내용 : </label><c:out value="${review.reviewContent}"/><br>
+<label>내용 : </label>${review.reviewContent}<br>
 </body>
 </html>
