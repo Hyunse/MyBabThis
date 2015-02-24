@@ -4,12 +4,14 @@ import java.util.HashMap;
 import java.util.List;
 
 import mybabthis.entity.Users;
+import mybabthis.exception.ServiceFailException;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 @Repository
 public class UserDaoImpl implements UserDao {
@@ -42,7 +44,8 @@ public class UserDaoImpl implements UserDao {
 	}
 
 	@Override
-	public int updateUser(Users user) {
+	@Transactional(rollbackFor= mybabthis.exception.ServiceFailException.class)
+	public int updateUser(Users user) throws ServiceFailException {
 		String stmt = nameSpace + "updateUser";
 		return sqlSession.update(stmt, user);
 	}

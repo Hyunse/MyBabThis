@@ -3,6 +3,7 @@ package mybabthis.dao;
 import java.util.List;
 
 import mybabthis.entity.Users;
+import mybabthis.exception.ServiceFailException;
 
 
 
@@ -14,7 +15,7 @@ public interface UserDao {
 
 	Users getUserById(String id);	// User 검색 By ID
 
-	int updateUser(Users user); // User 수정
+	int updateUser(Users user) throws ServiceFailException; // User 수정
 
 	int deleteUser(String user); // User 삭제
 
