@@ -3317,7 +3317,7 @@ input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="butto
 }
 /* 댓글작성 input*/
 .input-group .form-control {
-	width: 100%;
+	width: 1200px;
 	margin-bottom: 0; 
 }
 

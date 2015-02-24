@@ -1,7 +1,9 @@
 package mybabthis.controller;
 
 import mybabthis.entity.Rreply;
+import mybabthis.entity.Users;
 import mybabthis.service.RreplyService;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 @Controller
@@ -40,7 +43,7 @@ public class RreplyController {
 			return "redirect:/restaurant/view?resNo="+rreply.getResNo();
 		}
 		
-		
+	
 /*		//리스트
 		@RequestMapping(value="/rreply/list", method=RequestMethod.GET, params={"resNo"})
 		public String getRreplyByResNo(@RequestParam int resNo, Model model){
@@ -62,7 +65,7 @@ public class RreplyController {
 		
 		
 		//수정하기
-		@RequestMapping(value="/rreply/update", params="_event_confirmed", method=RequestMethod.POST)
+		@RequestMapping(value="/rreply/update", method=RequestMethod.POST)
 		public String update(@ModelAttribute("rreply") Rreply rreply){
 			service.updateRreply(rreply);
 			return "redirect:/restaurant/view?resNo="+rreply.getResNo();
