@@ -355,14 +355,25 @@
 								</tr>
 							</c:forEach>
 						</table>
-						<c:url value="/rreply/write" var="rreplyw" />
-						<form:form modelAttribute="rreply" method="post" action="${rreplyw }">
-							<img width="40" height="40"	src="<%=request.getContextPath()%>/upload/${loginUser.userImg}">
-							<form:input path="rreplyContent" />
-							<button type="submit" name="rwrite">작성</button>
+						<table class="table" style="width: 100%">
+							<tr>
+							<c:url value="/rreply/write" var="rreplyw" />
+							<form:form modelAttribute="rreply" method="post" action="${rreplyw }">
+    							<td style="width: 10%">
+    								<img width="40" height="40"	src="<%=request.getContextPath()%>/upload/${loginUser.userImg}">
+								</td>
+								<td style="width: 80%">
+									<form:input path="rreplyContent" class="form-control"/>
+								</td>
+								<td style="width: 10%">
+									<button type="submit" name="rwrite" class="btn btn-default">작성</button>
+								</td>
 							<form:hidden path="resNo" value="${restaurant.resNo}" />
 							<form:hidden path="userId" value="${loginUser.userId}" />
-						</form:form>
+							</form:form>
+							</tr>
+						</table>
+						
 
 						<%-- 
 							<tr>
