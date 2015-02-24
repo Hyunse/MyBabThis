@@ -54,11 +54,31 @@
 		<p id="demo"></p>
 		<div class="table-responsive">
 			<table class="table">
-				<tr width=100% ><th width=10% style="text-align:center">번호</th><td width=90%>${boardDetail.boardNo}</td></tr>
-				<tr><th style="text-align:center">제목</th><td>${boardDetail.boardTitle}</td></tr>
-				<tr><th style="text-align:center">작성자</th><td>${boardDetail.userId }</td></tr>
-				<tr><th style="text-align:center">내용</th><td>${boardDetail.boardContent }</td></tr>
-				
+				<tr width=100%>
+					<th width=10% style="text-align: center">번호</th>
+					<td width=90%>${boardDetail.boardNo}</td>
+				</tr>
+				<tr>
+					<th style="text-align: center">제목</th>
+					<td>${boardDetail.boardTitle}</td>
+				</tr>
+				<tr>
+					<th style="text-align: center">작성자</th>
+					<td>${boardDetail.userId }</td>
+				</tr>
+				<tr>
+					<th style="text-align: center">작성일</th>
+					<td>
+						<c:set value="${boardDetail.boardRegdate}" var="boardRegdate"/>
+						<fmt:formatDate value="${boardRegdate }" type="date" dateStyle="full"/>&nbsp;&nbsp;
+						<fmt:formatDate value="${boardRegdate }" type="time" pattern="hh:MM"/>
+					</td>
+				</tr>
+				<tr>
+					<th style="text-align: center">내용</th>
+					<td>${boardDetail.boardContent }</td>
+				</tr>
+
 			</table>
 			<c:if test="${boardDetail.userId == loginUser.userId}">
 			<c:url value="/board/update?boardNo=${boardDetail.boardNo}" var="goEdit" />

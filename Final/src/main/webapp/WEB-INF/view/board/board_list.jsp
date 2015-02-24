@@ -39,7 +39,7 @@
 			<th width="5%">글 번호</th>
 			<th width="75%">글 내용</th>
 			<th width="10%">작성자</th>
-			<th width="10%">날짜</th>
+			<th width="10%">작성일</th>
 		</tr>
 
 		<c:if test="${empty boardList}">
