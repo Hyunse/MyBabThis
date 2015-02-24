@@ -16,9 +16,38 @@
 	href="<%=request.getContextPath()%>/css/demo_newres.css" />
 <link rel="stylesheet" type="text/css"
 	href="<%=request.getContextPath()%>/css/component_newres.css" />
+	
+	
+<link rel="stylesheet" type="text/css"
+	href="<%=request.getContextPath()%>/css/normalize_nr.css" />
+<link rel="stylesheet" type="text/css"
+	href="<%=request.getContextPath()%>/css/demo_nr.css" />
+<link rel="stylesheet" type="text/css"
+	href="<%=request.getContextPath()%>/css/layout-simple.css" />
 
 <body>
 	<!-- <h2>NEW 맛집!</h2> -->
+	
+	<div id="container" class="container">
+			
+			<section class="items-wrap">
+			
+		<c:forEach items="${restaurants }" var="restaurant">
+		<c:url value="/restaurant/view?resNo=${restaurant.resNo}" var="url" />
+			
+				<a href="#" class="item">
+					<img class="item__image" src="<%=request.getContextPath()%>/upload/${restaurant.resImg }" width="500px" alt="item01"/>
+					<h2 class="item__title" style="background: transparent; width: 100%">(${restaurant.locName }) ${restaurant.resName }</h2>
+				</a>
+				
+				</c:forEach>
+				<a href="#" class="item">
+					<img class="item__image" src="/upload/item01.jpg" alt="item01"/>
+					<h2 class="item__title" style="background: transparent; width: 100%">Magnificence</h2>
+				</a>
+			</section>
+			
+		</div>
 		<table align ="center">
 		<tr>
 		<c:forEach items="${restaurants }" var="restaurant">
