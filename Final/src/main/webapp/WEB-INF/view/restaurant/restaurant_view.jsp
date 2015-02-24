@@ -303,9 +303,9 @@
                                     </button>
                                     <ul class="dropdown-menu" role="menu">
                                        <li><a
-                                          href="/Final/friend/create?userId=${loginUser.userId}&friendId=${review.userId}">친구추가</a></li>
+                                          href="/Final/friend/create?userId=${loginUser.userId}&friendId=${rreply.userId}">친구추가</a></li>
                                        <li><a
-                                          href="/Final/msg/send?receiver=${review.userId}">쪽지보내기</a></li>
+                                          href="/Final/msg/send?receiver=${rreply.userId}">쪽지보내기</a></li>
                                     </ul>
                               </div> 
                            
