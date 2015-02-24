@@ -135,7 +135,7 @@ pre {
 
 	<tr><td align="center"><img width="40" height="40"
 							src="<%=request.getContextPath()%>/upload/${loginUser.userImg}">
-						<span>${loginUser.userId }</span></td>
+						<%-- <span>${loginUser.userId }</span> --%></td>
 	<td colspan="3">
 	<c:url value="/meeting/write" var="action"></c:url>
 	<form:form modelAttribute="breply" method="post" action="${action }" id="writeform">
