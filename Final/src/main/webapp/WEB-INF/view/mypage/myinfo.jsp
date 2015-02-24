@@ -197,7 +197,7 @@ $("#pass2").blur(function(){
 			<tr>
 				<td id="col1"><label>E-mail</label></td>
 				<td><form:input path="userEmail" id="userEmail" class="form-control"/><div id="dropEmail"></div></td>
-				<td><input type="button" value="중복체크" name="emailCheck" id="emailCheck" class="btn btn-default btn-xs"></td>
+				<td><input type="button" value="중복체크" name="emailCheck" id="emailCheck" class="btn btn-default btn-xs "></td>
 			</tr>
 			<tr>
 				<td id="col1"><label>연락처</label></td>

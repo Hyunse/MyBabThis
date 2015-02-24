@@ -37,7 +37,7 @@
 		<h3 align="left">자유게시판</h3>
 	</div>
 
-	<table class="table"  align="center">
+	<table class="table "  align="center">
 		<tr>
 			<th width="5%">번호</th>
 			<th width="65%">제목</th>
