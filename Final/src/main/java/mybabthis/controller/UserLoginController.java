@@ -88,4 +88,10 @@ public class UserLoginController {
 		sessionstatus.setComplete();
 		return "redirect:/main";
 	}
+	
+	@RequestMapping(value="/rule", method=RequestMethod.GET)
+	public String rule(){
+		
+		return "rule";
+	}
 }

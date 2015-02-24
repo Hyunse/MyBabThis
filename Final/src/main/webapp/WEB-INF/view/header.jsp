@@ -109,6 +109,7 @@ $(document).ready(function(){
 	<c:url value="/meeting/list?page=1" var="meeting" />
 	<c:url value="/ranking/all" var="ranking" />
 	<c:url value="/main" var="main" />
+	<c:url value="/rule" var="rule" />
 
 	<%-- <div class="menudiv">
 		<div class="menu-wrap">
@@ -154,7 +155,7 @@ $(document).ready(function(){
 							class="glyphicon glyphicon-flash"></span><span>&nbsp 번개모임</span></a></li>
 					<li><a href="${board}"><span
 							class="glyphicon glyphicon-user"></span><span>&nbsp 자유게시판</span></a></li>
-					<li><a href="#"><span
+					<li><a href="${rule}"><span
 							class="glyphicon glyphicon-info-sign"></span><span>&nbsp
 								이용규칙</span></a></li>
 
