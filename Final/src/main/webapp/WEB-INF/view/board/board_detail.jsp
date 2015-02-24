@@ -84,6 +84,8 @@
 			<c:url value="/board/update?boardNo=${boardDetail.boardNo}" var="goEdit" />
 		<a href="${goEdit}"><button type="button" class="btn btn-default" ><p class="text-success"><span class="glyphicon glyphicon-pencil"></span> 수정</p></button></a>
 		</c:if>
+		<c:url value="/msg/sendReport?writeType=F&warnNo=${boardDetail.boardNo}" var="goReport" />
+		<a href="${goReport}"><button type="button" class="btn btn-default" ><p class="text-danger"><span class="glyphicon glyphicon-ban-circle"></span> 신고</p></button></a>
 		</div>
 		
 	</center>

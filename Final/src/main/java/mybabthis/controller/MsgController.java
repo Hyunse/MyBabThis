@@ -64,9 +64,10 @@ public class MsgController {
 	}
 
 	// 신고하기
-	@RequestMapping(value = "/sendReport", params = { "writeType" }, method = RequestMethod.GET)
-	public String enterSendReport(@RequestParam String writeType, Model model) {
+	@RequestMapping(value = "/sendReport", params = { "writeType","warnNo" }, method = RequestMethod.GET)
+	public String enterSendReport(@RequestParam String writeType, String warnNo , Model model) {
 		model.addAttribute("writeType", writeType);
+		model.addAttribute("warnNo", warnNo);
 		model.addAttribute("msg", new Msg());
 		return "msg/report_send";
 	}
