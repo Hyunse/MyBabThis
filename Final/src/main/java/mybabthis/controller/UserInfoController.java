@@ -76,7 +76,7 @@ public class UserInfoController {
 	}
 	@ExceptionHandler
 	public String exceptionParameter(RuntimeException e){
-		logger.error("DepartmentEditController",e);
+		logger.error("UserInfoController",e);
 		return "error";
 		
 	}
