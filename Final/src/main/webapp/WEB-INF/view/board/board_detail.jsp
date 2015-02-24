@@ -106,7 +106,7 @@
 									class="form-control" path="breplyContent"></form:input>
 								<span class="input-group-btn">
 									<button class="btn btn-default" type="submit"
-										name="breply_update">확인</button>
+										name="breply_update"><span class="glyphicon glyphicon-ok"></span> 확인</button>
 								</span>
 							</div>
 							<!-- /input-group -->
