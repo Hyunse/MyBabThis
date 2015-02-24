@@ -20,20 +20,20 @@ $(document).ready(function() {
 		
 		$("#imghere").fadeIn();
 
-	})
+	});
 	
 	$("#ok").click(function(){
 		
 		opener.$("#resImg").val("${file}");
 		opener.$("#dropimg").attr("src","<%=request.getContextPath()%>/upload/${file}");
 		self.close();
-	})
+	});
 	$("#c").click(function(){
 		
 		self.close();
-	})
+	});
 	
-})
+});
 </script>
 <body>
 <h2>프로필 사진</h2>

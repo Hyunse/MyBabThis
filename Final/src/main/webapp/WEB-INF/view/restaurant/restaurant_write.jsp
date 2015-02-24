@@ -101,7 +101,7 @@ $(document).ready(function() {
 		</form:select>
 		<br>
 		
-		<label>이미지</label> :<div id="dropimg"></div> <form:input path="resImg" id="resImg"/>
+		<label>이미지</label> :<img id="dropimg"></img> <form:input path="resImg" id="resImg"/>
 		<input type="button" value="upload" id="upload">
 		<br>
 		<br>

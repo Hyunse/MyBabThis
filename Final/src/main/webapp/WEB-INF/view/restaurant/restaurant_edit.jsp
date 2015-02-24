@@ -84,7 +84,7 @@ $(document).ready(function() {
 				</tr>
 				<tr>
 					<th style="text-align: center">이미지</th>
-					<td>&nbsp; <img id="dropimg" width="100" height="100"
+					<td>&nbsp; <img id="dropimg" 
 						src="<%=request.getContextPath()%>/upload/${restaurant.resImg}"><br>
 					<%-- form:input path="resImg" id="resImg"
 					
