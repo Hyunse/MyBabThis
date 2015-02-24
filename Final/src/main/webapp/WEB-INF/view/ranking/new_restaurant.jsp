@@ -23,11 +23,12 @@
 		<tr>
 		<c:forEach items="${restaurants }" var="restaurant">
 		<c:url value="/restaurant/view?resNo=${restaurant.resNo}" var="url" />
-			<a href="${url }">	
 			<td>
+		
 			<section class="demo-3">
 				<div class="grid">
 					<div class="box">
+					<a href="${url }">
 						<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
 							<line class="top" x1="0" y1="0" x2="900" y2="0" />
 							<line class="left" x1="0" y1="300" x2="0" y2="-600" />
@@ -39,11 +40,13 @@
 							src="<%=request.getContextPath()%>/upload/${restaurant.resImg }"
 						 	width ="300px" height ="230px">
 						<span ><c:out value="${restaurant.locName }" /></span>
+							</a>
 					</div>
 				</div>
+			
 			</section>
+			
 			</td>
-		</a>
 			</c:forEach>
 			</tr>
 		</table>
