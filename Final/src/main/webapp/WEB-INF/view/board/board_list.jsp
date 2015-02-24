@@ -33,6 +33,9 @@
 
 <jsp:include page="/WEB-INF/view/header.jsp" />
 <body>
+	<div style="margin-left: 10em;">
+		<h3 align="left">자유게시판</h3>
+	</div>
 
 	<table class="table"  align="center">
 		<tr>

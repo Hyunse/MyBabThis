@@ -46,6 +46,9 @@
 	<jsp:include page="/WEB-INF/view/header.jsp" />
 </div>
 <body>
+<div style="margin-left: 10em;">
+		<h3 align="left">번개모임</h3>
+	</div>
 	<table class="table" align="center" width="100%">
 		<tr>
 			<th width="5%">번호</th>
@@ -60,10 +63,10 @@
 		</c:if>
 		<c:if test="${!empty boardList}">
 		<c:forEach var= "boardList" items="${boardList}" varStatus="status">
-		
-		<tr>
+		<c:url value= "/meeting/detail?boardNo=${boardList.boardNo}" var="url" />
+		<tr onclick="location.href='${url}'" style="cursor: pointer;">
 			<td style="text-align:center"> <c:out value="${boardList.boardNo}"/> </td>
-			<td> <c:url value= "/meeting/detail?boardNo=${boardList.boardNo}" var="go"/> 
+			<td>
 			<c:if test="${fn:length(boardList.boardTitle) > 20 }">
 			<a href="${go}"><c:out value ="${fn:substring(boardList.boardTitle,0,15)}" />...</a>
 			</c:if>
