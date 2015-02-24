@@ -13,10 +13,6 @@
 <script src="<%=request.getContextPath() %>/js/jquery.jqGrid.src.js" type="text/javascript"></script>
 <script src="<%=request.getContextPath() %>/js/i18n/grid.locale-kr.js"></script>
 <!-- <script src="http://code.jquery.com/jquery-latest.js"></script> -->
-
-
-
-
 <script type="text/javascript">
 $(document).ready(function(){
     jQuery("#JQ_list_forBoard").jqGrid({

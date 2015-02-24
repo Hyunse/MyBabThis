@@ -71,9 +71,8 @@
 
 <script src="<%=request.getContextPath()%>/js/bootstrap.js"></script>
 
-
+<!--  <script src="http://code.jquery.com/jquery-latest.js"></script> -->
 </head>
-<script src="http://code.jquery.com/jquery-latest.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/webfont/1.4.10/webfont.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
@@ -222,6 +221,6 @@ $(document).ready(function(){
 	<%-- <script src="<%=request.getContextPath() %>/js/main.js"></script> --%>
 	<script src="<%=request.getContextPath()%>/js/classie.js"></script>
 	<%-- 	<script src="<%=request.getContextPath() %>/js/main4.js"></script> --%>
-	<script src="<%=request.getContextPath()%>/js/main3.js"></script>
+	<%-- <script src="<%=request.getContextPath()%>/js/main3.js"></script> --%>
 </body>
 </html>

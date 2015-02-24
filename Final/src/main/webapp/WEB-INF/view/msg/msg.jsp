@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,7 +23,12 @@
 </head>
 <body>
 <jsp:include page="/WEB-INF/view/header.jsp" />
+<c:if test="${loginUser.userId != 'admin'}">
 <jsp:include page="/WEB-INF/view/mypage/mypage_list.jsp" />
+</c:if>
+<c:if test="${loginUser.userId == 'admin'}">
+<jsp:include page="/WEB-INF/view/admin/admin_menu.jsp" />
+</c:if>
 			<br>
 			<br>
 			<section>
@@ -55,9 +61,6 @@
 
 			})();
  </script>
-
-
-
 
 </body>
 </html>

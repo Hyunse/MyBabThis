@@ -182,7 +182,6 @@ public class AdminController {
 	
 	@RequestMapping(value="/message",  method=RequestMethod.GET)
 	public String goAdminMessage(Model model){
-		
 		return "admin/admin_message";
 	}
 	
