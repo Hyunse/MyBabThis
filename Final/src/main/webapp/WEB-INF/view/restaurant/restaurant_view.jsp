@@ -401,12 +401,6 @@
                href="${url }"><button class="btn btn-default">댓글작성</button></a>  --%>
                </section>
                <section id="section-topline-2">
-                  <c:url value="/review/write?userId=${loginUser.userId }&resNo=${resNo }" var="url"></c:url>
-                  <a href="${url }">
-                     <button class="btn btn-default">
-                        <span class="glyphicon glyphicon-pencil"></span> 작성
-                     </button>
-                  </a>
                   <table class="table table-hover" style="width: 100%">
                      <tr>
                         <th>사진</th>
@@ -445,6 +439,11 @@
                         </tr>
                      </c:forEach>
                   </table>
+                  <c:url value="/review/write?userId=${loginUser.userId }&resNo=${resNo }" var="url"></c:url>
+                  <br><br>
+                  <a href="${url }">
+                     <button class="btn btn-default">리뷰작성</button>
+                  </a>
 
 
                </section>
