@@ -68,10 +68,10 @@
 			<td style="text-align:center"> <c:out value="${boardList.boardNo}"/> </td>
 			<td>
 			<c:if test="${fn:length(boardList.boardTitle) > 20 }">
-			<a href="${go}"><c:out value ="${fn:substring(boardList.boardTitle,0,15)}" />...</a>
+			<c:out value ="${fn:substring(boardList.boardTitle,0,15)}" />...
 			</c:if>
 			<c:if test="${fn:length(boardList.boardTitle) <= 20 }">
-				<a href="${go}">${boardList.boardTitle}</a>
+				${boardList.boardTitle}
 			</c:if>
 			</td>
 			<td style="text-align:center">
