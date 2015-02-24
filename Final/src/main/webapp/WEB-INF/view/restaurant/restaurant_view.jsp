@@ -3,6 +3,7 @@
 <%@ page import="mybabthis.entity.Restaurant"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <!DOCTYPE html >
 <html>
 <head>
@@ -116,7 +117,30 @@ function go(ing,end){
   //여기 뒤에 *숫자부분에 값들어감
 }
 </script>
+<script>
+	$(document).ready(function() {
 
+		$(".updateform").hide();
+
+		$(".btn-default").click(function() {
+			//alert(this.id); // or alert($(this).attr('id'));
+			var bid = $(this).attr("id");
+			var hid = "#h" + bid;
+			var content = $(hid).html();
+
+			var uid = "#u" + bid;
+
+			var tid = "#t" + bid;
+
+			$(tid).val(content);
+
+			$(hid).hide();
+			$(uid).show();
+
+		});
+
+	})
+</script>
 
 
 <style>
@@ -217,20 +241,41 @@ for( int i = start ; i < end ; i ++ ) {
 				<table  class="table" style="width: 100%">
 					<tr>
 						<!-- <th>번호</th> -->
-						<th>내용</th>
-						<th>작성자</th>
-						<th>등록일</th>
+						<th width="50%">내용</th>
+						<th width="20%">작성자</th>
+						<th width="30%">등록일</th>
 					</tr>
 					<c:forEach items="${rreplys }" var="rreply">
 						<tr>
 							<%-- <td><c:out value="${rreply.rreplyNo }" /></td> --%>
-							<td><c:out value="${rreply.rreplyContent }" /></td>
+							
 							<td>
-								<ul class="dl-menu">
+							<div id="hbtn${rreply.rreplyNo}"><c:out value="${rreply.rreplyContent }" /></div>
+							 <c:url value="/rreply/update" var="action"/>
+						<form:form modelAttribute="rreply" method="post" action="${action }" class="updateform" id="ubtn${rreply.rreplyNo }" width="50">
+						<form:hidden path="resNo" value="${rreply.resNo }" />
+						<form:hidden path="rreplyNo" value="${rreply.rreplyNo }" />
+						<form:hidden path="userId" value="${loginUser.userId }" />
+							
+								<form:input id="tbtn${rreply.rreplyNo}" type="text"
+									class="form-control" path="rreplyContent"></form:input>
+								<span class="input-group-btn">
+									<button class="btn btn-default" type="submit"
+										name="rreply_update">확인</button>
+								</span>
+						
+							<!-- /input-group -->
+						
+					</form:form>
+							</td>
+							<td>
+								<c:out value="${rreply.userId}"/>
+								
+								<%-- <ul class="dl-menu">
 									<li><c:out value="${rreply.userId}" /> <a
 										href="/Final/friend/create?userId=${loginUser.userId}&friendId=${review.userId}">친구추가</a></li>
 									<li><a href="/Final/msg/send?receiver=${rreply.userId}">쪽지보내기</a></li>
-								</ul>
+								</ul> --%>
 							</td>
 							<td>
 							<c:set value="${rreply.rreplyUpdatedate }" var="rreplyUpdatedate"/>
@@ -249,13 +294,19 @@ for( int i = start ; i < end ; i ++ ) {
 										<p class="text-danger"><span class="glyphicon glyphicon-trash"></span> 삭제</p>
 									</button>
 								</a>
-								 <c:url value="/rreply/edit?rreplyNo=${rreply.rreplyNo }" var="url"></c:url> 
+								<%--  <c:url value="/rreply/edit?rreplyNo=${rreply.rreplyNo }" var="url"></c:url> 
 								 <a href="${url}">
-									 <button class="btn btn-default">
+								 --%>	 <button class="btn btn-default" id="btn${rreply.rreplyNo}">
 										<p class="text-success"><span class="glyphicon glyphicon-pencil"></span> 수정</p>
 									</button>
 								</a>
 								</td>
+								
+							
+								
+
+	
+								
 							</c:if>
 							
 							
@@ -273,8 +324,20 @@ for( int i = start ; i < end ; i ++ ) {
 						</tr>
 					</c:forEach>
 				</table>
-				<c:url value="/rreply/write?resNo=${resNo }" var="url"></c:url> <a
-					href="${url }"><button class="btn btn-default">댓글작성</button></a> </section>
+					<c:url value="/rreply/write" var="rreplyw" />
+		<form:form modelAttribute="rreply" method="post" action="${rreplyw }" >
+
+	<img width="40" height="40"	src="<%=request.getContextPath()%>/upload/${loginUser.userImg}"><span>${loginUser.userId }</span> 
+		
+			<form:input path="rreplyContent" />
+
+		 <form:hidden path="resNo" value="${restaurant.resNo}"/>
+		 <form:hidden path="userId" value="${loginUser.userId}"/>
+		 <button type="submit" name="rwrite">작성</button>
+		 </form:form>
+				
+				<%-- <c:url value="/rreply/write?resNo=${resNo }" var="url"></c:url> <a
+					href="${url }"><button class="btn btn-default">댓글작성</button></a>  --%></section>
 				<section id="section-topline-2">
 				<table class="table table-hover" style="width: 100%">
 					<tr>
@@ -311,6 +374,7 @@ for( int i = start ; i < end ; i ++ ) {
 						</tr>
 					</c:forEach>
 				</table>
+				
 				<c:url
 					value="/review/write?userId=${loginUser.userId }&resNo=${resNo }"
 					var="url"></c:url> <a href="${url }"><button class="btn btn-default">리뷰작성</button></a> </section>
@@ -332,6 +396,7 @@ for( int i = start ; i < end ; i ++ ) {
 
 		})();
 	</script>
-	
+	<hr>
+	<jsp:include page="/WEB-INF/view/footer.jsp" />
 </body>
 </html>

@@ -89,10 +89,12 @@ public class RestaurantController {
 		Restaurant restaurant = service.selectRestaurantByNo(resNo);
 		List<Review> reviews = rev_sevice.getReviewByResNo(resNo);
 		List<Rreply> rreplys = rrep_service.getRreplyByResNo(resNo);
+		
 		model.addAttribute("restaurant",restaurant);
 		model.addAttribute("reviews", reviews);
 		model.addAttribute("rreplys", rreplys);
 		model.addAttribute("resNo",resNo);
+		model.addAttribute("rreply",new Rreply());
 		return "restaurant/restaurant_view";
 		
 	}
