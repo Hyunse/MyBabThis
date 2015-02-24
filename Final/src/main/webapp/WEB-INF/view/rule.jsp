@@ -20,7 +20,7 @@ font-size: 30px;
 </style>
 <body>
 <jsp:include page="/WEB-INF/view/header.jsp" />
-<center>
+<div style="margin: 0 auto; width: 70%; max-width: 700px; ">
 <div id="title">
 
 <br>
@@ -72,8 +72,7 @@ font-size: 30px;
 * 악의적인 신고로 정상적인 게시물을 반복 차단시키는 행위를 절대 금지합니다.<br>
 <br>
 * 단지 나의 의견과 다르다고 규칙을 확대해석하여 신고하는 일이 없도록 주의바랍니다.<br>
-<br>
-</center>
+<br></div>
 <jsp:include page="/WEB-INF/view/footer.jsp" />
 </body>
 </html>
