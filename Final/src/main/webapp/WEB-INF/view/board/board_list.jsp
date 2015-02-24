@@ -3,6 +3,7 @@
 <%@	page import="java.util.*, mybabthis.entity.Board"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -33,11 +34,6 @@
 <jsp:include page="/WEB-INF/view/header.jsp" />
 <body>
 
-
-
-
-
-
 	<table class="table"  align="center">
 		<tr>
 			<th width="5%">글 번호</th>
@@ -46,21 +42,20 @@
 			<th width="10%">날짜</th>
 		</tr>
 
-
-
 		<c:if test="${empty boardList}">
 			<tr>
 				<td colspan="4">작성 된 글이 없습니다...</td>
 		</c:if>
 		<c:if test="${!empty boardList}">
 			<c:forEach var="boardList" items="${boardList}" varStatus="status">
-
-				<tr>
-					<td style="text-align:center"><c:out value="${boardList.boardNo}" /></td>
-					<td><c:url value="/board/detail?boardNo=${boardList.boardNo}"
-							var="go" /> <a href="${go}"><c:out
-								value="${boardList.boardTitle}" /> </a> <!-- 
-			<c:if test="${fn:length(boardList.boardTitle) > 20 }">
+			<c:url value="/board/detail?boardNo=${boardList.boardNo}" var="url" />
+				<tr onclick="location.href='${url}'" style="cursor: pointer;">
+					<td style="text-align:center">
+						<c:out value="${boardList.boardNo}" />
+					</td>
+					<td> 
+						<c:out value="${boardList.boardTitle}" />
+			<!-- <c:if test="${fn:length(boardList.boardTitle) > 20 }">
 			<a href="${go}"><c:out value ="${fn:substring(boardList.boardTitle,0,15)}" />...</a>
 			</c:if>
 			
@@ -70,7 +65,6 @@
 			 --></td>
 					<td style="text-align:center"><c:out value="${boardList.userId}" />
 					<div class="dropdown" onclick="location.href='#'">
-assa
 							<!-- Link or button to toggle dropdown -->
 							<ul class="dropdown-menu" role="menu"
 								aria-labelledby="dropdownMenu1">
@@ -87,7 +81,11 @@ assa
 								
 						</ul> --%>
 					</td>
-					<td style="text-align:center"><c:out value="${boardList.boardRegdate}" /></td>
+					<td style="text-align:center">
+						<c:set value="${boardList.boardRegdate}" var="boardRegdate"/>
+						<fmt:formatDate value="${boardRegdate }" type="date" dateStyle="short"/>&nbsp;&nbsp;
+						<fmt:formatDate value="${boardRegdate }" type="time" pattern="hh:MM"/>
+					</td>
 				</tr>
 			</c:forEach>
 		</c:if>
