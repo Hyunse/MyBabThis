@@ -49,7 +49,7 @@
 <div style="margin-left: 10em;">
 		<h3 align="left">번개모임</h3>
 	</div>
-	<table class="table" align="center" width="100%">
+	<table class="table table-hover" align="center" width="100%">
 		<tr>
 			<th width="5%">번호</th>
 			<th width="65%">제목</th>
@@ -68,10 +68,10 @@
 			<td style="text-align:center"> <c:out value="${boardList.boardNo}"/> </td>
 			<td>
 			<c:if test="${fn:length(boardList.boardTitle) > 20 }">
-			<a href="${go}"><c:out value ="${fn:substring(boardList.boardTitle,0,15)}" />...</a>
+			<c:out value ="${fn:substring(boardList.boardTitle,0,15)}" />...
 			</c:if>
 			<c:if test="${fn:length(boardList.boardTitle) <= 20 }">
-				<a href="${go}">${boardList.boardTitle}</a>
+				${boardList.boardTitle}
 			</c:if>
 			</td>
 			<td style="text-align:center">
@@ -93,9 +93,10 @@
 		</tr>
 		</c:forEach>
 		</c:if>
+		</table>
+		<table class="table"  align="center">
 		<tr>
-		<td></td>
-		<td>
+		<td style="width: 90%;">
 			<div id="pageNumber" align="center">
 			<ul class="pager">
 				<c:forEach var="i" begin="1" end="${totalPage}" >
@@ -123,9 +124,7 @@
 </ul> -->
 			
 		</td>
-		<td>
-		</td>
-		<td style="text-align:center">
+		<td style="width: 10%;">
 			<c:url value= "/meeting/write" var="write" />
 			<a href="${write}" >
 				<button type="submit" class="btn btn-default">
@@ -134,9 +133,7 @@
 					</p></button></a>
 		</td>
 		</tr>
-		
 	</table>
-	<br>
 	
 	<%-- <article> 
 	

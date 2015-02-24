@@ -75,41 +75,32 @@ public class UserJoinController {
 
 	@RequestMapping(value = "/join/id", method = RequestMethod.POST, produces = "text/plain;charset=utf-8")
 	public @ResponseBody String ajaxReceive1(@RequestParam String id) {
-		logger.trace("-------------------------------------------------------------------------------");
 
 		Users user = userservice.searchUserId(id);
 
 		if (user != null) {
-			logger.trace("----------------------중복 아이디");
 			  return "<font color='red'>중복된 아이디 입니다.</font>";
 		}
-		logger.trace("----------------------사용가능 아이디");
 		return "<font color='blue'>사용 가능한 아이디 입니다.</font>";
 	}
 	
 	@RequestMapping(value = "/join/name", method = RequestMethod.POST, produces = "text/plain;charset=utf-8")
 	public @ResponseBody String ajaxReceive2(@RequestParam String name) {
-		logger.trace("-------------------------------------------------------------------------------");
 
 		Users user = userservice.searchUserByName(name);
 		if (user != null) {
-			logger.trace("----------------------중복 이름");
 			  return "<font color='red'>중복된 이름 입니다.</font>";
 		}
-		logger.trace("----------------------사용가능 이름");
 		return "<font color='blue'>사용 가능한 이름 입니다.</font>";
 	}
 	@RequestMapping(value = "/join/email", method = RequestMethod.POST, produces = "text/plain;charset=utf-8")
 	public @ResponseBody String ajaxReceive3(@RequestParam String email) {
-		logger.trace("-------------------------------------------------------------------------------");
 
 		Users user = userservice.searchUserEmail(email);
 		
 		if (user != null) {
-			logger.trace("----------------------중복 이메일");
 			  return "<font color='red'>중복된 이메일 입니다.</font>";
 		}
-		logger.trace("----------------------사용가능 이메일");
 		return "<font color='blue'>사용 가능한 이메일 입니다.</font>";
 	}
 

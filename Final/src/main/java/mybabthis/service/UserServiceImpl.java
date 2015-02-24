@@ -4,6 +4,7 @@ import java.util.List;
 
 import mybabthis.dao.UserDao;
 import mybabthis.entity.Users;
+import mybabthis.exception.ServiceFailException;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -41,7 +42,7 @@ public class UserServiceImpl implements UserService{
 	
 
 	@Override
-	public int updateUser(Users user) {
+	public int updateUser(Users user) throws ServiceFailException{
 		int result = dao.updateUser(user);
 		return result;
 	}

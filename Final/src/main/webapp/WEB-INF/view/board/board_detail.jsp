@@ -160,7 +160,7 @@
 
 	<tr><td align="center"><img width="40" height="40"
 							src="<%=request.getContextPath()%>/upload/${loginUser.userImg}">
-						<span>${loginUser.userId }</span></td>
+						<%-- <span>${loginUser.userId }</span> --%></td>
 	<td colspan="3">
 	<!-- <div style="margin-left: 3em;">
 		<h2 style="font-family: Nanum Gothic">댓글작성</h2>
@@ -177,12 +177,10 @@
 			<div class="input-group">
 				<form:input path="breplyContent" type="text" class="form-control"/>
 				<span class="input-group-btn">
-					&nbsp&nbsp<button class="btn btn-default" name="breply_write" type="submit"><span class="glyphicon glyphicon-ok"></span> 작성</button>
+					&nbsp;&nbsp;<button class="btn btn-default" name="breply_write" type="submit"><span class="glyphicon glyphicon-ok"></span> 작성</button>
 				</span>
 			</div>
-			<!-- /input-group -->
 		</div>
-		<!-- /.col-lg-6 -->
 
 	</form:form>
 

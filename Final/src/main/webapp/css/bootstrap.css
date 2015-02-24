@@ -1309,7 +1309,7 @@ th {
 	background-color: #f9f9f9;
 }
 
-.table-hover>tbody>tr:hover>td, .table-hover>tbody>tr:hover>th {
+.table-hover>tbody>tr:hover>td {
 	background-color: #f5f5f5;
 }
 
@@ -3308,16 +3308,17 @@ input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="butto
 	display: table;
 	border-collapse: separate;
 	margin: 0 auto;
+	float: left;
 }
 /* 댓글작성 input*/
 .input-group.col {
-	float: none;
+	float: left;
 	padding-right: 0;
 	padding-left: 0;
 }
 /* 댓글작성 input*/
 .input-group .form-control {
-	width: 1200px;
+	max-width: 1000px;
 	margin-bottom: 0; 
 }
 

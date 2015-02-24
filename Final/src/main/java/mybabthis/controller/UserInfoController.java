@@ -1,12 +1,14 @@
 package mybabthis.controller;
 
 import mybabthis.entity.Users;
+import mybabthis.exception.ServiceFailException;
 import mybabthis.service.UserService;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -54,8 +56,28 @@ public class UserInfoController {
 	@RequestMapping(value="/mypage/myinfo", params="_event_update", method=RequestMethod.POST)
 	public String update(@ModelAttribute("loginUser") Users user){
 		
+		try{
+		
 		userservice.updateUser(user);
+		
+		}catch(ServiceFailException e){
+			
+			e.printStackTrace();
+			
+		}
 		return "redirect:/mypage/myinfo";
+		
+	}
+	
+	@ExceptionHandler(Exception.class)
+	public String handleException(){
+		return "error";
+		
+	}
+	@ExceptionHandler
+	public String exceptionParameter(RuntimeException e){
+		logger.error("DepartmentEditController",e);
+		return "error";
 		
 	}
 

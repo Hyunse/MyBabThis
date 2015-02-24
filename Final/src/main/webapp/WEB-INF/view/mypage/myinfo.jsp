@@ -9,6 +9,22 @@
 <title>Insert title here</title>
 </head>
 <script src="http://code.jquery.com/jquery-latest.js"></script>
+<style>
+#myinfo_table{
+width: 30%;
+margin-left:35%; 
+margin-right:35%;
+margin-top: 50px;
+
+}
+#col1{
+width: 20%;
+}
+#myinfo_table td{
+padding-bottom: 20px;
+}
+
+</style>
 <body>
 <script>
 $(document).ready(function() {
@@ -147,6 +163,7 @@ $("#pass2").blur(function(){
 });
 
 </script>
+
 <body>
 <jsp:include page="/WEB-INF/view/header.jsp" />
 <jsp:include page="/WEB-INF/view/mypage/mypage_list.jsp" />
@@ -154,33 +171,86 @@ $("#pass2").blur(function(){
 	<c:url value="/mypage/myinfo" var="action"></c:url>
 	<form:form modelAttribute="loginUser" method="post" action="${confirm}"  enctype="multipart/form-data" id="userform">
 
-			
-			
-		<label>아이디</label> : <form:input path="userId" />
-		<input type="button" value="중복체크" name="idCheck" id="idCheck">
-		<div id="dropId"></div>
+		<table id="myinfo_table">
+			<tr>
+				<td id="col1"><label>아이디</label></td>
+				<td><form:input path="userId" class="form-control" readonly="true"/></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td id="col1"><label>닉네임</label></td>
+				<td><form:input path="userName" class="form-control"/></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td id="col1"><label>비밀번호</label></td>
+				<td><form:password  path="userPass" id="userPass" class="form-control"/></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td id="col1"><label>비밀번호 확인</label></td>
+				<td><input type="password" id="pass2" onblur="passchk()" class="form-control"/><div id="passCheck"></div>
+					<div id="chk"></div>
+				</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td id="col1"><label>E-mail</label></td>
+				<td><form:input path="userEmail" id="userEmail" class="form-control"/><div id="dropEmail"></div></td>
+				<td><input type="button" value="중복체크" name="emailCheck" id="emailCheck" class="btn btn-default btn-xs "></td>
+			</tr>
+			<tr>
+				<td id="col1"><label>연락처</label></td>
+				<td><form:input path="userPhone" class="form-control" /></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td id="col1"><label>성별</label></td>
+				<td>
+					<form:radiobutton path="userGender" value="1" />남&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<form:radiobutton path="userGender" value="0" />여
+				</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td id="col1"><label>이미지</label><br>
+					<img id="dropimg" width="100" height="100" src="<%=request.getContextPath()%>/upload/${loginUser.userImg}">
+				</td>
+				<td><form:input path="userImg" id="userimg" class="form-control"/></td>
+				<td><input type="button" value="upload" id="upload" class="btn btn-default btn-xs"></td>
+			</tr>
+			<tr>
+				<td id="col1"></td>
+				<td style="text-align: center;">
+				<br><br>
+					<button type="submit" name="_event_update" class="btn btn-default"><p class="text-success"><span class="glyphicon glyphicon-pencil"></span> 수정</p></button>
+					<button type="submit" name="_event_delete"class="btn btn-default"><p class="text-danger"><span class="glyphicon glyphicon-trash"></span> 삭제</button>
+				</td>
+				<td></td>
+			</tr>
+		</table>
 
-		<br>
+		<%-- <br>
 		<label>닉네임</label> : <form:input path="userName" />
 		<input type="button" value="중복체크" name="nameCheck" id="nameCheck">
 		<div id="dropName"></div>
 		<br>
-		<label>비밀번호</label> : <form:password  path="userPass" id="userPass" />
+		<label>비밀번호</label> : <form:password  path="userPass" id="userPass"/>
 		<br>
 		<label>비밀번호확인</label> : <input type="password" id="pass2"
-			onblur="passchk()" /><div id="passCheck"></div>
+			onblur="passchk()" class="form-control"/><div id="passCheck"></div>
 		<div id="chk"></div>
 		<br>
-		<label>E-mail</label> : <form:input path="userEmail" id="userEmail"/>
+		<label>E-mail</label> : <form:input path="userEmail" id="userEmail" />
 		<input type="button" value="중복체크" name="emailCheck" id="emailCheck">
 		<div id="dropEmail"></div>
 		<br>
-		<label>휴대폰</label> : <form:input path="userPhone" />
+		<label>휴대폰</label> : <form:input path="userPhone"  />
 		<br>
 		<br>
 		<label>성별</label>
 		<form:radiobutton path="userGender" value="1" />남
-							<form:radiobutton path="userGender" value="0" />여
+		<form:radiobutton path="userGender" value="0" />여
 		<br>
 		
 		<label>이미지</label>	
@@ -188,15 +258,18 @@ $("#pass2").blur(function(){
 		
 		<img id="dropimg" width="100" height="100" src="<%=request.getContextPath()%>/upload/${loginUser.userImg}">
 		<form:input path="userImg" id="userimg"/>
-		
-		
 		<input type="button" value="upload" id="upload">
 		<br>
 		<br>
 							
 		<button type="submit" name="_event_update">수정</button>
-		<button type="submit" name="_event_delete">삭제</button>
+		<button type="submit" name="_event_delete">삭제</button> --%>
 	</form:form>
+	
+	
+	
+
+
 <br>
 <%-- <h2>이미지 테스트</h2>
 <jsp:include page="/WEB-INF/view/mypage/mypage-myimg.jsp"></jsp:include>

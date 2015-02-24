@@ -3,6 +3,7 @@ package mybabthis.service;
 import java.util.List;
 
 import mybabthis.entity.Users;
+import mybabthis.exception.ServiceFailException;
 
 public interface UserService {
 
@@ -12,7 +13,7 @@ public interface UserService {
 
 	int out(String id); //탈퇴시킬때
 
-	int updateUser(Users user);
+	int updateUser(Users user) throws ServiceFailException;
 
 	Users login(Users user);
 

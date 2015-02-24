@@ -36,11 +36,11 @@ public class RestaurantEditController {
 		return "restaurant/restaurant_edit";
 	}
 	
-	@RequestMapping(value="/restaurant/edited", method=RequestMethod.POST)
+	@RequestMapping(value="/restaurant/edited",  method=RequestMethod.POST)
 	public String afterEditRestaurant(@ModelAttribute("restaurant") Restaurant restaurant,SessionStatus sessionStatus){
 		logger.trace("맛집게시물 수정시도");
 		service.updateRestaurant(restaurant);
-		logger.trace("맛집게시물 수정했음");
+//		logger.trace("게시물 번호" + resNo);
 		sessionStatus.setComplete();
 		return "redirect:/restaurant/list";
 	}
