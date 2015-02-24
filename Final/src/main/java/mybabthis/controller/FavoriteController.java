@@ -50,8 +50,7 @@ public class FavoriteController {
 		else{
 			return "favorite/fail";
 		}
-		return "favorite/create";
-		//return "redirect:/restaurant/view?resNo="+resNo;
+		return "redirect:/restaurant/view?resNo="+resNo;
 	}
 	
 	

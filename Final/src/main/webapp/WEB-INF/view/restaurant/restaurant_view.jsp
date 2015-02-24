@@ -138,6 +138,10 @@ function go(ing,end){
 			$(uid).show();
 
 		});
+	
+		$("#favorite").click(function(){
+			alert("즐겨찾기에 추가 되었습니다.");
+		})
 
 	})
 </script>
@@ -164,7 +168,7 @@ function go(ing,end){
 					var="url" /> <a href="${url }"><button>편집</button></a> <c:url
 					value="/restaurant/delete?resNo=${restaurant.resNo}&locName=${restaurant.locName }"
 					var="url" /> <a href="${url }"><button>삭제</button></a>
-	<a href="<%=request.getContextPath()%>/favorite/create?resNo=${restaurant.resNo}&userId=${loginUser.userId}"><button>즐겨찾기</button></a></td>
+	<a href="<%=request.getContextPath()%>/favorite/create?resNo=${restaurant.resNo}&userId=${loginUser.userId}"><button id="favorite">즐겨찾기</button></a></td>
 	</tr>
 	<tr><td>가게이름 : ${restaurant.resName}</td><td>분류 : ${restaurant.resKind}</td></tr>
 	<tr><td>전화번호 : ${restaurant.resNumber}</td><td><div class="progress" style="height: 28px; width: 140px; background-color: blue"><img src="../images/star.png" style="position: absolute; height: 30px">
