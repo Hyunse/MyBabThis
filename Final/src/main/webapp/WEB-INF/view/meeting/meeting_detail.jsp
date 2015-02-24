@@ -67,7 +67,7 @@ pre {
 				<tr><th style="text-align:center">내용</th><td>${boardDetail.boardContent }</td></tr>
 			</table>
 	
-	<c:url value="/meeting/update?boardNo=${boardDetail.boardNo}"var="goEdit" />
+	<c:url value="/meeting/update?boardNo=${boardDetail.boardNo}" var="goEdit" />
 	<a href="${goEdit}"><button type="submit" class="btn btn-default" ><p class="text-success"><span class="glyphicon glyphicon-pencil"></span> 수정</button></a>
 	
 	<c:url value="/msg/sendReport?writeType=M&warnNo=${boardDetail.boardNo}" var="goReport" />
