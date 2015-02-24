@@ -55,7 +55,6 @@ public class UploadController {
 	@RequestMapping(value = "/upload/res", method = RequestMethod.POST)
 	public String uploadResimg(@RequestParam("uploadFile") MultipartFile file, Model model) {
 		
-		logger.trace("===========================================================================");
 		
 		File newfile = new File("c:\\DB\\uploaded\\"+file.getOriginalFilename());
 		
