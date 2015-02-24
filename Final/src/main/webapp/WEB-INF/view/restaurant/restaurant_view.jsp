@@ -299,7 +299,6 @@ for( int i = start ; i < end ; i ++ ) {
 								 --%>	 <button class="btn btn-default" id="btn${rreply.rreplyNo}">
 										<p class="text-success"><span class="glyphicon glyphicon-pencil"></span> 수정</p>
 									</button>
-								</a>
 								</td>
 								
 							
