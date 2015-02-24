@@ -13,7 +13,7 @@
 <table class="table table-hover" style="width: 100%;">
 <c:forEach var= "msg" items="${sendMsgs}" varStatus="status">
 		<tr>
-		<th>보낸사람</th><th>받은사람</th><th>내용</th><th>날짜</th>
+		<th style="width: 15%">보낸사람</th><th style="width: 15%">받은사람</th><th style="width: 50%">내용</th><th style="width: 20%">날짜</th>
 		</tr>
 		<tr>
 			<td> <c:out value="${msg.sender}"/> </td>

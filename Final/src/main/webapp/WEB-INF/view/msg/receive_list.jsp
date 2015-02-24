@@ -14,7 +14,7 @@
 <table class="table table-hover" style="width: 100%;">
 <c:forEach var= "msg" items="${receiveMsgs}" varStatus="status">
 		<tr>
-		<th>보낸사람</th><th>받은사람</th><th>내용</th><th>날짜</th>
+		<th style="width: 15%">보낸사람</th><th style="width: 15%">받은사람</th><th style="width: 50%">내용</th><th style="width: 20%">날짜</th><th></th>
 		</tr>
 		<tr>
 			<td> <c:out value="${msg.sender}"/> </td>
@@ -27,7 +27,7 @@
 			</td>
 			<td>
 		<a href="<%=request.getContextPath()%>/msg/send?receiver=${msg.sender}">
-		<button>답장하기</button>
+		<button class="btn btn-default">답장하기</button>
 		</a>
 		</td>
 		</tr>
