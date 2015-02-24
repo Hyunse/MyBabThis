@@ -89,6 +89,8 @@
 						</p>
 					</button></a>
 			</c:if>
+			<c:url value="/msg/sendReport?writeType=F&warnNo=${boardDetail.boardNo}" var="goReport" />
+		<a href="${goReport}"><button type="button" class="btn btn-default" ><p class="text-danger"><span class="glyphicon glyphicon-ban-circle"></span> 신고</p></button></a>
 		</div>
 
 	</center>

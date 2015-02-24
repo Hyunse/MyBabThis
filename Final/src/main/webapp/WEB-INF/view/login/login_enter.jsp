@@ -131,9 +131,9 @@ $(document).ready(function() {
 
 		</div>
 	</div>
-
-	<%-- 회원가입 다이얼로그 --%>
-	<div id="somedialog" class="dialog">
+<%-- 회원가입 다이얼로그 --%>
+	
+<%-- 	<div id="somedialog" class="dialog">
 		<div class="dialog__overlay"></div>
 		<div class="dialog__content">
 			<h2>
@@ -146,7 +146,7 @@ $(document).ready(function() {
 		</div>
 	</div>
 		
-		<div class="md-overlay"></div><!-- the overlay element -->
+		<div class="md-overlay"></div><!-- the overlay element --> --%>
 
 		<!-- classie.js by @desandro: https://github.com/desandro/classie -->
 		<script src="js/classie.js"></script>
