@@ -9,13 +9,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>신고함</title>
 </head>
+<jsp:include page="/WEB-INF/view/header.jsp" />
+<jsp:include page="/WEB-INF/view/admin/admin_menu.jsp" />
 <body>
-<h2>신고함</h2>
 <table class="table table-hover" style="width: 100%;">
-<c:forEach var= "msg" items="${msgs}" varStatus="status">
-		<tr>
+<tr>
 		<th>보낸사람</th><th>받은사람</th><th>내용</th><th>전송시각</th><th>게시물분류</th><th>게시판번호</th>
 		</tr>
+<c:forEach var= "msg" items="${msgs}" varStatus="status">
+		
 		<tr>
 			<td> <c:out value="${msg.sender}"/> </td>
 			<td> <c:out value="${msg.receiver}"/> </td>

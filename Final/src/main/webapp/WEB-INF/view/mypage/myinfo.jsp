@@ -224,7 +224,7 @@ $("#pass2").blur(function(){
 				<td style="text-align: center;">
 				<br><br>
 					<button type="submit" name="_event_update" class="btn btn-default"><p class="text-success"><span class="glyphicon glyphicon-pencil"></span> 수정</p></button>
-					<button type="submit" name="_event_delete"class="btn btn-default"><p class="text-danger"><span class="glyphicon glyphicon-trash"></span> 삭제</button>
+					<button type="submit" name="_event_delete"class="btn btn-default"><p class="text-danger"><span class="glyphicon glyphicon-trash"></span> 탈퇴</button>
 				</td>
 				<td></td>
 			</tr>

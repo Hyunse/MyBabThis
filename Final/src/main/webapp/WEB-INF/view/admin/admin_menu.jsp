@@ -24,7 +24,7 @@
 			<a href="/Final/admin/Users"><span class="linkspan" data-hover="회원관리">회원관리</span></a> 
 			<a href="/Final/admin/Restaurant"><span class="linkspan" data-hover="맛집페이지">맛집페이지</span></a>
 			<a href="/Final/admin/Board"><span class="linkspan" data-hover="기타게시판">기타게시판</span></a>
-			<a href="/Final/admin/message"><span class="linkspan" data-hover="신고글">신고글</span></a>
+			<a href="/Final/msg/reportList"><span class="linkspan" data-hover="신고글">신고글</span></a>
 			<a href="/Final/msg/main"><span class="linkspan" data-hover="쪽지함">쪽지함</span></a>
 		</nav>
 	</section>
