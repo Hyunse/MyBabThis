@@ -123,7 +123,7 @@
 
 		$(".updateform").hide();
 
-		$(".btn-default").click(function() {
+		$(".updateReply").click(function() {
 			//alert(this.id); // or alert($(this).attr('id'));
 			var bid = $(this).attr("id");
 			var hid = "#h" + bid;
@@ -223,14 +223,14 @@ $("#submitMsgRr").click(function(){
 					<button id="favorite" class="btn btn-default">
 						<span class="glyphicon glyphicon-star"></span> <small>즐겨찾기</small>
 					</button>
-			</a> <c:url
-					value="/msg/sendReport?writeType=T&warnNo=${restaurant.resNo}"
-					var="goReport" /> <a href="${goReport}"><button type="button"
-						class="btn btn-default">
-						<p class="text-danger">
-							<span class="glyphicon glyphicon-ban-circle"></span> 신고
-						</p>
-					</button></a></td>
+			</a> 
+			<c:url	value="/msg/sendReport?writeType=T&warnNo=${restaurant.resNo}" var="goReport" /> 
+			<a href="${goReport}">
+				<button type="button" class="btn btn-default">
+				<p class="text-danger"><span class="glyphicon glyphicon-ban-circle"></span> <small>신고</small></p>
+				</button>
+			</a>
+			</td>
 		</tr>
 		<tr>
 			<td width="25%">지역 : ${restaurant.locName}</td>
@@ -335,7 +335,7 @@ $("#submitMsgRr").click(function(){
 				</nav>
 				<div class="content-wrap">
 					<section id="section-topline-1">
-						<table class="table table-hover" style="width: 100%; max-width: 100%">
+						<table class="table" style="width: 100%; max-width: 100%">
 							<tr>
 								<th width="60%">내용</th>
 								<th width="20%">작성자</th>
@@ -364,6 +364,7 @@ $("#submitMsgRr").click(function(){
 
 										</form:form>
 									</td>
+									<c:if test="${rreply.userId != loginUser.userId}">
 									<td>
 										<div class="btn-group">
 											<button type="button" class="btn btn-default dropup-toggle"
@@ -372,11 +373,21 @@ $("#submitMsgRr").click(function(){
 												&nbsp;&nbsp; <span class="caret"></span>
 											</button>
 											<ul class="dropdown-menu" role="menu">
-												<li><a
-													href="/Final/friend/create?userId=${loginUser.userId}&friendId=${rreply.userId}">친구추가</a></li>
-												<li><a id="sendMsg" data-toggle="modal" data-target="#myModalReply">쪽지보내기</a></li>
-												
-												
+												<li>
+													<a href="/Final/friend/create?userId=${loginUser.userId}&friendId=${rreply.userId}">
+														<span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;친구추가
+													</a>
+												</li>
+												<li>
+													<a id="sendMsg" data-toggle="modal" data-target="#myModalReply">
+														<p class="text-info"><span class="glyphicon glyphicon-send"></span>&nbsp;&nbsp;쪽지보내기</p>
+													</a>
+												</li>
+												<li>
+													<a href="/msg/sendReport?writeType=Y&warnNo=${rreply.rreplyNo}">
+														<p class="text-danger"><span class="glyphicon glyphicon-ban-circle"></span>&nbsp;&nbsp;댓글신고</p>
+													</a>
+												</li>
 											</ul>
 										</div>
 <div class="modal fade" id="myModalReply" tabindex="-1"
@@ -422,17 +433,46 @@ $("#submitMsgRr").click(function(){
 											<!-- /.modal-dialog -->
 										</div> <!-- /.modal -->
 									</td>
-									<td><small> <c:set
+									</c:if>
+									<c:if test="${rreply.userId == loginUser.userId}">
+									<td>
+										<div class="btn-group">
+											<button type="button" class="btn btn-danger dropup-toggle"
+												data-toggle="dropdown">
+												편집
+												<span class="caret"></span>
+											</button>
+											<ul class="dropdown-menu" role="menu">
+												<li>
+													<a class="updateReply" id="btn${rreply.rreplyNo}">
+														<p class="text-success">
+															<span class="glyphicon glyphicon-pencil"></span> 수정
+														</p>
+													</a> 
+												</li>
+												<li>
+													<c:url value="/rreply/delete?rreplyNo=${rreply.rreplyNo }&resNo=${rreply.resNo }" var="url"></c:url> 
+														<a href="${url}">
+															<p class="text-danger"><span class="glyphicon glyphicon-trash"></span> 삭제</p>
+														</a>
+												</li>
+											</ul>
+										</div>
+									</td>
+									</c:if>
+									
+									<td>
+										<small> <c:set
 												value="${rreply.rreplyUpdatedate }" var="rreplyUpdatedate" />
 											<fmt:formatDate value="${rreplyUpdatedate }" type="date"
 												dateStyle="short" /><br> <fmt:formatDate
-												value="${rreplyUpdatedate }" type="time" dateStyle="short" /></small></td>
+												value="${rreplyUpdatedate }" type="time" dateStyle="short" /></small>
+									</td>
 
 
-									<c:if test="${rreply.userId == loginUser.userId}">
+
+<%-- 									<c:if test="${rreply.userId == loginUser.userId}">
 										<td style="border: solid 1px #FFF; word-break: break-all;">
-											<%-- <button class="btn btn-default" id="btn${breply.breplyNo}">
-                        <p class="text-success"><span class="glyphicon glyphicon-pencil"></span> 수정</p></button>  --%>
 											<button class="btn btn-default" id="btn${rreply.rreplyNo}">
 												<p class="text-success">
 													<span class="glyphicon glyphicon-pencil"></span> 수정
@@ -445,13 +485,9 @@ $("#submitMsgRr").click(function(){
 														<span class="glyphicon glyphicon-trash"></span> 삭제
 													</p>
 												</button>
-										</a> <%--  <c:url value="/rreply/edit?rreplyNo=${rreply.rreplyNo }" var="url"></c:url> 
-                         <a href="${url}">
-                         --%>
+										</a> 
 										</td>
-
-
-									</c:if>
+									</c:if> --%>
 
 
 
@@ -605,7 +641,7 @@ $("#submitMsgRr").click(function(){
 							var="url"></c:url>
 						<br>
 						<br> <a href="${url }">
-							<button class="btn btn-default">리뷰작성</button>
+							<button class="btn btn-default">작성</button>
 						</a>
 
 
