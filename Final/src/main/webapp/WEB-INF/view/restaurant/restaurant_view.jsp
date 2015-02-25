@@ -271,6 +271,7 @@ $("#submitMsgRr").click(function(){
 					<button class="btn btn-default">
 						<p class="text-danger">
 							<span class="glyphicon glyphicon-trash"></span> <small>삭제</small>
+						</p>
 					</button>
 			</a></td>
 		</tr>

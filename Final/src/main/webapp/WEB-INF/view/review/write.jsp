@@ -95,7 +95,7 @@ $(document).ready(function() {
 				</tr> --%>
 				<tr>
 					<th style="text-align: center">내용</th>
-					<td ><textarea name="reviewContent" id="editor" rows="20" cols="150" style=" width:100%; "></textarea>
+					<td ><textarea name="reviewContent" id="editor" rows="20" cols="150" style=" width:100%; min-width: 610px "></textarea>
 					</td>
 				</tr>
 				<tr>
