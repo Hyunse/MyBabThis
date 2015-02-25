@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>자유게시판 글쓰기</title>
+<title>번개모임 글쓰기</title>
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <script type="text/javascript"
 	src="<%=request.getContextPath()%>/resource/editor/js/HuskyEZCreator.js"
@@ -62,7 +62,7 @@ $(function(){
 					<tr style="width: 100%">
 						<th width=10% style="text-align: center"><p
 								class="text-muted">제목</p></th>
-						<td width=90%><form:input path="boardTitle" size="110%" /></td>
+						<td width=90%><form:input path="boardTitle" size="80%" /></td>
 					</tr>
 
 					<tr>
