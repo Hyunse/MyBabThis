@@ -1,5 +1,7 @@
 package mybabthis.service;
 
+import java.util.List;
+
 import mybabthis.dao.LicenseDao;
 import mybabthis.entity.License;
 import mybabthis.entity.LicensedUser;
@@ -90,5 +92,15 @@ public class LicenseServiceImpl implements LicenseService {
 		int result = dao.getLicenseCntById(userId);
 		return result;
 	}
+
+	@Override
+	public List<License> getLicensesById(String userId) {
+		List<License> result = dao.getLicensesById(userId);
+		return result;
+	}
+	
+	
+	
+	
 
 }

@@ -1,5 +1,7 @@
 package mybabthis.service;
 
+import java.util.List;
+
 import mybabthis.entity.License;
 import mybabthis.entity.LicensedUser;
 
@@ -23,5 +25,7 @@ public interface LicenseService {
 	int insertLicensedUser(LicensedUser licensedUser);
 	
 	int getLicenseCntById(String userId);
+
+	List<License> getLicensesById(String userId);
 
 }

@@ -1,6 +1,7 @@
 package mybabthis.dao;
 
 import java.util.HashMap;
+import java.util.List;
 
 import mybabthis.entity.License;
 import mybabthis.entity.LicensedUser;
@@ -51,6 +52,7 @@ public class LicenseDaoImpl implements LicenseDao {
 	}
 
 
+	//리스트
 	@Override
 	public License getAllLicense() {
 		String stmt=nameSpace+"selectAllLicense";
@@ -59,6 +61,7 @@ public class LicenseDaoImpl implements LicenseDao {
 	}
 
 
+	//리스트
 	@Override
 	public LicensedUser getAllLicensedUser() {
 		String stmt=nameSpace+"selectAllLicense";
@@ -106,6 +109,17 @@ public class LicenseDaoImpl implements LicenseDao {
 		return result;
 		
 	}
+
+
+	@Override
+	public List<License> getLicensesById(String userId) {
+		String stmt=nameSpace+"selectLicensesById";
+		List<License> result = sqlSession.selectList(stmt,userId);
+		return result;
+		
+	}
+	
+	
 	
 	
 	

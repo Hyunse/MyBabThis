@@ -1,5 +1,7 @@
 package mybabthis.dao;
 
+import java.util.List;
+
 import mybabthis.entity.License;
 import mybabthis.entity.LicensedUser;
 
@@ -22,6 +24,8 @@ public interface LicenseDao {
 	int insertLicensedUser(LicensedUser licensedUser);
 	
 	int getLicenseCntById(String userId);
+	
+	List<License> getLicensesById(String userId);
 	
 
 }

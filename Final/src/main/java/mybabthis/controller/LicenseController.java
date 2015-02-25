@@ -1,5 +1,7 @@
 package mybabthis.controller;
 
+import java.util.List;
+
 import mybabthis.entity.License;
 import mybabthis.service.LicenseService;
 
@@ -20,10 +22,12 @@ static {
 @Autowired
 LicenseService licenseservice;
 
-/*@RequestMapping(value="/license/myLicense", method=RequestMethod.GET, params={"userId"})
-public <List>License getMylicenses(@RequestParam String userId, Model model){
-	<List>License myLicenses =licenseservice.getLicensedUserById(userId);//여기에 서비스로 받아오기 service.~~
+@RequestMapping(value="/license/myLicense", method=RequestMethod.GET, params={"userId"})
+public String getMylicenses(@RequestParam String userId, Model model){
+	logger.trace("라이센스 읽기 : userId:"+userId);
+	
+	List<License> myLicenses = licenseservice.getLicensesById(userId);
 	model.addAttribute("myLicenses", myLicenses);
-	return mypage/myinfo;
-	}*/
+	return "mypage/myinfo";
+	}
 }

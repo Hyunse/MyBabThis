@@ -210,17 +210,50 @@ $("#pass2").blur(function(){
 			</tr>
 			<tr>
 				<td id="col1"><label>등급</label></td>
-				<td><form:input path="userGrade" class="form-control" readonly="true"/></td>
+				<td><form:input path="userGrade" class="form-control"
+						readonly="true" /></td>
 				<td>
-					<a href=<%-- "<%=request.getContextPath()%>/favorite/create?resNo=${restaurant.resNo}&userId=${loginUser.userId}" --%>>
-					<button class="btn btn-default">
+
+					<button type="button" class="btn btn-default" data-toggle="modal"
+						data-target="#myModal">
 						<span class="glyphicon glyphicon-file"></span><small> 자격증</small>
-					</button>
-					</a>
+					</button> <!-- Modal -->
+					<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+						aria-labelledby="myModalLabel" aria-hidden="false">
+						<div class="modal-dialog">
+							<div class="modal-content">
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal"
+										aria-hidden="true">×</button>
+									<h4 class="modal-title">보유 자격증 목록</h4>
+								</div>
+								<div class="modal-body">
+								<c:if test="${empty licenses }">
+								<p>자격증이 없습니다.</p>
+								</c:if>
+								<c:if test="${!empty licenses }">
+								<c:forEach items="${licenses }" var="license">
+								<p><c:out value="${license.licenseName}" /></p>
+								
+								
+								</c:forEach>
+								</c:if>
+								
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-default"
+										data-dismiss="modal">Close</button>
+								</div>
+							</div>
+							<!-- /.modal-content -->
+						</div>
+						<!-- /.modal-dialog -->
+					</div>
+					<!-- /.modal -->
 				</td>
 			</tr>
-			
-			
+
+
 			<tr>
 				<td id="col1"><label>성별</label></td>
 				<td>

@@ -84,10 +84,13 @@ public class ReviewServiceImpl implements ReviewService {
 			// 새로 추가.
 
 			int licenseNo = license.getLicenseNo();
-			LicensedUser licensedUser = licenseDao.getLicensedUserByNo(licenseNo);
+			LicensedUser licensedUserTemp =  new LicensedUser();
+			licensedUserTemp.setUserId(userId);
+			licensedUserTemp.setLicenseNo(licenseNo);
+			LicensedUser licensedUser = licenseDao.getLicensedUser(licensedUserTemp);
 			if (licensedUser == null) {
 				licensedUser = new LicensedUser();
-				logger.trace("가지고있는 라이센스 없으니 새로 등록");
+				logger.trace("가지고있는 라이센스 없으니 새로 등록 : 번호 : "+licenseNo + "   아이디 : "+ userId);
 				licensedUser.setLicenseNo(licenseNo);
 				licensedUser.setUserId(userId);
 				licenseDao.insertLicensedUser(licensedUser);
@@ -111,10 +114,13 @@ public class ReviewServiceImpl implements ReviewService {
 			// 새로 추가.
 
 			int licenseNo = license2.getLicenseNo();
+			LicensedUser licensedUserTemp =  new LicensedUser();
+			licensedUserTemp.setUserId(userId);
+			licensedUserTemp.setLicenseNo(licenseNo);
 			LicensedUser licensedUser = licenseDao
-					.getLicensedUserByNo(licenseNo);
+					.getLicensedUser(licensedUserTemp);
 			if (licensedUser == null) {
-				logger.trace("가지고있는 라이센스 없으니 새로 등록");
+				logger.trace("가지고있는 라이센스 없으니 새로 등록 : 번호 : "+licenseNo + "   아이디 : "+ userId);
 				licensedUser = new LicensedUser();
 				licensedUser.setLicenseNo(licenseNo);
 				licensedUser.setUserId(userId);

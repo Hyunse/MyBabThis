@@ -1,13 +1,18 @@
 package mybabthis.controller;
 
+import java.util.List;
+
+import mybabthis.entity.License;
 import mybabthis.entity.Users;
 import mybabthis.exception.ServiceFailException;
+import mybabthis.service.LicenseService;
 import mybabthis.service.UserService;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,6 +32,9 @@ public class UserInfoController {
 	@Autowired
 	UserService userservice;
 	
+	@Autowired
+	LicenseService licenseService;
+	
 	@RequestMapping(value="/mypage", method=RequestMethod.GET)
 	public String enterMypage(@ModelAttribute("loginUser") Users user){
 		
@@ -36,9 +44,14 @@ public class UserInfoController {
 	}
 	
 	@RequestMapping(value="/mypage/myinfo", method=RequestMethod.GET)
-	public String enterLogin(@ModelAttribute("loginUser") Users user){
+	public String enterLogin(@ModelAttribute("loginUser") Users user,Model model){
 		
 		logger.trace("개인정보 위치입니다.");
+		
+		List<License> licenses = licenseService.getLicensesById(user.getUserId());
+
+		model.addAttribute("licenses",licenses);
+		
 		return "mypage/myinfo";
 		
 	}

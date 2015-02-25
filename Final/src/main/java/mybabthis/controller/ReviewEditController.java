@@ -64,7 +64,8 @@ public class ReviewEditController {
 		restaurant.setResScore(avgScore);
 		res_service.updateResScore(restaurant);*/
 
-		return "redirect:/restaurant/view?resNo="+review.getResNo();
+		//? 이거 왜안되지?
+		return "redirect:/restaurant/view?resNo="+review.getResNo()+"#section-topline-2";
 	}
 	
 	//삭제하기
