@@ -196,12 +196,22 @@ $("#pass2").blur(function(){
 			<tr>
 				<td id="col1"><label>E-mail</label></td>
 				<td><form:input path="userEmail" id="userEmail" class="form-control"/><div id="dropEmail"></div></td>
-				<td><input type="button" value="중복체크" name="emailCheck" id="emailCheck" class="btn btn-default btn-xs "></td>
+				<td><!-- <input type="button" value="중복체크" name="emailCheck" id="emailCheck" class="btn btn-default btn-xs "> -->
+					<button type="button" class="btn btn-default btn-xs" name="emailCheck" id="emailCheck">
+						<span class="glyphicon glyphicon-chevron-down"></span> 중복체크
+					</button>
+				</td>
 			</tr>
 			<tr>
 				<td id="col1"><label>연락처</label></td>
 				<td><form:input path="userPhone" class="form-control" /></td>
-				<td></td>
+				<td>
+					<a href="<%=request.getContextPath()%>/favorite/create?resNo=${restaurant.resNo}&userId=${loginUser.userId}">
+					<button class="btn btn-default">
+						<span class="glyphicon glyphicon-file"></span><small> 자격증</small>
+					</button>
+					</a>
+				</td>
 			</tr>
 			<tr>
 				<td id="col1"><label>등급</label></td>
@@ -223,7 +233,11 @@ $("#pass2").blur(function(){
 					<img id="dropimg" width="100" height="100" src="<%=request.getContextPath()%>/upload/${loginUser.userImg}">
 				</td>
 				<td><form:input path="userImg" id="userimg" class="form-control"/></td>
-				<td><input type="button" value="upload" id="upload" class="btn btn-default btn-xs"></td>
+				<td><!-- <input type="button" value="upload" id="upload" class="btn btn-default btn-xs"> -->
+					<button type="button" class="btn btn-default btn-xs" id="upload">
+						<span class="glyphicon glyphicon-cloud-upload"></span> 업로드	
+					</button>
+				</td>
 			</tr>
 			<tr>
 				<td id="col1"></td>
