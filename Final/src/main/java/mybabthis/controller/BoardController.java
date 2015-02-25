@@ -133,13 +133,14 @@ public class BoardController {
 	 * @param board
 	 * @return
 	 */
-	@RequestMapping(value="/edit",  params="_event_delete", method=RequestMethod.POST)
-	public String deleteBoard(@ModelAttribute("editBoard") Board board){
+	@RequestMapping(value="/delete", params="boardNo", method=RequestMethod.GET)
+	public String deleteBoard(@ModelAttribute("editBoard") Board board, int boardNo){
 		
-		boardService.delete(board.getBoardNo());
-		logger.trace("번호: " +board.getBoardNo());
-		return "redirect:/meeting/list?page=1";
+		boardService.delete(boardNo);
+		logger.trace("번호: " +boardNo);
+		return "redirect:/board/list?page=1";
 	}
+	
 	
 	
 
