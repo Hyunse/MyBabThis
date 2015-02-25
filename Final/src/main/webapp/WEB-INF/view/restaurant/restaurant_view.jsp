@@ -184,6 +184,7 @@
     success: function(args){
     	
     	alert(args);
+    	$('#msgContentRv').val("");
     	$("#msgCloseRv").click();
       },
     error: function (error,args) {
@@ -209,7 +210,7 @@ $("#submitMsgRr").click(function(){
     success: function(args){
     	
     	alert(args);
-    	
+    	 $('#msgContentRr').val("");
     	$("#msgCloseRr").click();
     	
       },
@@ -240,7 +241,7 @@ $("#submitShingo").click(function(){
     success: function(args){
     	
     	alert(args);
-    	
+    	$('#contentM').val("");
     	$("#msgCloseM").click();
     	
       },
@@ -251,14 +252,13 @@ $("#submitShingo").click(function(){
 })
 
 $("#submtShingoY").click(function(){
-	alert("????????nnnn")
 	 var sender = $('#senderY').val(), 
 	 	 writeType =  $('#writeTypeY').val(), 
 	 	 warnNo =  $('#warnNoY').val(),
 	 	 content = $('#contentY').val();
-	var data ={ sender : sender , writeType : writeType, warnNo : warnNo, content : content};
 	
-	alert("sender : " +  sender+ ", writeType :  " + writeType +" , warnNo : " +  warnNo +" , content : " +  content)
+	 var data ={ sender : sender , writeType : writeType, warnNo : warnNo, content : content};
+	
 
     $.ajax({
     type: "POST",
@@ -269,6 +269,8 @@ $("#submtShingoY").click(function(){
     success: function(args){
     	
     	alert(args);
+    	
+    	$('#contentY').val("");
     	
     	$("#msgCloseY").click();
     	

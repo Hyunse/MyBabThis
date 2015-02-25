@@ -21,9 +21,7 @@ $("#submitShingo").click(function(){
 	 	 warnNo =  $('#warnNo').val(),
 	 	 content = $('#content').val();
 	var data ={ sender : sender , writeType : writeType, warnNo : warnNo, content : content};
-	
-/* 	alert("sender : " +  sender+ ", writeType :  " + writeType +" , warnNo : " +  warnNo +" , content : " +  content)
- */	
+
     $.ajax({
     type: "POST",
     url: "<%=request.getContextPath()%>/msg/sendedReport",
@@ -33,7 +31,7 @@ $("#submitShingo").click(function(){
     success: function(args){
     	
     	alert(args);
-    	
+    	$('#content').val("");
     	$("#msgClose").click();
     	
       },

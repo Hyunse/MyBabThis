@@ -43,7 +43,7 @@ contentType:"application/x-www-form-urlencoded; charset=utf-8",
 success: function(args){
 	
 	alert(args);
-	
+	$('#msgContent').val("");
 	$("#msgClose").click();
   },
 error: function (error,args) {
