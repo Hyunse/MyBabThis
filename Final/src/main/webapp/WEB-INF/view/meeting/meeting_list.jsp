@@ -166,7 +166,7 @@ alert(error)
 					</td>
 					<td onclick="location.href='${url}'" style="cursor: pointer;">
 						<c:set value="${boardList.boardRegdate }" var="boardRegdate" /> <fmt:formatDate
-							value="${boardRegdate }" type="date" dateStyle="short" />&nbsp;&nbsp;
+							value="${boardRegdate }" type="date" dateStyle="short" /><br>
 						<fmt:formatDate value="${boardRegdate }" type="time"
 							dateStyle="short" />
 					</td>

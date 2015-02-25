@@ -99,12 +99,33 @@ $(document).ready(function() {
 							</form:select></td>
 					</tr>
 					<tr>
-						<th>이미지</th>
+						<%-- <th>이미지</th>
 						<td>&nbsp;&nbsp;<img id="dropimg"></img> <form:input path="resImg"
-								id="resImg" /><input type="button" value="upload" id="upload"></td>
+								id="resImg" /><input type="button" value="upload" id="upload"></td>  --%>
+								<th style="text-align: center">이미지</th>
+					<td><%-- 
+						<img id="dropimg"></img> <form:input path="resImg"
+							id="reviewImg" /> <input type="button" value="upload"
+						id="upload"><img id="dropimg"></img> <form:input path="resImg"
+							id="resImg" /> <input type="button" value="upload" id="upload">--%>
+						<%-- <div class="col-lg-6">
+							<div class="input-group" style="width: 50%">
+							<img id="dropimg"></img>
+								<form:input path="resImg" id="resImg"
+									value="${restaurant.resImg}" type="text" class="form-control" />
+								<span class="input-group-btn"> --%>
+ 							&nbsp;&nbsp;&nbsp;<form:input path="resImg" id="resImg" />
+									<button type="button" class="btn btn-default" id="upload">
+										<span class="glyphicon glyphicon-cloud-upload"></span> 업로드
+
+									</button>
+						<!-- 		</span>
+							</div>
+						</div> -->
+						</td>
 					</tr>
-					<tr>
-						<td colspan="2"><button type="submit" name="proceed" class="btn btn-default"> 
+					<tr align="center">
+						<td colspan="2"><br><br><button type="submit" name="proceed" class="btn btn-default"> 
 	<span class="glyphicon glyphicon-ok"></span> 입력</button></td>
 					</tr>
 
@@ -112,7 +133,7 @@ $(document).ready(function() {
 			</div>
 		</form:form>
 	<!-- </section> -->
-
+<br><br>
 
 	<script src="../js/classie_input.js"></script>
 	<script>
