@@ -60,8 +60,8 @@ pre {
 				<tr><th style="text-align: center">등록일</th>
 					<td>
 						<c:set value="${boardDetail.boardRegdate}" var="boardRegdate"/>
-						<fmt:formatDate value="${boardRegdate }" type="date" dateStyle="full"/>&nbsp;&nbsp;
-						<fmt:formatDate value="${boardRegdate }" type="time" pattern="hh:MM"/>
+						<fmt:formatDate value="${boardRegdate }" type="date" dateStyle="short"/>&nbsp;&nbsp;
+						<fmt:formatDate value="${boardRegdate }" type="time" dateStyle="short"/>
 					</td>
 				</tr>
 				<tr><th style="text-align:center">내용</th><td>${boardDetail.boardContent }</td></tr>

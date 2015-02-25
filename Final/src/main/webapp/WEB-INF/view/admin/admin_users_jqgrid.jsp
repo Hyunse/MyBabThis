@@ -18,14 +18,14 @@ $(document).ready(function(){
         editurl:'<%=request.getContextPath()%>/admin/Users/deleteOne',
         datatype: 'json',
         mtype: 'GET',
-        colNames:['아이디',"이름","이메일", "성별", "연락처", "가입일", "수정일", "등급", "활성화여부"],
+        colNames:['아이디',"이름","이메일", "성별", "연락처", "가입일", "등급", "활성화여부"],
         colModel :[
           {name:'userId', index:'userId', key:true, width:80, align:"right", sorttype:"text",editable:true},
           {name:'userName', index:'userName', width:100, align:"center", editable:true},
           {name:'userEmail', index:'userEmail', width:100, align:"center", editable:true},
           {name:'userGender', index:'userGender', width:100, align:"center", editable:true},
           {name:'userPhone', index:'userPhone', width:100, align:"center", editable:true},
-          {name:'userRagdate', index:'userRagdate', width:100, align:"center", editable:true},
+         /*  {name:'userRagdate', index:'userRagdate', width:100, align:"center", editable:true}, */
           {name:'userUpdatedate', index:'userUpdatedate', width:100, align:"center", editable:true},
           {name:'userGrade', index:'userGrade', width:100, align:"center", editable:true},
           {name:'userActivation', index:'userActivation', width:100, align:"center", editable:true},

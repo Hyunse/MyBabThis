@@ -74,6 +74,7 @@
 <script src="<%=request.getContextPath()%>/js/bootstrap.js"></script>
 
 <!--  <script src="http://code.jquery.com/jquery-latest.js"></script> -->
+
 </head>
 <script src="//ajax.googleapis.com/ajax/libs/webfont/1.4.10/webfont.js"></script>
 <script type="text/javascript">
@@ -103,7 +104,7 @@ $(document).ready(function(){
 });
 });
 </script>
-<body>
+<body class="">
 
 	<c:url value="/board/list?page=1" var="board" />
 	<c:url value="/meeting/list?page=1" var="meeting" />
@@ -137,6 +138,17 @@ $(document).ready(function(){
 
 		<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
 
+
+<div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+  </div>
+
+<div class="collapse navbar-collapse navbar-ex1-collapse">
 			<div class="navbar-right">
 
 
@@ -197,6 +209,7 @@ $(document).ready(function(){
 					<button class="btn btn-default" id="search">Search</button>
 				</div>
 
+			</div>
 			</div>
 		</nav>
 

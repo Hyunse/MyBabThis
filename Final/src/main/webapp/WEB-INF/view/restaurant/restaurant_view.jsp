@@ -311,23 +311,28 @@
 
 											<!-- /input-group -->
 
-										</form:form>
-									</td>
-									<td>
-										<div class="btn-group">
-											<button type="button" class="btn btn-default dropup-toggle"
-												data-toggle="dropdown">
-												<c:out value="${rreply.userId}" />
-												&nbsp;&nbsp; <span class="caret"></span>
-											</button>
-											<ul class="dropdown-menu" role="menu">
-												<li><a
-													href="/Final/friend/create?userId=${loginUser.userId}&friendId=${rreply.userId}">친구추가</a></li>
-												<li><a href="/Final/msg/send?receiver=${rreply.userId}">쪽지보내기</a></li>
-											</ul>
-										</div>
 
-									</td>
+                              </form:form>
+                           </td>
+                           <td>
+                              <div class="btn-group">
+                                    <button type="button" class="btn btn-default dropup-toggle" data-toggle="dropdown">
+                                       <c:out value="${rreply.userId}" /> &nbsp;&nbsp; <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu" role="menu">
+                                       <li><a
+                                          href="/Final/friend/create?userId=${loginUser.userId}&friendId=${rreply.userId}">친구추가</a></li>
+                                       <li><a
+                                          href="/Final/msg/send?receiver=${rreply.userId}">쪽지보내기</a></li>
+                                    </ul>
+                              </div> 
+                           
+                           </td>
+                           <td><small>
+                           <c:set value="${rreply.rreplyUpdatedate }" var="rreplyUpdatedate" />
+                           <fmt:formatDate value="${rreplyUpdatedate }" type="date" dateStyle="short" />&nbsp;&nbsp; 
+                           <fmt:formatDate value="${rreplyUpdatedate }" type="time" dateStyle="short" /></small></td>
+
 									<td><small><c:set
 												value="${rreply.rreplyUpdatedate }" var="rreplyUpdatedate" />
 											<fmt:formatDate value="${rreplyUpdatedate }" type="date"
@@ -417,6 +422,7 @@
 
 						<%-- <c:url value="/rreply/write?resNo=${resNo }" var="url"></c:url> <a
                href="${url }"><button class="btn btn-default">댓글작성</button></a>  --%>
+<<<<<<< HEAD
 					</section>
 					<section id="section-topline-2">
 						<table class="table table-hover" style="width: 100%">
@@ -468,6 +474,53 @@
 						<br> <a href="${url }">
 							<button class="btn btn-default">리뷰작성</button>
 						</a>
+=======
+               </section>
+               <section id="section-topline-2">
+                  <table class="table table-hover" style="width: 100%">
+                     <tr>
+                        <th>사진</th>
+                        <th>평가</th>
+                        <th>설명</th>
+                        <th>작성자</th>
+                        <th>등록일</th>
+                     </tr>
+                     <c:forEach items="${reviews }" var="review">
+                        <c:url value="/review/detail?reviewNo=${review.reviewNo }"
+                           var="url"></c:url>
+                        <tr>
+                           <td onclick="location.href='${url}'" style="cursor: pointer;"><small>등록된 사진이 없습니다.</small></td>
+                           <td onclick="location.href='${url}'" style="cursor: pointer;"><c:out value="${review.reviewScore }" /></td>
+                           <td onclick="location.href='${url}'" style="cursor: pointer;"><small>${review.reviewContent }</small></td>
+                           <td>
+                                 <div class="btn-group">
+                                    <button type="button" class="btn btn-default dropup-toggle" data-toggle="dropdown">
+                                       <c:out value="${review.userId}" /> &nbsp;&nbsp; <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu" role="menu">
+                                       <li><a
+                                          href="/Final/friend/create?userId=${loginUser.userId}&friendId=${review.userId}">친구추가</a></li>
+                                       <li><a
+                                          href="/Final/msg/send?receiver=${review.userId}">쪽지보내기</a></li>
+                                    </ul>
+                                 </div>
+                           </td>
+                           <td onclick="location.href='${url}'" style="cursor: pointer;">
+                              <small>
+                                 <c:set value="${review.reviewUpdatedate }" var="reviewUpdatedate" />
+                                 <fmt:formatDate value="${reviewUpdatedate }" type="date" dateStyle="short" />&nbsp;&nbsp; 
+                                 <fmt:formatDate value="${reviewUpdatedate }" type="time" dateStyle="short" />
+                              </small>
+                           </td>
+                        </tr>
+                     </c:forEach>
+                  </table>
+                  <c:url value="/review/write?userId=${loginUser.userId }&resNo=${resNo }" var="url"></c:url>
+                  <br><br>
+                  <a href="${url }">
+                     <button class="btn btn-default">리뷰작성</button>
+                  </a>
+>>>>>>> branch 'master' of https://github.com/Hyunse/MyBabThis
 
 
 					</section>

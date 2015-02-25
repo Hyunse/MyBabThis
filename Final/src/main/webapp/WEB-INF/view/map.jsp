@@ -1437,7 +1437,7 @@
 
 </head>
 <body>
-	<div id="swiffycontainer" style="width: 600px; height: 500px"></div>
+	<div id="swiffycontainer" style="width: 600px; height: 500px; max-width:90%;max-width:90%;"></div>
 	<script>
 		var stage = new swiffy.Stage(
 				document.getElementById('swiffycontainer'), swiffyobject, {});
