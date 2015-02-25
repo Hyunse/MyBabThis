@@ -47,7 +47,7 @@ $(function(){
 	<c:url value="/board/edit" var="action"></c:url>
 	<form:form modelAttribute="editBoard" method="post" id="frm" action="${action}">
 		<form:hidden path="boardNo" />
-		<td><form:hidden path="userId"/>
+		<form:hidden path="userId"/>
 		<br>
 
 		<div class="table-responsive">

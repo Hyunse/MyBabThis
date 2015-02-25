@@ -47,7 +47,7 @@ $(function(){
 	<form:form modelAttribute="editBoard" method="post" id="frm"
 		action="${action}">
 		<form:hidden path="boardNo" />
-		<br>
+		<form:hidden path="userId"/>
 		<div class="table-responsive">
 			<table class="table">
 				<tr>
