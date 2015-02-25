@@ -45,7 +45,7 @@ $(function(){
 
 <body>
 	<jsp:include page="/WEB-INF/view/header.jsp" />
-	<c:url value="/meeting/confirm" var="write"></c:url>
+	<c:url value="/meeting/confirmed" var="write"></c:url>
 	<center>
 		<form:form modelAttribute="boardInfo" method="post" id="frm"
 			action="${write}" style="margin-left: 5em">

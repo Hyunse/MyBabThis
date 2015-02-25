@@ -43,7 +43,7 @@ $(function(){
 	<div class="sticky">
 		<jsp:include page="/WEB-INF/view/header.jsp" />
 	</div>
-	<c:url value="/meeting/edit" var="action"></c:url>
+	<c:url value="/meeting/edited" var="action"></c:url>
 	<form:form modelAttribute="editBoard" method="post" id="frm"
 		action="${action}">
 		<form:hidden path="boardNo" />
@@ -72,14 +72,10 @@ $(function(){
 
 				<tr style="text-align: center">
 					<td colspan="2">
-						<button type="button" id="savebutton" class="btn btn-default">
+						<button type="button" id="savebutton"  class="btn btn-default">
 							<span class="glyphicon glyphicon-ok"></span> 완료
 						</button>
-						<button type="submit" name="_event_delete" class="btn btn-default">
-							<p class="text-danger">
-								<span class="glyphicon glyphicon-trash"></span> 삭제
-							</p>
-						</button>
+						
 
 					</td>
 				<tr>

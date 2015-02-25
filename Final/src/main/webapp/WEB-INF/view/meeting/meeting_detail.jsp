@@ -45,12 +45,12 @@ pre {
 </script>
 
 <jsp:include page="/WEB-INF/view/header.jsp" />
-	
+
 <body>
 	<center>
-	<div class="table-responsive">
+		<div class="table-responsive">
 			<table class="table">
-			<tr>
+				<tr>
 					<td colspan="2" class="border-top-style" align="right"><c:url
 							value="/msg/sendReport?writeType=F&warnNo=${boardDetail.boardNo}"
 							var="goReport" /> <a href="${goReport}"><button
@@ -60,7 +60,7 @@ pre {
 								</p>
 							</button></a></td>
 				</tr>
-				
+
 				<tr>
 					<td colspan="2" class="border-top-style"><strong>번개모임</strong></td>
 				</tr>
@@ -80,7 +80,7 @@ pre {
 				<tr>
 					<td colspan="3" align="right"><img width="40" height="40"
 						src="<%=request.getContextPath()%>/upload/${loginUser.userImg}">
-					<p class="text-muted">${boardDetail.userId }</p></td>
+						<p class="text-muted">${boardDetail.userId }</p></td>
 
 				</tr>
 				<tr>
@@ -101,99 +101,122 @@ pre {
 				</tr>
 				<tr><th style="text-align:center">내용</th><td>${boardDetail.boardContent }</td></tr> --%>
 			</table>
-	
-	<c:url value="/meeting/update?boardNo=${boardDetail.boardNo}" var="goEdit" />
-	<a href="${goEdit}"><button type="submit" class="btn btn-default" ><p class="text-success"><span class="glyphicon glyphicon-pencil"></span> 수정</button></a>
-	</div>
+
+			<c:url value="/meeting/update?boardNo=${boardDetail.boardNo}"
+				var="goEdit" />
+			<a href="${goEdit}"><button type="button" class="btn btn-default">
+					<p class="text-success">
+						<span class="glyphicon glyphicon-pencil"></span> 수정
+				</button></a>
+			<c:url value="/meeting/delete?boardNo=${boardDetail.boardNo}"
+				var="goDelete" />
+			<a href="${goDelete}"><button type="button" class="btn btn-default">
+					<p class="text-danger">
+						<span class="glyphicon glyphicon-trash"></span> 삭제
+					</p>
+				</button></a>
+		</div>
 	</center>
 	<hr>
-	
+
 	<center>
-	<table class="table" style="width:100%">
-		<tr >
-			<th width="5%" >번호</th>
-			<!-- <th>게시글번호</th> -->
-			<th width="65%">내용</th>
-			<th width="15%">작성자</th>
-			<th width="15%">등록일</th>
-
-		</tr>
-
-		<c:forEach items="${breplys }" var="breply">
+		<table class="table" style="width: 100%">
 			<tr>
-				<td style="text-align:center"><c:out value="${breply.breplyNo }" /></td>
-				<%-- <td><c:out value="${breply.boardNo }" /></td> --%>
-				<td>
+				<th width="5%">번호</th>
+				<!-- <th>게시글번호</th> -->
+				<th width="65%">내용</th>
+				<th width="15%">작성자</th>
+				<th width="15%">등록일</th>
 
-					<div id="hbtn${breply.breplyNo}">
-						<c:out value="${breply.breplyContent }" />
-					</div> <c:url value="/meeting/update" var="action" /> <form:form
-						modelAttribute="breply" method="post" action="${action }"
-						class="updateform" id="ubtn${breply.breplyNo }">
-						<form:hidden path="boardNo" value="${boardDetail.boardNo }" />
-						<form:hidden path="breplyNo" value="${breply.breplyNo }" />
-						<form:hidden path="userId" value="${loginUser.userId }"
-							class="droptext" />
+			</tr>
+
+			<c:forEach items="${breplys }" var="breply">
+				<tr>
+					<td style="text-align: center"><c:out
+							value="${breply.breplyNo }" /></td>
+					<%-- <td><c:out value="${breply.boardNo }" /></td> --%>
+					<td>
+
+						<div id="hbtn${breply.breplyNo}">
+							<c:out value="${breply.breplyContent }" />
+						</div> <c:url value="/meeting/update" var="action" /> <form:form
+							modelAttribute="breply" method="post" action="${action }"
+							class="updateform" id="ubtn${breply.breplyNo }">
+							<form:hidden path="boardNo" value="${boardDetail.boardNo }" />
+							<form:hidden path="breplyNo" value="${breply.breplyNo }" />
+							<form:hidden path="userId" value="${loginUser.userId }"
+								class="droptext" />
 							<div class="col-lg-6">
+								<div class="input-group">
+									<form:input id="tbtn${breply.breplyNo}" type="text"
+										class="form-control" path="breplyContent"></form:input>
+									<span class="input-group-btn">
+										<button class="btn btn-default" type="submit"
+											name="breply_update">확인</button>
+									</span>
+								</div>
+								<!-- /input-group -->
+							</div>
+						</form:form>
+
+					</td>
+					<td style="text-align: center"><c:out
+							value="${breply.userId }" /></td>
+					<td style="text-align: center"><c:set
+							value="${breply.breplyUpdatedate }" var="breplyUpdatedate" /> <fmt:formatDate
+							value="${breplyUpdatedate }" type="date" dateStyle="short" />&nbsp;&nbsp;
+						<fmt:formatDate value="${breplyUpdatedate }" type="time"
+							pattern="hh:MM" /></td>
+					<c:if test="${breply.userId == loginUser.userId}">
+						<td style="border: solid 1px #FFF; word-break: break-all;"><button
+								class="btn btn-default" id="btn${breply.breplyNo}">
+								<p class="text-success">
+									<span class="glyphicon glyphicon-pencil"></span> 수정
+							</button> <c:url
+								value="/meeting/delete?breplyNo=${breply.breplyNo }&boardNo=${breply.boardNo }"
+								var="url"></c:url> <a href="${url}"><button
+									class="btn btn-default">
+									<p class="text-danger">
+										<span class="glyphicon glyphicon-trash"></span> 삭제
+								</button></a></td>
+					</c:if>
+				</tr>
+			</c:forEach>
+
+			<tr>
+				<td align="center"><img width="40" height="40"
+					src="<%=request.getContextPath()%>/upload/${loginUser.userImg}">
+					<%-- <span>${loginUser.userId }</span> --%></td>
+				<td colspan="3"><c:url value="/meeting/write" var="action"></c:url>
+					<form:form modelAttribute="breply" method="post"
+						action="${action }" id="writeform">
+
+						<form:hidden path="boardNo" value="${boardDetail.boardNo }" />
+						<form:hidden path="userId" value="${loginUser.userId }" />
+
+						<%-- <img width="40" height="40" src="<%=request.getContextPath()%>/upload/${loginUser.userImg}"><span>${loginUser.userId }</span>--%>
+
+						<div class="col-lg-6">
 							<div class="input-group">
-								<form:input id="tbtn${breply.breplyNo}" type="text"
-									class="form-control" path="breplyContent"></form:input>
+								<form:input path="breplyContent" type="text"
+									class="form-control" />
 								<span class="input-group-btn">
-									<button class="btn btn-default" type="submit"
-										name="breply_update">확인</button>
+									<button class="btn btn-default" name="breply_write"
+										type="submit">
+										<span class="glyphicon glyphicon-ok"></span> 작성
+									</button>
 								</span>
 							</div>
-							<!-- /input-group -->
 						</div>
-					</form:form>
 
-				</td>
-				<td style="text-align:center"><c:out value="${breply.userId }" /></td>
-				<td style="text-align:center">
-					<c:set value="${breply.breplyUpdatedate }" var="breplyUpdatedate"/>
-					<fmt:formatDate value="${breplyUpdatedate }" type="date" dateStyle="short"/>&nbsp;&nbsp;
-					<fmt:formatDate value="${breplyUpdatedate }" type="time" pattern="hh:MM"/>
-				</td>
-				<c:if test="${breply.userId == loginUser.userId}">
-				<td style="border: solid 1px #FFF; word-break: break-all;" ><button class="btn btn-default" id="btn${breply.breplyNo}" >
-				<p class="text-success"><span class="glyphicon glyphicon-pencil"></span> 수정</button>
-				<c:url value="/meeting/delete?breplyNo=${breply.breplyNo }&boardNo=${breply.boardNo }" var="url"></c:url> 
-				<a href="${url}"><button class="btn btn-default">
-				<p class="text-danger"><span class="glyphicon glyphicon-trash"></span> 삭제</button></a></td>
-				</c:if>
+					</form:form></td>
 			</tr>
-		</c:forEach>
+		</table>
 
-	<tr><td align="center"><img width="40" height="40"
-							src="<%=request.getContextPath()%>/upload/${loginUser.userImg}">
-						<%-- <span>${loginUser.userId }</span> --%></td>
-	<td colspan="3">
-	<c:url value="/meeting/write" var="action"></c:url>
-	<form:form modelAttribute="breply" method="post" action="${action }" id="writeform">
-	
-		<form:hidden path="boardNo" value="${boardDetail.boardNo }" />
-		<form:hidden path="userId" value="${loginUser.userId }" />
-		
-		<%-- <img width="40" height="40" src="<%=request.getContextPath()%>/upload/${loginUser.userImg}"><span>${loginUser.userId }</span>--%>						
-						
-		<div class="col-lg-6" >
-			<div class="input-group">
-				<form:input path="breplyContent" type="text" class="form-control" />
-				<span class="input-group-btn">
-					<button class="btn btn-default" name="breply_write" type="submit"><span class="glyphicon glyphicon-ok"></span> 작성</button>
-				</span>
-			</div>
-		</div>
+	</center>
+	<br>
+	<br>
 
-	</form:form>
-
-</td>
-</tr>
-	</table>
-
-</center>
-<br><br>
-	
 
 </body>
 </html>

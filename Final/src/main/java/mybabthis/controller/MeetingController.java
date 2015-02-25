@@ -44,6 +44,21 @@ public class MeetingController {
 		return "redirect:list?page=1";		
 
 	}
+	
+	
+	/**
+	 * 번개모임 게시판에 글 작성 확인하기(후)
+	 * @param board
+	 * @return
+	 */
+	@RequestMapping(value = "/confirmed", method = RequestMethod.POST)
+	public String writeNewBoard(@ModelAttribute("boardInfo") Board board) {	// 새로 입력한 게시글 정보
+		// 에러처리
+
+		boardService.write(board);		
+		return "redirect:list?page=1";		
+
+	}
 
 	
 
@@ -103,6 +118,8 @@ public class MeetingController {
 		return "meeting/meeting_write";
 	}
 	
+	
+	
 	/**
 	 * 번개모임 게시판 수정화면으로 이동
 	 * @param boardNo
@@ -117,6 +134,9 @@ public class MeetingController {
 		
 		return "/meeting/meeting_edit";
 	}
+	
+	
+	
 	
 	@RequestMapping(value="/write", params="breply_write", method=RequestMethod.POST)
 	public String write(@ModelAttribute("breply") Breply breply){
@@ -133,26 +153,48 @@ public class MeetingController {
 	 * @param board
 	 * @return
 	 */
+	/*
 	@RequestMapping(value="/edit", params="_event_edit", method=RequestMethod.POST)
 	public String editBoard(@ModelAttribute("editBoard") Board board){
 
 		boardService.updateBoard(board);
 		return "redirect:/meeting/list?page=1";
+	}*/
+	
+	
+	
+	/**
+	 * 번개모임 게시판 글 수정하기
+	 * @param board
+	 * @return
+	 */
+	@RequestMapping(value="/edited", method=RequestMethod.POST)
+	public String editBoard(@ModelAttribute("editBoard") Board board){
+
+		boardService.updateBoard(board);
+		return "redirect:/meeting/list?page=1";
 	}
+	
+	
 
 	/**
 	 * 번개모임 게시판 글 삭제하기
 	 * @param board
 	 * @return
 	 */
-	@RequestMapping(value="/edit", params="_event_delete", method=RequestMethod.POST)
-	public String deleteBoard(@ModelAttribute("editBoard") Board board){
+	@RequestMapping(value="/delete", params="boardNo", method=RequestMethod.GET)
+	public String deleteBoard(@ModelAttribute("editBoard") Board board, int boardNo){
 		
-		boardService.delete(board.getBoardNo());
-		logger.trace("번호: " +board.getBoardNo());
+		boardService.delete(boardNo);
+		logger.trace("번호: " +boardNo);
 		return "redirect:/meeting/list?page=1";
 	}
 	
+	/**
+	 * 번개모임 게시판 댓글 삭제하기
+	 * @param board
+	 * @return
+	 */
 	@RequestMapping(value="/delete",  method=RequestMethod.GET,  params={"breplyNo", "boardNo"})
 	public String delete(@RequestParam int breplyNo, int boardNo, Model model){
 		breplyService.deleteBreply(breplyNo);
