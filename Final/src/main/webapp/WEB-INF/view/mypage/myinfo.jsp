@@ -206,17 +206,18 @@ $("#pass2").blur(function(){
 				<td id="col1"><label>연락처</label></td>
 				<td><form:input path="userPhone" class="form-control" /></td>
 				<td>
-					<a href="<%=request.getContextPath()%>/favorite/create?resNo=${restaurant.resNo}&userId=${loginUser.userId}">
-					<button class="btn btn-default">
-						<span class="glyphicon glyphicon-file"></span><small> 자격증</small>
-					</button>
-					</a>
 				</td>
 			</tr>
 			<tr>
 				<td id="col1"><label>등급</label></td>
 				<td><form:input path="userGrade" class="form-control" readonly="true"/></td>
-				<td></td>
+				<td>
+					<a href=<%-- "<%=request.getContextPath()%>/favorite/create?resNo=${restaurant.resNo}&userId=${loginUser.userId}" --%>>
+					<button class="btn btn-default">
+						<span class="glyphicon glyphicon-file"></span><small> 자격증</small>
+					</button>
+					</a>
+				</td>
 			</tr>
 			
 			
