@@ -24,14 +24,15 @@
 	href="<%=request.getContextPath()%>/fonts/css/font-awesome.min.css" />
 
 
-<link rel="stylesheet" type="text/css"
-	href="<%=request.getContextPath()%>/css/menu_bubble.css" />
+<%-- <link rel="stylesheet" type="text/css"
+	href="<%=request.getContextPath()%>/css/menu_bubble.css" /> --%>
 
 <%-- 	<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/menu_elastic.css" /> --%>
 <%-- <link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/css/menu_topexpand.css" /> --%>
 <script src="<%=request.getContextPath()%>/js/snap.svg-min.js"></script>
 
 <!-- 부트스트랩 -->
+
 <link rel="stylesheet" type="text/css"
 	href="<%=request.getContextPath()%>/css/bootstrap.css" />
 <link rel="stylesheet" type="text/css"
@@ -182,11 +183,31 @@ $(document).ready(function(){
 					<c:if test="${!empty loginUser }">
 						<img width="40" height="40"
 							src="<%=request.getContextPath()%>/upload/${loginUser.userImg}">
-						<span>${loginUser.userId } <button>${loginUser.userGrade }</span>&nbsp&nbsp&nbsp&nbsp 
-						</button>
-						<c:url value="/logout" var="logout" />
+						<span>${loginUser.userId } 
 						
-						<a href="${logout}"><button class="btn btn-default">로그아웃</button></a>
+						
+						
+						<!-- ///////작업중/////// -->
+						
+						<c:if test="${loginUser.userGrade == '학사'}">
+						<button class="btn btn-link">
+							<p class="text-success">
+							<small>
+								<span class="glyphicon glyphicon-bookmark"></span><br>
+								${loginUser.userGrade }
+							</small>
+							</p>
+						</button>
+						</c:if>
+						
+						<!-- ///////작업중/////// -->
+						
+						
+						
+						
+						
+						<c:url value="/logout" var="logout" />
+						<a href="${logout}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class="btn btn-default">로그아웃</button></a>
 						<c:if test="${loginUser.userId != 'admin' }">
 						<c:url value="/mypage/myinfo" var="mypage" />
 						<a href="${mypage}"><button class="btn btn-default" id="userInfo">개인정보</button></a>

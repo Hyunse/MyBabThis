@@ -4340,8 +4340,8 @@ li.active
 	z-index: 2;
 	color: #ffffff;
 	cursor: default;
-	background-color: #428bca;
-	border-color: #428bca;
+	background-color: #FF4D4D;
+	border-color: #FF4D4D;
 }
 
 .pagination>.disabled>span, .pagination>.disabled>a, .pagination>.disabled>a:hover,
