@@ -150,7 +150,6 @@
 		</div>
 
 	</center>
-	<hr>
 	<table class="table" style="width: 100%">
 		<tr>
 			<th><c:out value="${breply.userId }" /></th>

@@ -121,7 +121,6 @@ pre {
 				
 		</div>
 	</center>
-	<hr>
 
 	<center>
 		<table class="table" style="width: 100%">

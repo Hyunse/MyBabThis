@@ -28,10 +28,8 @@
 	href="<%=request.getContextPath()%>/css/layout-simple.css" />
 
 <body>
-	<!-- <h2>NEW 맛집!</h2> -->
-
 	<div id="container" class="container">
-	<h3><strong><span class="glyphicon glyphicon-music"></span> NEW 맛집</strong></h3>
+	<h3 style="margin-left: 14px"><strong ><span class="glyphicon glyphicon-music"></span> NEW 맛집</strong></h3>
 		<section class="items-wrap">
 
 			<c:forEach items="${restaurants }" var="restaurant">
