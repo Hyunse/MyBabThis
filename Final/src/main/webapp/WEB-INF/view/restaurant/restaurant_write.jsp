@@ -104,11 +104,8 @@ $(document).ready(function() {
 					<td>&nbsp;&nbsp;<img id="dropimg"></img> <form:input
 							path="resImg" id="resImg" /><input type="button" value="upload"
 						id="upload"></td>
-				</tr>
-				<tr>
-					<td colspan="2" style="text-align: center"><br><button type="submit" name="proceed"class="btn btn-default">
-							<span class="glyphicon glyphicon-ok"></span> 입력</button></td>
 				</tr> --%>
+			
 				<tr>
 					<th style="text-align: center">이미지</th>
 					<td>&nbsp; <img id="dropimg"></img> 
@@ -125,6 +122,10 @@ $(document).ready(function() {
 							</div>
 						</div> 
 					</td>
+				</tr>
+					<tr>
+					<td colspan="2" style="text-align: center"><br><button type="submit" name="proceed"class="btn btn-default">
+							<span class="glyphicon glyphicon-ok"></span> 완료</button></td>
 				</tr>
 
 			</table>
