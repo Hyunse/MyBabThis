@@ -98,14 +98,14 @@
 					<td colspan="2" class="border-top-style"><strong>자유게시판</strong></td>
 				</tr>
 				<tr style="width: 100%">
-					<td class="border-top-style" rowspan="2">[${boardDetail.boardNo}]
+					<td class="border-top-style" rowspan="2" >[${boardDetail.boardNo}]
 						&nbsp;${boardDetail.boardTitle}</td>
-					<td class="border-top-style" align="right"><p
+					<td class="border-top-style" align="right" width="20%"><p
 							class="text-muted">
 							<c:set value="${boardDetail.boardRegdate}" var="boardRegdate" />
 							<fmt:formatDate value="${boardRegdate }" type="date"
-								dateStyle="short" />
-							&nbsp;&nbsp;
+								dateStyle="short" /><br>
+							
 							<fmt:formatDate value="${boardRegdate }" type="time"
 								dateStyle="short" />
 						</p></td>
