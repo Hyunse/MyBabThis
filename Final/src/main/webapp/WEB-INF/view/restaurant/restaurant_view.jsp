@@ -189,11 +189,10 @@
 		<h2>맛집정보</h2>
 	</div>
 	<table class="table">
-		<tr style="border-top-color: #000000">
-			<td rowspan="6" width="310px"><img
-				src="<%=request.getContextPath()%>/upload/${restaurant.resImg}"
-				onLoad="reSizes(this);" /></td>
-			<td colspan="3" align="right"><a
+
+		<tr >
+		<td rowspan="6" width="310px" class="border-top-style" ><img src="<%=request.getContextPath()%>/upload/${restaurant.resImg}" onLoad="reSizes(this);" /></td>
+			<td colspan="3" class="border-top-style" align="right" ><a
 				href="<%=request.getContextPath()%>/favorite/create?resNo=${restaurant.resNo}&userId=${loginUser.userId}">
 					<button id="favorite" class="btn btn-default">
 						<span class="glyphicon glyphicon-star"></span> <small>즐겨찾기</small>
