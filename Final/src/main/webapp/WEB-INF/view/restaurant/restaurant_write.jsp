@@ -10,7 +10,7 @@
 <script src="http://code.jquery.com/jquery-latest.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Text Input Effects</title>
-<meta name="description"
+<%-- <meta name="description"
 	content="Simple ideas for enhancing text input interactions" />
 <meta name="keywords"
 	content="input, text, effect, focus, transition, interaction, inspiration, web design" />
@@ -23,7 +23,7 @@
 <link rel="stylesheet" type="text/css"
 	href="<%=request.getContextPath()%>/css/demo_input.css" />
 <link rel="stylesheet" type="text/css"
-	href="<%=request.getContextPath()%>/css/component_input.css" />
+	href="<%=request.getContextPath()%>/css/component_input.css" /> --%>
 <link rel="stylesheet" type="text/css"
 	href="<%=request.getContextPath()%>/css/bootstrap.css" />
 <link rel="stylesheet" type="text/css"
