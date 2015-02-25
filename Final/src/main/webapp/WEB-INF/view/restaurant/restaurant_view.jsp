@@ -533,7 +533,7 @@ $("#submitMsgRr").click(function(){
 								</tr>
 							</c:forEach>
 						</table>
-						<table class="table" style="width: 80%; max-width: 80%" >
+						<table class="table" style="width: 80%; max-width: 100%" >
 							<tr>
 								<c:url value="/rreply/write" var="rreplyw" />
 								<form:form modelAttribute="rreply" method="post"
@@ -725,11 +725,7 @@ $("#submitMsgRr").click(function(){
 												value="${reviewUpdatedate }" type="date" dateStyle="short" />&nbsp;&nbsp;
 											<fmt:formatDate value="${reviewUpdatedate }" type="time"
 												dateStyle="short" />
-									</small>
-									
-									
-									
-									
+									</small></td>
 								</tr>
 							</c:forEach>
 						</table>

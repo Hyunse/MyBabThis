@@ -92,6 +92,8 @@
 								</p>
 							</button></a></td>
 				</tr>
+				
+					
 				<tr>
 					<td colspan="2" class="border-top-style"><strong>자유게시판</strong></td>
 				</tr>
@@ -132,9 +134,18 @@
 						<p class="text-success">
 							<span class="glyphicon glyphicon-pencil"></span> 수정
 						</p>
+						
 					</button></a>
-			</c:if>
-
+			
+			
+			<c:url value="/board/delete?boardNo=${boardDetail.boardNo}"
+				var="goDelete" />
+			<a href="${goDelete}"><button type="button" class="btn btn-default">
+					<p class="text-danger">
+						<span class="glyphicon glyphicon-trash"></span> 삭제
+					</p>
+				</button></a>
+</c:if>
 		</div>
 
 	</center>
