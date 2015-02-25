@@ -71,6 +71,7 @@
 	</select>
 	
 	<!-- 회원으로 취득라이센스 검색 -->
+	<!-- 이거 이상함. 두개넘겼는데 한개만 쓰지 왜. -->
 	<select id="selectLicensedUserById" parameterType="string" resultType="LicensedUser">
 	select * from licensed_user
 	where user_id=#{userId}	
