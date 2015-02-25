@@ -285,7 +285,7 @@
 				</nav>
 				<div class="content-wrap">
 					<section id="section-topline-1">
-						<table class="table" style="width: 100%">
+						<table class="table" style="width: 150%">
 							<tr>
 								<th width="60%">내용</th>
 								<th width="20%">작성자</th>
@@ -330,14 +330,9 @@
                            </td>
                            <td><small>
                            <c:set value="${rreply.rreplyUpdatedate }" var="rreplyUpdatedate" />
-                           <fmt:formatDate value="${rreplyUpdatedate }" type="date" dateStyle="short" />&nbsp;&nbsp; 
+                           <fmt:formatDate value="${rreplyUpdatedate }" type="date" dateStyle="short" /><br>
                            <fmt:formatDate value="${rreplyUpdatedate }" type="time" dateStyle="short" /></small></td>
 
-									<td><small><c:set
-												value="${rreply.rreplyUpdatedate }" var="rreplyUpdatedate" />
-											<fmt:formatDate value="${rreplyUpdatedate }" type="date"
-												dateStyle="short" />&nbsp;&nbsp; <fmt:formatDate
-												value="${rreplyUpdatedate }" type="time" pattern="hh:MM" /></small></td>
 
 									<c:if test="${rreply.userId == loginUser.userId}">
 										<td style="border: solid 1px #FFF; word-break: break-all;">
@@ -422,7 +417,6 @@
 
 						<%-- <c:url value="/rreply/write?resNo=${resNo }" var="url"></c:url> <a
                href="${url }"><button class="btn btn-default">댓글작성</button></a>  --%>
-<<<<<<< HEAD
 					</section>
 					<section id="section-topline-2">
 						<table class="table table-hover" style="width: 100%">
