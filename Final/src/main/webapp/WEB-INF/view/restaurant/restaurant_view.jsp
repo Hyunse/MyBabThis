@@ -121,6 +121,8 @@
 <script>
 	$(document).ready(function() {
 
+		$(".hide").hide();
+		
 		$(".updateform").hide();
 
 		$(".updateReply").click(function() {
@@ -171,6 +173,19 @@
 			$("#receiverRv").val(receiver);
 			
 		});	
+
+	/* 신고 모달 */
+	
+	$(".modalShingo").click(function(){
+		
+			var bid = $(this).attr("id");
+			var iid = "#i" + bid;
+			var replyno = $(iid).html();
+			
+			$("#warnNoY").val(replyno);
+			
+		});	
+
 		
 	$("#submitMsgRv").click(function(){
 	
@@ -232,7 +247,7 @@ $("#submitMsgRr").click(function(){
 	
 }) */
 
-$("#submtShingo").click(function(){
+$("#submitShingo").click(function(){
 	
 	 var sender = $('#senderM').val(), 
 	 	 writeType =  $('#writeTypeM').val(), 
@@ -273,7 +288,7 @@ $("#submtShingo").click(function(){
 }) */
 
 $("#submtShingoY").click(function(){
-	
+	alert("????????nnnn")
 	 var sender = $('#senderY').val(), 
 	 	 writeType =  $('#writeTypeY').val(), 
 	 	 warnNo =  $('#warnNoY').val(),
@@ -292,7 +307,7 @@ $("#submtShingoY").click(function(){
     	
     	alert(args);
     	
-    	$("#msgCloseM").click();
+    	$("#msgCloseY").click();
     	
       },
       error: function (error,args) {
@@ -367,7 +382,7 @@ $("#submtShingoY").click(function(){
 
 													<div class="modal-footer">
 
-														<button class="btn btn-default" id="submtShingo">
+														<button class="btn btn-default" id="submitShingo">
 															<span class="glyphicon glyphicon-send"></span> 전송
 														</button>
 														<button type="button" class="btn btn-default"
@@ -519,10 +534,16 @@ $("#submtShingoY").click(function(){
 									<!-- 다른사람댓글 -->
 									<c:if test="${rreply.userId != loginUser.userId}">
 									<td>
+									<!-- 매핑위한 div	 -->
+									<div id="is${rreply.rreplyNo}" class="hide">${rreply.rreplyNo}</div>
+										
+										
 										<div class="btn-group">
 											<button type="button" class="btn btn-link dropup-toggle"
 												data-toggle="dropdown">
+											
 												<div id="ib${rreply.rreplyNo}"><c:out value="${rreply.userId}" /></div>
+												
 											</button>
 											<ul class="dropdown-menu" role="menu">
 
@@ -537,8 +558,8 @@ $("#submtShingoY").click(function(){
 													</a>
 												</li>
 												<li>
-												<!-- 일단 여기 -->
-													<a class ="modalShingo" id="shingoY" data-toggle="modalY" data-target="#myModalShingoY">
+												
+													<a class ="modalShingo" id="s${rreply.rreplyNo}" data-toggle="modal" data-target="#myModalShingoY">
 														<p class="text-danger"><span class="glyphicon glyphicon-ban-circle"></span> 댓글신고</p>
 													</a>
 												</li>
@@ -564,7 +585,7 @@ $("#submtShingoY").click(function(){
 													<div class="modal-body">
 
 				<input type="hidden" id="writeTypeY" value="Y">
-				<input type="hidden" id="warnNoY" value="${rreply.rreplyNo}">
+				<input type="hidden" id="warnNoY">
 				<input type="hidden" id="senderY" value="${loginUser.userId}">
 				<span class="glyphicon glyphicon-ban-circle"></span><small>신고 사유를 적어주세요 &nbsp;&nbsp;</small>
 									<br>
@@ -590,7 +611,9 @@ $("#submtShingoY").click(function(){
 											</div>
 											<!-- /.modal-dialog -->
 										</div> <!-- /.modal -->
-										<!-- modal 시작 -->
+										
+										
+			<!--쪽지 modal 시작 -->
 										<div class="modal fade" id="myModalReply" tabindex="-1"
 											role="dialog" aria-labelledby="myModalLabel"
 											aria-hidden="true">

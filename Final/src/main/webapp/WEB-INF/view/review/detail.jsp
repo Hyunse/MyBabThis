@@ -44,14 +44,23 @@
 			
 			
 				<tr>
-					<td colspan="2" class="border-top-style" align="right"><c:url
+					<td colspan="2" class="border-top-style" align="right">
+					
+					<c:url
 							value="/msg/sendReport?writeType=F&warnNo=${review.reviewNo}"
-							var="goReport" /> <a href="${goReport}"><button
+							var="goReport" /> <a href="${goReport}">
+							
+							
+							<button
 								type="button" class="btn btn-default">
 								<p class="text-danger">
 									<span class="glyphicon glyphicon-ban-circle"></span> 신고
 								</p>
-							</button></a></td>
+							</button></a>
+							
+							
+					
+				</td>
 				</tr>
 				<tr>
 					<td colspan="2" class="border-top-style"><strong>맛집 리뷰</strong></td>
