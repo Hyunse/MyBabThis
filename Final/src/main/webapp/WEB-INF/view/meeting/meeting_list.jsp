@@ -98,13 +98,12 @@ alert(error)
 					<td onclick="location.href='${url}'" style="cursor: pointer;">
 						<c:out value="${boardList.boardNo}" />
 					</td>
-					<td onclick="location.href='${url}'"
-						style="cursor: pointer; text-align: left;"><c:if
-							test="${fn:length(boardList.boardTitle) > 20 }">
-							<c:out value="${fn:substring(boardList.boardTitle,0,15)}" />...
-			</c:if> <c:if test="${fn:length(boardList.boardTitle) <= 20 }">
-				${boardList.boardTitle}
-			</c:if></td>
+					
+					<td onclick="location.href='${url}'" style="cursor: pointer; text-align: left;"> 
+						<c:out value="${boardList.boardTitle}" />
+					
+					
+			</td>
 					<c:if test="${boardList.userId != loginUser.userId}">
 					<td>
 									<div class="btn-group">
