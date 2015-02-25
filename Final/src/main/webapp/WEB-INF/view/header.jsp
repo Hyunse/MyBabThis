@@ -179,32 +179,40 @@ $(document).ready(function(){
 
 				</ul>
 				<div class="navbar-form navbar-right" role="search">
-					&nbsp&nbsp
 					<c:if test="${!empty loginUser }">
-						<img width="40" height="40"
-							src="<%=request.getContextPath()%>/upload/${loginUser.userImg}">
-						<span>${loginUser.userId } 
-						
-						
-						
+					<span>
+						<img width="40" height="40"	src="<%=request.getContextPath()%>/upload/${loginUser.userImg}"/>
+					
 						<!-- ///////작업중/////// -->
 						
 						<c:if test="${loginUser.userGrade == '학사'}">
-						<button class="btn btn-link">
-							<p class="text-success">
-							<small>
-								<span class="glyphicon glyphicon-bookmark"></span><br>
-								${loginUser.userGrade }
+						<span style="color: #228b22">
+							<small >
+								<span class="glyphicon glyphicon-leaf" >
+								</span> ${loginUser.userGrade }
 							</small>
-							</p>
-						</button>
+						</span>
+						</c:if>
+						<c:if test="${loginUser.userGrade == '석사'}">
+						<b style="color: #0000cd;">
+							<small >
+								<span class="glyphicon glyphicon-boo" >
+								</span> ${loginUser.userGrade }
+							</small>
+						</b>
+						</c:if>
+						<c:if test="${loginUser.userGrade == '박사'}">
+						<b style="color: #dc143c;">
+							<small >
+								<span class="glyphicon glyphicon-flag" >
+								</span> ${loginUser.userGrade }
+							</small>
+						</b>
 						</c:if>
 						
+						${loginUser.userId }
+					</span>
 						<!-- ///////작업중/////// -->
-						
-						
-						
-						
 						
 						<c:url value="/logout" var="logout" />
 						<a href="${logout}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class="btn btn-default">로그아웃</button></a>
