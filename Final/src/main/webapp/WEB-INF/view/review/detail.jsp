@@ -80,7 +80,7 @@
 
 				</tr>
 				<tr>
-					<td class="border-top-style" colspan="3">${review.reviewContent }</td>
+					<td class="border-top-style" colspan="3">${review.reviewContent }<br></td>
 				</tr>
 
 			<tr>

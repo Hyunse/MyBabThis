@@ -70,6 +70,10 @@ $(document).ready(function() {
 					<th style="text-align: center">작성자</th>
 					<td><form:input path="userId" readonly="true" /></td>
 				</tr>--%>
+				<tr>
+					<th style="text-align: center">제목</th>
+					<td><form:input path="reviewTitle" size="100%"/></td>
+				</tr>
 				<tr style="width:100%">
 					<th style="text-align: center; width:10%" >맛평가</th>
 					<td style="width:90%">&nbsp;&nbsp;&nbsp;
@@ -95,7 +99,7 @@ $(document).ready(function() {
 				</tr> --%>
 				<tr>
 					<th style="text-align: center">내용</th>
-					<td ><textarea name="reviewContent" id="editor" rows="20" cols="150" style=" width:100%; "></textarea>
+					<td ><textarea name="reviewContent" id="editor" rows="20" cols="150" style=" width:100%; min-width: 610px "></textarea>
 					</td>
 				</tr>
 				<tr>
@@ -122,7 +126,7 @@ $(document).ready(function() {
 							</div>
 						</div>
 				</tr>
-
+				<tr>
 					<td colspan="2" align="center"><br>
 						<button type="button" id="savebutton" class="btn btn-default" name="write">
 							<span class="glyphicon glyphicon-ok"></span> 작성

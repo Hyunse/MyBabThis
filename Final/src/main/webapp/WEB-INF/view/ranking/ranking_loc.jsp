@@ -60,10 +60,26 @@
 	</td>
 	<td>지역 : ${restaurant.locName}</td><td>
 	<c:url value="/restaurant/edit?resNo=${restaurant.resNo}" var="url" /> 
-	<a href="${url }"><button class="btn btn-default">편집</button></a> 
+	<a href="${url }">
+	<button class="btn btn-default">
+		<p class="text-success">
+			<span class="glyphicon glyphicon-pencil"></span>&nbsp;&nbsp;편집
+		</p>
+	</button>
+	</a> 
 	<c:url value="/restaurant/delete?resNo=${restaurant.resNo}&locName=${restaurant.locName }" var="url" />
-	<a href="${url }"><button class="btn btn-default">삭제</button></a>
-	<a href="<%=request.getContextPath()%>/favorite/create?resNo=${restaurant.resNo}&userId=${loginUser.userId}"><button class="btn btn-default">즐겨찾기</button></a></td>
+	<a href="${url }">
+	<button class="btn btn-default">
+		<p class="text-danger">
+			<span class="glyphicon glyphicon-trash"></span>&nbsp;&nbsp;삭제
+		</p>
+	</button>
+	</a>
+	<a href="<%=request.getContextPath()%>/favorite/create?resNo=${restaurant.resNo}&userId=${loginUser.userId}">
+	<button class="btn btn-default">
+			<span class="glyphicon glyphicon-star"></span>&nbsp;즐겨찾기
+	</button>
+	</a></td>
 	</tr>
 	<tr><td>가게이름 : ${restaurant.resName}</td><td>분류 : ${restaurant.resKind}</td></tr>
 	<tr><td>전화번호 : ${restaurant.resNumber}</td><td>평점 : ${restaurant.resScore}</td></tr>

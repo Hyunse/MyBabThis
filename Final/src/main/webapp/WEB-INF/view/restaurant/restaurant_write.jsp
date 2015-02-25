@@ -43,95 +43,72 @@ $(document).ready(function() {
 </script>
 
 <body>
-	<jsp:include page="/WEB-INF/view/header.jsp" />
+<jsp:include page="/WEB-INF/view/header.jsp" />
 	<!-- <section class="content" style="text-align: center;"> -->
-	<c:url value="/restaurant/writed" var="action"></c:url>
-	<form:form modelAttribute="restaurant" method="post" action="${action}">
+		<c:url value="/restaurant/writed" var="action"></c:url>
+		<form:form modelAttribute="restaurant" method="post"
+			action="${action}">
 
-		<form:hidden path="userId" value="${loginUser.userId }" />
-		<div class="table-responsive">
-			<table class="table">
-				<tr style="width: 100%">
-					<th width=20% style="text-align: center">가게이름</th>
-					<td width=80%>&nbsp;&nbsp;&nbsp;<form:input path="resName"
-							id="resName" size="30%" /></td>
-				</tr>
-				<tr>
-					<th style="text-align: center">전화번호</th>
-					<td>&nbsp;&nbsp;&nbsp;<form:input path="resNumber"
-							id="resNumber" size="30%" /></td>
-				</tr>
-				<tr>
-					<th style="text-align: center">주소</th>
-					<td>&nbsp;&nbsp;&nbsp;<form:input path="resLoc" id="resLoc"
-							size="40%" /></td>
-				</tr>
-				<tr>
-					<th style="text-align: center">내용</th>
-					<td><form:textarea path="resContent" id="resContent"
-							cols="100%" rows="12%" /></td>
-				</tr>
-
-
-				<tr>
-					<th style="text-align: center">지역</th>
-					<td>&nbsp;&nbsp;&nbsp;<form:select path="locName">
-							<form:option value="강남">강남</form:option>
-							<form:option value="건대">건대</form:option>
-							<form:option value="송파">송파</form:option>
-							<form:option value="대학로">대학로</form:option>
-							<form:option value="신림">신림</form:option>
-							<form:option value="홍대">홍대</form:option>
-							<form:option value="종로">종로</form:option>
-							<form:option value="영등포">영등포</form:option>
-						</form:select></td>
-				</tr>
-				<!-- 이런식으로 리스트 불러올수있음 -->
-				<%-- <form:option items="${types} }" itemLabel="name" itemValue="id"/> --%>
-				<tr>
-					<th style="text-align: center">맛집장르</th>
-					<td>&nbsp;&nbsp;&nbsp;<form:select path="resKind">
-							<form:option value="한식">한식</form:option>
-							<form:option value="중식">중식</form:option>
-							<form:option value="양식">양식</form:option>
-							<form:option value="일식">일식</form:option>
-							<form:option value="분식">분식</form:option>
-							<form:option value="기타">기타</form:option>
-						</form:select></td>
-				</tr>
-				<%-- <tr>
-					<th>이미지</th>
-					<td>&nbsp;&nbsp;<img id="dropimg"></img> <form:input
-							path="resImg" id="resImg" /><input type="button" value="upload"
-						id="upload"></td>
-				</tr> --%>
-			
-				<tr>
-					<th style="text-align: center">이미지</th>
-					<td>&nbsp; <img id="dropimg"></img> 
-						<div class="col-lg-6">
-							<div class="input-group" style="width: 100%">
-								<form:input path="resImg" id="resImg"
-									value="${restaurant.resImg}" type="text" class="form-control" />
-								<span class="input-group-btn">
-									
-									<button type="button" class="btn btn-default" id="upload" >
-										<span class="glyphicon glyphicon-cloud-upload"></span> 업로드
-									
-								</button></span>
-							</div>
-						</div> 
-					</td>
-				</tr>
+			<form:hidden path="userId" value="${loginUser.userId }"/>
+			<div class="table-responsive">
+				<table class="table" >
+					<tr style="width: 100%" >
+						<th width=20% style="text-align: center">가게이름</th>
+						<td width=80%>&nbsp;&nbsp;&nbsp;<form:input path="resName" id="resName" size="30%"/></td>
+					</tr>
 					<tr>
-					<td colspan="2" style="text-align: center"><br><button type="submit" name="proceed"class="btn btn-default">
-							<span class="glyphicon glyphicon-ok"></span> 완료</button></td>
-				</tr>
+						<th style="text-align: center">전화번호</th>
+						<td>&nbsp;&nbsp;&nbsp;<form:input path="resNumber" id="resNumber" size="30%"/></td>
+					</tr>
+					<tr>
+						<th style="text-align: center">주소</th>
+						<td>&nbsp;&nbsp;&nbsp;<form:input path="resLoc" id="resLoc" size="40%"/></td>
+					</tr>
+					<tr>
+						<th style="text-align: center">내용</th>
+						<td><form:textarea path="resContent" id="resContent" cols="100%" rows="12%" /></td>
+					</tr>
 
-			</table>
-		</div>
-	</form:form>
-	<br><br>
+
+					<tr>
+						<th style="text-align: center">지역</th>
+						<td>&nbsp;&nbsp;&nbsp;<form:select path="locName">
+								<form:option value="강남">강남</form:option>
+								<form:option value="건대">건대</form:option>
+								<form:option value="송파">송파</form:option>
+								<form:option value="대학로">대학로</form:option>
+								<form:option value="신림">신림</form:option>
+								<form:option value="홍대">홍대</form:option>
+								<form:option value="종로">종로</form:option>
+								<form:option value="영등포">영등포</form:option>
+							</form:select></td>
+					</tr>
+					<!-- 이런식으로 리스트 불러올수있음 -->
+					<%-- <form:option items="${types} }" itemLabel="name" itemValue="id"/> --%>
+					<tr>
+						<th style="text-align: center">맛집장르</th>
+						<td>&nbsp;&nbsp;&nbsp;<form:select path="resKind">
+								<form:option value="한식">한식</form:option>
+								<form:option value="중식">중식</form:option>
+								<form:option value="양식">양식</form:option>
+								<form:option value="일식">일식</form:option>
+								<form:option value="분식">분식</form:option>
+								<form:option value="기타">기타</form:option>
+							</form:select></td>
+					</tr>
+					<tr>
+						<th>이미지</th>
+						<td>&nbsp;&nbsp;<img id="dropimg"></img> <form:input path="resImg"
+								id="resImg" /><input type="button" value="upload" id="upload"></td>
+					</tr>
+					<tr>
+						<td colspan="2"><button type="submit" name="proceed" class="btn btn-default"> 
+	<span class="glyphicon glyphicon-ok"></span> 입력</button></td>
+					</tr>
+
+				</table>
+			</div>
+		</form:form>
 	<!-- </section> -->
 
 
