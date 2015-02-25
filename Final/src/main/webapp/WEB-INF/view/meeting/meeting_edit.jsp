@@ -55,13 +55,14 @@ $(function(){
 							<strong>번개모임 글수정</strong>
 						</h3></td>
 				</tr>
-				<tr style="width: 100%">
+				<%-- <tr style="width: 100%">
 					<th width=10% style="text-align: center">번호</th>
 					<td width=90%><c:out value="${editBoard.boardNo}" ></c:out></td>
-					<%-- 	<p class="text-muted">번개모임 <form:hidden path="boardType" /> --%>
-				<tr>
-					<th style="text-align: center">제목</th>
-					<td><form:input path="boardTitle"  size="115%" /></td>
+						<p class="text-muted">번개모임 <form:hidden path="boardType" />
+				<tr> --%>
+				<tr style="width: 100%">
+					<th width=10% style="text-align: center">제목</th>
+					<td width=90%><form:input path="boardTitle"  size="85%" /></td>
 				</tr>
 				<%-- <tr><th style="text-align:center">작성자</th><td>&nbsp;&nbsp;<form:input path="userId"/></td></tr> --%>
 				<tr>

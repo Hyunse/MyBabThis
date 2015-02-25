@@ -40,11 +40,11 @@ $(function(){
 		})
 	})
 </script>
-<jsp:include page="/WEB-INF/view/header.jsp" />
-<body>
 
+<body>
+	<jsp:include page="/WEB-INF/view/header.jsp" />
 	<c:url value="/board/confirm" var="write"></c:url>
-	<form:form modelAttribute="boardInfo" method="post" action="${write}">
+	<form:form modelAttribute="boardInfo" method="post" id="frm" action="${write}">
 		<form:hidden path="boardType" value="F" />
 		<form:hidden path="userId" value="${loginUser.userId }" />
 		<div class="table-responsive">
