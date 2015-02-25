@@ -375,17 +375,17 @@ $("#submitMsgRr").click(function(){
 											<ul class="dropdown-menu" role="menu">
 												<li>
 													<a href="/Final/friend/create?userId=${loginUser.userId}&friendId=${rreply.userId}">
-														<span class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;친구추가
+														<p class="text-default"><span class="glyphicon glyphicon-user"></span> 친구추가</p>
 													</a>
 												</li>
 												<li>
 													<a id="sendMsg" data-toggle="modal" data-target="#myModalReply">
-														<p class="text-info"><span class="glyphicon glyphicon-send"></span>&nbsp;&nbsp;쪽지보내기</p>
+														<p class="text-info"><span class="glyphicon glyphicon-send"></span> 쪽지보내기</p>
 													</a>
 												</li>
 												<li>
 													<a href="/msg/sendReport?writeType=Y&warnNo=${rreply.rreplyNo}">
-														<p class="text-danger"><span class="glyphicon glyphicon-ban-circle"></span>&nbsp;&nbsp;댓글신고</p>
+														<p class="text-danger"><span class="glyphicon glyphicon-ban-circle"></span> 댓글신고</p>
 													</a>
 												</li>
 											</ul>
