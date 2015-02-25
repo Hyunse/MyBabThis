@@ -9,6 +9,41 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>리뷰보기</title>
 </head>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<script>
+$(document).ready(function(){
+	
+
+$("#submitShingo").click(function(){
+	
+	 var sender = $('#sender').val(), 
+	 	 writeType =  $('#writeType').val(), 
+	 	 warnNo =  $('#warnNo').val(),
+	 	 content = $('#content').val();
+	var data ={ sender : sender , writeType : writeType, warnNo : warnNo, content : content};
+	
+/* 	alert("sender : " +  sender+ ", writeType :  " + writeType +" , warnNo : " +  warnNo +" , content : " +  content)
+ */	
+    $.ajax({
+    type: "POST",
+    url: "<%=request.getContextPath()%>/msg/sendedReport",
+    data: data,
+    contentType:"application/x-www-form-urlencoded; charset=utf-8",
+    
+    success: function(args){
+    	
+    	alert(args);
+    	
+    	$("#msgClose").click();
+    	
+      },
+      error: function (error,args) {
+  		alert(error)
+	}
+    });
+})
+})
+</script>
 <body>
 	<jsp:include page="/WEB-INF/view/header.jsp" />
 	<div class="table-responsive">
@@ -46,17 +81,57 @@
 				<tr>
 					<td colspan="2" class="border-top-style" align="right">
 					
-					<c:url
+					<%-- <c:url
 							value="/msg/sendReport?writeType=F&warnNo=${review.reviewNo}"
-							var="goReport" /> <a href="${goReport}">
+							var="goReport" /> <a href="${goReport}"> --%>
 							
 							
-							<button
-								type="button" class="btn btn-default">
-								<p class="text-danger">
-									<span class="glyphicon glyphicon-ban-circle"></span> 신고
-								</p>
-							</button></a>
+						<button class="btn btn-default" id="shingo" data-toggle="modal" data-target="#myModalShingo">
+			<p class="text-danger"><span class="glyphicon glyphicon-ban-circle"></span><small>신고</small></p></button>
+			
+			<!-- modal 시작 -->
+										<div class="modal fade" id="myModalShingo" tabindex="-1"
+											role="dialog" aria-labelledby="myModalLabel"
+											aria-hidden="true">
+											<div class="modal-dialog">
+												<div class="modal-content">
+													<div class="modal-header">
+														<button type="button" class="close" data-dismiss="modal"
+															aria-hidden="true">×</button>
+
+														<h4 class="modal-title">신고하기</h4>
+
+													</div>
+
+													<div class="modal-body">
+	
+				<input type="hidden" id="writeType" value="F">
+				<input type="hidden" id="warnNo" value="${review.reviewNo}">
+				<input type="hidden" id="sender" value="${loginUser.userId}">
+				<span class="glyphicon glyphicon-ban-circle"></span><small>신고 사유를 적어주세요 &nbsp;&nbsp;</small>
+									<br>
+									<br>
+				<textarea id="content" class="form-control" rows="5"></textarea>
+
+													</div>
+
+													<div class="modal-footer">
+
+														<button class="btn btn-default" id="submitShingo">
+															<span class="glyphicon glyphicon-send"></span> 전송
+														</button>
+														<button type="button" class="btn btn-default"
+															data-dismiss="modal" id ="msgClose">
+															<p class="text-danger">
+																<span class="glyphicon glyphicon-remove"></span> 취소
+															</p>
+														</button>
+													</div>
+												</div>
+												<!-- /.modal-content -->
+											</div>
+											<!-- /.modal-dialog -->
+										</div> <!-- /.modal -->
 							
 							
 					
