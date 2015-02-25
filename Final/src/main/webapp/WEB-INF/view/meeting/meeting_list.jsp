@@ -105,20 +105,21 @@ alert(error)
 			</c:if> <c:if test="${fn:length(boardList.boardTitle) <= 20 }">
 				${boardList.boardTitle}
 			</c:if></td>
+					<c:if test="${boardList.userId != loginUser.userId}">
 					<td>
-						<div class="btn-group">
-						
-							<button type="button" class="btn btn-default dropup-toggle" data-toggle="dropdown">
-								<div id="ub${boardList.boardNo}"><c:out value="${boardList.userId}" /></div>
-							</button>
-							
-							<ul class="dropdown-menu" role="menu">
-								<li><a href="/Final/friend/create?userId=${loginUser.userId}&friendId=${boardList.userId}">친구추가</a></li>
-								<li><a class="modal1" id="b${boardList.boardNo}" data-toggle="modal" data-target="#myModal">
-								<span class="glyphicon glyphicon-send"></span> 쪽지보내기</a></li>
-							</ul>
-							
-						</div>
+									<div class="btn-group">
+											<button type="button" class="btn btn-link dropup-toggle"
+												data-toggle="dropdown">
+												<div id="ub${boardList.boardNo }"><c:out value="${boardList.userId}" /></div>
+											</button>
+											<ul class="dropdown-menu" role="menu">
+												<li><a
+													href="/Final/friend/create?userId=${loginUser.userId}&friendId=${boardList.userId}">친구추가</a></li>
+												<li><a class="modal1" data-toggle="modal" id="b${boardList.boardNo}"
+													data-target="#myModal">쪽지보내기</a></li>
+											</ul>
+										</div> 	
+						<!-- modal -->
 						<div class="modal fade" id="myModal" tabindex="-1"
 											role="dialog" aria-labelledby="myModalLabel"
 											aria-hidden="true">
@@ -160,10 +161,39 @@ alert(error)
 												<!-- /.modal-content -->
 											</div>
 											<!-- /.modal-dialog -->
-										</div> <!-- /.modal -->
-
-
+										</div> <!-- /.modal -->														
 					</td>
+					</c:if>
+					<c:if test="${boardList.userId == loginUser.userId}">
+					<td>
+					<button type="button" class="btn btn-link" disabled="disabled">${boardList.userId}</button>
+					</td>
+					</c:if>
+					
+					
+					
+					
+						<%-- <div class="btn-group">
+						
+							<button type="button" class="btn btn-default dropup-toggle" data-toggle="dropdown">
+								<div id="ub${boardList.boardNo}"><c:out value="${boardList.userId}" /></div>
+							</button>
+							
+							<ul class="dropdown-menu" role="menu">
+								<li><a href="/Final/friend/create?userId=${loginUser.userId}&friendId=${boardList.userId}">친구추가</a></li>
+								<li><a class="modal1" id="b${boardList.boardNo}" data-toggle="modal" data-target="#myModal">
+								<span class="glyphicon glyphicon-send"></span> 쪽지보내기</a></li>
+							</ul>
+							
+						</div> --%>
+						
+						
+						
+						
+						
+
+
+
 					<td onclick="location.href='${url}'" style="cursor: pointer;">
 						<c:set value="${boardList.boardRegdate }" var="boardRegdate" /> <fmt:formatDate
 							value="${boardRegdate }" type="date" dateStyle="short" />&nbsp;&nbsp;
