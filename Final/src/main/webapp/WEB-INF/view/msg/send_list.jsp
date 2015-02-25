@@ -24,7 +24,7 @@
 				<td style="text-align: left;"><c:out value="${msg.msgContent}" /></td>
 				<td><c:set value="${msg.writeDate}" var="writeDate" /> <fmt:formatDate
 						value="${writeDate }" type="date" dateStyle="short" />&nbsp;&nbsp;
-					<fmt:formatDate value="${writeDate }" type="time" pattern="hh:MM" />
+					<fmt:formatDate value="${writeDate }" type="time" dateStyle="short" />
 				</td>
 			</tr>
 

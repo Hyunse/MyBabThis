@@ -62,6 +62,8 @@ $(document).ready(function() {
 	<form:form modelAttribute="review" id="frm" method="post" action="${action }">
 		<div class="table-responsive">
 			<table class="table">
+			<form:hidden path="reviewNo" />
+			<form:hidden path="userId" />
 				<%-- <tr style="width: 100%">
 					<th width="10%" style="text-align: center">맛집번호</th>
 					<td><form:input path="resNo" readonly="true" /></td>
@@ -104,12 +106,12 @@ $(document).ready(function() {
 				</tr>
 				<tr>
 				
-				<tr>
+				<%-- <tr>
 					<th style="text-align: center">이미지</th>
 					<td>
-						<%-- <img id="dropimg"></img> <form:input path="reviewImg"
+						<img id="dropimg"></img> <form:input path="reviewImg"
 							id="reviewImg" /> <input type="button" value="upload"
-						id="upload"></td> --%>
+						id="upload"></td>
 
 						<div class="col-lg-6">
 							<div class="input-group" style="width: 50%">
@@ -125,7 +127,7 @@ $(document).ready(function() {
 								</span>
 							</div>
 						</div>
-				</tr>
+				</tr> --%>
 				<tr>
 					<td colspan="2" align="center"><br>
 						<button type="button" id="savebutton" class="btn btn-default" name="write">
