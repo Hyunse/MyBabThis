@@ -7,11 +7,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
 <link rel="stylesheet" type="text/css"
 	href="<%=request.getContextPath()%>/css/bootstrap.css" />
 <link rel="stylesheet" type="text/css"
 	href="<%=request.getContextPath()%>/css/bootstrap-theme.css" />
 <script src="<%=request.getContextPath()%>/js/bootstrap.js"></script>
+
 <style type="text/css">
 table{
 align: center;
@@ -20,6 +22,52 @@ width:
 }
 </style>
 </head>
+
+<script>
+$(document).ready(function() {
+	
+	
+	$(".send").click(function(){
+		var bid = $(this).attr("id");
+		alert(bid);
+		var uid = "#u" + bid;
+		alert("uid :" +uid)
+		var receiver = $(uid).html();
+		alert("리시버 : " + receiver);
+		$("#dropId").html(receiver);	
+
+		$("#receiver").val(receiver);
+	})
+
+	
+	$("#submitMsg").click(function(){
+
+ var sender = $('#sender').val(), 
+ 	 receiver =  $('#receiver').val(), 
+ 	 content =  $('#msgContent').val();
+ alert("sender : " + sender + " re " + receiver + " content " + content)
+var data ={ sender : sender , receiver : receiver, content : content}
+
+$.ajax({
+type: "POST",
+url: "<%=request.getContextPath()%>/msg/sended",
+data: data,
+contentType:"application/x-www-form-urlencoded; charset=utf-8",
+
+success: function(args){
+	
+	alert(args);
+	
+	$("#msgClose").click();
+  },
+error: function (error,args) {
+	alert(error)
+}
+});
+})
+
+})
+</script>
 <body>
 <jsp:include page="/WEB-INF/view/header.jsp" />
 <jsp:include page="/WEB-INF/view/mypage/mypage_list.jsp" />
@@ -59,7 +107,7 @@ width:
 			<tr onclick="location.href='${url}'" style="cursor: pointer;"> --%>
 			<tr>
 				<td><c:out value="<%=i%>" /></td>
-				<td><c:out value="${user.userId}" /></td>
+				<td><div id="ub<%=i%>"><c:out value="${user.userId}" /></div></td>
 				<td><c:out value="${user.userName}" /></td>
 				<td><c:out value="${user.userGrade}" /></td>
 				<td>
@@ -68,12 +116,9 @@ width:
 				<fmt:formatDate value="${userRegdate }" type="time" pattern="hh:MM"/>
 				</td>
 				<td>
-				<c:url value="/Final/msg/send?receiver=${user.userId}" var="sendMsg" />
-					<a href="${sendMsg }">
-						<button type="button" class="btn btn-default" >
+						<button type="button" class="btn btn-default send" id="b<%=i%>" data-toggle="modal" data-target="#myModal" >
 							<p class="text-info"><span class="glyphicon glyphicon-send"></span>&nbsp;&nbsp;쪽지</p>
 						</button>
-					</a>
 				<c:url value="/friend/delete?userId=${loginUser.userId}&friendId=${user.userId}" var="goDelete" />
 					<a href="${goDelete}">
 						<button type="button" class="btn btn-default" >
@@ -86,6 +131,45 @@ width:
 			<%
 				i++;
 			%>
+			
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+				<div class="modal-dialog">
+								<div class="modal-content">
+									<div class="modal-header">
+										<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+											<h4 class="modal-title">쪽지보내기</h4>
+
+									</div>
+
+									<div class="modal-body">
+
+									<input type="hidden" id="sender" value="${loginUser.userId}"> 
+									<input type="hidden" id="receiver">
+									<small>받는 사람 &nbsp;&nbsp;</small>
+									<div id="dropId"></div>
+															<br>
+															<br>
+														<textarea id="msgContent" class="form-control" rows="5"></textarea>
+
+													</div>
+
+													<div class="modal-footer">
+
+														<button class="btn btn-default" id="submitMsg">
+															<span class="glyphicon glyphicon-send"></span> 전송
+														</button>
+														<button type="button" class="btn btn-default"
+															data-dismiss="modal" id ="msgClose">
+															<p class="text-danger">
+																<span class="glyphicon glyphicon-remove"></span> 취소
+															</p>
+														</button>
+													</div>
+												</div>
+												<!-- /.modal-content -->
+											</div>
+											<!-- /.modal-dialog -->
+										</div> <!-- /.modal -->
 		</c:forEach>
 	</table>
 </body>

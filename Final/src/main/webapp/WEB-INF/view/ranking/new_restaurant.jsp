@@ -18,38 +18,43 @@
 <link rel="stylesheet" type="text/css"
 	href="<%=request.getContextPath()%>/css/component_newres.css" />
 	 --%>
-	<%-- 
+<%-- 
 <link rel="stylesheet" type="text/css"
 	href="<%=request.getContextPath()%>/css/normalize_nr.css" />
 <link rel="stylesheet" type="text/css"
 	href="<%=request.getContextPath()%>/css/demo_nr.css" /> --%>
-	
+
 <link rel="stylesheet" type="text/css"
 	href="<%=request.getContextPath()%>/css/layout-simple.css" />
 
 <body>
 	<!-- <h2>NEW 맛집!</h2> -->
-	
+
 	<div id="container" class="container">
-			
-			<section class="items-wrap">
-			
-		<c:forEach items="${restaurants }" var="restaurant">
-		<c:url value="/restaurant/view?resNo=${restaurant.resNo}" var="url" />
-			
-				<a href="<%=request.getContextPath() %>/restaurant/view?resNo=${restaurant.resNo}" class="item" style="width: 300px">
-					<img class="item__image" src="<%=request.getContextPath()%>/upload/${restaurant.resImg }"  />
-					<h2 class="item__title" >${restaurant.locName } ${restaurant.resName }</h2>
-					<h3 class="item_new"><span class="label label-danger">New</span></h3>
+	<h3><strong><span class="glyphicon glyphicon-music"></span> NEW 맛집</strong></h3>
+		<section class="items-wrap">
+
+			<c:forEach items="${restaurants }" var="restaurant">
+				<c:url value="/restaurant/view?resNo=${restaurant.resNo}" var="url" />
+
+				<a
+					href="<%=request.getContextPath() %>/restaurant/view?resNo=${restaurant.resNo}"
+					class="item" style="width: 300px"> <img class="item__image"
+					src="<%=request.getContextPath()%>/upload/${restaurant.resImg }" />
+					<h2 class="item__title">${restaurant.locName }
+						${restaurant.resName }</h2>
+					<h3 class="item_new">
+						<span class="label label-danger">New</span>
+					</h3>
 				</a>
-				
-				</c:forEach>
-				
-			</section>
-			
-		</div>
-		
-		<%-- 
+
+			</c:forEach>
+
+		</section>
+
+	</div>
+
+	<%-- 
 		<table align ="center">
 		<tr>
 		<c:forEach items="${restaurants }" var="restaurant">
@@ -83,7 +88,7 @@
 		</table>
 		
 		 --%>
-<!-- <section class="demo-3">
+	<!-- <section class="demo-3">
 				<h2>Frame</h2>
 				<div class="grid">
 					<div class="box">

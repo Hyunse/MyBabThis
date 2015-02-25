@@ -7,18 +7,20 @@
 	<insert id="createReview" parameterType="Review">
 		insert into review 
 		(review_score, 
+		review_title,
 		review_content, 
 		review_regdate, 
 		review_updatedate, 
 		res_no, 
 		user_id)
-		values(#{reviewScore}, #{reviewContent}, sysdate, sysdate, #{resNo}, #{userId})
+		values(#{reviewScore}, #{reviewTitle}, #{reviewContent}, sysdate, sysdate, #{resNo}, #{userId})
 	</insert>
 
 	<!-- UPDATE --> 
 	<update id="updateReview" parameterType="Review">
 		update review set 
 			review_score=#{reviewScore}, 
+			review_title=#{reviewTitle},
 			review_content=#{reviewContent}, 
 			review_updatedate=sysdate, 
 			user_id = #{userId}

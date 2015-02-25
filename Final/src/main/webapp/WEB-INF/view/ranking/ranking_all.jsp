@@ -12,11 +12,11 @@
 <body>
 	<jsp:include page="/WEB-INF/view/header.jsp" />
 	<jsp:include page="/WEB-INF/view/ranking/ranking_header.jsp" />
-
-
-	<h1>맛집 전국 top10</h1>
 <%int i=1; %>
 	<table class="table table-hover" style="text-align: center;">
+	<tr><td colspan="6" class="border-top-style" align="left">
+	<h3><span class="glyphicon glyphicon-thumbs-up"></span><strong> 맛집랭킹</strong></h3>
+	</td></tr>
 		<tr>
 			<th>순위</th>
 			<th>맛집 번호</th>

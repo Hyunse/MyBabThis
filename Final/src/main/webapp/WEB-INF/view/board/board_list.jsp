@@ -25,11 +25,13 @@
 
 <jsp:include page="/WEB-INF/view/header.jsp" />
 <body>
-	<div style="margin-left: 10em;">
-		<h3 align="left">자유게시판</h3>
-	</div>
 
 	<table class="table table-hover" style="text-align:center; width: 100% ">
+	<tr>
+	<td colspan="4" class="border-top-style" align="left">
+	<h3><strong><span class="glyphicon glyphicon-list-alt"></span> 자유게시판</strong></h3>
+	</td>
+	</tr>
 		<tr>
 			<th width="10%">번호</th>
 			<th width="55%">제목</th>
