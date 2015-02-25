@@ -147,11 +147,36 @@
 		
 		/* 메시지 보내기 */
 		
+	
+		
+	$(".modalRr").click(function(){
+		var bid = $(this).attr("id");
+		var iid = "#i" + bid;
+		
+		var receiver = $(iid).html();
+		
+		$("#dropIdRr").html(receiver);	
+		$("#receiverRr").val(receiver);
+		
+	});	
+		
+	$(".modalRv").click(function(){
+			
+		var bid = $(this).attr("id");
+			var iid = "#i" + bid;
+			
+			var receiver = $(iid).html();
+			
+			$("#dropIdRv").html(receiver);	
+			$("#receiverRv").val(receiver);
+			
+		});	
+		
 	$("#submitMsgRv").click(function(){
 	
-	 var sender = $('#sender').val(), 
+	 var sender = $('#senderRv').val(), 
 	 	 receiver =  $('#receiverRv').val(), 
-	 	 content =  $('#msgContent').val();
+	 	 content =  $('#msgContentRv').val();
 	 
 	var data ={ sender : sender , receiver : receiver, content : content}
 	
@@ -164,19 +189,19 @@
     success: function(args){
     	
     	alert(args);
-    	$(".msgClose").click();
+    	$("#msgCloseRv").click();
       },
-    error: function (args) {
-		console.log(path, args);
+    error: function (error,args) {
+		alert(error)
 	}
     });
 })
 
 $("#submitMsgRr").click(function(){
 	
-	 var sender = $('#sender').val(), 
+	 var sender = $('#senderRr').val(), 
 	 	 receiver =  $('#receiverRr').val(), 
-	 	 content =  $('#msgContent').val();
+	 	 content =  $('#msgContentRr').val();
 	 
 	var data ={ sender : sender , receiver : receiver, content : content}
 	
@@ -189,10 +214,10 @@ $("#submitMsgRr").click(function(){
     success: function(args){
     	
     	alert(args);
-    	$(".msgClose").click();
+    	$("#msgCloseRr").click();
       },
-    error: function (args) {
-		console.log(path, args);
+      error: function (error,args) {
+  		alert(error)
 	}
     });
 })
@@ -324,6 +349,7 @@ $("#submitMsgRr").click(function(){
 
 
 	<hr>
+	<!-- /////댓글 Tab//////////////////////////////////////////////////////////////////////////////////////////////////////// -->
 	<div class="container">
 		<section>
 			<div class="tabs tabs-style-topline">
@@ -344,9 +370,8 @@ $("#submitMsgRr").click(function(){
 							<c:forEach items="${rreplys }" var="rreply">
 								<tr>
 									<td style="text-align: left;">
-										<div id="hbtn${rreply.rreplyNo}">
-											<c:out value="${rreply.rreplyContent }" />
-										</div> <c:url value="/rreply/update" var="action" /> <form:form
+										<div id="hbtn${rreply.rreplyNo}"><c:out value="${rreply.rreplyContent }" /></div> <c:url value="/rreply/update" var="action" /> 
+										<form:form
 											modelAttribute="rreply" method="post" action="${action }"
 											class="updateform" id="ubtn${rreply.rreplyNo }" width="50">
 											<form:hidden path="resNo" value="${rreply.resNo }" />
@@ -369,17 +394,18 @@ $("#submitMsgRr").click(function(){
 										<div class="btn-group">
 											<button type="button" class="btn btn-default dropup-toggle"
 												data-toggle="dropdown">
-												<c:out value="${rreply.userId}" />
+												<div id="ib${rreply.rreplyNo}"><c:out value="${rreply.userId}" /></div>
 												&nbsp;&nbsp; <span class="caret"></span>
 											</button>
 											<ul class="dropdown-menu" role="menu">
+
 												<li>
 													<a href="/Final/friend/create?userId=${loginUser.userId}&friendId=${rreply.userId}">
 														<p class="text-default"><span class="glyphicon glyphicon-user"></span> 친구추가</p>
 													</a>
 												</li>
 												<li>
-													<a id="sendMsg" data-toggle="modal" data-target="#myModalReply">
+													<a class="modalRr" id="b${rreply.rreplyNo}" data-toggle="modal" data-target="#myModalReply">
 														<p class="text-info"><span class="glyphicon glyphicon-send"></span> 쪽지보내기</p>
 													</a>
 												</li>
@@ -388,6 +414,7 @@ $("#submitMsgRr").click(function(){
 														<p class="text-danger"><span class="glyphicon glyphicon-ban-circle"></span> 댓글신고</p>
 													</a>
 												</li>
+
 											</ul>
 										</div>
 <div class="modal fade" id="myModalReply" tabindex="-1"
@@ -405,13 +432,13 @@ $("#submitMsgRr").click(function(){
 
 													<div class="modal-body">
 
-														<input type="hidden" id="sender"
+														<input type="hidden" id="senderRr"
 															value="${loginUser.userId}"> <input type="hidden"
-															id="receiver" value="${rreply.userId}"><small>받는
-															사람 &nbsp;&nbsp;${rreply.userId}</small>
+															id="receiverRr"><small>받는
+															사람 &nbsp;&nbsp;</small><div id="dropIdRr"></div>
 															<br>
 															<br>
-														<textarea id="msgContent" class="form-control" rows="5"></textarea>
+														<textarea id="msgContentRr" class="form-control" rows="5"></textarea>
 
 													</div>
 
@@ -421,7 +448,7 @@ $("#submitMsgRr").click(function(){
 															<span class="glyphicon glyphicon-send"></span> 전송
 														</button>
 														<button type="button" class="btn btn-default"
-															data-dismiss="modal" class ="msgClose">
+															data-dismiss="modal" id ="msgCloseRr">
 															<p class="text-danger">
 																<span class="glyphicon glyphicon-remove"></span> 취소
 															</p>
@@ -440,7 +467,7 @@ $("#submitMsgRr").click(function(){
 											<button type="button" class="btn btn-danger dropup-toggle"
 												data-toggle="dropdown">
 												편집
-												<span class="caret"></span>
+												</span>
 											</button>
 											<ul class="dropdown-menu" role="menu">
 												<li>
@@ -545,8 +572,9 @@ $("#submitMsgRr").click(function(){
                               </div>
                            </form:form></td>
                      </tr> --%>
-
 					</section>
+<!-- /////리뷰 Tab//////////////////////////////////////////////////////////////////////////////////////////////////////// -->
+					
 					<section id="section-topline-2">
 						<table class="table table-hover" style="width: 100%; max-width: 100%">
 							<tr>
@@ -566,16 +594,77 @@ $("#submitMsgRr").click(function(){
 											value="${review.reviewScore }" /></td>
 									<td onclick="location.href='${url}'" style="cursor: pointer;"><small>${review.reviewContent }</small></td>
 									<td>
+										
+										<%-- =========================================
+													<div class="btn-group">
+											<button type="button" class="btn btn-default dropup-toggle"
+												data-toggle="dropdown">
+												<div id="ib${rreply.rreplyNo}"><c:out value="${rreply.userId}" /></div>
+												&nbsp;&nbsp; <span class="caret"></span>
+											</button>
+											<ul class="dropdown-menu" role="menu">
+												<li><a
+													href="/Final/friend/create?userId=${loginUser.userId}&friendId=${rreply.userId}">친구추가</a></li>
+												<li><a class="modalRr" id="b${rreply.rreplyNo}" data-toggle="modal" data-target="#myModalReply">쪽지보내기</a></li>
+												
+												
+											</ul>
+										</div>
+<div class="modal fade" id="myModalReply" tabindex="-1"
+											role="dialog" aria-labelledby="myModalLabel"
+											aria-hidden="true">
+											<div class="modal-dialog">
+												<div class="modal-content">
+													<div class="modal-header">
+														<button type="button" class="close" data-dismiss="modal"
+															aria-hidden="true">×</button>
+
+														<h4 class="modal-title">쪽지보내기</h4>
+
+													</div>
+
+													<div class="modal-body">
+
+														<input type="hidden" id="senderRr"
+															value="${loginUser.userId}"> <input type="hidden"
+															id="receiverRr"><small>받는
+															사람 &nbsp;&nbsp;</small><div id="dropIdRr"></div>
+															<br>
+															<br>
+														<textarea id="msgContentRr" class="form-control" rows="5"></textarea>
+
+													</div>
+
+													<div class="modal-footer">
+
+														<button class="btn btn-default" id="submitMsgRr">
+															<span class="glyphicon glyphicon-send"></span> 전송
+														</button>
+														<button type="button" class="btn btn-default"
+															data-dismiss="modal" id ="msgCloseRr">
+															<p class="text-danger">
+																<span class="glyphicon glyphicon-remove"></span> 취소
+															</p>
+														</button>
+													</div>
+												</div>
+												<!-- /.modal-content -->
+											</div>
+											<!-- /.modal-dialog -->
+										</div> <!-- /.modal -->
+										
+										===================================== --%>
+										
 										<div class="btn-group">
 											<button type="button" class="btn btn-default dropup-toggle"
 												data-toggle="dropdown">
-												<c:out value="${review.userId}" />
+												<div id="ib${review.reviewNo }"><c:out value="${review.userId}" /></div>
 												&nbsp;&nbsp; <span class="caret"></span>
 											</button>
 											<ul class="dropdown-menu" role="menu">
 												<li><a
 													href="/Final/friend/create?userId=${loginUser.userId}&friendId=${review.userId}">친구추가</a></li>
-												<li><a id="sendMsg" data-toggle="modal"
+												<li><a class="modalRv" data-toggle="modal" id="b${review.reviewNo}"
 													data-target="#myModalReview">쪽지보내기</a></li>
 											</ul>
 										</div> 
@@ -597,13 +686,13 @@ $("#submitMsgRr").click(function(){
 
 													<div class="modal-body">
 
-														<input type="hidden" id="sender"
+														<input type="hidden" id="senderRv"
 															value="${loginUser.userId}"> <input type="hidden"
-															id="receiverRv" value="${review.userId}"><small>받는
-															사람 &nbsp;&nbsp;${review.userId}</small>
+															id="receiverRv"><small>받는
+															사람 &nbsp;&nbsp;</small><div id="dropIdRv"></div>
 															<br>
 															<br>
-														<textarea id="msgContent" class="form-control" rows="5"></textarea>
+														<textarea id="msgContentRv" class="form-control" rows="5"></textarea>
 
 													</div>
 
@@ -613,7 +702,7 @@ $("#submitMsgRr").click(function(){
 															<span class="glyphicon glyphicon-send"></span> 전송
 														</button>
 														<button type="button" class="btn btn-default"
-															data-dismiss="modal" class ="msgClose">
+															data-dismiss="modal" id ="msgCloseRv">
 															<p class="text-danger">
 																<span class="glyphicon glyphicon-remove"></span> 취소
 															</p>
