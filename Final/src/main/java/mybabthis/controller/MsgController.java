@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
@@ -54,13 +55,31 @@ public class MsgController {
 		
 		return "msg/msg_send";
 	}
+	
+	 @RequestMapping(value = "/sended",params={"sender","receiver", "content"}, method = RequestMethod.POST, produces = "text/plain;charset=utf-8")
+		public @ResponseBody String msgAjax(@RequestParam String sender, String receiver, String content) {
+			Msg msg = new Msg();
+			msg.setSender(sender);
+			msg.setReceiver(receiver);
+			msg.setMsgContent(content);
 
-	@RequestMapping(value = "/sended", method = RequestMethod.POST)
+			int result = service.sendMsg(msg);
+			
+			if (result > 0) {
+				
+				return "메시지를 보냈습니다.";
+				  
+			}
+			return "메시지를 보내는데 실패하였습니다.";
+		}
+	
+
+	/*@RequestMapping(value = "/sended", method = RequestMethod.POST)
 	public String afterSendedMsg(@ModelAttribute("msg") Msg msg) {
 		service.sendMsg(msg);
 		return "redirect:/msg/main";
 	//return "msg/create";
-	}
+	}*/
 
 	// 신고하기
 	@RequestMapping(value = "/sendReport", params = { "writeType","warnNo" }, method = RequestMethod.GET)
@@ -126,5 +145,7 @@ public class MsgController {
 	 * 
 	 * 신고읽어오기,
 	 */
+	
+	
 
 }

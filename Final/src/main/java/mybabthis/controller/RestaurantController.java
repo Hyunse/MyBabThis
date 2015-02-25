@@ -8,6 +8,7 @@ import java.util.Locale;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import mybabthis.entity.Msg;
 import mybabthis.entity.Restaurant;
 import mybabthis.entity.Review;
 import mybabthis.entity.Rreply;
@@ -95,6 +96,7 @@ public class RestaurantController {
 		model.addAttribute("rreplys", rreplys);
 		model.addAttribute("resNo",resNo);
 		model.addAttribute("rreply",new Rreply());
+		model.addAttribute("msg", new Msg());
 		return "restaurant/restaurant_view";
 		
 	}

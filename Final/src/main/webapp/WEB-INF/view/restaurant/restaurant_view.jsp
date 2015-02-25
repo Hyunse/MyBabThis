@@ -143,6 +143,33 @@
 		$("#favorite").click(function() {
 			alert("즐겨찾기에 추가 되었습니다.");
 		})
+		
+		
+		/* 메시지 보내기 */
+	$("#submitMsgRv").click(function(){
+	
+	 var sender = $('#senderRv').val(), 
+	 	 receiver =  $('#receiverRv').val(), 
+	 	 content =  $('#msgContent').val();
+	 
+	var data ={ sender : sender , receiver : receiver, content : content}
+	
+    $.ajax({
+    type: "POST",
+    url: "<%=request.getContextPath()%>/msg/sended",
+    data: data,
+    contentType:"application/x-www-form-urlencoded; charset=utf-8",
+    
+    success: function(args){
+    	
+    	alert(args);
+    	$("#msgClose").click();
+      },
+    error: function (args) {
+		console.log(path, args);
+	}
+    });
+})
 
 	})
 </script>
@@ -163,7 +190,7 @@
 	</div>
 	<table class="table">
 		<tr style="border-top-color: #000000">
-		<td rowspan="6" width="310px"><img
+			<td rowspan="6" width="310px"><img
 				src="<%=request.getContextPath()%>/upload/${restaurant.resImg}"
 				onLoad="reSizes(this);" /></td>
 			<td colspan="3" align="right"><a
@@ -171,17 +198,14 @@
 					<button id="favorite" class="btn btn-default">
 						<span class="glyphicon glyphicon-star"></span> <small>즐겨찾기</small>
 					</button>
-			</a>
-			<c:url
-				value="/msg/sendReport?writeType=T&warnNo=${restaurant.resNo}"
-				var="goReport" />
-			<a href="${goReport}"><button type="button"
-					class="btn btn-default">
-					<p class="text-danger">
-						<span class="glyphicon glyphicon-ban-circle"></span> 신고
-					</p>
-				</button></a>
-			</td>
+			</a> <c:url
+					value="/msg/sendReport?writeType=T&warnNo=${restaurant.resNo}"
+					var="goReport" /> <a href="${goReport}"><button type="button"
+						class="btn btn-default">
+						<p class="text-danger">
+							<span class="glyphicon glyphicon-ban-circle"></span> 신고
+						</p>
+					</button></a></td>
 		</tr>
 		<tr>
 			<td width="25%">지역 : ${restaurant.locName}</td>
@@ -296,8 +320,7 @@
 									<td style="text-align: left;">
 										<div id="hbtn${rreply.rreplyNo}">
 											<c:out value="${rreply.rreplyContent }" />
-										</div> <c:url value="/rreply/update" var="action" /> 
-										<form:form
+										</div> <c:url value="/rreply/update" var="action" /> <form:form
 											modelAttribute="rreply" method="post" action="${action }"
 											class="updateform" id="ubtn${rreply.rreplyNo }" width="50">
 											<form:hidden path="resNo" value="${rreply.resNo }" />
@@ -313,26 +336,28 @@
 											<!-- /input-group -->
 
 
-                              </form:form>
-                           </td>
-                           <td>
-                              <div class="btn-group">
-                                    <button type="button" class="btn btn-default dropup-toggle" data-toggle="dropdown">
-                                       <c:out value="${rreply.userId}" /> &nbsp;&nbsp; <span class="caret"></span>
-                                    </button>
-                                    <ul class="dropdown-menu" role="menu">
-                                       <li><a
-                                          href="/Final/friend/create?userId=${loginUser.userId}&friendId=${rreply.userId}">친구추가</a></li>
-                                       <li><a
-                                          href="/Final/msg/send?receiver=${rreply.userId}">쪽지보내기</a></li>
-                                    </ul>
-                              </div> 
-                           
-                           </td>
-                           <td><small>
-                           <c:set value="${rreply.rreplyUpdatedate }" var="rreplyUpdatedate" />
-                           <fmt:formatDate value="${rreplyUpdatedate }" type="date" dateStyle="short" /><br>
-                           <fmt:formatDate value="${rreplyUpdatedate }" type="time" dateStyle="short" /></small></td>
+										</form:form>
+									</td>
+									<td>
+										<div class="btn-group">
+											<button type="button" class="btn btn-default dropup-toggle"
+												data-toggle="dropdown">
+												<c:out value="${rreply.userId}" />
+												&nbsp;&nbsp; <span class="caret"></span>
+											</button>
+											<ul class="dropdown-menu" role="menu">
+												<li><a
+													href="/Final/friend/create?userId=${loginUser.userId}&friendId=${rreply.userId}">친구추가</a></li>
+												<li><a href="/Final/msg/send?receiver=${rreply.userId}">쪽지보내기</a></li>
+											</ul>
+										</div>
+
+									</td>
+									<td><small> <c:set
+												value="${rreply.rreplyUpdatedate }" var="rreplyUpdatedate" />
+											<fmt:formatDate value="${rreplyUpdatedate }" type="date"
+												dateStyle="short" /><br> <fmt:formatDate
+												value="${rreplyUpdatedate }" type="time" dateStyle="short" /></small></td>
 
 
 									<c:if test="${rreply.userId == loginUser.userId}">
@@ -416,23 +441,25 @@
                            </form:form></td>
                      </tr> --%>
 
-               </section>
-               <section id="section-topline-2">
-                  <table class="table table-hover" style="width: 100%">
-                     <tr>
-                        <th>사진</th>
-                        <th>평가</th>
-                        <th>설명</th>
-                        <th>작성자</th>
-                        <th>등록일</th>
-                     </tr>
-                     <c:forEach items="${reviews }" var="review">
-                        <c:url value="/review/detail?reviewNo=${review.reviewNo }"
-                           var="url"></c:url>
-                        <tr>
-                           <td onclick="location.href='${url}'" style="cursor: pointer;"><small>등록된 사진이 없습니다.</small></td>
-                           <td onclick="location.href='${url}'" style="cursor: pointer;"><c:out value="${review.reviewScore }" /></td>
-                           <td onclick="location.href='${url}'" style="cursor: pointer;"><small>${review.reviewContent }</small></td>
+					</section>
+					<section id="section-topline-2">
+						<table class="table table-hover" style="width: 100%">
+							<tr>
+								<th>사진</th>
+								<th>평가</th>
+								<th>설명</th>
+								<th>작성자</th>
+								<th>등록일</th>
+							</tr>
+							<c:forEach items="${reviews }" var="review">
+								<c:url value="/review/detail?reviewNo=${review.reviewNo }"
+									var="url"></c:url>
+								<tr>
+									<td onclick="location.href='${url}'" style="cursor: pointer;"><small>등록된
+											사진이 없습니다.</small></td>
+									<td onclick="location.href='${url}'" style="cursor: pointer;"><c:out
+											value="${review.reviewScore }" /></td>
+									<td onclick="location.href='${url}'" style="cursor: pointer;"><small>${review.reviewContent }</small></td>
 									<td>
 										<div class="btn-group">
 											<button type="button" class="btn btn-default dropup-toggle"
@@ -443,11 +470,12 @@
 											<ul class="dropdown-menu" role="menu">
 												<li><a
 													href="/Final/friend/create?userId=${loginUser.userId}&friendId=${review.userId}">친구추가</a></li>
-												<li><a data-toggle="modal" data-target="#myModal">쪽지보내기</a></li>
+												<li><a id="sendMsgRv" data-toggle="modal"
+													data-target="#myModal">쪽지보내기</a></li>
 											</ul>
 										</div> <!-- 쪽지보내기 Modal -->
-										<%-- <c:url value="/msg/sended" var="action"></c:url>
-										<form:form modelAttribute="msg" method="post" action="${action}">
+
+
 										<div class="modal fade" id="myModal" tabindex="-1"
 											role="dialog" aria-labelledby="myModalLabel"
 											aria-hidden="true">
@@ -456,23 +484,28 @@
 													<div class="modal-header">
 														<button type="button" class="close" data-dismiss="modal"
 															aria-hidden="true">×</button>
+
 														<h4 class="modal-title">쪽지보내기</h4>
-														
+
 													</div>
+
 													<div class="modal-body">
-														<form:hidden path="sender" value="${loginUser.userId}"></form:hidden>
-														<form:label path="receiver" value="${review.userId}"><small>받는 사람 &nbsp;&nbsp;${review.userId}</small></form:label>
-														<form:textarea path="msgContent" class="form-control" rows="5"></form:textarea>
+
+														<input type="hidden" id="senderRv"
+															value="${loginUser.userId}"> <input type="text"
+															id="receiverRv" value="${review.userId}"><small>받는
+															사람 &nbsp;&nbsp;${review.userId}</small>
+														<textarea id="msgContent" class="form-control" rows="5"></textarea>
+
 													</div>
+
 													<div class="modal-footer">
 
-														<c:url value="/Final/msg/sended"
-															var="url" />
-														<a href="${url }"><button class="btn btn-default"><span class="glyphicon glyphicon-send"></span> 전송
-														
-															</button></a>
+														<button class="btn btn-default" id="submitMsgRv">
+															<span class="glyphicon glyphicon-send"></span> 전송
+														</button>
 														<button type="button" class="btn btn-default"
-															data-dismiss="modal">
+															data-dismiss="modal" id ="msgClose">
 															<p class="text-danger">
 																<span class="glyphicon glyphicon-remove"></span> 취소
 															</p>
@@ -483,23 +516,25 @@
 											</div>
 											<!-- /.modal-dialog -->
 										</div> <!-- /.modal -->
-										</form:form> --%>
 									</td>
 									<td onclick="location.href='${url}'" style="cursor: pointer;">
-                              <small>
-                                 <c:set value="${review.reviewUpdatedate }" var="reviewUpdatedate" />
-                                 <fmt:formatDate value="${reviewUpdatedate }" type="date" dateStyle="short" />&nbsp;&nbsp; 
-                                 <fmt:formatDate value="${reviewUpdatedate }" type="time" dateStyle="short" />
-                              </small>
-                           </td>
-                        </tr>
-                     </c:forEach>
-                  </table>
-                  <c:url value="/review/write?userId=${loginUser.userId }&resNo=${resNo }" var="url"></c:url>
-                  <br><br>
-                  <a href="${url }">
-                     <button class="btn btn-default">리뷰작성</button>
-                  </a>
+										<small> <c:set value="${review.reviewUpdatedate }"
+												var="reviewUpdatedate" /> <fmt:formatDate
+												value="${reviewUpdatedate }" type="date" dateStyle="short" />&nbsp;&nbsp;
+											<fmt:formatDate value="${reviewUpdatedate }" type="time"
+												dateStyle="short" />
+									</small>
+									</td>
+								</tr>
+							</c:forEach>
+						</table>
+						<c:url
+							value="/review/write?userId=${loginUser.userId }&resNo=${resNo }"
+							var="url"></c:url>
+						<br>
+						<br> <a href="${url }">
+							<button class="btn btn-default">리뷰작성</button>
+						</a>
 
 
 					</section>
@@ -510,11 +545,11 @@
 		</section>
 
 	</div>
-	
 
-	
-	
-	
+
+
+
+
 
 	<script src="<%=request.getContextPath()%>/js/cbpFWTabs.js"></script>
 	<script>
