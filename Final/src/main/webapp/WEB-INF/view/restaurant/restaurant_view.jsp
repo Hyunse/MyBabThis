@@ -389,13 +389,13 @@ $("#submitMsgRr").click(function(){
 
 										</form:form>
 									</td>
+									<!-- 다른사람댓글 -->
 									<c:if test="${rreply.userId != loginUser.userId}">
 									<td>
 										<div class="btn-group">
 											<button type="button" class="btn btn-default dropup-toggle"
 												data-toggle="dropdown">
 												<div id="ib${rreply.rreplyNo}"><c:out value="${rreply.userId}" /></div>
-												&nbsp;&nbsp; <span class="caret"></span>
 											</button>
 											<ul class="dropdown-menu" role="menu">
 
@@ -417,7 +417,8 @@ $("#submitMsgRr").click(function(){
 
 											</ul>
 										</div>
-<div class="modal fade" id="myModalReply" tabindex="-1"
+										<!-- modal 시작 -->
+										<div class="modal fade" id="myModalReply" tabindex="-1"
 											role="dialog" aria-labelledby="myModalLabel"
 											aria-hidden="true">
 											<div class="modal-dialog">
@@ -461,6 +462,7 @@ $("#submitMsgRr").click(function(){
 										</div> <!-- /.modal -->
 									</td>
 									</c:if>
+									<!-- 내댓글 -->
 									<c:if test="${rreply.userId == loginUser.userId}">
 									<td>
 										<div class="btn-group">
@@ -492,7 +494,7 @@ $("#submitMsgRr").click(function(){
 										<small> <c:set
 												value="${rreply.rreplyUpdatedate }" var="rreplyUpdatedate" />
 											<fmt:formatDate value="${rreplyUpdatedate }" type="date"
-												dateStyle="short" /><br> <fmt:formatDate
+												dateStyle="short" /><fmt:formatDate
 												value="${rreplyUpdatedate }" type="time" dateStyle="short" /></small>
 									</td>
 
@@ -578,11 +580,11 @@ $("#submitMsgRr").click(function(){
 					<section id="section-topline-2">
 						<table class="table table-hover" style="width: 100%; max-width: 100%">
 							<tr>
-								<th>사진</th>
-								<th>평가</th>
-								<th>설명</th>
-								<th>작성자</th>
-								<th>등록일</th>
+								<th style="width: 25%">사진</th>
+								<th style="width: 5%">평가</th>
+								<th style="width: 40%">설명</th>
+								<th style="width: 10%">작성자</th>
+								<th style="width: 20%">등록일</th>
 							</tr>
 							<c:forEach items="${reviews }" var="review">
 								<c:url value="/review/detail?reviewNo=${review.reviewNo }"
@@ -593,7 +595,6 @@ $("#submitMsgRr").click(function(){
 									<td onclick="location.href='${url}'" style="cursor: pointer;"><c:out
 											value="${review.reviewScore }" /></td>
 									<td onclick="location.href='${url}'" style="cursor: pointer;"><small>${review.reviewContent }</small></td>
-									<td>
 										
 										<%-- =========================================
 													<div class="btn-group">
@@ -654,12 +655,12 @@ $("#submitMsgRr").click(function(){
 										</div> <!-- /.modal -->
 										
 										===================================== --%>
-										
+										<c:if test="${review.userId != loginUser.userId}">
+										<td>
 										<div class="btn-group">
 											<button type="button" class="btn btn-default dropup-toggle"
 												data-toggle="dropdown">
 												<div id="ib${review.reviewNo }"><c:out value="${review.userId}" /></div>
-												&nbsp;&nbsp; <span class="caret"></span>
 											</button>
 											<ul class="dropdown-menu" role="menu">
 												<li><a
@@ -669,8 +670,6 @@ $("#submitMsgRr").click(function(){
 											</ul>
 										</div> 
 										<!-- 쪽지보내기 Modal -->
-
-
 										<div class="modal fade" id="myModalReview" tabindex="-1"
 											role="dialog" aria-labelledby="myModalLabel"
 											aria-hidden="true">
@@ -713,7 +712,16 @@ $("#submitMsgRr").click(function(){
 											</div>
 											<!-- /.modal-dialog -->
 										</div> <!-- /.modal -->
-									</td>
+										<%-- </c:if> --%>
+										</td>
+										</c:if>
+										<c:if test="${review.userId == loginUser.userId}">
+										<td>
+										<button type="button" class="btn btn-default">${review.userId}</button>
+										</td>
+										</c:if>
+										
+										
 									<td onclick="location.href='${url}'" style="cursor: pointer;">
 										<small> <c:set value="${review.reviewUpdatedate }"
 												var="reviewUpdatedate" /> <fmt:formatDate
@@ -721,7 +729,10 @@ $("#submitMsgRr").click(function(){
 											<fmt:formatDate value="${reviewUpdatedate }" type="time"
 												dateStyle="short" />
 									</small>
-									</td>
+									
+									
+									
+									
 								</tr>
 							</c:forEach>
 						</table>
