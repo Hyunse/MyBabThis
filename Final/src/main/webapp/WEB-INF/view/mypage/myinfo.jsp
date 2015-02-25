@@ -8,6 +8,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
 <style>
 #myinfo_table{
 width: 30%;
@@ -24,7 +25,7 @@ padding-bottom: 20px;
 }
 
 </style>
-<body>
+
 <script>
 $(document).ready(function() {
 	 var re_pass = /^[a-z0-9_-]{6,18}$/; // 비밀번호 검사식
@@ -162,7 +163,6 @@ $("#pass2").blur(function(){
 });
 
 </script>
-
 <body>
 <jsp:include page="/WEB-INF/view/header.jsp" />
 <jsp:include page="/WEB-INF/view/mypage/mypage_list.jsp" />
