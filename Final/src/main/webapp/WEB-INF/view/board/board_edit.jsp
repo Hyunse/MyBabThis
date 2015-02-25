@@ -60,10 +60,10 @@ $(function(){
 				<%-- 	<tr style="width:100%" ><th width=20% style="text-align:center">글번호</th><td width=80%>
 				&nbsp;&nbsp;<c:out value="${editBoard.boardNo}"></c:out></td></tr> --%>
 				<tr style="width: 100%">
-					<th width=10% style="text-align: center"><p class="text-muted">제목</th>
+					<th width=10% style="text-align: center">제목</th>
 					<td width=90%><form:input path="boardTitle" size="85%" /> <%-- <tr><th style="text-align:center">작성자</th><td><form:input path="userId"/><br> --%>
 				<tr>
-					<th style="text-align: center"><p class="text-muted">내용</th>
+					<th style="text-align: center">내용</th>
 					<td><form:textarea path="boardContent" id="editor" style=" width:100%; min-height: 500px; min-width: 600px "/></td>
 				</tr>
 
