@@ -16,7 +16,6 @@
 <meta name="author" content="Codrops" />
 <link rel="shortcut icon" href="../favicon.ico">
 <link rel="stylesheet" type="text/css" href="css/normalize.css" />
-<link rel="stylesheet" type="text/css" href="css/dialog-demo.css" />
 <!-- common styles -->
 <!-- 
 <link rel="stylesheet" type="text/css" href="css/dialog.css" /> -->
@@ -99,7 +98,7 @@ $(document).ready(function(){
 			})
 })
 </script>
-<body>
+<body style="background: #e6e6e6">
 
 	<!-- <div class="md-modal md-effect-1" id="modal-1">
 		<div class="md-content">

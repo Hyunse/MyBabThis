@@ -39,8 +39,8 @@
 	<table class="table table-hover" style="text-align:center; width: 100% ">
 		<tr>
 			<th width="10%">번호</th>
-			<th width="60%">제목</th>
-			<th width="15%">작성자</th>
+			<th width="55%">제목</th>
+			<th width="20%">작성자</th>
 			<th width="15%">등록일</th>
 		</tr>
 		<c:if test="${empty boardList}">
