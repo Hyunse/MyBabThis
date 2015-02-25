@@ -361,7 +361,7 @@ $("#submitMsgRr").click(function(){
 				</nav>
 				<div class="content-wrap">
 					<section id="section-topline-1">
-						<table class="table" style="width: 100%; max-width: 100%">
+						<table class="table table-hover" style="width: 100%; max-width: 100%">
 							<tr>
 								<th width="60%">내용</th>
 								<th width="20%">작성자</th>
@@ -393,7 +393,7 @@ $("#submitMsgRr").click(function(){
 									<c:if test="${rreply.userId != loginUser.userId}">
 									<td>
 										<div class="btn-group">
-											<button type="button" class="btn btn-default dropup-toggle"
+											<button type="button" class="btn btn-link dropup-toggle"
 												data-toggle="dropdown">
 												<div id="ib${rreply.rreplyNo}"><c:out value="${rreply.userId}" /></div>
 											</button>
@@ -466,9 +466,9 @@ $("#submitMsgRr").click(function(){
 									<c:if test="${rreply.userId == loginUser.userId}">
 									<td>
 										<div class="btn-group">
-											<button type="button" class="btn btn-danger dropup-toggle"
+											<button type="button" class="btn btn-link dropup-toggle"
 												data-toggle="dropdown">
-												편집
+												${rreply.userId}
 												</span>
 											</button>
 											<ul class="dropdown-menu" role="menu">
@@ -494,7 +494,7 @@ $("#submitMsgRr").click(function(){
 										<small> <c:set
 												value="${rreply.rreplyUpdatedate }" var="rreplyUpdatedate" />
 											<fmt:formatDate value="${rreplyUpdatedate }" type="date"
-												dateStyle="short" /><fmt:formatDate
+												dateStyle="short" /> &nbsp;&nbsp;<fmt:formatDate
 												value="${rreplyUpdatedate }" type="time" dateStyle="short" /></small>
 									</td>
 
@@ -533,7 +533,7 @@ $("#submitMsgRr").click(function(){
 								</tr>
 							</c:forEach>
 						</table>
-						<table class="table" style="width: 100%; max-width: 100%" >
+						<table class="table" style="width: 80%; max-width: 80%" >
 							<tr>
 								<c:url value="/rreply/write" var="rreplyw" />
 								<form:form modelAttribute="rreply" method="post"
@@ -580,21 +580,18 @@ $("#submitMsgRr").click(function(){
 					<section id="section-topline-2">
 						<table class="table table-hover" style="width: 100%; max-width: 100%">
 							<tr>
-								<th style="width: 25%">사진</th>
-								<th style="width: 5%">평가</th>
-								<th style="width: 40%">설명</th>
-								<th style="width: 10%">작성자</th>
+								<th style="width: 10%">평가</th>
+								<th style="width: 50%">제목</th>
+								<th style="width: 20%">작성자</th>
 								<th style="width: 20%">등록일</th>
 							</tr>
 							<c:forEach items="${reviews }" var="review">
 								<c:url value="/review/detail?reviewNo=${review.reviewNo }"
 									var="url"></c:url>
 								<tr>
-									<td onclick="location.href='${url}'" style="cursor: pointer;"><small>등록된
-											사진이 없습니다.</small></td>
 									<td onclick="location.href='${url}'" style="cursor: pointer;"><c:out
 											value="${review.reviewScore }" /></td>
-									<td onclick="location.href='${url}'" style="cursor: pointer;"><small>${review.reviewContent }</small></td>
+									<td onclick="location.href='${url}'" style="cursor: pointer;"><small>${review.reviewTitle }</small></td>
 										
 										<%-- =========================================
 													<div class="btn-group">
@@ -658,7 +655,7 @@ $("#submitMsgRr").click(function(){
 										<c:if test="${review.userId != loginUser.userId}">
 										<td>
 										<div class="btn-group">
-											<button type="button" class="btn btn-default dropup-toggle"
+											<button type="button" class="btn btn-link dropup-toggle"
 												data-toggle="dropdown">
 												<div id="ib${review.reviewNo }"><c:out value="${review.userId}" /></div>
 											</button>
@@ -717,7 +714,7 @@ $("#submitMsgRr").click(function(){
 										</c:if>
 										<c:if test="${review.userId == loginUser.userId}">
 										<td>
-										<button type="button" class="btn btn-default">${review.userId}</button>
+										<button type="button" class="btn btn-link" disabled="disabled">${review.userId}</button>
 										</td>
 										</c:if>
 										

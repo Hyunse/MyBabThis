@@ -212,7 +212,7 @@
 }
 
 .tabs-style-topline nav li.tab-current {
-	border-top-color: #2CC185;
+	border-top-color: #ff4d4d;
 	border-bottom: none;
 }
 
@@ -227,13 +227,13 @@
 
 .tabs-style-topline nav a:hover,
 .tabs-style-topline nav a:focus {
-	color: #2CC185;
+	color: #ff4d4d;
 }
 
 .tabs-style-topline nav li.tab-current a {
 	background: none;
-	box-shadow: inset 0 3px 0 #2CC185;
-	color: #2CC185;
+	box-shadow: inset 0 3px 0 #ff4d4d;
+	color: #ff4d4d;
 }
 
 .tabs-style-topline .icon::before {
