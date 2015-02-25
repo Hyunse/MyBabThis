@@ -491,7 +491,7 @@ $("#submtShingoY").click(function(){
 												</li>
 												<li>
 													<a class="modalRr" id="b${rreply.rreplyNo}" data-toggle="modal" data-target="#myModalReply">
-														<p class="text-info"><span class="glyphicon glyphicon-send"></span> 쪽지보내기</p>
+														<p class="text-default"><span class="glyphicon glyphicon-send"></span> 쪽지보내기</p>
 													</a>
 												</li>
 												<li>
@@ -673,7 +673,7 @@ $("#submtShingoY").click(function(){
 								<tr>
 									<td onclick="location.href='${url}'" style="cursor: pointer;"><c:out
 											value="${review.reviewScore }" /></td>
-									<td onclick="location.href='${url}'" style="cursor: pointer;"><small>${review.reviewTitle }</small></td>
+									<td onclick="location.href='${url}'" style="cursor: pointer; text-align: left;" ><small>${review.reviewTitle }</small></td>
 										
 										
 										<c:if test="${review.userId != loginUser.userId}">
@@ -685,9 +685,13 @@ $("#submtShingoY").click(function(){
 											</button>
 											<ul class="dropdown-menu" role="menu">
 												<li><a
-													href="/Final/friend/create?userId=${loginUser.userId}&friendId=${review.userId}">친구추가</a></li>
+													href="/Final/friend/create?userId=${loginUser.userId}&friendId=${review.userId}">
+													<p class="text-default"><span class="glyphicon glyphicon-user"></span> 친구추가</p>
+													</a></li>
 												<li><a class="modalRv" data-toggle="modal" id="b${review.reviewNo}"
-													data-target="#myModalReview">쪽지보내기</a></li>
+													data-target="#myModalReview">
+													<p class="text-default"><span class="glyphicon glyphicon-send"></span> 쪽지보내기</p>
+													</a></li>
 											</ul>
 										</div> 
 										

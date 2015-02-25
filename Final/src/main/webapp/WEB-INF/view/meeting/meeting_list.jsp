@@ -113,9 +113,13 @@ alert(error)
 											</button>
 											<ul class="dropdown-menu" role="menu">
 												<li><a
-													href="/Final/friend/create?userId=${loginUser.userId}&friendId=${boardList.userId}">친구추가</a></li>
+													href="/Final/friend/create?userId=${loginUser.userId}&friendId=${boardList.userId}">
+													<p class="text-default"><span class="glyphicon glyphicon-user"></span> 친구추가</p>
+													</a></li>
 												<li><a class="modal1" data-toggle="modal" id="b${boardList.boardNo}"
-													data-target="#myModal">쪽지보내기</a></li>
+													data-target="#myModal">
+													<p class="text-default"><span class="glyphicon glyphicon-send"></span> 쪽지보내기</p>
+													</a></li>
 											</ul>
 										</div> 	
 						<!-- modal -->
@@ -237,7 +241,7 @@ alert(error)
 			<td style="width: 10%;"><c:url value="/meeting/write"
 					var="write" /> <a href="${write}">
 					<button type="submit" class="btn btn-default">
-						<p class="text-primary">
+						<p class="text-default">
 							<span class="glyphicon glyphicon-pencil"></span> 글쓰기
 						</p>
 					</button>

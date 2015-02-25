@@ -100,7 +100,9 @@ pre {
 				</tr>
 				<tr><th style="text-align:center">내용</th><td>${boardDetail.boardContent }</td></tr> --%>
 			</table>
-
+			
+			
+		<c:if test="${boardDetail.userId == loginUser.userId}">
 			<c:url value="/meeting/update?boardNo=${boardDetail.boardNo}"
 				var="goEdit" />
 			<a href="${goEdit}"><button type="button" class="btn btn-default">
@@ -114,6 +116,9 @@ pre {
 						<span class="glyphicon glyphicon-trash"></span> 삭제
 					</p>
 				</button></a>
+		</c:if>				
+				
+				
 		</div>
 	</center>
 	<hr>
