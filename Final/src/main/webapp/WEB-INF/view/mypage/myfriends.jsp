@@ -137,7 +137,7 @@ error: function (error,args) {
 
 									</div>
 
-									<div class="modal-body">
+									<div class="modal-body" align="center">
 
 									<input type="hidden" id="sender" value="${loginUser.userId}"> 
 									<input type="hidden" id="receiver">
