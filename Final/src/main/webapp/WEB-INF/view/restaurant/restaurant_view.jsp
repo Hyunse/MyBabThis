@@ -294,75 +294,76 @@ $("#submtShingoY").click(function(){
 </head>
 <body>
 	<jsp:include page="/WEB-INF/view/header.jsp" />
-	<hr>
-	<div style="margin-left: 10em;">
-		<h2>맛집정보</h2>
-	</div>
 	<table class="table">
-
-		<tr >
-		<td rowspan="6" width="310px" class="border-top-style" ><img src="<%=request.getContextPath()%>/upload/${restaurant.resImg}" onLoad="reSizes(this);" /></td>
-			<td colspan="3" class="border-top-style" align="right" ><a
+	<tr><td>
+		<h3>
+			<strong><span class="glyphicon glyphicon-cutlery"></span>
+				맛집정보</strong>
+		</h3>
+	</td></tr>	
+	</table>
+	<table class="table">
+		<tr>
+			<td rowspan="6" width="310px" class="border-top-style"><img
+				src="<%=request.getContextPath()%>/upload/${restaurant.resImg}"
+				onLoad="reSizes(this);" /></td>
+			<td colspan="3" class="border-top-style" align="right"><a
 				href="<%=request.getContextPath()%>/favorite/create?resNo=${restaurant.resNo}&userId=${loginUser.userId}">
 					<button id="favorite" class="btn btn-default">
 						<span class="glyphicon glyphicon-star"></span> <small>즐겨찾기</small>
 					</button>
-			</a> 
-				
-				<!-- 맛집 페이지 신고-->
-				<!-- http://localhost:9090/Final/msg/sendReport?writeType=T&warnNo=1 -->
-				
-				
-				 
+			</a> <!-- 맛집 페이지 신고--> <!-- http://localhost:9090/Final/msg/sendReport?writeType=T&warnNo=1 -->
+
+
+
 				<!-- <button id="shingoT" type="button" class="btn btn-default">
 				<p class="text-danger"><span class="glyphicon glyphicon-ban-circle"></span> <small>신고</small></p> -->
-				<button class="btn btn-default" id="shingoT" data-toggle="modal" data-target="#myModalShingoT">
-			<p class="text-danger"><span class="glyphicon glyphicon-ban-circle"></span><small>신고</small></p></button>
-			
-			<!-- modal 시작 -->
-										<div class="modal fade" id="myModalShingoT" tabindex="-1"
-											role="dialog" aria-labelledby="myModalLabel"
-											aria-hidden="true">
-											<div class="modal-dialog">
-												<div class="modal-content">
-													<div class="modal-header">
-														<button type="button" class="close" data-dismiss="modal"
-															aria-hidden="true">×</button>
+				<button class="btn btn-default" id="shingoT" data-toggle="modal"
+					data-target="#myModalShingoT">
+					<p class="text-danger">
+						<span class="glyphicon glyphicon-ban-circle"></span><small> 신고</small>
+					</p>
+				</button> <!-- modal 시작 -->
+				<div class="modal fade" id="myModalShingoT" tabindex="-1"
+					role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal"
+									aria-hidden="true">×</button>
 
-														<h4 class="modal-title">신고하기</h4>
+								<h4 class="modal-title">신고하기</h4>
 
-													</div>
+							</div>
 
-													<div class="modal-body">
+							<div class="modal-body">
 
-				<input type="hidden" id="writeTypeM" value="T">
-				<input type="hidden" id="warnNoM" value="${restaurant.resNo}">
-				<input type="hidden" id="senderM" value="${loginUser.userId}">
-				<span class="glyphicon glyphicon-ban-circle"></span><small>신고 사유를 적어주세요 &nbsp;&nbsp;</small>
-									<br>
-									<br>
-				<textarea id="contentM" class="form-control" rows="5"></textarea>
+								<input type="hidden" id="writeTypeM" value="T"> <input
+									type="hidden" id="warnNoM" value="${restaurant.resNo}">
+								<input type="hidden" id="senderM" value="${loginUser.userId}">
+								<span class="glyphicon glyphicon-ban-circle"></span><small>신고
+									사유를 적어주세요 &nbsp;&nbsp;</small> <br> <br>
+								<textarea id="contentM" class="form-control" rows="5"></textarea>
 
-													</div>
+							</div>
 
-													<div class="modal-footer">
+							<div class="modal-footer">
 
-														<button class="btn btn-default" id="submitShingo">
-															<span class="glyphicon glyphicon-send"></span> 전송
-														</button>
-														<button type="button" class="btn btn-default"
-															data-dismiss="modal" id ="msgCloseM">
-															<p class="text-danger">
-																<span class="glyphicon glyphicon-remove"></span> 취소
-															</p>
-														</button>
-													</div>
-												</div>
-												<!-- /.modal-content -->
-											</div>
-											<!-- /.modal-dialog -->
-										</div> <!-- /.modal -->
-			</td>
+								<button class="btn btn-default" id="submitShingo">
+									<span class="glyphicon glyphicon-send"></span> 전송
+								</button>
+								<button type="button" class="btn btn-default"
+									data-dismiss="modal" id="msgCloseM">
+									<p class="text-danger">
+										<span class="glyphicon glyphicon-remove"></span> 취소
+									</p>
+								</button>
+							</div>
+						</div>
+						<!-- /.modal-content -->
+					</div>
+					<!-- /.modal-dialog -->
+				</div> <!-- /.modal --></td>
 		</tr>
 		<tr>
 			<td width="25%">지역 : ${restaurant.locName}</td>
@@ -426,8 +427,6 @@ $("#submtShingoY").click(function(){
 
 
 
-
-	<hr>
 	<!-- /////댓글 Tab//////////////////////////////////////////////////////////////////////////////////////////////////////// -->
 	<div class="container">
 		<section>
@@ -491,7 +490,7 @@ $("#submtShingoY").click(function(){
 												</li>
 												<li>
 													<a class="modalRr" id="b${rreply.rreplyNo}" data-toggle="modal" data-target="#myModalReply">
-														<p class="text-info"><span class="glyphicon glyphicon-send"></span> 쪽지보내기</p>
+														<p class="text-default"><span class="glyphicon glyphicon-send"></span> 쪽지보내기</p>
 													</a>
 												</li>
 												<li>
@@ -647,7 +646,7 @@ $("#submtShingoY").click(function(){
 									<td style="width: 80%"><form:input path="rreplyContent"
 											class="form-control" /></td>
 									<td style="width: 10%">
-										<button type="submit" name="rwrite" class="btn btn-default">작성</button>
+										<button type="submit" name="rwrite" class="btn btn-default"><span class="glyphicon glyphicon-chevron-down"></span> 작성</button>
 									</td>
 									<form:hidden path="resNo" value="${restaurant.resNo}" />
 									<form:hidden path="userId" value="${loginUser.userId}" />
@@ -673,7 +672,7 @@ $("#submtShingoY").click(function(){
 								<tr>
 									<td onclick="location.href='${url}'" style="cursor: pointer;"><c:out
 											value="${review.reviewScore }" /></td>
-									<td onclick="location.href='${url}'" style="cursor: pointer;"><small>${review.reviewTitle }</small></td>
+									<td onclick="location.href='${url}'" style="cursor: pointer; text-align: left;" ><small>${review.reviewTitle }</small></td>
 										
 										
 										<c:if test="${review.userId != loginUser.userId}">
@@ -685,9 +684,13 @@ $("#submtShingoY").click(function(){
 											</button>
 											<ul class="dropdown-menu" role="menu">
 												<li><a
-													href="/Final/friend/create?userId=${loginUser.userId}&friendId=${review.userId}">친구추가</a></li>
+													href="/Final/friend/create?userId=${loginUser.userId}&friendId=${review.userId}">
+													<p class="text-default"><span class="glyphicon glyphicon-user"></span> 친구추가</p>
+													</a></li>
 												<li><a class="modalRv" data-toggle="modal" id="b${review.reviewNo}"
-													data-target="#myModalReview">쪽지보내기</a></li>
+													data-target="#myModalReview">
+													<p class="text-default"><span class="glyphicon glyphicon-send"></span> 쪽지보내기</p>
+													</a></li>
 											</ul>
 										</div> 
 										
@@ -760,7 +763,7 @@ $("#submtShingoY").click(function(){
 							var="url"></c:url>
 						<br>
 						<br> <a href="${url }">
-							<button class="btn btn-default">작성</button>
+							<button class="btn btn-default"><span class="glyphicon glyphicon-chevron-down"></span> 작성</button>
 						</a>
 	<br>
 	<br>

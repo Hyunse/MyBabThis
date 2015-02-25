@@ -81,7 +81,7 @@ error: function (error,args) {
 						
 							
 							
-						<button class="btn btn-default modalMsg" id="b<%=i%>" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-send"></span>답장</button>
+						<button class="btn btn-default modalMsg" id="b<%=i%>" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-send"></span> 답장</button>
 								
 							
 						</div>

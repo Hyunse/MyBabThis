@@ -125,7 +125,7 @@
 				</tr>
 
 			</table>
-
+	<c:if test="${boardDetail.userId == loginUser.userId}">
 			<c:if test="${boardDetail.userId == loginUser.userId}">
 				<c:url value="/board/update?boardNo=${boardDetail.boardNo}"
 					var="goEdit" />
@@ -145,11 +145,11 @@
 						<span class="glyphicon glyphicon-trash"></span> 삭제
 					</p>
 				</button></a>
+	</c:if>			
 </c:if>
 		</div>
 
 	</center>
-	<hr>
 	<table class="table" style="width: 100%">
 		<tr>
 			<th><c:out value="${breply.userId }" /></th>
