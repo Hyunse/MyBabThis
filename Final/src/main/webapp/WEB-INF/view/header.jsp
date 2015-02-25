@@ -94,7 +94,7 @@ $(document).ready(function(){
 			});
 
 	
-	$("#search").click(function(){
+	$("#search1").click(function(){
 		alert("작동")
 		var name = $('#resName').val();
 		
@@ -206,7 +206,7 @@ $(document).ready(function(){
 							id="resName">
 					</div>
 
-					<button class="btn btn-default" id="search">Search</button>
+					<button class="btn btn-default" id="search1">Search</button>
 				</div>
 
 			</div>

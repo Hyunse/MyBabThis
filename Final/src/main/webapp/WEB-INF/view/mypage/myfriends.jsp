@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -12,13 +12,20 @@
 <link rel="stylesheet" type="text/css"
 	href="<%=request.getContextPath()%>/css/bootstrap-theme.css" />
 <script src="<%=request.getContextPath()%>/js/bootstrap.js"></script>
+<style type="text/css">
+table{
+align: center;
+text-align: center;
+width: 
+}
+</style>
 </head>
 <body>
 <jsp:include page="/WEB-INF/view/header.jsp" />
 <jsp:include page="/WEB-INF/view/mypage/mypage_list.jsp" />
 	<br>
 	<br>
-	<table style="width: 80%;" align="center">
+	<table style="width: 60%; text-align: left;" align="center" >
 		<tr>
 			<td style="width:10%;"><select id="select" class="form-control" >
 					<option value="userName">이름</option>
@@ -38,14 +45,14 @@
 	%>
 
 
-	<table class="table table-hover" style="text-align: center;">
+	<table class="table table-hover" style="text-align: center; width: 60%;">
 		<tr>
-			<th>번호</th>
-			<th>아이디</th>
-			<th>이름</th>
-			<th>등급</th>
-			<th>등록일</th>
-			<th></th>
+			<th style="width: 10%">번호</th>
+			<th style="width: 20%">아이디</th>
+			<th style="width: 20%">이름</th>
+			<th style="width: 10%">등급</th>
+			<th style="width: 20%">등록일</th>
+			<th style="width: 20%"></th>
 		</tr>
 		<c:forEach items="${users}" var="user">
 <%-- 			<c:url value="/admin/users_list?userId=${user.userId}" var="url" />
@@ -61,10 +68,16 @@
 				<fmt:formatDate value="${userRegdate }" type="time" pattern="hh:MM"/>
 				</td>
 				<td>
+				<c:url value="/Final/msg/send?receiver=${user.userId}" var="sendMsg" />
+					<a href="${sendMsg }">
+						<button type="button" class="btn btn-default" >
+							<p class="text-info"><span class="glyphicon glyphicon-send"></span>&nbsp;&nbsp;쪽지</p>
+						</button>
+					</a>
 				<c:url value="/friend/delete?userId=${loginUser.userId}&friendId=${user.userId}" var="goDelete" />
 					<a href="${goDelete}">
 						<button type="button" class="btn btn-default" >
-							<p class="text-danger"><span class="glyphicon glyphicon-trash"></span>친구삭제</p>
+							<p class="text-danger"><span class="glyphicon glyphicon-trash"></span>&nbsp;&nbsp;삭제</p>
 						</button>
 					</a>
 				</td>
