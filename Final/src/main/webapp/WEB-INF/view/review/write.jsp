@@ -56,6 +56,15 @@ $(document).ready(function() {
 								<form:radiobutton path="reviewScore" value="5" />5
 		 --%></td>
 				</tr>
+				
+				
+				<tr>
+					<th style="text-align: center">내용</th>
+					<td >&nbsp;&nbsp;<textarea name="reviewContent" cols="150" rows="20"></textarea><br> <%-- <form:input path="reviewContent" /> --%>
+					</td>
+				</tr>
+				<tr>
+				
 				<tr>
 					<th style="text-align: center">이미지</th>
 					<td>
@@ -79,12 +88,6 @@ $(document).ready(function() {
 						</div>
 				</tr>
 
-				<tr>
-					<th style="text-align: center">내용</th>
-					<td>&nbsp;&nbsp;<textarea name="reviewContent"></textarea> <%-- <form:input path="reviewContent" /> --%>
-					</td>
-				</tr>
-				<tr>
 					<td colspan="2" align="center"><br>
 						<button type="submit" class="btn btn-default" name="write">
 							<span class="glyphicon glyphicon-ok"></span> 작성
