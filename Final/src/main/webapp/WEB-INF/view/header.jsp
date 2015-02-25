@@ -182,8 +182,8 @@ $(document).ready(function(){
 					<c:if test="${!empty loginUser }">
 						<img width="40" height="40"
 							src="<%=request.getContextPath()%>/upload/${loginUser.userImg}">
-						<span>${loginUser.userId }  ${loginUser.userGrade }</span>&nbsp&nbsp&nbsp&nbsp 
-						
+						<span>${loginUser.userId } <button>${loginUser.userGrade }</span>&nbsp&nbsp&nbsp&nbsp 
+						</button>
 						<c:url value="/logout" var="logout" />
 						
 						<a href="${logout}"><button class="btn btn-default">로그아웃</button></a>

@@ -26,7 +26,7 @@ public class BreplyController {
 	@Autowired
 	BreplyService service;
 	
-	//작성폼
+	//작성폼k;
 		@RequestMapping(value="/breply/write", method=RequestMethod.GET)
 		public String redirToBreplyForm(Model model){
 			model.addAttribute("breply", new Breply());

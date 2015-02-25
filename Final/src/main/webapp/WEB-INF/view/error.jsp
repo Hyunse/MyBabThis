@@ -27,6 +27,7 @@
 }
 </style>
 <body>
+
 <jsp:include page="/WEB-INF/view/header.jsp" />
 <div align="center">
 <div id="error"><span class="glyphicon glyphicon-exclamation-sign"></span>

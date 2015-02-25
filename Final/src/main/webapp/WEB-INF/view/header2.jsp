@@ -27,6 +27,7 @@
 	<c:url value="/meeting/list" var="meeting"/>
 	<c:url value="/ranking/list" var="ranking"/>
 	<c:url value="/main" var="main"/>
+	<c:url value="/rule" var="rule"/>
 
 <div class="menudiv">
 			<div class="menu-wrap">
@@ -36,7 +37,7 @@
 						<a href="${ranking}"><i class="fa fa-fw fa-bell-o"></i><span>맛집 랭킹</span></a>
 						<a href="${meeting}"><i class="fa fa-fw fa-envelope-o"></i><span>번개모임 게시판</span></a>
 						<a href="${board}"><i class="fa fa-fw fa-comment-o"></i><span>자유게시판</span></a>
-						<a href="#"><i class="fa fa-fw fa-bar-chart-o"></i><span>이용규칙</span></a>
+						<a href="${rule}"><i class="fa fa-fw fa-bar-chart-o"></i><span>이용규칙</span></a>
 					</div>
 				</nav>
 				<button class="close-button" id="close-button">Close Menu</button>
