@@ -114,9 +114,8 @@
 
 				<tr>
 					<td colspan="3" align="right"><img width="40" height="40"
-						src="<%=request.getContextPath()%>/upload/${loginUser.userImg}"><p
-							class="text-muted">${boardDetail.userId }</p>
-					</td>
+						src="<%=request.getContextPath()%>/upload/${loginUser.userImg}">
+					<p class="text-muted">${boardDetail.userId }</p></td>
 
 				</tr>
 				<tr>
@@ -142,7 +141,7 @@
 	<hr>
 	<table class="table" style="width: 100%">
 		<tr>
-			<th><c:out value="${breply.userId }" /> </th>
+			<th><c:out value="${breply.userId }" /></th>
 			<th width="65%">내용</th>
 			<th width="15%">작성자</th>
 			<th width="15%">등록일</th>

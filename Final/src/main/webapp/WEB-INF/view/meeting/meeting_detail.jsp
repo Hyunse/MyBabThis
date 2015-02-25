@@ -47,13 +47,48 @@ pre {
 <jsp:include page="/WEB-INF/view/header.jsp" />
 	
 <body>
-	
-	<div style="margin-left: 3em;">
-		<h2 style="font-family: Nanum Gothic">번개모임</h2>
-	</div>
 	<center>
 	<div class="table-responsive">
 			<table class="table">
+			<tr>
+					<td colspan="2" class="border-top-style" align="right"><c:url
+							value="/msg/sendReport?writeType=F&warnNo=${boardDetail.boardNo}"
+							var="goReport" /> <a href="${goReport}"><button
+								type="button" class="btn btn-default">
+								<p class="text-danger">
+									<span class="glyphicon glyphicon-ban-circle"></span> 신고
+								</p>
+							</button></a></td>
+				</tr>
+				
+				<tr>
+					<td colspan="2" class="border-top-style"><strong>번개모임</strong></td>
+				</tr>
+				<tr style="width: 100%">
+					<td class="border-top-style">[${boardDetail.boardNo}]
+						&nbsp;${boardDetail.boardTitle}</td>
+					<td class="border-top-style" align="right"><p
+							class="text-muted">
+							<c:set value="${boardDetail.boardRegdate}" var="boardRegdate" />
+							<fmt:formatDate value="${boardRegdate }" type="date"
+								dateStyle="short" />
+							&nbsp;&nbsp;
+							<fmt:formatDate value="${boardRegdate }" type="time"
+								dateStyle="short" />
+						</p></td>
+				</tr>
+				<tr>
+					<td colspan="3" align="right"><img width="40" height="40"
+						src="<%=request.getContextPath()%>/upload/${loginUser.userImg}">
+					<p class="text-muted">${boardDetail.userId }</p></td>
+
+				</tr>
+				<tr>
+					<td class="border-top-style" colspan="3">${boardDetail.boardContent }</td>
+				</tr>
+				<%-- 
+				
+				
 				<tr style="width:100%" ><th width=10% style="text-align:center">번호</th><td width=90%>${boardDetail.boardNo}</td></tr>
 				<tr><th style="text-align:center">제목</th><td>${boardDetail.boardTitle}</td></tr>
 				<tr><th style="text-align:center">작성자</th><td>${boardDetail.userId }</td></tr>
@@ -64,20 +99,14 @@ pre {
 						<fmt:formatDate value="${boardRegdate }" type="time" dateStyle="short"/>
 					</td>
 				</tr>
-				<tr><th style="text-align:center">내용</th><td>${boardDetail.boardContent }</td></tr>
+				<tr><th style="text-align:center">내용</th><td>${boardDetail.boardContent }</td></tr> --%>
 			</table>
 	
 	<c:url value="/meeting/update?boardNo=${boardDetail.boardNo}" var="goEdit" />
 	<a href="${goEdit}"><button type="submit" class="btn btn-default" ><p class="text-success"><span class="glyphicon glyphicon-pencil"></span> 수정</button></a>
-	
-	<c:url value="/msg/sendReport?writeType=M&warnNo=${boardDetail.boardNo}" var="goReport" />
-		<a href="${goReport}"><button type="button" class="btn btn-default" ><p class="text-danger"><span class="glyphicon glyphicon-ban-circle"></span> 신고</p></button></a>
 	</div>
 	</center>
 	<hr>
-	<div style="margin-left: 3em;">
-		<h2 style="font-family: Nanum Gothic">댓글목록</h2>
-	</div>
 	
 	<center>
 	<table class="table" style="width:100%">
