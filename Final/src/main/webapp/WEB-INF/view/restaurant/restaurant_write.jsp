@@ -8,27 +8,27 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>맛집 등록하기</title>
 <script src="http://code.jquery.com/jquery-latest.js"></script>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Text Input Effects</title>
-<meta name="description"
-	content="Simple ideas for enhancing text input interactions" />
-<meta name="keywords"
-	content="input, text, effect, focus, transition, interaction, inspiration, web design" />
-<meta name="author" content="Codrops" />
-<link rel="shortcut icon" href="../favicon.ico">
-<link rel="stylesheet" type="text/css"
-	href="<%=request.getContextPath()%>/css/normalize_input.css" />
-<link rel="stylesheet" type="text/css"
-	href="<%=request.getContextPath()%>/fonts/font-awesome-4.2.0/css/font-awesome.min.css" />
-<link rel="stylesheet" type="text/css"
-	href="<%=request.getContextPath()%>/css/demo_input.css" />
-<link rel="stylesheet" type="text/css"
-	href="<%=request.getContextPath()%>/css/component_input.css" />
+<!-- 
+<meta name="viewport" content="width=device-width, initial-scale=1"> -->
+
 <link rel="stylesheet" type="text/css"
 	href="<%=request.getContextPath()%>/css/bootstrap.css" />
 <link rel="stylesheet" type="text/css"
 	href="<%=request.getContextPath()%>/css/bootstrap-theme.css" />
 <script src="<%=request.getContextPath()%>/js/bootstrap.js"></script>
+
+<style type="text/css">
+.selectbox{
+width: 100px;
+}
+.inputbox{
+width:300px;}
+
+.inputform{
+width:100%;
+}
+
+</style>
 </head>
 <script>
 $(document).ready(function() {
@@ -42,27 +42,29 @@ $(document).ready(function() {
 					})
 </script>
 
+
 <body>
 <jsp:include page="/WEB-INF/view/header.jsp" />
 	<!-- <section class="content" style="text-align: center;"> -->
+		
 		<c:url value="/restaurant/writed" var="action"></c:url>
 		<form:form modelAttribute="restaurant" method="post"
-			action="${action}">
+			action="${action}" class="inputform">
 
 			<form:hidden path="userId" value="${loginUser.userId }"/>
 			<div class="table-responsive">
 				<table class="table" >
 					<tr style="width: 100%" >
-						<th width=20% style="text-align: center">가게이름</th>
-						<td width=80%>&nbsp;&nbsp;&nbsp;<form:input path="resName" id="resName" size="30%"/></td>
+						<th width=20% style="text-align: center; min-width: 70px;">가게이름</th>
+						<td width=80%>&nbsp;&nbsp;&nbsp;<form:input path="resName" id="resName" size="30%" class="inputbox"/></td>
 					</tr>
 					<tr>
 						<th style="text-align: center">전화번호</th>
-						<td>&nbsp;&nbsp;&nbsp;<form:input path="resNumber" id="resNumber" size="30%"/></td>
+						<td>&nbsp;&nbsp;&nbsp;<form:input path="resNumber" id="resNumber" size="30%" class="inputbox"/></td>
 					</tr>
 					<tr>
 						<th style="text-align: center">주소</th>
-						<td>&nbsp;&nbsp;&nbsp;<form:input path="resLoc" id="resLoc" size="40%"/></td>
+						<td>&nbsp;&nbsp;&nbsp;<form:input path="resLoc" id="resLoc" size="40%" class="inputbox"/></td>
 					</tr>
 					<tr>
 						<th style="text-align: center">내용</th>
@@ -72,7 +74,7 @@ $(document).ready(function() {
 
 					<tr>
 						<th style="text-align: center">지역</th>
-						<td>&nbsp;&nbsp;&nbsp;<form:select path="locName">
+						<td>&nbsp;&nbsp;&nbsp;<form:select path="locName" class="selectbox">
 								<form:option value="강남">강남</form:option>
 								<form:option value="건대">건대</form:option>
 								<form:option value="송파">송파</form:option>
@@ -87,7 +89,7 @@ $(document).ready(function() {
 					<%-- <form:option items="${types} }" itemLabel="name" itemValue="id"/> --%>
 					<tr>
 						<th style="text-align: center">맛집장르</th>
-						<td>&nbsp;&nbsp;&nbsp;<form:select path="resKind">
+						<td>&nbsp;&nbsp;&nbsp;<form:select path="resKind" class="selectbox">
 								<form:option value="한식">한식</form:option>
 								<form:option value="중식">중식</form:option>
 								<form:option value="양식">양식</form:option>

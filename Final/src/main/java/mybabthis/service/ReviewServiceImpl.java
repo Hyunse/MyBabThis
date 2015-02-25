@@ -39,7 +39,15 @@ public class ReviewServiceImpl implements ReviewService {
 		int result = dao.createReview(review);
 
 		this.averageScore(review.getResNo());
-		this.checkGrade(review);
+		
+		
+		if(userDao.getUserById(review.getUserId()).getUserGrade().equals("관리자")){
+			logger.trace("관리자라 등급체크안함");
+		}
+		else{
+		
+			this.checkGrade(review);
+		}
 
 		return result;
 	}
@@ -134,10 +142,6 @@ public class ReviewServiceImpl implements ReviewService {
 		}
 		else if(cnt>=3){
 			userGrade="석사";
-			userDao.updateUserGrade(userId, userGrade);
-		}
-		else if(cnt>=1){
-			userGrade="초보자";
 			userDao.updateUserGrade(userId, userGrade);
 		}
 		
