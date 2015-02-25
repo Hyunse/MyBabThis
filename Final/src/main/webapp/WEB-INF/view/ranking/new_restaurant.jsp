@@ -37,7 +37,7 @@
 		<c:forEach items="${restaurants }" var="restaurant">
 		<c:url value="/restaurant/view?resNo=${restaurant.resNo}" var="url" />
 			
-				<a href="/restaurant/view?resNo=${restaurant.resNo}" class="item" style="width: 300px">
+				<a href="<%=request.getContextPath() %>/restaurant/view?resNo=${restaurant.resNo}" class="item" style="width: 300px">
 					<img class="item__image" src="<%=request.getContextPath()%>/upload/${restaurant.resImg }"  />
 					<h2 class="item__title" >${restaurant.locName } ${restaurant.resName }</h2>
 					<h3 class="item_new"><span class="label label-danger">New</span></h3>
