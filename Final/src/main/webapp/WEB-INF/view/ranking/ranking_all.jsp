@@ -16,7 +16,7 @@
 
 	<h1>맛집 전국 top10</h1>
 <%int i=1; %>
-	<table class="table">
+	<table class="table table-hover" style="text-align: center;">
 		<tr>
 			<th>순위</th>
 			<th>맛집 번호</th>
@@ -32,8 +32,8 @@
 			<td><c:out value="<%=i %>" /></td>
 			<td><c:out value="${restaurant.resNo}" /></td>
 			<td><c:out value="${restaurant.locName}" /></td>
-			<td><c:out value="${restaurant.resName}" /></td>
-			<td><c:out value="${restaurant.resContent}" /></td>
+			<td style="text-align: left;"><c:out value="${restaurant.resName}" /></td>
+			<td style="text-align: left;"><c:out value="${restaurant.resContent}" /></td>
 				<td><c:out value="${restaurant.resScore}" /></td>
 			</tr>
 			<%i++; %>
