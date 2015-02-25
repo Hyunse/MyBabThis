@@ -18,12 +18,12 @@ $(document).ready(function(){
         editurl:'<%=request.getContextPath()%>/admin/Breply/deleteOne',
         datatype: 'json',
         mtype: 'GET',
-        colNames:['댓글번호','댓글내용', '작성일', '수정일', '게시글번호', '작성자'],
+        colNames:['댓글번호','댓글내용', /* '작성일', '수정일', */ '게시글번호', '작성자'],
         colModel :[
           {name:'breplyNo', index:'breplyNo', key:true, width:80, align:"right", sorttype:"text",editable:true},
           {name:'breplyContent', index:'breplyContent', width:100, align:"center", editable:true},
-          {name:'breplyRegdate', index:'breplyRegdate', width:100, align:"center", editable:true},
-          {name:'breplyUpdatedate', index:'breplyUpdatedate', width:100, align:"center", editable:true},
+          /* {name:'breplyRegdate', index:'breplyRegdate', width:100, align:"center", editable:true},
+          {name:'breplyUpdatedate', index:'breplyUpdatedate', width:100, align:"center", editable:true}, */
           {name:'boardNo', index:'boardNo', width:100, align:"center", editable:true},
           {name:'userId', index:'userId', width:100, align:"center", editable:true},
         ],

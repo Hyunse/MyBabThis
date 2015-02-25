@@ -18,13 +18,13 @@ $(document).ready(function(){
         editurl:'<%=request.getContextPath()%>/admin/Review/deleteOne',
         datatype: 'json',
         mtype: 'GET',
-        colNames:['리뷰번호',"점수","내용", "작성일", "수정일", "맛집페이지번호", "작성자"],
+        colNames:['리뷰번호',"점수","내용", /* "작성일", "수정일", */ "맛집페이지번호", "작성자"],
         colModel :[
           {name:'reviewNo', index:'reviewNo', key:true, width:80, align:"right", sorttype:"text",editable:true},
           {name:'reviewScore', index:'reviewScore', width:100, align:"center", editable:true},
           {name:'reviewContent', index:'reviewContent', width:100, align:"center", editable:true},
-          {name:'reviewRegdate', index:'reviewRegdate', width:100, align:"center", editable:true},
-          {name:'reviewUpdatedate', index:'reviewUpdatedate', width:100, align:"center", editable:true},
+          /* {name:'reviewRegdate', index:'reviewRegdate', width:100, align:"center", editable:true},
+          {name:'reviewUpdatedate', index:'reviewUpdatedate', width:100, align:"center", editable:true}, */
           {name:'resNo', index:'resNo', width:100, align:"center", editable:true},
           {name:'userId', index:'userId', width:100, align:"center", editable:true},
         ],

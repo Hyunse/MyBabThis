@@ -18,7 +18,7 @@ $(document).ready(function(){
         editurl:'<%=request.getContextPath()%>/admin/Restaurant/deleteOne',
         datatype: 'json',
         mtype: 'GET',
-        colNames:['번호',"이름","전화번호", "펑점", "주소", "내용", "작성자", "지역", "종류", "등록일", "수정일"],
+        colNames:['번호',"이름","전화번호", "펑점", "주소", "내용", "작성자", "지역", "종류"/* , "등록일", "수정일" */],
         colModel :[
           {name:'resNo', index:'resNo', key:true, width:80, align:"right", sorttype:"text",editable:true},
           {name:'resName', index:'resName', width:100, align:"center", editable:true},
@@ -29,8 +29,8 @@ $(document).ready(function(){
           {name:'userId', index:'userId', width:100, align:"center", editable:true},
           {name:'locName', index:'locName', width:100, align:"center", editable:true},
           {name:'resKind', index:'resKind', width:100, align:"center", editable:true},
-          {name:'resRegdate', index:'resRegdate', width:100, align:"center", editable:true},
-          {name:'resUpdatedate', index:'resUpdatedate', width:100, align:"center", editable:true},
+          /* {name:'resRegdate', index:'resRegdate', width:100, align:"center", editable:true},
+          {name:'resUpdatedate', index:'resUpdatedate', width:100, align:"center", editable:true}, */
         ],
         pager:'#navGridForRestaurant',
         rowNum: 10,
