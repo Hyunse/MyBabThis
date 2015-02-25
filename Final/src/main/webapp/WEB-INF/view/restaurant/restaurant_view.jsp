@@ -146,9 +146,10 @@
 		
 		
 		/* 메시지 보내기 */
+		
 	$("#submitMsgRv").click(function(){
 	
-	 var sender = $('#senderRv').val(), 
+	 var sender = $('#sender').val(), 
 	 	 receiver =  $('#receiverRv').val(), 
 	 	 content =  $('#msgContent').val();
 	 
@@ -163,7 +164,32 @@
     success: function(args){
     	
     	alert(args);
-    	$("#msgClose").click();
+    	$(".msgClose").click();
+      },
+    error: function (args) {
+		console.log(path, args);
+	}
+    });
+})
+
+$("#submitMsgRr").click(function(){
+	
+	 var sender = $('#sender').val(), 
+	 	 receiver =  $('#receiverRr').val(), 
+	 	 content =  $('#msgContent').val();
+	 
+	var data ={ sender : sender , receiver : receiver, content : content}
+	
+    $.ajax({
+    type: "POST",
+    url: "<%=request.getContextPath()%>/msg/sended",
+    data: data,
+    contentType:"application/x-www-form-urlencoded; charset=utf-8",
+    
+    success: function(args){
+    	
+    	alert(args);
+    	$(".msgClose").click();
       },
     error: function (args) {
 		console.log(path, args);
@@ -347,10 +373,53 @@
 											<ul class="dropdown-menu" role="menu">
 												<li><a
 													href="/Final/friend/create?userId=${loginUser.userId}&friendId=${rreply.userId}">친구추가</a></li>
-												<li><a href="/Final/msg/send?receiver=${rreply.userId}">쪽지보내기</a></li>
+												<li><a id="sendMsg" data-toggle="modal" data-target="#myModalReply">쪽지보내기</a></li>
+												
+												
 											</ul>
 										</div>
+<div class="modal fade" id="myModalReply" tabindex="-1"
+											role="dialog" aria-labelledby="myModalLabel"
+											aria-hidden="true">
+											<div class="modal-dialog">
+												<div class="modal-content">
+													<div class="modal-header">
+														<button type="button" class="close" data-dismiss="modal"
+															aria-hidden="true">×</button>
 
+														<h4 class="modal-title">쪽지보내기</h4>
+
+													</div>
+
+													<div class="modal-body">
+
+														<input type="hidden" id="sender"
+															value="${loginUser.userId}"> <input type="hidden"
+															id="receiver" value="${rreply.userId}"><small>받는
+															사람 &nbsp;&nbsp;${rreply.userId}</small>
+															<br>
+															<br>
+														<textarea id="msgContent" class="form-control" rows="5"></textarea>
+
+													</div>
+
+													<div class="modal-footer">
+
+														<button class="btn btn-default" id="submitMsgRr">
+															<span class="glyphicon glyphicon-send"></span> 전송
+														</button>
+														<button type="button" class="btn btn-default"
+															data-dismiss="modal" class ="msgClose">
+															<p class="text-danger">
+																<span class="glyphicon glyphicon-remove"></span> 취소
+															</p>
+														</button>
+													</div>
+												</div>
+												<!-- /.modal-content -->
+											</div>
+											<!-- /.modal-dialog -->
+										</div> <!-- /.modal -->
 									</td>
 									<td><small> <c:set
 												value="${rreply.rreplyUpdatedate }" var="rreplyUpdatedate" />
@@ -469,13 +538,14 @@
 											<ul class="dropdown-menu" role="menu">
 												<li><a
 													href="/Final/friend/create?userId=${loginUser.userId}&friendId=${review.userId}">친구추가</a></li>
-												<li><a id="sendMsgRv" data-toggle="modal"
-													data-target="#myModal">쪽지보내기</a></li>
+												<li><a id="sendMsg" data-toggle="modal"
+													data-target="#myModalReview">쪽지보내기</a></li>
 											</ul>
-										</div> <!-- 쪽지보내기 Modal -->
+										</div> 
+										<!-- 쪽지보내기 Modal -->
 
 
-										<div class="modal fade" id="myModal" tabindex="-1"
+										<div class="modal fade" id="myModalReview" tabindex="-1"
 											role="dialog" aria-labelledby="myModalLabel"
 											aria-hidden="true">
 											<div class="modal-dialog">
@@ -490,10 +560,12 @@
 
 													<div class="modal-body">
 
-														<input type="hidden" id="senderRv"
-															value="${loginUser.userId}"> <input type="text"
+														<input type="hidden" id="sender"
+															value="${loginUser.userId}"> <input type="hidden"
 															id="receiverRv" value="${review.userId}"><small>받는
 															사람 &nbsp;&nbsp;${review.userId}</small>
+															<br>
+															<br>
 														<textarea id="msgContent" class="form-control" rows="5"></textarea>
 
 													</div>
@@ -504,7 +576,7 @@
 															<span class="glyphicon glyphicon-send"></span> 전송
 														</button>
 														<button type="button" class="btn btn-default"
-															data-dismiss="modal" id ="msgClose">
+															data-dismiss="modal" class ="msgClose">
 															<p class="text-danger">
 																<span class="glyphicon glyphicon-remove"></span> 취소
 															</p>
