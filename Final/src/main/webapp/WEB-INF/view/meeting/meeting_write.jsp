@@ -60,13 +60,12 @@ $(function(){
 							</h3></td>
 					</tr>
 					<tr style="width: 100%">
-						<th width=10% style="text-align: center"><p
-								class="text-muted">제목</p></th>
+						<th width=10% style="text-align: center">제목</th>
 						<td width=90%><form:input path="boardTitle" size="80%" /></td>
 					</tr>
 
 					<tr>
-						<th style="text-align: center"><p class="text-muted">내용</p></th>
+						<th style="text-align: center">내용</th>
 						<td><form:textarea path="boardContent" id="editor"
 								style=" width:100%; min-height: 500px; min-width: 600px " /></td>
 					</tr>

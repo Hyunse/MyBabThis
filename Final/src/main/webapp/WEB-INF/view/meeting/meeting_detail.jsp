@@ -71,8 +71,7 @@ pre {
 							class="text-muted">
 							<c:set value="${boardDetail.boardRegdate}" var="boardRegdate" />
 							<fmt:formatDate value="${boardRegdate }" type="date"
-								dateStyle="short" />
-							&nbsp;&nbsp;
+								dateStyle="short" /><br>
 							<fmt:formatDate value="${boardRegdate }" type="time"
 								dateStyle="short" />
 						</p></td>
@@ -164,7 +163,7 @@ pre {
 							value="${breply.userId }" /></td>
 					<td style="text-align: center"><c:set
 							value="${breply.breplyUpdatedate }" var="breplyUpdatedate" /> <fmt:formatDate
-							value="${breplyUpdatedate }" type="date" dateStyle="short" />&nbsp;&nbsp;
+							value="${breplyUpdatedate }" type="date" dateStyle="short" /><br>
 						<fmt:formatDate value="${breplyUpdatedate }" type="time"
 							pattern="hh:MM" /></td>
 					<c:if test="${breply.userId == loginUser.userId}">
