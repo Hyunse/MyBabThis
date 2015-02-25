@@ -110,7 +110,6 @@ alert(error)
 						
 							<button type="button" class="btn btn-default dropup-toggle" data-toggle="dropdown">
 								<div id="ub${boardList.boardNo}"><c:out value="${boardList.userId}" /></div>
-							
 							</button>
 							
 							<ul class="dropdown-menu" role="menu">
