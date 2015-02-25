@@ -204,6 +204,13 @@ $("#pass2").blur(function(){
 				<td></td>
 			</tr>
 			<tr>
+				<td id="col1"><label>등급</label></td>
+				<td><form:input path="userGrade" class="form-control" readonly="true"/></td>
+				<td></td>
+			</tr>
+			
+			
+			<tr>
 				<td id="col1"><label>성별</label></td>
 				<td>
 					<form:radiobutton path="userGender" value="1" />남&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
