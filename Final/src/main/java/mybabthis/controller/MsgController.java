@@ -85,20 +85,34 @@ public class MsgController {
 	}*/
 
 	// 신고하기
-	@RequestMapping(value = "/sendReport", params = { "writeType","warnNo" }, method = RequestMethod.GET)
-	public String enterSendReport(@RequestParam String writeType, String warnNo , Model model) {
-		model.addAttribute("writeType", writeType);
+	@RequestMapping(value = "/sendedReport", params = { "writeType","warnNo","sender","content" }, method = RequestMethod.POST, produces = "text/plain;charset=utf-8")
+	public @ResponseBody String ajaxSendReport(@RequestParam String writeType, String warnNo ,String sender,String content, Model model) {
+/*		model.addAttribute("writeType", writeType);
 		model.addAttribute("warnNo", warnNo);
 		model.addAttribute("msg", new Msg());
-		return "msg/report_send";
+		*/
+		
+		Msg msg = new Msg();
+		msg.setSender(sender);
+		msg.setWriteType(writeType);
+		msg.setMsgContent(content);
+		msg.setWarnNo(Integer.parseInt(warnNo));
+		
+		int result = service.sendReport(msg);
+		
+		if(result > 0) {
+			return "해당 글을 신고 하였습니다.";
+		}
+		
+		return "신고하기 실패 하였습니다.";
 	}
 
-	@RequestMapping(value = "/sendedReport", method = RequestMethod.POST)
+	/*@RequestMapping(value = "/sendedReport", method = RequestMethod.POST)
 	public String afterSendRepor(@ModelAttribute("msg") Msg msg) {
 		service.sendReport(msg);
 		return "redirect:/msg/reportList";
 	}
-
+*/
 	// 보낸쪽지함
 	@RequestMapping(value = "/sendList", method = RequestMethod.GET)
 	public String getSendList(Model model) {

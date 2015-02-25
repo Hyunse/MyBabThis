@@ -214,7 +214,86 @@ $("#submitMsgRr").click(function(){
     success: function(args){
     	
     	alert(args);
+    	
     	$("#msgCloseRr").click();
+    	
+      },
+      error: function (error,args) {
+  		alert(error)
+  		alert("에러")
+	}
+    });
+})
+
+/* $("#shingo").click(function(){
+	 var sender = $('#senderM').val(), 
+ 	 writeType =  $('#writeTypeM').val(), 
+ 	 warnNo =  $('#warnNoM').val();
+	
+}) */
+
+$("#submtShingo").click(function(){
+	
+	 var sender = $('#senderM').val(), 
+	 	 writeType =  $('#writeTypeM').val(), 
+	 	 warnNo =  $('#warnNoM').val(),
+	 	 content = $('#contentM').val();
+	var data ={ sender : sender , writeType : writeType, warnNo : warnNo, content : content};
+	
+/* 	alert("sender : " +  sender+ ", writeType :  " + writeType +" , warnNo : " +  warnNo +" , content : " +  content)
+ */	
+    $.ajax({
+    type: "POST",
+    url: "<%=request.getContextPath()%>/msg/sendedReport",
+    data: data,
+    contentType:"application/x-www-form-urlencoded; charset=utf-8",
+    
+    success: function(args){
+    	
+    	alert(args);
+    	
+    	$("#msgCloseM").click();
+    	
+      },
+      error: function (error,args) {
+  		alert(error)
+	}
+    });
+})
+
+/*  $("#shingoY").click(function(){
+		var bid = $(this).attr("id");
+		var iid = "#i" + bid;
+		
+		var receiver = $(iid).html();
+		
+		$("#dropIdRr").html(receiver);	
+		$("#receiverRr").val(receiver);
+	
+}) */
+
+$("#submtShingoY").click(function(){
+	
+	 var sender = $('#senderY').val(), 
+	 	 writeType =  $('#writeTypeY').val(), 
+	 	 warnNo =  $('#warnNoY').val(),
+	 	 content = $('#contentY').val();
+	var data ={ sender : sender , writeType : writeType, warnNo : warnNo, content : content};
+	
+	alert("sender : " +  sender+ ", writeType :  " + writeType +" , warnNo : " +  warnNo +" , content : " +  content)
+
+    $.ajax({
+    type: "POST",
+    url: "<%=request.getContextPath()%>/msg/sendedReport",
+    data: data,
+    contentType:"application/x-www-form-urlencoded; charset=utf-8",
+    
+    success: function(args){
+    	
+    	alert(args);
+    	
+    	$("#msgCloseM").click();
+    	
       },
       error: function (error,args) {
   		alert(error)
@@ -249,12 +328,60 @@ $("#submitMsgRr").click(function(){
 						<span class="glyphicon glyphicon-star"></span> <small>즐겨찾기</small>
 					</button>
 			</a> 
-			<c:url	value="/msg/sendReport?writeType=T&warnNo=${restaurant.resNo}" var="goReport" /> 
-			<a href="${goReport}">
-				<button type="button" class="btn btn-default">
-				<p class="text-danger"><span class="glyphicon glyphicon-ban-circle"></span> <small>신고</small></p>
-				</button>
-			</a>
+				
+				<!-- 맛집 페이지 신고-->
+				<!-- http://localhost:9090/Final/msg/sendReport?writeType=T&warnNo=1 -->
+				
+				
+				 
+				<!-- <button id="shingoT" type="button" class="btn btn-default">
+				<p class="text-danger"><span class="glyphicon glyphicon-ban-circle"></span> <small>신고</small></p> -->
+				<button class="btn btn-default" id="shingoT" data-toggle="modal" data-target="#myModalShingoT">
+			<p class="text-danger"><span class="glyphicon glyphicon-ban-circle"></span><small>신고</small></p></button>
+			
+			<!-- modal 시작 -->
+										<div class="modal fade" id="myModalShingoT" tabindex="-1"
+											role="dialog" aria-labelledby="myModalLabel"
+											aria-hidden="true">
+											<div class="modal-dialog">
+												<div class="modal-content">
+													<div class="modal-header">
+														<button type="button" class="close" data-dismiss="modal"
+															aria-hidden="true">×</button>
+
+														<h4 class="modal-title">신고하기</h4>
+
+													</div>
+
+													<div class="modal-body">
+
+				<input type="hidden" id="writeTypeM" value="T">
+				<input type="hidden" id="warnNoM" value="${restaurant.resNo}">
+				<input type="hidden" id="senderM" value="${loginUser.userId}">
+				<span class="glyphicon glyphicon-ban-circle"></span><small>신고 사유를 적어주세요 &nbsp;&nbsp;</small>
+									<br>
+									<br>
+				<textarea id="contentM" class="form-control" rows="5"></textarea>
+
+													</div>
+
+													<div class="modal-footer">
+
+														<button class="btn btn-default" id="submtShingo">
+															<span class="glyphicon glyphicon-send"></span> 전송
+														</button>
+														<button type="button" class="btn btn-default"
+															data-dismiss="modal" id ="msgCloseM">
+															<p class="text-danger">
+																<span class="glyphicon glyphicon-remove"></span> 취소
+															</p>
+														</button>
+													</div>
+												</div>
+												<!-- /.modal-content -->
+											</div>
+											<!-- /.modal-dialog -->
+										</div> <!-- /.modal -->
 			</td>
 		</tr>
 		<tr>
@@ -360,7 +487,7 @@ $("#submitMsgRr").click(function(){
 					</ul>
 				</nav>
 				<div class="content-wrap">
-					<section id="section-topline-1">
+					<section id="section-topline-1" style="padding-bottom:60px;">
 						<table class="table table-hover" style="width: 100%; max-width: 100%">
 							<tr>
 								<th width="60%">내용</th>
@@ -410,13 +537,59 @@ $("#submitMsgRr").click(function(){
 													</a>
 												</li>
 												<li>
-													<a href="/msg/sendReport?writeType=Y&warnNo=${rreply.rreplyNo}">
+												<!-- 일단 여기 -->
+													<a class ="modalShingo" id="shingoY" data-toggle="modalY" data-target="#myModalShingoY">
 														<p class="text-danger"><span class="glyphicon glyphicon-ban-circle"></span> 댓글신고</p>
 													</a>
 												</li>
 
 											</ul>
 										</div>
+										
+			
+			<!-- 신고 modal 시작 -->
+										<div class="modal fade" id="myModalShingoY" tabindex="-1"
+											role="dialog" aria-labelledby="myModalLabel"
+											aria-hidden="true">
+											<div class="modal-dialog">
+												<div class="modal-content">
+													<div class="modal-header">
+														<button type="button" class="close" data-dismiss="modal"
+															aria-hidden="true">×</button>
+
+														<h4 class="modal-title">신고하기</h4>
+
+													</div>
+
+													<div class="modal-body">
+
+				<input type="hidden" id="writeTypeY" value="Y">
+				<input type="hidden" id="warnNoY" value="${rreply.rreplyNo}">
+				<input type="hidden" id="senderY" value="${loginUser.userId}">
+				<span class="glyphicon glyphicon-ban-circle"></span><small>신고 사유를 적어주세요 &nbsp;&nbsp;</small>
+									<br>
+									<br>
+				<textarea id="contentY" class="form-control" rows="5"></textarea>
+
+													</div>
+
+													<div class="modal-footer">
+
+														<button class="btn btn-default" id="submtShingoY">
+															<span class="glyphicon glyphicon-send"></span> 전송
+														</button>
+														<button type="button" class="btn btn-default"
+															data-dismiss="modal" id ="msgCloseY">
+															<p class="text-danger">
+																<span class="glyphicon glyphicon-remove"></span> 취소
+															</p>
+														</button>
+													</div>
+												</div>
+												<!-- /.modal-content -->
+											</div>
+											<!-- /.modal-dialog -->
+										</div> <!-- /.modal -->
 										<!-- modal 시작 -->
 										<div class="modal fade" id="myModalReply" tabindex="-1"
 											role="dialog" aria-labelledby="myModalLabel"
@@ -736,7 +909,10 @@ $("#submitMsgRr").click(function(){
 						<br> <a href="${url }">
 							<button class="btn btn-default">작성</button>
 						</a>
-
+	<br>
+	<br>
+	<br>
+	<br>
 
 					</section>
 				</div>
@@ -746,7 +922,10 @@ $("#submitMsgRr").click(function(){
 		</section>
 
 	</div>
-
+<br>
+	<br>
+	<br>
+	<br>
 
 
 
@@ -765,5 +944,6 @@ $("#submitMsgRr").click(function(){
 	</script>
 	<hr>
 	<jsp:include page="/WEB-INF/view/footer.jsp" />
+	
 </body>
 </html>
