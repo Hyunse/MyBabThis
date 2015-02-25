@@ -20,13 +20,13 @@ $(document).ready(function(){
         editurl:'<%=request.getContextPath()%>/admin/Board/deleteOne',
         datatype: 'json',
         mtype: 'GET',
-        colNames:['게시글번호','게시글제목', '게시글내용', '등록일', '수정일', '게시글종류', '작성자'],
+        colNames:['게시글번호','게시글제목', '게시글내용', /* '등록일', '수정일', */ '게시글종류', '작성자'],
         colModel :[
           {name:'boardNo', index:'boardNo', key:true, width:80, align:"right", sorttype:"text",editable:true},
           {name:'boardTitle', index:'boardTitle', width:100, align:"center", editable:true},
           {name:'boardContent', index:'boardContent', width:100, align:"center", editable:true},
-          {name:'boardRegdate', index:'boardRegdate', width:100, align:"center", editable:true},
-          {name:'boardUpdatedate', index:'boardUpdatedate', width:100, align:"center", editable:true},
+         /*  {name:'boardRegdate', index:'boardRegdate', width:100, align:"center", editable:true},
+          {name:'boardUpdatedate', index:'boardUpdatedate', width:100, align:"center", editable:true}, */
           {name:'boardType', index:'boardType', width:100, align:"center", editable:true},
           {name:'userId', index:'userId', width:100, align:"center", editable:true},
         ],

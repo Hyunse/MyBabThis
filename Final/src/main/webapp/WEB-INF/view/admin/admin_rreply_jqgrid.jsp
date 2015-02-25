@@ -18,12 +18,12 @@ $(document).ready(function(){
         editurl:'<%=request.getContextPath()%>/admin/Rreply/deleteOne',
         datatype: 'json',
         mtype: 'GET',
-        colNames:['댓글번호','댓글내용', '작성일', '수정일', '맛집번호', '작성자'],
+        colNames:['댓글번호','댓글내용', /* '작성일', '수정일', */ '맛집번호', '작성자'],
         colModel :[
           {name:'rreplyNo', index:'rreplyNo', key:true, width:80, align:"right", sorttype:"text",editable:true},
           {name:'rreplyContent', index:'rreplyContent', width:100, align:"center", editable:true},
-          {name:'rreplyRegdate', index:'rreplyRegdate', width:100, align:"center", editable:true},
-          {name:'rreplyUpdatedate', index:'rreplyUpdatedate', width:100, align:"center", editable:true},
+         /*  {name:'rreplyRegdate', index:'rreplyRegdate', width:100, align:"center", editable:true},
+          {name:'rreplyUpdatedate', index:'rreplyUpdatedate', width:100, align:"center", editable:true}, */
           {name:'resNo', index:'resNo', width:100, align:"center", editable:true},
           {name:'userId', index:'userId', width:100, align:"center", editable:true},
         ],
