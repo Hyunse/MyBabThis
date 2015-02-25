@@ -299,5 +299,6 @@ $("#pass2").blur(function(){
 <img src="<%=request.getContextPath()%>/upload/${file}">
 </div>
 	 --%>
+	 <jsp:include page="/WEB-INF/view/footer.jsp" />
 </body>
 </html>

@@ -195,7 +195,8 @@
 					</form:form>
 
 				</td>
-				<td style="text-align: center"></td>
+				<td style="text-align: center"><c:out
+							value="${breply.userId }" /></td>
 				<td style="text-align: center"><c:set
 						value="${breply.breplyUpdatedate }" var="breplyUpdatedate" /> <fmt:formatDate
 						value="${breplyUpdatedate }" type="date" dateStyle="short" /> <br>

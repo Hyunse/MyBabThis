@@ -2,11 +2,12 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE htm>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>자유게시판 글 수정</title>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
 <script type="text/javascript"
 	src="<%=request.getContextPath()%>/resource/editor/js/HuskyEZCreator.js"
 	charset="utf-8"></script>
@@ -47,9 +48,7 @@ $(function(){
 	<c:url value="/board/edit" var="action"></c:url>
 	<form:form modelAttribute="editBoard" method="post" id="frm" action="${action}">
 		<form:hidden path="boardNo" />
-		<td><form:hidden path="userId"/>
-		<br>
-
+		<form:hidden path="userId"/>
 		<div class="table-responsive">
 			<table class="table">
 				<tr>
@@ -61,7 +60,7 @@ $(function(){
 				&nbsp;&nbsp;<c:out value="${editBoard.boardNo}"></c:out></td></tr> --%>
 				<tr style="width: 100%">
 					<th width=10% style="text-align: center">제목</th>
-					<td width=90%><form:input path="boardTitle" size="85%" /> <%-- <tr><th style="text-align:center">작성자</th><td><form:input path="userId"/><br> --%>
+					<td width=90%><form:input path="boardTitle" size="75%" /> <%-- <tr><th style="text-align:center">작성자</th><td><form:input path="userId"/><br> --%>
 				<tr>
 					<th style="text-align: center">내용</th>
 					<td><form:textarea path="boardContent" id="editor" style=" width:100%; min-height: 500px; min-width: 600px "/></td>
