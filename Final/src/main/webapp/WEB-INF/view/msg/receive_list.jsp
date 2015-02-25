@@ -117,7 +117,7 @@ error: function (error,args) {
 														</button>
 														<button type="button" class="btn btn-default"
 															data-dismiss="modal" id ="msgClose">
-															<p class="text-danger">
+															<p class="text-danger" style="padding: 0;">
 															<span class="glyphicon glyphicon-remove"></span>취소
 															</p>
 														</button>
