@@ -26,6 +26,9 @@ public class License implements Serializable {
 
 	/** 맛집종류. */
 	private String resKind;
+	
+	/** 자격증이름. */
+	private String licenseName;
 
 	/** 자격증취득회원 목록. */
 	private Set<LicensedUser> licensedUserSet;
@@ -111,6 +114,25 @@ public class License implements Serializable {
 	 */
 	public String getResKind() {
 		return this.resKind;
+	}
+	
+	/**
+	 * 자격증이름을 설정합니다..
+	 * 
+	 * @param resKind
+	 *            자격증이름
+	 */
+	public void setLicenseName(String licenseName) {
+		this.licenseName = licenseName;
+	}
+	
+	/**
+	 * 자격증이름을 가져옵니다..
+	 * 
+	 * @return 자격증이름
+	 */
+	public String getLicenseName() {
+		return this.licenseName;
 	}
 
 	/**

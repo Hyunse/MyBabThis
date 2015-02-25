@@ -22,6 +22,9 @@ public class Review implements Serializable {
 
 	/** 리뷰내용. */
 	private String reviewContent;
+	
+	/** 리뷰내용. */
+	private String reviewTitle;
 
 	/** 작성날짜. */
 	private Date reviewRegdate;
@@ -117,6 +120,26 @@ public class Review implements Serializable {
 	public String getReviewContent() {
 		return this.reviewContent;
 	}
+	
+	/**
+	 * 리뷰제목을 설정합니다..
+	 * 
+	 * @param reviewContent
+	 *            리뷰제목
+	 */
+	public void setReviewTitle(String reviewTitle) {
+		this.reviewTitle = reviewTitle;
+	}
+	
+	/**
+	 * 리뷰제목을 가져옵니다..
+	 * 
+	 * @return 리뷰제목
+	 */
+	public String getReviewTitle() {
+		return this.reviewTitle;
+	}
+	
 
 	/**
 	 * 작성날짜을 설정합니다..
