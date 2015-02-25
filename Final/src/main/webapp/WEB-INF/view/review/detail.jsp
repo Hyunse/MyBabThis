@@ -21,7 +21,7 @@
 				<td><c:out value="${review.userId }" /></td>
 			</tr> --%>
 			<tr>
-				<td colspan="2"><c:url value="/restaurant/view?resNo=${review.resNo }" var="url"></c:url>
+				<td colspan="2" class="border-top-style" align="right"><c:url value="/restaurant/view?resNo=${review.resNo }" var="url"></c:url>
 					<a href="${url}"><button class="btn btn-default">
 							<span class="glyphicon glyphicon-th-list"></span> 목록</button></a></td>
 			</tr>
