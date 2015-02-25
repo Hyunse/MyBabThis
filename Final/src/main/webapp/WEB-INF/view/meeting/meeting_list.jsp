@@ -76,7 +76,7 @@
 			<td onclick="location.href='${url}'" style="cursor: pointer;">
 				<c:set value="${boardList.boardRegdate }" var="boardRegdate"/>
 				<fmt:formatDate value="${boardRegdate }" type="date" dateStyle="short"/>&nbsp;&nbsp;
-				<fmt:formatDate value="${boardRegdate }" type="time" pattern="hh:MM"/>
+				<fmt:formatDate value="${boardRegdate }" type="time" dateStyle="short"/>
 			</td>
 		</tr>
 		</c:forEach>

@@ -25,7 +25,7 @@
 				<td><%-- <c:out value="${review.reviewUpdatedate }" /> --%>
 					<c:set value="${review.reviewUpdatedate }" var="reviewUpdatedate"/>
 					<fmt:formatDate value="${reviewUpdatedate }" type="date" dateStyle="short"/>&nbsp;&nbsp;
-					<fmt:formatDate value="${reviewUpdatedate }" type="time" pattern="hh:MM"/>
+					<fmt:formatDate value="${reviewUpdatedate }" type="time" dateStyle="short"/>
 					</td>
 			</tr>
 			<tr>
