@@ -43,26 +43,20 @@ $(function(){
 
 <body>
 	<jsp:include page="/WEB-INF/view/header.jsp" />
-	<c:url value="/review/update" var="action" />
-	<form:form modelAttribute="review" method="post" action="${action }">
+	<c:url value="/review/updated" var="action" />
+	<form:form modelAttribute="review" method="post" action="${action }" id="frm">
+	<form:hidden path="resNo" readonly="true"/>
 	<form:hidden path="reviewNo" readonly="true"/><br>
 	<form:hidden path="userId" readonly="true"/><br>
 		<!-- 수정불가능 -->
-		<%-- <label>맛집번호</label> : <form:input path="resNo" readonly="true"/><br>
-=======
-
-
-
-
+		<%-- 
 <h2>리뷰수정</h2>
 
 <c:url value="/review/updated" var="action"/>
 <form:form modelAttribute="review" method="post" action="${action }" id="frm">
 <!-- 수정불가능 -->
 <label>맛집번호</label> : <form:input path="resNo" readonly="true"/><br>
->>>>>>> branch 'master' of https://github.com/Hyunse/MyBabThis
 <label>리뷰번호</label> : <form:input path="reviewNo" readonly="true"/><br>
-<<<<<<< HEAD
 <label>사용자ID</label> : <form:input path="userId" readonly="true"/><br> --%>
 		<!-- 수정가능 -->
 		<div class="table-responsive">
@@ -94,16 +88,17 @@ $(function(){
 				<tr>
 					<th style="text-align: center">내용</th>
 					<td><form:input path="reviewContent" id="editor" rows="20"
-							cols="150" style=" width:100%; min-width: 610px "></form:input></td>
+							cols="150" style=" width:100%; min-width: 600px; min-height:600px;"></form:input></td>
 				</tr>
 				<tr>
-					<td>
-						<button type="submit" name="_event_confirmed">수정완료</button>
+					<td colspan="2" align="center"><br>
+						<button type="button" id="modify" class="btn btn-default">
+							<span class="glyphicon glyphicon-ok"></span> 완료</button>
 					</td>
 				</tr>
 				</table>
 				</div>
 				</form:form>
-
+				<br>
 </body>
 </html>
