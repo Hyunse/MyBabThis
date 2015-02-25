@@ -201,7 +201,7 @@
 						value="${breply.breplyUpdatedate }" var="breplyUpdatedate" /> <fmt:formatDate
 						value="${breplyUpdatedate }" type="date" dateStyle="short" /> <br>
 					<fmt:formatDate value="${breplyUpdatedate }" type="time"
-						pattern="hh:MM" /></td>
+						dateStyle="short" /></td>
 
 				<c:if test="${breply.userId == loginUser.userId}">
 

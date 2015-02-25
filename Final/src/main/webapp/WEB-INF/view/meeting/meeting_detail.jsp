@@ -165,7 +165,7 @@ pre {
 							value="${breply.breplyUpdatedate }" var="breplyUpdatedate" /> <fmt:formatDate
 							value="${breplyUpdatedate }" type="date" dateStyle="short" /><br>
 						<fmt:formatDate value="${breplyUpdatedate }" type="time"
-							pattern="hh:MM" /></td>
+							dateStyle="short" /></td>
 					<c:if test="${breply.userId == loginUser.userId}">
 						<td style="border: solid 1px #FFF; word-break: break-all;"><button
 								class="btn btn-default" id="btn${breply.breplyNo}">
