@@ -10,7 +10,7 @@
 <title>보낸 쪽지함</title>
 </head>
 <body>
-	<table class="table table-hover" style="width: 100%;">
+	<table class="table table-hover"  style="width: 100%; max-width: 100%">
 		<tr>
 			<th style="width: 15%">보낸사람</th>
 			<th style="width: 15%">받은사람</th>

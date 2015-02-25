@@ -7,6 +7,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
 <title>로그인하기</title>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="A Collection of Dialog Effects" />
@@ -15,39 +16,44 @@
 <meta name="author" content="Codrops" />
 <link rel="shortcut icon" href="../favicon.ico">
 <link rel="stylesheet" type="text/css" href="css/normalize.css" />
-<link rel="stylesheet" type="text/css" href="css/dialog-demo.css" />
 <!-- common styles -->
-<link rel="stylesheet" type="text/css" href="css/dialog.css" />
+<!-- 
+<link rel="stylesheet" type="text/css" href="css/dialog.css" /> -->
 <!-- individual effect -->
-<link rel="stylesheet" type="text/css" href="css/dialog-don.css" />
+<!-- <link rel="stylesheet" type="text/css" href="css/dialog-don.css" /> -->
 
 <script src="js/modernizr.custom.js"></script>
-
-
+<!-- 
 <link rel="stylesheet" type="text/css" href="css/default_modal.css" />
 <link rel="stylesheet" type="text/css" href="css/component_modal.css" />
-		
+		 -->
 <link rel="stylesheet"
 	href="<%=request.getContextPath()%>/css/style.css" media="screen"
 	type="text/css" />
 
+<link rel="stylesheet" type="text/css"
+	href="<%=request.getContextPath()%>/css/bootstrap.css" />
+<link rel="stylesheet" type="text/css"
+	href="<%=request.getContextPath()%>/css/bootstrap-theme.css" />
+<script src="<%=request.getContextPath()%>/js/bootstrap.js"></script>
+
 </head>
-<script src="http://code.jquery.com/jquery-latest.js"></script>
+
 <script>
-$(document).ready(function() {
+$(document).ready(function(){
 	
-	$("#email").click(function(){
+	<%-- $("#email").click(function(){
 		   
 			    
 		  window.open("<%=request.getContextPath()%>/email","_blank"," width = 500 height = 300 left=650 top=300");
 		    
 		
 		
-	})
+	}) --%>
 	
 	
 	$("#go").click(function(){
-		alert("체크");
+		alert("잠시만 기다려주세요.");
 	   
 		var email = $('#email').val();
 	   
@@ -60,18 +66,39 @@ $(document).ready(function() {
 	  
 	    success : function(responseText){
 	    	
-	    	alert("이메일을 보냈습니다. " +responseText);
+	    	
+	    	alert("이메일을 보냈습니다." + responseText);
+	    	
 	    },
 	    error:function(request,status,error){
 	        alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
 	       }
   		
 	    
-	    });
-	});
+	    })
+	})
+	$("#email").keyup(function(){
+    var email = $('#email').val();
+   
+    $.ajax({
+    type: "POST",
+    url: "<%=request.getContextPath()%>/login/email",
+	data : "email=" + email,
+	contentType : "application/x-www-form-urlencoded; charset=utf-8",
+
+	success : function(args) {
+	
+	$("#dropEmail").html(args); 
+	
+	},
+	error : function(args) {
+	console.log(path,args);
+				}
+			});
+			})
 })
 </script>
-<body>
+<body style="background: #e6e6e6">
 
 	<!-- <div class="md-modal md-effect-1" id="modal-1">
 		<div class="md-content">
@@ -120,30 +147,28 @@ $(document).ready(function() {
 				</form:form>
 				<div class="button-wrap">
 					<c:url value="/join" var="join" />
-					 <a href="${join}"> 
-					<button data-dialog="somedialog" class="trigger">Join us</button>
+					<a href="${join}">
+						<button data-dialog="somedialog" class="trigger">Join us</button>
 					</a>
 
 				</div>
 
 				<c:url value="/email" var="email" />
-				<br>
-				<br>
+				<br> <br>
 				<footer class="clearfix">
-					<br>
-						<span class="info">?</span><a id="email">Forgot Password</a>
-						
+					<br> <span class="info">?</span><a 
+						data-toggle="modal" href="#myModal"> Forgot Password</a>
 				</footer>
-				
-					<!-- 	<button class="md-trigger" data-modal="modal-1">id/pw 찾기</button> -->
-					
+
+				<!-- 	<button class="md-trigger" data-modal="modal-1">id/pw 찾기</button> -->
+
 			</fieldset>
 
 		</div>
 	</div>
-<%-- 회원가입 다이얼로그 --%>
-	
-<%-- 	<div id="somedialog" class="dialog">
+	<%-- 회원가입 다이얼로그 --%>
+
+	<%-- 	<div id="somedialog" class="dialog">
 		<div class="dialog__overlay"></div>
 		<div class="dialog__content">
 			<h2>
@@ -158,18 +183,52 @@ $(document).ready(function() {
 		
 		<div class="md-overlay"></div><!-- the overlay element --> --%>
 
-		<!-- classie.js by @desandro: https://github.com/desandro/classie -->
-		<script src="js/classie.js"></script>
-		<script src="js/modalEffects.js"></script>
+	<!-- Modal -->
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+		aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header" >
+					<button type="button" class="close" data-dismiss="modal"
+						aria-hidden="true">×</button>
+					<h4 class="modal-title">
+						<span class="glyphicon glyphicon-question-sign"></span>&nbsp 아이디/비밀번호가 기억나지 않으세요?
 
-		<!-- for the blur effect -->
-		<!-- by @derSchepp https://github.com/Schepp/CSS-Filters-Polyfill -->
-		<script>
+					</h4>
+				</div>
+				<div class="modal-body" >
+					<br> <input type="email"  class="form-control" id="email" name="email" placeholder="Enter email" size="50"/>
+						 <div id="dropEmail"></div>
+				</div>
+				<div class="modal-footer">
+					<input class="btn btn-default" type="button" id="go" value="submit">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
+				</div>
+			</div>
+			<!-- /.modal-content -->
+		</div>
+		<!-- /.modal-dialog -->
+	</div>
+	<!-- /.modal -->
+
+
+
+	<!-- classie.js by @desandro: https://github.com/desandro/classie -->
+
+	<script src="js/classie.js"></script>
+	<script src="js/modalEffects.js"></script>
+
+	<!-- for the blur effect -->
+	<!-- by @derSchepp https://github.com/Schepp/CSS-Filters-Polyfill -->
+
+
+	<script>
 			// this is important for IEs
 			var polyfilter_scriptpath = '/js/';
 		</script>
-		<script src="js/cssParser.js"></script>
-		<script src="js/css-filters-polyfill.js"></script>
+	<script src="js/cssParser.js"></script>
+	<script src="js/css-filters-polyfill.js"></script>
 
 </body>
 </html>

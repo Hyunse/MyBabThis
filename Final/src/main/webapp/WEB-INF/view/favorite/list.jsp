@@ -21,7 +21,7 @@
 
 <br>
 <br>
-<table class="table table-hover" style="text-align: center;">
+<table class="table table-hover" style="text-align: center; width: 60%" >
 				<tr>
 					<th style="width: 10%">맛집 번호</th>
 					<th style="width: 10%">맛집지역</th>
@@ -41,7 +41,7 @@
 					<c:url value="/favorite/delete?userId=${loginUser.userId}&resNo=${restaurant.resNo}" var="delurl"/>
 					<a href="${delurl}">
 						<button type="button" class="btn btn-default" >
-							<p class="text-danger"><span class="glyphicon glyphicon-trash"></span>삭제</p>
+							<p class="text-danger"><span class="glyphicon glyphicon-trash"></span>&nbsp;&nbsp;삭제</p>
 						</button>
 					</a>
 				</c:forEach>

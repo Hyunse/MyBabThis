@@ -8,7 +8,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
-<script src="http://code.jquery.com/jquery-latest.js"></script>
 <style>
 #myinfo_table{
 width: 30%;

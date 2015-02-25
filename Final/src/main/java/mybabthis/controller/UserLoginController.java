@@ -17,6 +17,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
@@ -93,5 +95,15 @@ public class UserLoginController {
 	public String rule(){
 		
 		return "rule";
+	}
+	@RequestMapping(value = "/login/email", method = RequestMethod.POST, produces = "text/plain;charset=utf-8")
+	public @ResponseBody String ajaxEmail(@RequestParam String email) {
+
+		Users user = userservice.searchUserEmail(email);
+		
+		if (user != null) {
+			  return "<font color='blue'>존재하는 이메일 입니다.</font>";
+		}
+		return "<font color='red'>존재하지않는 이메일 입니다.</font>";
 	}
 }
