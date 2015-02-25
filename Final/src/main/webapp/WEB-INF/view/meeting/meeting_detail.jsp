@@ -217,6 +217,6 @@ pre {
 	<br>
 	<br>
 
-
+<jsp:include page="/WEB-INF/view/footer.jsp" />
 </body>
 </html>

@@ -129,5 +129,6 @@ $(function(){
 					}
 				})();
 	</script>
+	<jsp:include page="/WEB-INF/view/footer.jsp" />
 </body>
 </html>
