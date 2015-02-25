@@ -60,7 +60,6 @@ public class MsgController {
 		service.sendMsg(msg);
 		return "redirect:/msg/main";
 	//return "msg/create";
-	
 	}
 
 	// 신고하기
