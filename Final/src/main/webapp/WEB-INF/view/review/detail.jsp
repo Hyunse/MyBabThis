@@ -21,32 +21,49 @@
 				<td><c:out value="${review.userId }" /></td>
 			</tr> --%>
 			<tr>
+				<td colspan="2"><c:url value="/restaurant/view?resNo=${review.resNo }" var="url"></c:url>
+					<a href="${url}"><button class="btn btn-default">
+							<span class="glyphicon glyphicon-th-list"></span> 목록</button></a></td>
+			</tr>
+			<tr>
+			<tr>
 				<th width="10%" style="text-align: center">등록일</th>
-				<td><%-- <c:out value="${review.reviewUpdatedate }" /> --%>
-					<c:set value="${review.reviewUpdatedate }" var="reviewUpdatedate"/>
-					<fmt:formatDate value="${reviewUpdatedate }" type="date" dateStyle="short"/>&nbsp;&nbsp;
-					<fmt:formatDate value="${reviewUpdatedate }" type="time" dateStyle="short"/>
-					</td>
+				<td>
+					<%-- <c:out value="${review.reviewUpdatedate }" /> --%> <c:set
+						value="${review.reviewUpdatedate }" var="reviewUpdatedate" /> <fmt:formatDate
+						value="${reviewUpdatedate }" type="date" dateStyle="short" />&nbsp;&nbsp;
+					<fmt:formatDate value="${reviewUpdatedate }" type="time"
+						dateStyle="short" />
+				</td>
 			</tr>
 			<tr>
 				<th width="10%" style="text-align: center">맛평가</th>
-				<td><c:out value="${review.reviewScore }"/>점</td>
+				<td><c:out value="${review.reviewScore }" />점</td>
 			</tr>
 			<tr>
 				<th width="10%" style="text-align: center">내용</th>
 				<td>${review.reviewContent}</td>
 			</tr>
 			<tr>
-				<td colspan="2" align="center"><br><c:url
-						value="/restaurant/view?resNo=${review.resNo }" var="url"></c:url>
-					<a href="${url}"><button class="btn btn-default"><span class="glyphicon glyphicon-th-list"></span> 목록</button></a> <c:url
+				<td colspan="2" align="center"><br> <c:url
 						value="/review/edit?reviewNo=${review.reviewNo }" var="url"></c:url>
-					<a href="${url}"><button class="btn btn-default"><p class="text-success"><span class="glyphicon glyphicon-pencil"></span> 수정</p></button></a> <c:url
+					<a href="${url}"><button class="btn btn-default">
+							<p class="text-success">
+								<span class="glyphicon glyphicon-pencil"></span> 수정
+							</p>
+						</button></a> <c:url
 						value="/review/delete?reviewNo=${review.reviewNo }&resNo=${review.resNo }"
-						var="url"></c:url> <a href="${url}"><button class="btn btn-default"><p class="text-danger"><span class="glyphicon glyphicon-trash"></span> 삭제</p></button></a></td>
+						var="url"></c:url> <a href="${url}"><button
+							class="btn btn-default">
+							<p class="text-danger">
+								<span class="glyphicon glyphicon-trash"></span> 삭제
+							</p>
+						</button></a></td>
 			</tr>
 		</table>
-		<br><br><br>
+		<br>
+		<br>
+		<br>
 	</div>
 </body>
 </html>

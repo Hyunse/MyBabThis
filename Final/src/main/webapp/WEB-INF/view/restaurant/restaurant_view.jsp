@@ -162,7 +162,10 @@
 		<h2>맛집정보</h2>
 	</div>
 	<table class="table">
-		<tr>
+		<tr style="border-top-color: #000000">
+		<td rowspan="6" width="310px"><img
+				src="<%=request.getContextPath()%>/upload/${restaurant.resImg}"
+				onLoad="reSizes(this);" /></td>
 			<td colspan="3" align="right"><a
 				href="<%=request.getContextPath()%>/favorite/create?resNo=${restaurant.resNo}&userId=${loginUser.userId}">
 					<button id="favorite" class="btn btn-default">
@@ -181,9 +184,6 @@
 			</td>
 		</tr>
 		<tr>
-			<td rowspan="6" width="310px"><img
-				src="<%=request.getContextPath()%>/upload/${restaurant.resImg}"
-				onLoad="reSizes(this);" /></td>
 			<td width="25%">지역 : ${restaurant.locName}</td>
 			<td colspan="2">주소 : ${restaurant.resLoc}</td>
 		</tr>
