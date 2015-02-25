@@ -48,7 +48,7 @@
 	<c:forEach items="${restaurants }" var="restaurant">
 	
 	
-	<table class="tableRank">
+	<table class="tableRank\">
 	<tr><td colspan="3"><h3 style="margin-left: 10%"><%=i %> 위</h3></td></tr>
 	<tr><td rowspan="5" width="310px" style="text-align: center;">
 	<img src="<%=request.getContextPath()%>/upload/${restaurant.resImg}" onLoad="reSizes(this);"/>

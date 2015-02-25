@@ -396,6 +396,42 @@ END;
 
 /
 
+/*디폴트 데이터 */
+/*****지역이름*******/
+insert into loc (loc_name) values('강남');
+insert into loc (loc_name) values('송파');
+insert into loc (loc_name) values('대학로');
+insert into loc (loc_name) values('신림');
+insert into loc (loc_name) values('건대');
+insert into loc (loc_name) values('홍대');
+insert into loc (loc_name) values('종로');
+insert into loc (loc_name) values('영등포');
+
+/*****자격증DB*******/
+insert into license (write_cnt, loc_name, license_name ) values(3, '강남', '강남 마스터');
+insert into license (write_cnt, loc_name, license_name ) values(3, '송파', '강남 마스터');
+insert into license (write_cnt, loc_name, license_name ) values(3, '대학로', '대학로 마스터');
+insert into license (write_cnt, loc_name, license_name ) values(3, '신림', '신림 마스터');
+insert into license (write_cnt, loc_name, license_name ) values(3, '건대', '건대 마스터');
+insert into license (write_cnt, loc_name, license_name ) values(3, '홍대', '홍대 마스터');
+insert into license (write_cnt, loc_name, license_name ) values(3, '종로', '종로 마스터');
+insert into license (write_cnt, loc_name, license_name ) values(3, '영등포', '영등포 마스터');
+
+insert into license (write_cnt, res_kind, license_name ) values(3, '한식', '한식 마스터');
+insert into license (write_cnt, res_kind, license_name ) values(3, '중식', '중식 마스터');
+insert into license (write_cnt, res_kind, license_name ) values(3, '일식', '일식 마스터');
+insert into license (write_cnt, res_kind, license_name ) values(3, '양식', '양식 마스터');
+insert into license (write_cnt, res_kind, license_name ) values(3, '분식', '분식 마스터');
+insert into license (write_cnt, res_kind, license_name ) values(3, '치킨', '치킨 마스터');
+insert into license (write_cnt, res_kind, license_name ) values(3, '피자', '피자 마스터');
+insert into license (write_cnt, res_kind, license_name ) values(3, '햄버거', '햄버거 마스터');
+insert into license (write_cnt, res_kind, license_name ) values(3, '베이커리', '베이커리 마스터');
+insert into license (write_cnt, res_kind, license_name ) values(3, '디저트', '디저트 마스터');
+insert into license (write_cnt, res_kind, license_name ) values(3, '카페', '카페 마스터');
+insert into license (write_cnt, res_kind, license_name ) values(3, '안주', '안주 마스터');
+insert into license (write_cnt, res_kind, license_name ) values(3, '고기', '고기 마스터');
+insert into license (write_cnt, res_kind, license_name ) values(3, '기타', '기타 리스트');
+
 
 
 

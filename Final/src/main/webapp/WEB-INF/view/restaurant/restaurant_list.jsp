@@ -68,5 +68,6 @@
 				viewportFactor : 0.4
 			} );
 		</script>
+			<jsp:include page="/WEB-INF/view/footer.jsp" />
 </body>
 </html>

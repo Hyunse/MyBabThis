@@ -11,16 +11,13 @@
 </head>
 <body>
 	<jsp:include page="/WEB-INF/view/header.jsp" />
-	<div style="margin-left: 10em;">
-		<h2>리뷰</h2>
-	</div>
 	<div class="table-responsive">
 		<table class="table">
 			<%-- <tr style="width: 100%">
 				<th width="10%" style="text-align: center">작성자</th>
 				<td><c:out value="${review.userId }" /></td>
 			</tr> --%>
-			<tr>
+			<%-- <tr>
 				<td colspan="2" class="border-top-style" align="right"><c:url value="/restaurant/view?resNo=${review.resNo }" var="url"></c:url>
 					<a href="${url}"><button class="btn btn-default">
 							<span class="glyphicon glyphicon-th-list"></span> 목록</button></a></td>
@@ -29,7 +26,7 @@
 			<tr>
 				<th width="10%" style="text-align: center">등록일</th>
 				<td>
-					<%-- <c:out value="${review.reviewUpdatedate }" /> --%> <c:set
+					<c:out value="${review.reviewUpdatedate }" /> <c:set
 						value="${review.reviewUpdatedate }" var="reviewUpdatedate" /> <fmt:formatDate
 						value="${reviewUpdatedate }" type="date" dateStyle="short" />&nbsp;&nbsp;
 					<fmt:formatDate value="${reviewUpdatedate }" type="time"
@@ -43,9 +40,51 @@
 			<tr>
 				<th width="10%" style="text-align: center">내용</th>
 				<td>${review.reviewContent}</td>
-			</tr>
+			</tr> --%>
+			
+			
+				<tr>
+					<td colspan="2" class="border-top-style" align="right"><c:url
+							value="/msg/sendReport?writeType=F&warnNo=${review.reviewNo}"
+							var="goReport" /> <a href="${goReport}"><button
+								type="button" class="btn btn-default">
+								<p class="text-danger">
+									<span class="glyphicon glyphicon-ban-circle"></span> 신고
+								</p>
+							</button></a></td>
+				</tr>
+				<tr>
+					<td colspan="2" class="border-top-style"><strong>맛집 리뷰</strong></td>
+				</tr>
+				<tr style="width: 100%">
+					<td class="border-top-style" rowspan="2">[${review.reviewNo}]
+						&nbsp;제목</td>
+					<td class="border-top-style" align="right"><p
+							class="text-muted">
+							<c:set value="${review.reviewUpdatedate}" var="reviewUpdatedate" />
+							<fmt:formatDate value="${reviewUpdatedate }" type="date"
+								dateStyle="short" />
+							&nbsp;&nbsp;
+							<fmt:formatDate value="${reviewUpdatedate }" type="time"
+								dateStyle="short" />
+						</p></td>
+				</tr>
+				<tr style="width: 100%">
+
+				</tr>
+
+				<tr>
+					<td colspan="3" align="right"><img width="40" height="40"
+						src="<%=request.getContextPath()%>/upload/${loginUser.userImg}">
+					<p class="text-muted">${review.userId }</p></td>
+
+				</tr>
+				<tr>
+					<td class="border-top-style" colspan="3">${review.reviewContent }</td>
+				</tr>
+
 			<tr>
-				<td colspan="2" align="center"><br> <c:url
+				<td colspan="2" align="center"><br><br> <c:url
 						value="/review/edit?reviewNo=${review.reviewNo }" var="url"></c:url>
 					<a href="${url}"><button class="btn btn-default">
 							<p class="text-success">

@@ -334,7 +334,7 @@ $("#submitMsgRr").click(function(){
 				</nav>
 				<div class="content-wrap">
 					<section id="section-topline-1">
-						<table class="table" style="width: 150%">
+						<table class="table table-hover" style="width: 100%; max-width: 100%">
 							<tr>
 								<th width="60%">내용</th>
 								<th width="20%">작성자</th>
@@ -467,7 +467,7 @@ $("#submitMsgRr").click(function(){
 								</tr>
 							</c:forEach>
 						</table>
-						<table class="table" style="width: 100%">
+						<table class="table" style="width: 100%; max-width: 100%" >
 							<tr>
 								<c:url value="/rreply/write" var="rreplyw" />
 								<form:form modelAttribute="rreply" method="post"
@@ -511,7 +511,7 @@ $("#submitMsgRr").click(function(){
 
 					</section>
 					<section id="section-topline-2">
-						<table class="table table-hover" style="width: 100%">
+						<table class="table table-hover" style="width: 100%; max-width: 100%">
 							<tr>
 								<th>사진</th>
 								<th>평가</th>
