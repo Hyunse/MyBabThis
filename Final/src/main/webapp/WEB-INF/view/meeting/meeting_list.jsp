@@ -26,9 +26,8 @@
 </head>
 <script type="text/javascript">
 $(document).ready(function(){
-$(".modal").click(function(){
+	$(".modal1").click(function(){
 	var bid = $(this).attr("id");
-	
 	var uid = "#u" + bid;
 	
 	var receiver = $(uid).html();
@@ -36,15 +35,13 @@ $(".modal").click(function(){
 	$("#dropId").html(receiver);	
 
 	$("#receiver").val(receiver);
-})
+	})
 
 
 $("#submitMsg").click(function(){
-
 var sender = $('#sender').val(), 
 	 receiver =  $('#receiver').val(), 
 	 content =  $('#msgContent').val();
-alert("sender : " + sender + " re " + receiver + " content " + content)
 var data ={ sender : sender , receiver : receiver, content : content}
 
 $.ajax({
@@ -102,7 +99,7 @@ alert(error)
 						<c:out value="${boardList.boardNo}" />
 					</td>
 					<td onclick="location.href='${url}'"
-						style="cursor: pointer; text-align: left;""><c:if
+						style="cursor: pointer; text-align: left;"><c:if
 							test="${fn:length(boardList.boardTitle) > 20 }">
 							<c:out value="${fn:substring(boardList.boardTitle,0,15)}" />...
 			</c:if> <c:if test="${fn:length(boardList.boardTitle) <= 20 }">
@@ -110,19 +107,19 @@ alert(error)
 			</c:if></td>
 					<td>
 						<div class="btn-group">
-							<button type="button" class="btn btn-default dropup-toggle"
-								data-toggle="dropdown">
+						
+							<button type="button" class="btn btn-default dropup-toggle" data-toggle="dropdown">
 								<div id="ub${boardList.boardNo}"><c:out value="${boardList.userId}" /></div>
-								
 							</button>
+							
 							<ul class="dropdown-menu" role="menu">
-								<li><a
-									href="/Final/friend/create?userId=${loginUser.userId}&friendId=${boardList.userId}">친구추가</a></li>
-								<li><a class="modal" id="b${boardList.boardNo}" data-toggle="modal" data-target="#myModal">
-									<p class="text-info"><span class="glyphicon glyphicon-send"></span> 쪽지보내기</p></a></li>
+								<li><a href="/Final/friend/create?userId=${loginUser.userId}&friendId=${boardList.userId}">친구추가</a></li>
+								<li><a class="modal1" id="b${boardList.boardNo}" data-toggle="modal" data-target="#myModal">
+								<span class="glyphicon glyphicon-send"></span> 쪽지보내기</a></li>
 							</ul>
+							
 						</div>
-<div class="modal fade" id="myModal" tabindex="-1"
+						<div class="modal fade" id="myModal" tabindex="-1"
 											role="dialog" aria-labelledby="myModalLabel"
 											aria-hidden="true">
 											<div class="modal-dialog">
@@ -153,7 +150,7 @@ alert(error)
 															<span class="glyphicon glyphicon-send"></span> 전송
 														</button>
 														<button type="button" class="btn btn-default"
-															data-dismiss="modal" id ="msgCloseRr">
+															data-dismiss="modal" id ="msgClose">
 															<p class="text-danger">
 																<span class="glyphicon glyphicon-remove"></span> 취소
 															</p>
@@ -164,7 +161,6 @@ alert(error)
 											</div>
 											<!-- /.modal-dialog -->
 										</div> <!-- /.modal -->
-
 
 
 					</td>
@@ -196,7 +192,9 @@ alert(error)
 							</ul>
 						</c:forEach>
 					</ul>
-				</div> <!-- 		
+				</div> 
+				
+				<!-- 		
 	<ul class="pager">
   <li><a href="#">Previous</a></li>
 	
