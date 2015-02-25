@@ -310,11 +310,10 @@
                               </div> 
                            
                            </td>
-                           <td><small><c:set
-                                    value="${rreply.rreplyUpdatedate }" var="rreplyUpdatedate" />
-                                 <fmt:formatDate value="${rreplyUpdatedate }" type="date"
-                                    dateStyle="short" />&nbsp;&nbsp; <fmt:formatDate
-                                    value="${rreplyUpdatedate }" type="time" pattern="hh:MM" /></small></td>
+                           <td><small>
+                           <c:set value="${rreply.rreplyUpdatedate }" var="rreplyUpdatedate" />
+                           <fmt:formatDate value="${rreplyUpdatedate }" type="date" dateStyle="short" />&nbsp;&nbsp; 
+                           <fmt:formatDate value="${rreplyUpdatedate }" type="time" dateStyle="short" /></small></td>
 
                            <c:if test="${rreply.userId == loginUser.userId}">
                               <td style="border: solid 1px #FFF; word-break: break-all;">
@@ -433,7 +432,7 @@
                               <small>
                                  <c:set value="${review.reviewUpdatedate }" var="reviewUpdatedate" />
                                  <fmt:formatDate value="${reviewUpdatedate }" type="date" dateStyle="short" />&nbsp;&nbsp; 
-                                 <fmt:formatDate value="${reviewUpdatedate }" type="time" pattern="hh:MM" />
+                                 <fmt:formatDate value="${reviewUpdatedate }" type="time" dateStyle="short" />
                               </small>
                            </td>
                         </tr>
