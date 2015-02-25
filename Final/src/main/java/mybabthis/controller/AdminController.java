@@ -64,7 +64,7 @@ public class AdminController {
 	public String myinfoUpdate(@ModelAttribute("loginUser") Users user, Model model){
 
 		userService.updateUser(user);
-		return "redirect:/admin/admin_menu";
+		return "redirect:/admin/myinfo";
 	}
 	
 	

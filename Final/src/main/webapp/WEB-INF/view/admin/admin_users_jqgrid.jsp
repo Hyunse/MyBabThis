@@ -12,6 +12,8 @@
 <script src="../js/jquery.jqGrid.src.js" type="text/javascript"></script>
 <script src="../js/i18n/grid.locale-kr.js"></script>
 <script type="text/javascript">
+
+
 $(document).ready(function(){
     jQuery("#JQ_list_forUsers").jqGrid({
         url:'<%=request.getContextPath()%>/admin/Users/getList',
@@ -25,7 +27,6 @@ $(document).ready(function(){
           {name:'userEmail', index:'userEmail', width:100, align:"center", editable:true},
           {name:'userGender', index:'userGender', width:100, align:"center", editable:true},
           {name:'userPhone', index:'userPhone', width:100, align:"center", editable:true},
-         /*  {name:'userRagdate', index:'userRagdate', width:100, align:"center", editable:true}, */
           {name:'userUpdatedate', index:'userUpdatedate', width:100, align:"center", editable:true},
           {name:'userGrade', index:'userGrade', width:100, align:"center", editable:true},
           {name:'userActivation', index:'userActivation', width:100, align:"center", editable:true},
