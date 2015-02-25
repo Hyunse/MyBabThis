@@ -58,7 +58,10 @@ public class MsgController {
 	
 	 @RequestMapping(value = "/sended",params={"sender","receiver", "content"}, method = RequestMethod.POST, produces = "text/plain;charset=utf-8")
 		public @ResponseBody String msgAjax(@RequestParam String sender, String receiver, String content) {
-			Msg msg = new Msg();
+			
+		 	logger.trace("ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ");
+		 
+		 	Msg msg = new Msg();
 			msg.setSender(sender);
 			msg.setReceiver(receiver);
 			msg.setMsgContent(content);
