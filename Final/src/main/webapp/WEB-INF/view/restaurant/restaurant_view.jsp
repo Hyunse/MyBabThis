@@ -57,26 +57,6 @@
 	href="<%=request.getContextPath()%>/css/bootstrap-theme.css" />
 <script src="<%=request.getContextPath()%>/js/bootstrap.js"></script>
 
-<%-- 
-<link rel="stylesheet" type="text/css"
-   href="<%=request.getContextPath()%>/css/cs-skin-elastic.css" />
- --%>
-
-
-
-<!--  <script>
-  $(function() {
-    $( "#tabs" ).tabs();
-  }); 
- </script> -->
-<!-- 
-<script>
-   $(function() {
-      $(".menu").menu();
-   });
-</script>
- -->
-
 
 <script>
 	//이미지가 필요 사이즈보다 클때만 줄여줌.
@@ -240,12 +220,6 @@ $("#submitMsgRr").click(function(){
     });
 })
 
-/* $("#shingo").click(function(){
-	 var sender = $('#senderM').val(), 
- 	 writeType =  $('#writeTypeM').val(), 
- 	 warnNo =  $('#warnNoM').val();
-	
-}) */
 
 $("#submitShingo").click(function(){
 	
@@ -275,17 +249,6 @@ $("#submitShingo").click(function(){
 	}
     });
 })
-
-/*  $("#shingoY").click(function(){
-		var bid = $(this).attr("id");
-		var iid = "#i" + bid;
-		
-		var receiver = $(iid).html();
-		
-		$("#dropIdRr").html(receiver);	
-		$("#receiverRr").val(receiver);
-	
-}) */
 
 $("#submtShingoY").click(function(){
 	alert("????????nnnn")
@@ -459,35 +422,7 @@ $("#submtShingoY").click(function(){
 	%>
 
 
-	<%--    
-   <img src="<%=request.getContextPath()%>/upload/${restaurant.resImg}"
-      onLoad="reSizes(this);">
-   <table class="table">
-      <tr>
-         <th>맛집 번호</th>
-         <th>업체명</th>
-         <th>전화번호</th>
-         <th>내용</th>
-         <th>평점</th>
-         <th>비고</th>
-         <th>즐겨찾기</th>
-      <tr>
-         <td><c:out value="${restaurant.resNo}" /></td>
-         <td><c:out value="${restaurant.locName}" /></td>
-         <td><c:out value="${restaurant.resName}" /></td>
-         <td><c:out value="${restaurant.resContent}" /></td>
-         <td><c:out value="${restaurant.resScore }" /></td>
 
-         <td><c:url value="/restaurant/edit?resNo=${restaurant.resNo}"
-               var="url" /> <a href="${url }"><button>편집</button></a> <c:url
-               value="/restaurant/delete?resNo=${restaurant.resNo}&locName=${restaurant.locName }"
-               var="url" /> <a href="${url }"><button>삭제</button></a>
-         <td><a
-            href="<%=request.getContextPath()%>/favorite/create?resNo=${restaurant.resNo}&userId=${loginUser.userId}"><button>즐겨찾기</button></a>
-         </td>
-      </tr>
-   </table>
-    --%>
 
 
 	<hr>
@@ -696,36 +631,6 @@ $("#submtShingoY").click(function(){
 
 
 
-<%-- 									<c:if test="${rreply.userId == loginUser.userId}">
-										<td style="border: solid 1px #FFF; word-break: break-all;">
-											<button class="btn btn-default" id="btn${rreply.rreplyNo}">
-												<p class="text-success">
-													<span class="glyphicon glyphicon-pencil"></span> 수정
-												</p>
-											</button> <c:url
-												value="/rreply/delete?rreplyNo=${rreply.rreplyNo }&resNo=${rreply.resNo }"
-												var="url"></c:url> <a href="${url}">
-												<button class="btn btn-default">
-													<p class="text-danger">
-														<span class="glyphicon glyphicon-trash"></span> 삭제
-													</p>
-												</button>
-										</a> 
-										</td>
-									</c:if> --%>
-
-
-
-									<%--       <td><c:url value="/rreply/edit?rreplyNo=${rreply.rreplyNo }"
-                           var="url"></c:url> <a href="${url}"><button class="btn btn-default">수정</button></a>
-                     <c:url
-                           value="/rreply/delete?rreplyNo=${rreply.rreplyNo }&resNo=${rreply.resNo }"
-                           var="url"></c:url> <a href="${url}"><button class="btn btn-default">삭제</button></a></td> --%>
-
-									<!-- <td><div class="container"><div class="main clearfix">
-                        <div class="column">
-                        <button class="md-trigger" data-modal="modal-1">삭제</button>
-                           </div></div></div></td> -->
 								</tr>
 							</c:forEach>
 						</table>
@@ -749,27 +654,6 @@ $("#submtShingoY").click(function(){
 						</table>
 
 
-						<%-- 
-                     <tr>
-
-                        <td colspan="2"><c:url value="/rreply/write" var="rreplyw" />
-                           <form:form modelAttribute="rreply" method="post"
-                              action="${rreplyw }">
-                              <form:hidden path="boardNo" value="${rreply.boardNo }" />
-                              <form:hidden path="userId" value="${loginUser.userId }" />
-                              <div class="col-lg-10">
-                                 <div class="input-group">
-                                    <form:input path="breplyContent" type="text"
-                                       class="form-control" />
-                                    <span class="input-group-btn"> &nbsp;&nbsp;
-                                       <button class="btn btn-default" name="breply_write" type="submit">
-                                          <span class="glyphicon glyphicon-ok"></span> 작성
-                                       </button>
-                                    </span>
-                                 </div>
-                              </div>
-                           </form:form></td>
-                     </tr> --%>
 					</section>
 <!-- /////리뷰 Tab//////////////////////////////////////////////////////////////////////////////////////////////////////// -->
 					
@@ -789,65 +673,7 @@ $("#submtShingoY").click(function(){
 											value="${review.reviewScore }" /></td>
 									<td onclick="location.href='${url}'" style="cursor: pointer;"><small>${review.reviewTitle }</small></td>
 										
-										<%-- =========================================
-													<div class="btn-group">
-											<button type="button" class="btn btn-default dropup-toggle"
-												data-toggle="dropdown">
-												<div id="ib${rreply.rreplyNo}"><c:out value="${rreply.userId}" /></div>
-												&nbsp;&nbsp; <span class="caret"></span>
-											</button>
-											<ul class="dropdown-menu" role="menu">
-												<li><a
-													href="/Final/friend/create?userId=${loginUser.userId}&friendId=${rreply.userId}">친구추가</a></li>
-												<li><a class="modalRr" id="b${rreply.rreplyNo}" data-toggle="modal" data-target="#myModalReply">쪽지보내기</a></li>
-												
-												
-											</ul>
-										</div>
-<div class="modal fade" id="myModalReply" tabindex="-1"
-											role="dialog" aria-labelledby="myModalLabel"
-											aria-hidden="true">
-											<div class="modal-dialog">
-												<div class="modal-content">
-													<div class="modal-header">
-														<button type="button" class="close" data-dismiss="modal"
-															aria-hidden="true">×</button>
-
-														<h4 class="modal-title">쪽지보내기</h4>
-
-													</div>
-
-													<div class="modal-body">
-
-														<input type="hidden" id="senderRr"
-															value="${loginUser.userId}"> <input type="hidden"
-															id="receiverRr"><small>받는
-															사람 &nbsp;&nbsp;</small><div id="dropIdRr"></div>
-															<br>
-															<br>
-														<textarea id="msgContentRr" class="form-control" rows="5"></textarea>
-
-													</div>
-
-													<div class="modal-footer">
-
-														<button class="btn btn-default" id="submitMsgRr">
-															<span class="glyphicon glyphicon-send"></span> 전송
-														</button>
-														<button type="button" class="btn btn-default"
-															data-dismiss="modal" id ="msgCloseRr">
-															<p class="text-danger">
-																<span class="glyphicon glyphicon-remove"></span> 취소
-															</p>
-														</button>
-													</div>
-												</div>
-												<!-- /.modal-content -->
-											</div>
-											<!-- /.modal-dialog -->
-										</div> <!-- /.modal -->
 										
-										===================================== --%>
 										<c:if test="${review.userId != loginUser.userId}">
 										<td>
 										<div class="btn-group">
@@ -862,6 +688,8 @@ $("#submtShingoY").click(function(){
 													data-target="#myModalReview">쪽지보내기</a></li>
 											</ul>
 										</div> 
+										
+										
 										<!-- 쪽지보내기 Modal -->
 										<div class="modal fade" id="myModalReview" tabindex="-1"
 											role="dialog" aria-labelledby="myModalLabel"
@@ -949,10 +777,6 @@ $("#submtShingoY").click(function(){
 	<br>
 	<br>
 	<br>
-
-
-
-
 
 	<script src="<%=request.getContextPath()%>/js/cbpFWTabs.js"></script>
 	<script>
