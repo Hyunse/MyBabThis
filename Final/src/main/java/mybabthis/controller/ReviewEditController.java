@@ -13,10 +13,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.SessionAttributes;
 
 @Controller
-@SessionAttributes("review")
+//@SessionAttributes("review")
 public class ReviewEditController {
 	private static final Logger logger;
 	static {
@@ -56,7 +55,7 @@ public class ReviewEditController {
 	}
 	
 	@RequestMapping(value="/review/writed",  method=RequestMethod.POST)
-	public String write1(@ModelAttribute("review") Review review){
+	public String writed(@ModelAttribute("review") Review review){
 		logger.trace("이거 : "+review.getReviewContent());
 		service.createReview(review);
 /*		float avgScore=service.getAverageScore(review.getResNo());
@@ -86,6 +85,13 @@ public class ReviewEditController {
 	//수정하기
 	@RequestMapping(value="/review/update", params="_event_confirmed", method=RequestMethod.POST)
 	public String update(@ModelAttribute("review") Review review){
+		
+		service.updateReview(review);
+		return "redirect:/review/detail?reviewNo="+review.getReviewNo();
+	}
+	//수정하기
+	@RequestMapping(value="/review/updated", method=RequestMethod.POST)
+	public String updated(@ModelAttribute("review") Review review){
 		service.updateReview(review);
 		return "redirect:/review/detail?reviewNo="+review.getReviewNo();
 	}
