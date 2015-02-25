@@ -46,14 +46,16 @@
 
 <body>
 	<jsp:include page="/WEB-INF/view/header.jsp" />
-	<div style="margin-left: 3em;">
-		<h2 style="font-family: Nanum Gothic">자유게시판</h2>
-	</div>
-
 	<center>
 		<p id="demo"></p>
 		<div class="table-responsive">
-			<table class="table">
+			<%-- <table class="table">
+			<tr>
+			<td colspan="2" class="border-top-style" align="right">
+			<c:url value="/msg/sendReport?writeType=F&warnNo=${boardDetail.boardNo}" var="goReport" />
+		<a href="${goReport}"><button type="button" class="btn btn-default" ><p class="text-danger"><span class="glyphicon glyphicon-ban-circle"></span> 신고</p></button></a>
+			</td>
+			</tr>
 				<tr width=100%>
 					<th width=10% style="text-align: center">번호</th>
 					<td width=90%>${boardDetail.boardNo}</td>
@@ -77,7 +79,52 @@
 					<td>${boardDetail.boardContent }</td>
 				</tr>
 
+			</table> --%>
+
+			<table class="table">
+				<tr>
+					<td colspan="2" class="border-top-style" align="right"><c:url
+							value="/msg/sendReport?writeType=F&warnNo=${boardDetail.boardNo}"
+							var="goReport" /> <a href="${goReport}"><button
+								type="button" class="btn btn-default">
+								<p class="text-danger">
+									<span class="glyphicon glyphicon-ban-circle"></span> 신고
+								</p>
+							</button></a></td>
+				</tr>
+				<tr>
+					<td colspan="2" class="border-top-style"><strong>자유게시판</strong></td>
+				</tr>
+				<tr style="width: 100%">
+					<td class="border-top-style" rowspan="2">[${boardDetail.boardNo}]
+						&nbsp;${boardDetail.boardTitle}</td>
+					<td class="border-top-style" align="right"><p
+							class="text-muted">
+							<c:set value="${boardDetail.boardRegdate}" var="boardRegdate" />
+							<fmt:formatDate value="${boardRegdate }" type="date"
+								dateStyle="short" />
+							&nbsp;&nbsp;
+							<fmt:formatDate value="${boardRegdate }" type="time"
+								dateStyle="short" />
+						</p></td>
+				</tr>
+				<tr style="width: 100%">
+
+				</tr>
+
+				<tr>
+					<td colspan="3" align="right"><img width="40" height="40"
+						src="<%=request.getContextPath()%>/upload/${loginUser.userImg}"><p
+							class="text-muted">${boardDetail.userId }</p>
+					</td>
+
+				</tr>
+				<tr>
+					<td class="border-top-style" colspan="3">${boardDetail.boardContent }</td>
+				</tr>
+
 			</table>
+
 			<c:if test="${boardDetail.userId == loginUser.userId}">
 				<c:url value="/board/update?boardNo=${boardDetail.boardNo}"
 					var="goEdit" />
@@ -88,19 +135,14 @@
 						</p>
 					</button></a>
 			</c:if>
-			<c:url value="/msg/sendReport?writeType=F&warnNo=${boardDetail.boardNo}" var="goReport" />
-		<a href="${goReport}"><button type="button" class="btn btn-default" ><p class="text-danger"><span class="glyphicon glyphicon-ban-circle"></span> 신고</p></button></a>
+
 		</div>
 
 	</center>
 	<hr>
-	<div style="margin-left: 3em;">
-		<h2 style="font-family: Nanum Gothic">댓글목록</h2>
-	</div>
 	<table class="table" style="width: 100%">
 		<tr>
-			<th width="5%">번호</th>
-			<!-- <th>게시글번호</th> -->
+			<th><c:out value="${breply.userId }" /> </th>
 			<th width="65%">내용</th>
 			<th width="15%">작성자</th>
 			<th width="15%">등록일</th>
@@ -143,7 +185,7 @@
 					</form:form>
 
 				</td>
-				<td style="text-align: center"><c:out value="${breply.userId }" /></td>
+				<td style="text-align: center"></td>
 				<td style="text-align: center"><c:set
 						value="${breply.breplyUpdatedate }" var="breplyUpdatedate" /> <fmt:formatDate
 						value="${breplyUpdatedate }" type="date" dateStyle="short" />&nbsp;&nbsp;

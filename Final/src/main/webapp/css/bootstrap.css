@@ -193,10 +193,11 @@ table {
 
 /* 테이블 위의 선 투명하게*/
 .table td.border-top-style {
-
     border-top: none;
 
 }
+
+
 
 @media print {
 	* {
