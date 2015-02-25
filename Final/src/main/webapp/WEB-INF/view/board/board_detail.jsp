@@ -198,7 +198,7 @@
 				<td style="text-align: center"></td>
 				<td style="text-align: center"><c:set
 						value="${breply.breplyUpdatedate }" var="breplyUpdatedate" /> <fmt:formatDate
-						value="${breplyUpdatedate }" type="date" dateStyle="short" />&nbsp;&nbsp;
+						value="${breplyUpdatedate }" type="date" dateStyle="short" /> <br>
 					<fmt:formatDate value="${breplyUpdatedate }" type="time"
 						pattern="hh:MM" /></td>
 
