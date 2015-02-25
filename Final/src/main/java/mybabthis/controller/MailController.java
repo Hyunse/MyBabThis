@@ -58,8 +58,9 @@ public class MailController {
 			logger.trace("----------------------등록된 이메일");
 			mailservice.sendMail("anzmf00@gmail.com",
 		    		   email,
-		    		   	"확인 메일", 
-		    		   "아이디 : " + user.getUserId() + "비번 : "+ user.getUserPass());
+		    		   	"아이디/비밀번호 확인 메일", 
+		    		   "안녕하세요! 오늘,맛집,성공적 입니다. 고객님이 잊어버린 아이디와 비밀번호 입니다. <br><br> 아이디  :  "
+		    		   	+ user.getUserId() + "     비번  :  "+ user.getUserPass());
 			
 			return "등록된 이메일 입니다.";
 			  
