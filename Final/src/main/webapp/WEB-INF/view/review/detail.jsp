@@ -58,7 +58,7 @@
 				</tr>
 				<tr style="width: 100%">
 					<td class="border-top-style" rowspan="2">[${review.reviewNo}]
-						&nbsp;제목</td>
+						&nbsp;${review.reviewTitle}</td>
 					<td class="border-top-style" align="right"><p
 							class="text-muted">
 							<c:set value="${review.reviewUpdatedate}" var="reviewUpdatedate" />
