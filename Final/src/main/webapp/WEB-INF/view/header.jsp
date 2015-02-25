@@ -77,6 +77,7 @@
 
 </head>
 <script src="//ajax.googleapis.com/ajax/libs/webfont/1.4.10/webfont.js"></script>
+
 <script type="text/javascript">
 $(document).ready(function(){
 	WebFont.load({
@@ -86,9 +87,13 @@ $(document).ready(function(){
 					families : [ 'Droid Sans', 'Droid Serif' ]
 				},
 				// For early access or custom font
-				custom : {
+				/* custom : {
 					families : [ 'Nanum Gothic' ],
 					urls : [ 'http://fonts.googleapis.com/earlyaccess/nanumgothic.css' ]
+				} */
+				custom : {
+					families : [ 'Hanna' ],
+					urls : [ 'http://fonts.googleapis.com/earlyaccess/hanna.css' ]
 				}
 
 			});

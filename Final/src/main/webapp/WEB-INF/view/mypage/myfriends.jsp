@@ -29,11 +29,8 @@ $(document).ready(function() {
 	
 	$(".send").click(function(){
 		var bid = $(this).attr("id");
-		alert(bid);
 		var uid = "#u" + bid;
-		alert("uid :" +uid)
 		var receiver = $(uid).html();
-		alert("리시버 : " + receiver);
 		$("#dropId").html(receiver);	
 
 		$("#receiver").val(receiver);
@@ -45,7 +42,6 @@ $(document).ready(function() {
  var sender = $('#sender').val(), 
  	 receiver =  $('#receiver').val(), 
  	 content =  $('#msgContent').val();
- alert("sender : " + sender + " re " + receiver + " content " + content)
 var data ={ sender : sender , receiver : receiver, content : content}
 
 $.ajax({
