@@ -37,7 +37,6 @@ $(document).ready(function() {
 	
 	
 		form.submit(function(){
-		alert("체크");
 		if(re_pass.test(pass.val()) != true){
 			alert("유효한 비밀번호를 입력하세요");
 			pass.focus();
@@ -188,7 +187,7 @@ $("#pass2").blur(function(){
 			</tr>
 			<tr>
 				<td id="col1"><label>비밀번호 확인</label></td>
-				<td><input type="password" id="pass2" onblur="passchk()" class="form-control"/><div id="passCheck"></div>
+				<td><input type="password" id="pass2"  class="form-control"/><div id="passCheck"></div>
 					<div id="chk"></div>
 				</td>
 				<td></td>
