@@ -18,12 +18,12 @@
 	<h3><span class="glyphicon glyphicon-thumbs-up"></span><strong> 맛집랭킹</strong></h3>
 	</td></tr>
 		<tr>
-			<th>순위</th>
-			<th>맛집 번호</th>
-			<th>맛집지역</th>
-			<th>맛집 이름</th>
-			<th>맛집내용</th>
-			<th>맛집 평점</th>
+			<th style="width:5%">순위</th>
+			<th style="width:5%">맛집 번호</th>
+			<th style="width:10%">맛집지역</th>
+			<th style="width:10%">맛집 이름</th>
+			<th style="width:60%">맛집내용</th>
+			<th style="width:10%">맛집 평점</th>
 		</tr>
 		<c:forEach items="${restaurants }" var="restaurant">
 		<c:url value="/restaurant/view?resNo=${restaurant.resNo}" var="url" />

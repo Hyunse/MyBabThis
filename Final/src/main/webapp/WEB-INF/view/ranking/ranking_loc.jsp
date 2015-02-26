@@ -47,7 +47,7 @@
 	<c:forEach items="${restaurants }" var="restaurant">
 	
 	
-	<table class="tableRank">
+	<table class="tableRank" style="max-width:800px;">
 	<!-- <tr><td colspan="3"><br><h3><span class="glyphicon glyphicon-star"></span><strong> 맛집 TOP5</strong></h3></td></tr> -->
 	<tr><td colspan="3"><h3 style="margin-left: 0 auto;"><%=i %> 위</h3></td></tr>
 	<tr><td rowspan="5" width="310px" style="text-align: center;">
