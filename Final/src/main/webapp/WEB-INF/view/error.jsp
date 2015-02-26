@@ -40,5 +40,12 @@
 <c:url value="/main" var="main" />
 <a href="${main}"><h1 style="font-weight: bold;">메인으로</h1></a>
 </div>
+<br>
+<br>
+<br>
+<br>
+
+<hr>
+<jsp:include page="/WEB-INF/view/footer.jsp" />
 </body>
 </html>

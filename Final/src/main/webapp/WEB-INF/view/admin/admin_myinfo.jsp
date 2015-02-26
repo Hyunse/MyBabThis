@@ -231,4 +231,11 @@ $("#pass2").blur(function(){
 		</table>
 	</form:form>
 </body>
+<br>
+<br>
+<br>
+<br>
+
+<hr>
+<jsp:include page="/WEB-INF/view/footer.jsp" />
 </html>

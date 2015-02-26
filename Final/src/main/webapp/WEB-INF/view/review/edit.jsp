@@ -99,6 +99,12 @@ $(function(){
 				</table>
 				</div>
 				</form:form>
-				<br>
+				
+<br>
+<br>
+<br>
+
+<hr>
+<jsp:include page="/WEB-INF/view/footer.jsp" />
 </body>
 </html>

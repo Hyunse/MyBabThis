@@ -31,6 +31,7 @@
 					<a href="${message}"><span class="linkspan" data-hover="쪽지함">쪽지함</span></a> 
 				</nav>
 			</section>
-			
+			<br>
+
 </body>
 </html>

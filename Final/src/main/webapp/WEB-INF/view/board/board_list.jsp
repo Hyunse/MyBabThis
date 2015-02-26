@@ -214,12 +214,8 @@ alert(error)
 <br>
 <br>
 <br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+
+<hr>
 <jsp:include page="/WEB-INF/view/footer.jsp" />
 
 </body>

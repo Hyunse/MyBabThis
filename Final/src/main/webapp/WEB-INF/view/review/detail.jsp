@@ -160,6 +160,12 @@ $("#submitShingo").click(function(){
 		<br>
 		<br>
 	</div>
-	<jsp:include page="/WEB-INF/view/footer.jsp" />
+	<br>
+<br>
+<br>
+<br>
+
+<hr>
+<jsp:include page="/WEB-INF/view/footer.jsp" />
 </body>
 </html>
