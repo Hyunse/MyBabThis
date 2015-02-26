@@ -196,7 +196,7 @@ $(document).ready(function(){
 						<c:if test="${loginUser.userGrade == '석사'}">
 						<b style="color: #0000cd;">
 							<small >
-								<span class="glyphicon glyphicon-boo" >
+								<span class="glyphicon glyphicon-book" >
 								</span> ${loginUser.userGrade }
 							</small>
 						</b>

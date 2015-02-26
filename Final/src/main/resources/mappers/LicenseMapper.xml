@@ -8,7 +8,7 @@
 	<select id="selectLicenseBylocName" parameterType="hashmap" resultType="License">
 		SELECT *
 		FROM license
-		WHERE loc_name = #{locName} and write_cnt = (
+		WHERE loc_name = #{locName} and write_cnt &lt;= (
 			select count(rev.review_no)
 			from review rev, license lic, restaurant res
 			where rev.user_id=#{userId}
@@ -20,7 +20,7 @@
 	<select id="selectLicenseByResKind" parameterType="hashmap" resultType="License">
 		SELECT *
 		FROM license
-		WHERE res_kind = #{resKind} and write_cnt = (
+		WHERE res_kind = #{resKind} and write_cnt &lt;= (
 			select count(rev.review_no)
 			from review rev, license lic, restaurant res
 			where rev.user_id=#{userId}
