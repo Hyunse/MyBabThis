@@ -81,6 +81,7 @@ $(document).ready(function(){
 	
 <div id="map" align="center">
 	<!-- 지도 이미지 버튼 넣기 -->
+	
 	<jsp:include page="map.jsp"></jsp:include>
 	<%-- 
 	<img src="<%=request.getContextPath()%>/upload/map.PNG" border="0"

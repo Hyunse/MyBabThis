@@ -23,8 +23,8 @@
 	href="<%=request.getContextPath()%>/css/normalize_input.css" />
 <link rel="stylesheet" type="text/css"
 	href="<%=request.getContextPath()%>/fonts/font-awesome-4.2.0/css/font-awesome.min.css" />
-<link rel="stylesheet" type="text/css"
-	href="<%=request.getContextPath()%>/css/demo_input.css" />
+<%-- <link rel="stylesheet" type="text/css"
+	href="<%=request.getContextPath()%>/css/demo_input.css" /> --%>
 <link rel="stylesheet" type="text/css"
 	href="<%=request.getContextPath()%>/css/component_input.css" />
 <link rel="stylesheet" type="text/css"
@@ -32,6 +32,15 @@
 <link rel="stylesheet" type="text/css"
 	href="<%=request.getContextPath()%>/css/bootstrap-theme.css" />
 <script src="<%=request.getContextPath()%>/js/bootstrap.js"></script>
+<style type="text/css">
+.input{
+font-size: 25px;
+}
+.input__field--hoshi {
+margin-top: 0.1em;
+}
+
+</style>
 </head>
 <script>
 $(document).ready(function() {
@@ -220,13 +229,14 @@ $(document).ready(function() {
 										
 		$("#upload").click(function(){
     
-    	window.open("<%=request.getContextPath()%>/upload/gomyuser","_blank", "width = 600 height = 300")
+    	window.open("<%=request.getContextPath()%>/upload/gomyuser","_blank", "width = 600 height = 400")
     
     })
 					});
 </script>
+	<jsp:include page="/WEB-INF/view/header.jsp" />
 <body>
-
+<jsp:include page="/WEB-INF/view/header.jsp" />
 
 
 
@@ -298,14 +308,14 @@ $(document).ready(function() {
 				<form:input class="input__field input__field--hoshi"
 					path="userPhone" id="userPhone" />
 			</span>
-			<br>
-			<form:radiobutton path="userGender" value="1" />남  
+			<br><br>
+			<form:radiobutton path="userGender" value="1" />남  <span style="padding-right: 40px"></span>
 			<form:radiobutton path="userGender" value="0" />여
 			<br>
 			<br>
-			<img id="dropimg" width="100" height="100" src="<%=request.getContextPath()%>/upload/${loginCheck.userImg}">
-			<form:input path="userImg" id="userimg" value="star.png"/>
-			<input type="button" value="upload" id="upload"><br>
+			<img id="dropimg" width="50px" height="50px" src="<%=request.getContextPath()%>/upload/${loginCheck.userImg}"> 
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<form:input path="userImg" id="userimg" value="star.png"/>
+			<input type="button" value="upload" id="upload"><br><br><br>
 			
 			<input type="submit"  class="btn btn-default" value="가입">
 			
