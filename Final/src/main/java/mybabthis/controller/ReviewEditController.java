@@ -18,8 +18,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 @Controller
+//@SessionAttributes("loginUser")
 //@SessionAttributes("review")
 public class ReviewEditController {
 	private static final Logger logger;
@@ -48,17 +50,15 @@ public class ReviewEditController {
 	
 	//작성하기
 	@RequestMapping(value="/review/write", params="write", method=RequestMethod.POST)
-	public String write(@ModelAttribute("review") Review review, HttpServletRequest request, HttpSession session) throws Exception {
+	public String write(@ModelAttribute("review") Review review) {
+		logger.trace("리뷰작성 들어온거 확인");
 		review.setReviewContent("<img src=\"/Final/upload/"+review.getReviewImg()+"\" width=\"300px\"/><br> "+review.getReviewContent());
 		//review.setReviewContent("<br><br><br>");
+		
 		logger.trace("이거 : "+review.getReviewContent());
 		service.createReview(review);
-		Users beforeUser = (Users) session.getAttribute("loginUser");
-		Users afterUser = new Users();
-		afterUser.setUserId(beforeUser.getUserId());
-		afterUser.setUserPass(beforeUser.getUserPass());
-		userservice.login(afterUser);
-		session.setAttribute("loginUser", afterUser);
+		
+		
 		
 /*		float avgScore=service.getAverageScore(review.getResNo());
 		Restaurant restaurant = new Restaurant();
@@ -70,9 +70,19 @@ public class ReviewEditController {
 	}
 	
 	@RequestMapping(value="/review/writed",  method=RequestMethod.POST)
-	public String writed(@ModelAttribute("review") Review review){
+	public String writed(@ModelAttribute("review") Review review, HttpServletRequest request, HttpSession session) throws Exception {
 		logger.trace("이거 : "+review.getReviewContent());
 		service.createReview(review);
+		Users beforeUser = (Users) session.getAttribute("loginUser");
+		Users afterUser = new Users();
+		afterUser=userservice.searchUserId(beforeUser.getUserId());
+		logger.trace("이거 뭐뜨나 아이디! : "+beforeUser.getUserId());
+		
+		//userservice.login(afterUser);
+		session.setAttribute("loginUser", afterUser);
+		
+		
+		
 /*		float avgScore=service.getAverageScore(review.getResNo());
 		Restaurant restaurant = new Restaurant();
 		restaurant.setResNo(review.getResNo());
