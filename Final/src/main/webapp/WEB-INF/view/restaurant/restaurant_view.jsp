@@ -336,12 +336,12 @@ $("#submtShingoY").click(function(){
 
 							</div>
 
-							<div class="modal-body">
+							<div class="modal-body" align="center">
 
 								<input type="hidden" id="writeTypeM" value="T"> <input
 									type="hidden" id="warnNoM" value="${restaurant.resNo}">
 								<input type="hidden" id="senderM" value="${loginUser.userId}">
-								<span class="glyphicon glyphicon-ban-circle"></span><small>신고
+								<span class="glyphicon glyphicon-ban-circle"></span><small >신고
 									사유를 적어주세요 &nbsp;&nbsp;</small> <br> <br>
 								<textarea id="contentM" class="form-control" rows="5"></textarea>
 
