@@ -390,6 +390,7 @@ $("#submtShingoY").click(function(){
 			<td colspan="2">내용 : ${restaurant.resContent}</td>
 		</tr>
 		<tr>
+			<c:if test="${loginUser.userId == 'admin'}">
 			<td colspan="3" align="center"><c:url
 					value="/restaurant/edit?resNo=${restaurant.resNo}" var="url" /> <a
 				href="${url }">
@@ -407,6 +408,7 @@ $("#submtShingoY").click(function(){
 						</p>
 					</button>
 			</a></td>
+			</c:if>
 		</tr>
 	</table>
 	<%
