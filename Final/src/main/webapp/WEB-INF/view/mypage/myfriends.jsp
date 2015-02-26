@@ -168,5 +168,13 @@ error: function (error,args) {
 										</div> <!-- /.modal -->
 		</c:forEach>
 	</table>
+	<br>
+<br>
+<br>
+<br>
+<br>
+
+<hr>
+<jsp:include page="/WEB-INF/view/footer.jsp" />
 </body>
 </html>

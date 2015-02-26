@@ -1,10 +1,13 @@
 package mybabthis.controller;
 
-import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import mybabthis.entity.Review;
+import mybabthis.entity.Users;
 import mybabthis.service.RestaurantService;
 import mybabthis.service.ReviewService;
+import mybabthis.service.UserService;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -30,6 +33,9 @@ public class ReviewEditController {
 	@Autowired
 	RestaurantService res_service;
 	
+	@Autowired
+	UserService userservice;
+	
 	//작성폼으로
 	@RequestMapping(value="/review/write", method=RequestMethod.GET,  params={"userId", "resNo"})
 	public String redirToReviewForm(@RequestParam String userId, int resNo, Model model){
@@ -42,23 +48,23 @@ public class ReviewEditController {
 	
 	//작성하기
 	@RequestMapping(value="/review/write", params="write", method=RequestMethod.POST)
-	public String write(@ModelAttribute("review") Review review, HttpServletResponse response){
+	public String write(@ModelAttribute("review") Review review, HttpServletRequest request, HttpSession session) throws Exception {
 		review.setReviewContent("<img src=\"/Final/upload/"+review.getReviewImg()+"\" width=\"300px\"/><br> "+review.getReviewContent());
 		//review.setReviewContent("<br><br><br>");
 		logger.trace("이거 : "+review.getReviewContent());
 		service.createReview(review);
-		
-	/*	response.g*/
-		
-		
-		
+		Users beforeUser = (Users) session.getAttribute("loginUser");
+		Users afterUser = new Users();
+		afterUser.setUserId(beforeUser.getUserId());
+		afterUser.setUserPass(beforeUser.getUserPass());
+		userservice.login(afterUser);
+		session.setAttribute("loginUser", afterUser);
 		
 /*		float avgScore=service.getAverageScore(review.getResNo());
 		Restaurant restaurant = new Restaurant();
 		restaurant.setResNo(review.getResNo());
 		restaurant.setResScore(avgScore);
 		res_service.updateResScore(restaurant);*/
-		
 
 		return "redirect:/restaurant/view?resNo="+review.getResNo();
 	}

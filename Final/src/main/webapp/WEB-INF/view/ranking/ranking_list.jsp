@@ -11,5 +11,12 @@
 <body>
 <jsp:include page="/WEB-INF/view/header.jsp" />
 <jsp:include page="/WEB-INF/view/ranking/ranking_header.jsp" />
+<br>
+<br>
+<br>
+<br>
+
+<hr>
+<jsp:include page="/WEB-INF/view/footer.jsp" />
 </body>
 </html>

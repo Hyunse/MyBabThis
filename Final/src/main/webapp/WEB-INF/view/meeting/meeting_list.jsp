@@ -263,6 +263,13 @@ alert(error)
 	%> </article> --%>
 	<%-- <c:url value= "/meeting/write" var="write" /> 
 	<a href="${write}" ><button type="submit" class="btn btn-primary" style="float: right; margin-right: 11em;" >글등록</button></a> --%>
+<br>
+<br>
+<br>
+<br>
+
+<hr>
 <jsp:include page="/WEB-INF/view/footer.jsp" />
+
 </body>
 </html>

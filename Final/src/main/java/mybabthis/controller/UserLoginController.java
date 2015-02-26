@@ -59,7 +59,7 @@ public class UserLoginController {
 		if(user.getUserId().equals("admin")){
 
 			model.addAttribute("loginUser",user);
-			return "redirect:/admin/main";
+			return "redirect:/admin/myinfo";
 			
 		}
 		model.addAttribute("loginUser", user);
