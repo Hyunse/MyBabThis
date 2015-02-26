@@ -80,10 +80,10 @@ alert(error)
 				</h3>
 			</td>
 		<tr>
-			<th width="10%">번호</th>
-			<th width="55%">제목</th>
-			<th width="20%">작성자</th>
-			<th width="15%">등록일</th>
+			<th width="5%"></th>
+			<th width="50%">제목</th>
+			<th width="25%">작성자</th>
+			<th width="20%">등록일</th>
 		</tr>
 		<c:if test="${empty boardList}">
 			<tr>
@@ -95,15 +95,14 @@ alert(error)
 				<c:url value="/meeting/detail?boardNo=${boardList.boardNo}"
 					var="url" />
 				<tr>
-					<td onclick="location.href='${url}'" style="cursor: pointer;">
+				<td></td>
+					<%-- <td onclick="location.href='${url}'" style="cursor: pointer;">
 						<c:out value="${boardList.boardNo}" />
-					</td>
+					</td> --%>
 					
-					<td onclick="location.href='${url}'" style="cursor: pointer; text-align: left;"> 
+					<td onclick="location.href='${url}'" style="cursor: pointer; text-align: left;" align="center"> 
 						<c:out value="${boardList.boardTitle}" />
-					
-					
-			</td>
+					</td>
 					<c:if test="${boardList.userId != loginUser.userId}">
 					<td>
 									<div class="btn-group">
