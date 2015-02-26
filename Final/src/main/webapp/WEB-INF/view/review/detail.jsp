@@ -46,45 +46,16 @@ $("#submitShingo").click(function(){
 	<jsp:include page="/WEB-INF/view/header.jsp" />
 	<div class="table-responsive">
 		<table class="table">
-			<%-- <tr style="width: 100%">
-				<th width="10%" style="text-align: center">작성자</th>
-				<td><c:out value="${review.userId }" /></td>
-			</tr> --%>
-			<%-- <tr>
-				<td colspan="2" class="border-top-style" align="right"><c:url value="/restaurant/view?resNo=${review.resNo }" var="url"></c:url>
-					<a href="${url}"><button class="btn btn-default">
-							<span class="glyphicon glyphicon-th-list"></span> 목록</button></a></td>
-			</tr>
-			<tr>
-			<tr>
-				<th width="10%" style="text-align: center">등록일</th>
-				<td>
-					<c:out value="${review.reviewUpdatedate }" /> <c:set
-						value="${review.reviewUpdatedate }" var="reviewUpdatedate" /> <fmt:formatDate
-						value="${reviewUpdatedate }" type="date" dateStyle="short" />&nbsp;&nbsp;
-					<fmt:formatDate value="${reviewUpdatedate }" type="time"
-						dateStyle="short" />
-				</td>
-			</tr>
-			<tr>
-				<th width="10%" style="text-align: center">맛평가</th>
-				<td><c:out value="${review.reviewScore }" />점</td>
-			</tr>
-			<tr>
-				<th width="10%" style="text-align: center">내용</th>
-				<td>${review.reviewContent}</td>
-			</tr> --%>
+			
 			
 			
 				<tr>
 					<td colspan="2" class="border-top-style" align="right">
 					
-					<%-- <c:url
-							value="/msg/sendReport?writeType=F&warnNo=${review.reviewNo}"
-							var="goReport" /> <a href="${goReport}"> --%>
-							
-							
-						<button class="btn btn-default" id="shingo" data-toggle="modal" data-target="#myModalShingo">
+					
+			<!-- 신고 버튼 -->		
+						
+			<button class="btn btn-default" id="shingo" data-toggle="modal" data-target="#myModalShingo">
 			<p class="text-danger"><span class="glyphicon glyphicon-ban-circle"></span><small>신고</small></p></button>
 			
 			<!-- modal 시작 -->
@@ -166,6 +137,7 @@ $("#submitShingo").click(function(){
 				</tr>
 
 			<tr>
+				<c:if test="${review.userId == loginUser.userId}">
 				<td colspan="2" align="center"><br><br> <c:url
 						value="/review/edit?reviewNo=${review.reviewNo }" var="url"></c:url>
 					<a href="${url}"><button class="btn btn-default">
@@ -180,7 +152,9 @@ $("#submitShingo").click(function(){
 								<span class="glyphicon glyphicon-trash"></span> 삭제
 							</p>
 						</button></a></td>
+						</c:if>
 			</tr>
+		
 		</table>
 		<br>
 		<br>
