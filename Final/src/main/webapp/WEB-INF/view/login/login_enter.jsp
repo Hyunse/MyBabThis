@@ -76,7 +76,9 @@ $(document).ready(function(){
   		
 	    
 	    })
+	    
 	})
+	
 	$("#email").keyup(function(){
     var email = $('#email').val();
    

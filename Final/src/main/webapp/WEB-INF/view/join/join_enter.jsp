@@ -303,7 +303,7 @@ $(document).ready(function() {
 			<form:radiobutton path="userGender" value="0" />여
 			<br>
 			<br>
-			<img id="dropimg" width="100" height="100" src="<%=request.getContextPath()%>/upload/${loginUser.userImg}">
+			<img id="dropimg" width="100" height="100" src="<%=request.getContextPath()%>/upload/${loginCheck.userImg}">
 			<form:input path="userImg" id="userimg" value="star.png"/>
 			<input type="button" value="upload" id="upload"><br>
 			

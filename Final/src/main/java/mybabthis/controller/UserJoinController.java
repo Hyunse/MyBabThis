@@ -34,7 +34,9 @@ public class UserJoinController {
 	 */
 	@RequestMapping(value = "/join", method = RequestMethod.GET)
 	public String enterJoin(Model model) {
-		model.addAttribute("loginCheck", new Users());
+		Users users = new Users();
+		users.setUserImg("star.png");
+		model.addAttribute("loginCheck", users);
 		return "join/join_enter";
 
 	}
@@ -57,7 +59,9 @@ public class UserJoinController {
 	public String join(@ModelAttribute("loginCheck") Users user,Model model) {
 
 		int result =0;
+		logger.trace("=======================================================" + user);
 		result =userservice.join(user);
+		
 		if(result >0 ){
 			logger.trace("가입 성공!!" + user);
 			model.addAttribute("loginUser",user);
