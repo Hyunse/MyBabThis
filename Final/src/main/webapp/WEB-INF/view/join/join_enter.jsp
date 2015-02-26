@@ -308,8 +308,13 @@ $(document).ready(function() {
 					path="userPhone" id="userPhone" />
 			</span>
 			<br><br>
+			<input type="radio" value="1" name="userGender" checked="checked" id="남자">
+			<label for="남자">남자</label><span style="padding-right: 40px"></span>
+			<input type="radio" value="0" name="userGender"  id="여자">
+			<label for="여자">여자</label>
+			<%-- <br>
 			<form:radiobutton path="userGender" value="1" />남  <span style="padding-right: 40px"></span>
-			<form:radiobutton path="userGender" value="0" />여
+			<form:radiobutton path="userGender" value="0" />여 --%>
 			<br>
 			<br>
 			<img id="dropimg" width="50px" height="50px" src="<%=request.getContextPath()%>/upload/${loginCheck.userImg}"> 
