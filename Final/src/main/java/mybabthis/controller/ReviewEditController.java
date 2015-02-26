@@ -1,5 +1,7 @@
 package mybabthis.controller;
 
+import javax.servlet.http.HttpServletResponse;
+
 import mybabthis.entity.Review;
 import mybabthis.service.RestaurantService;
 import mybabthis.service.ReviewService;
@@ -40,16 +42,23 @@ public class ReviewEditController {
 	
 	//작성하기
 	@RequestMapping(value="/review/write", params="write", method=RequestMethod.POST)
-	public String write(@ModelAttribute("review") Review review){
+	public String write(@ModelAttribute("review") Review review, HttpServletResponse response){
 		review.setReviewContent("<img src=\"/Final/upload/"+review.getReviewImg()+"\" width=\"300px\"/><br> "+review.getReviewContent());
 		//review.setReviewContent("<br><br><br>");
 		logger.trace("이거 : "+review.getReviewContent());
 		service.createReview(review);
+		
+	/*	response.g*/
+		
+		
+		
+		
 /*		float avgScore=service.getAverageScore(review.getResNo());
 		Restaurant restaurant = new Restaurant();
 		restaurant.setResNo(review.getResNo());
 		restaurant.setResScore(avgScore);
 		res_service.updateResScore(restaurant);*/
+		
 
 		return "redirect:/restaurant/view?resNo="+review.getResNo();
 	}
