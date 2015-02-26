@@ -64,6 +64,7 @@ public class UserJoinController {
 		
 		if(result >0 ){
 			logger.trace("가입 성공!!" + user);
+			user.setUserGrade("학사");
 			model.addAttribute("loginUser",user);
 			return "redirect:/main";
 		}
