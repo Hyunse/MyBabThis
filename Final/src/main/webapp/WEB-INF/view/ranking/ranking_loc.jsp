@@ -41,14 +41,12 @@
 <body>
 	<jsp:include page="/WEB-INF/view/ranking/ranking_header.jsp" />
 	
-	
-	
-	<h1>맛집 top5</h1>
-<%int i=1; %>
+	<%int i=1; %>
 	<c:forEach items="${restaurants }" var="restaurant">
 	
 	
 	<table class="tableRank">
+	<tr><td colspan="3"><br><h3><span class="glyphicon glyphicon-star"></span><strong> 맛집 TOP5</strong></h3></td></tr>
 	<tr><td colspan="3"><h3 style="margin-left: 10%"><%=i %> 위</h3></td></tr>
 	<tr><td rowspan="5" width="310px" style="text-align: center;">
 	

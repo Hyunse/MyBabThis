@@ -163,7 +163,7 @@
 				<td style="text-align: center"><c:out
 						value="${breply.breplyNo }" /></td>
 				<%-- <td><c:out value="${breply.boardNo }" /></td> --%>
-				<td style="word-break: break-all;">
+				<td style="word-break: break-all;" >
 
 					<div id="hbtn${breply.breplyNo}">
 						<c:out value="${breply.breplyContent }" />
@@ -181,7 +181,7 @@
 						<div class="col-lg-6">
 							<div class="input-group">
 								<form:input id="tbtn${breply.breplyNo}" type="text"
-									class="form-control" path="breplyContent"></form:input>
+									class="form-control" path="breplyContent" size="100%"></form:input>
 								<span class="input-group-btn">
 									<button class="btn btn-default" type="submit"
 										name="breply_update">

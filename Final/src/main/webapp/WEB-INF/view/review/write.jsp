@@ -55,9 +55,6 @@ $(document).ready(function() {
 <body>
 	<jsp:include page="/WEB-INF/view/header.jsp" />
 
-	<div style="margin-left: 10em;">
-		<h2>리뷰작성</h2>
-	</div>
 	<c:url value="/review/writed" var="action"></c:url>
 	<form:form modelAttribute="review" id="frm" method="post" action="${action }">
 		<div class="table-responsive">
@@ -73,6 +70,8 @@ $(document).ready(function() {
 					<th style="text-align: center">작성자</th>
 					<td><form:input path="userId" readonly="true" /></td>
 				</tr>--%>
+				<tr><td class="border-top-style"><h3><strong> 리뷰작성</strong></h3>
+				</td></tr>
 				<tr>
 					<th style="text-align: center">제목</th>
 					<td><form:input path="reviewTitle" size="100%"/></td>
@@ -132,7 +131,7 @@ $(document).ready(function() {
 				<tr>
 					<td colspan="2" align="center"><br>
 						<button type="button" id="savebutton" class="btn btn-default" name="write">
-							<span class="glyphicon glyphicon-ok"></span> 작성
+							<span class="glyphicon glyphicon-ok"></span> 완료
 						</button></td>
 				</tr>
 			</table>
