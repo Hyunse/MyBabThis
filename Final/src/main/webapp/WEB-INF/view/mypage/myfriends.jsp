@@ -69,7 +69,7 @@ error: function (error,args) {
 <jsp:include page="/WEB-INF/view/mypage/mypage_list.jsp" />
 	<br>
 	<br>
-	<table style="width: 60%; text-align: left;" align="center" >
+	<!-- <table style="width: 60%; text-align: left;" align="center" >
 		<tr>
 			<td style="width:10%;"><select id="select" class="form-control" >
 					<option value="userName">이름</option>
@@ -80,9 +80,9 @@ error: function (error,args) {
 			<td style="width:30%;"><input type="text" id="searchWord" name="searchWord"
 				class="form-control"></td>
 			<td><input type="button" id="search" name="search" value="검색"
-				class="btn btn-default"></td>
+				class="btn btn-default"></td
 		</tr>
-	</table>
+	</table> -->
 
 	<%
 		int i = 1;

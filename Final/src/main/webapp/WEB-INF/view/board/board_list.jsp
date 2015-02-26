@@ -72,10 +72,10 @@ alert(error)
 	</td>
 	</tr>
 		<tr>
-			<th width="10%">번호</th>
-			<th width="55%">제목</th>
-			<th width="20%">작성자</th>
-			<th width="15%">등록일</th>
+			<th width="5%"></th> 
+			<th width="50%">제목</th>
+			<th width="25%">작성자</th>
+			<th width="20%">등록일</th>
 		</tr>
 
 		<c:if test="${empty boardList}">
@@ -86,10 +86,11 @@ alert(error)
 			<c:forEach var="boardList" items="${boardList}" varStatus="status">
 			<c:url value="/board/detail?boardNo=${boardList.boardNo}" var="url" />
 				<tr>
-					<td onclick="location.href='${url}'" style="cursor: pointer;">
+					<td></td>
+					<%-- <td onclick="location.href='${url}'" style="cursor: pointer;">
 						<c:out value="${boardList.boardNo}" />
-					</td>
-					<td onclick="location.href='${url}'" style="cursor: pointer; text-align: left;"> 
+					</td> --%>
+					<td onclick="location.href='${url}'" style="cursor: pointer; text-align: left;" align="center"> 
 						<c:out value="${boardList.boardTitle}" />
 			<!-- <c:if test="${fn:length(boardList.boardTitle) > 20 }">
 			<a href="${go}"><c:out value ="${fn:substring(boardList.boardTitle,0,15)}" />...</a>

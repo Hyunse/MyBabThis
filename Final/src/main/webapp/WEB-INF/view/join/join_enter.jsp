@@ -234,6 +234,7 @@ $(document).ready(function() {
     })
 					});
 </script>
+	<jsp:include page="/WEB-INF/view/header.jsp" />
 <body>
 <jsp:include page="/WEB-INF/view/header.jsp" />
 
