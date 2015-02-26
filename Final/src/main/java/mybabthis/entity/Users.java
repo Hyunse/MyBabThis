@@ -19,6 +19,7 @@ public class Users implements Serializable {
 	/** 사용자아이디. */
 	private String userId;
 
+	
 	/** 사용자패스워드. */
 	private String userPass;
 
@@ -596,5 +597,15 @@ public class Users implements Serializable {
 		}
 		return true;
 	}
+	@Override
+	public String toString() {
+		return "Users [userId=" + userId + ", userPass=" + userPass
+				+ ", userName=" + userName + ", userEmail=" + userEmail
+				+ ", userGender=" + userGender + ", userPhone=" + userPhone
+				+ ", userRegdate=" + userRegdate + ", userUpdatedate="
+				+ userUpdatedate + ", userGrade=" + userGrade + ", userImg="
+				+ userImg + "]";
+	}
+
 
 }
