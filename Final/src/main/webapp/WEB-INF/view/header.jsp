@@ -101,7 +101,6 @@ $(document).ready(function(){
 
 	
 	$("#search1").click(function(){
-		alert("작동")
 		var name = $('#resName').val();
 		
 		if(name != null){
