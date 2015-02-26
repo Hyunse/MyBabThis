@@ -36,7 +36,7 @@ $(document).ready(function() {
     
 	window.open("<%=request.getContextPath()%>/upload/gomyres",
 															"_blank",
-															"width = 600 height = 300")
+															"width = 600 height = 400")
 
 										})
 					})
@@ -126,7 +126,7 @@ $(document).ready(function() {
 					</tr>
 					<tr align="center">
 						<td colspan="2"><br><br><button type="submit" name="proceed" class="btn btn-default"> 
-	<span class="glyphicon glyphicon-ok"></span> 입력</button></td>
+	<span class="glyphicon glyphicon-ok"></span> 완료</button></td>
 					</tr>
 
 				</table>

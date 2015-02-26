@@ -38,14 +38,7 @@ $(document).ready(function(){
 			});
 
 	
-	$("#search1").click(function(){
-		alert("작동")
-		var name = $('#resName').val();
-		
-		if(name != null){
-		$.get("<%=request.getContextPath()%>/restaurant/list?resName="+name);
-		$(location).attr('href',"<%=request.getContextPath()%>/restaurant/list?resName="+ name);}
-});
+	
 });
 </script>
 
@@ -78,7 +71,7 @@ $(document).ready(function() {
 
 					});
 </script>
-
+<!-- 
 
 <script type="text/javascript">
 var InputImage = 
@@ -122,7 +115,7 @@ var InputImage =
  
 </script>
 
-
+-->
 
 
 <style>
@@ -155,6 +148,8 @@ var InputImage =
 	top: 0px;
 	opacity: 0;
 }
+body{
+padding-top: 0;}
 
 /* filter: alpa(opacity=0);
 -ms-filter: "alpah(opacity=0)";
@@ -240,13 +235,13 @@ var InputImage =
 				</td>
 			</tr>
 			<tr>
-			<td align="center" style="border-top: none;"><button  class="btn btn-default" type="submit" id="upload">미리보기</button></td>
+			<td align="center" style="border-top: none;"><button  class="btn btn-default" type="submit" id="upload"><span class="glyphicon glyphicon-picture"></span> 미리보기</button></td>
 			</tr>
 
 			<tr>
-				<td  align="center"><input type="button"
-					class="btn btn-default" value="확인" id="ok"> <input
-					type="button" class="btn btn-default" value="취소" id="c"></td>
+				<td  align="center"><button 
+					class="btn btn-default" id="ok"><span class="glyphicon glyphicon-ok"></span> 확인</button> 
+					<button class="btn btn-default" id="c"><p class="text-danger"><span class="glyphicon glyphicon-remove"></span> 취소</p></button></td>
 			</tr>
 		</table>
 	</form>
