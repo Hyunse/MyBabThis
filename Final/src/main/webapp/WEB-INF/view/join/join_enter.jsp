@@ -234,11 +234,10 @@ $(document).ready(function() {
     })
 					});
 </script>
-	<jsp:include page="/WEB-INF/view/header.jsp" />
+	
 <body>
+
 <jsp:include page="/WEB-INF/view/header.jsp" />
-
-
 
 	<section class="content" style="text-align: center;">
 		<c:url value="/join/confirm" var="confirm" />
